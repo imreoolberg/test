@@ -1,28 +1,12 @@
 # RIHA iframe redirect manual
 
-# Table of content
-
-RIHA iframe redirect manual        1
-
-Table of content        1
-
-Preconditions        2
-
-IFRAME element&#39;s src attribute        2
-
-SRC attribute parameters        2
-
-Examples of constructed IFRAME element        2
-
-Querying the user session information from old RIHA system        4
-
-# Preconditions
+## Preconditions
 
 User clicks on one of the IFRAME backed menu options or uses kiirOtsing widget.
 
 System loads an HTML view with Iframe element.
 
-# IFRAME element&#39;s src attribute
+## IFRAME element&#39;s src attribute
 
 SRC attribute is configurable for each of the menu options. Configuration is done through modifying  &quot;system&quot;.sys\_parameeter table. Relevant codes are:
 
@@ -46,7 +30,7 @@ IFRAME\_WIDGET\_LIITUMINE\_LINK
 
 **NB!** protocol, domain name and port must match RIHA instance protocol, name and port.
 
-# SRC attribute parameters
+## SRC attribute parameters
 
 Additional info passed as URL attributes to the iframe:
 
@@ -54,7 +38,7 @@ sessionId - user session id to the iframe.
 
 otsingTekst - is set if user has used the kiirOtsing widget and contains the search term.
 
-# Examples of constructed IFRAME element
+## Examples of constructed IFRAME element
 
 **Example 1:**
 
@@ -77,7 +61,7 @@ The following iframe element is generated:
 
 &lt;iframe src=&quot; [https://riha.domain](https://riha.domain):riha\_port/iframe.html?sessionId=SESSION\_ID&amp;otsingTekst=RIHA&quot;&gt;&lt;/iframe&gt;
 
-# Querying the user session information from old RIHA system
+## Querying the user session information from old RIHA system
 
 User session information service is bound to:
 
