@@ -32,7 +32,7 @@ otsingTekst - is set if user has used the kiirOtsing widget and contains the sea
 **Example 1:**
 User clicked &quot;Asutused&quot; menu option,  
 &quot;system&quot;.sys\_parameeter has the following row:  
-![Example1](../img/Example1.jpg)
+![Example 1](../docs/img/Example1.jpg)
 
 The following iframe element is generated:
 
@@ -41,7 +41,7 @@ The following iframe element is generated:
 **Example 2:**
 User is searching for text RIHA using kiirOtsing widget,  
 &quot;system&quot;.sys\_parameeter has the following row:  
-![Example1](../img/Example2.jpg)
+![Example 2](../docs/img/Example2.jpg)
 
 The following iframe element is generated:
 
