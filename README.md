@@ -30,20 +30,18 @@ otsingTekst - is set if user has used the kiirOtsing widget and contains the sea
 ## Examples of constructed IFRAME element
 
 **Example 1:**
-User clicked &quot;Asutused&quot; menu option,
-&quot;system&quot;.sys\_parameeter has the following row:
- 
- 
- 
+User clicked &quot;Asutused&quot; menu option,  
+&quot;system&quot;.sys\_parameeter has the following row:  
+![Example1](/Example1.jpg)
+
 The following iframe element is generated:
 
 &lt;iframe src=&quot; [http://riha.domain](http://riha.domain):riha\_port/iframe.html?sessionId=SESSION\_ID&quot;&gt;&lt;/iframe&gt;
 
 **Example 2:**
-User is searching for text RIHA using kiirOtsing widget,
-&quot;system&quot;.sys\_parameeter has the following row:
-
-
+User is searching for text RIHA using kiirOtsing widget,  
+&quot;system&quot;.sys\_parameeter has the following row:  
+![Example1](/Example2.jpg)
 
 The following iframe element is generated:
 
