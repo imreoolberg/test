@@ -9,15 +9,15 @@ System loads an HTML view with Iframe element.
 
 SRC attribute is configurable for each of the menu options. Configuration is done through modifying  &quot;system&quot;.sys\_parameeter table. Relevant codes are:
 
-IFRAME\_WIDGET\_ASUTUSED\_LINK
-IFRAME\_WIDGET\_INFOSYSTEEMID\_LINK
-IFRAME\_WIDGET\_TEENUSED\_LINK
-IFRAME\_WIDGET\_KLASSIFIKAATORID\_LINK
-IFRAME\_WIDGET\_ANDMEOBJEKTID\_LINK
-IFRAME\_WIDGET\_VALDKONNAD\_LINK
-IFRAME\_WIDGET\_XML\_VARAD\_LINK
-IFRAME\_WIDGET\_YLDOTSING\_LINK
-IFRAME\_WIDGET\_LIITUMINE\_LINK
+IFRAME\_WIDGET\_ASUTUSED\_LINK  
+IFRAME\_WIDGET\_INFOSYSTEEMID\_LINK  
+IFRAME\_WIDGET\_TEENUSED\_LINK  
+IFRAME\_WIDGET\_KLASSIFIKAATORID\_LINK  
+IFRAME\_WIDGET\_ANDMEOBJEKTID\_LINK  
+IFRAME\_WIDGET\_VALDKONNAD\_LINK  
+IFRAME\_WIDGET\_XML\_VARAD\_LINK  
+IFRAME\_WIDGET\_YLDOTSING\_LINK  
+IFRAME\_WIDGET\_LIITUMINE\_LINK  
 
 **NB!** protocol, domain name and port must match RIHA instance protocol, name and port.
 
@@ -55,18 +55,18 @@ User session information service is bound to:
 
 RIHA\_URL:RIHA\_PORT/sessionManagementServlet?sessionId=SESSION\_ID
 
-RIHA\_URL - RIHA domain name / ip address
-RIHA\_PORT - tomcat port
-SESSION\_ID - sessionId to check.
+RIHA\_URL - RIHA domain name / ip address  
+RIHA\_PORT - tomcat port  
+SESSION\_ID - sessionId to check.  
 
 if sessionId is found, the following information is returned as response:
 
-{&quot;isikuKood&quot;:&quot;PERSONAL\_CODE&quot;,
- &quot;roll&quot;:&quot;ROLE&quot;,
-&quot;asutus&quot;: &quot;ORGANISATION&quot;}
+{&quot;isikuKood&quot;:&quot;PERSONAL\_CODE&quot;,  
+ &quot;roll&quot;:&quot;ROLE&quot;,  
+&quot;asutus&quot;: &quot;ORGANISATION&quot;}  
 
-PERSONAL\_CODE - user&#39;s personal code
-ROLE - current user role
-ORGANISATION - current user organisation
+PERSONAL\_CODE - user&#39;s personal code  
+ROLE - current user role  
+ORGANISATION - current user organisation  
 
 **NB!** Some or all of the JSON response fields can be null, if the information is not available to the sessionManagement servlet.
