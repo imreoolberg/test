@@ -44,38 +44,35 @@
         - [getSendingOptions.v2](#getsendingoptionsv2)
         - [getSendingOptions.v3](#getsendingoptionsv3)
     - [changeOrganizationData](#changeorganizationdata)
-        - [Näide]()
-    - [deleteOldDocuments]()
-        - [Näide]()
-    - [runSystemCheck]()
-        - [Näide]()
-    - [getSubdivisionList]()
-        - [getSubdivisionList.v1]()
-        - [getSubdivisionList.v2]()
-    - [getOccupationList]()
-        - [getOccupationList.v1]()
-        - [getOccupationList.v2]()
-- [Kasutusõiguste süsteem DVK rakenduses]()
-- [Edastatavate dokumentide valideerimine DVK serveris]()
-- [Adressaatide automaatne lisamine DVK serveris]()
-    - [Adressaatide automaatse lisamise seadistamine]()
-- [Dokumentide edastamine DVK serverite vahel (DVK lüüsid)]()
-    - [Sissejuhatus]()
-    - [Tehnilised piirangud DVK lüüside kasutamisele]()
-    - [DVK lüüside lahendusest tingitud muudatused DVK spetsifikatsioonis]()
-        - [Vahendaja kirje DVK konteineri transport andmestruktuuris]()
-        - [DVK serveri täiendavad seadistused]()
-- [Dokumentide edastamine fragmentidena]()
-- [Teadaolevad vead DVK rakenduses]()
-    - [Content-Transfer-Encoding päise vigane esitus]()
-    - [Tundlikkus Content-Type päise kirjapildi suhtes]()
-- [LISA 1: Kasutatavate andmete XML Schema kirjeldused]()
-    - [Automaatsed metaandmed]()
-    - [Manuaalsed metaandmed]()
-    - [DVK dokument]()
-    - [Päringute WSDL kirjeldus]()
-- [LISA 2: <dokument> XML struktuuri kasutusnäide (DVK konteineri versioon 1)]()
-- [LISA 3: <dokument> XML struktuuri kasutusnäide (DVK konteineri versioon 2)]()
+    - [deleteOldDocuments](#deleteolddocuments)
+    - [runSystemCheck](#runsystemcheck)
+    - [getSubdivisionList](#getsubdivisionlist)
+        - [getSubdivisionList.v1](#getsubdivisionlistv1)
+        - [getSubdivisionList.v2](#getsubdivisionlistv2)
+    - [getOccupationList](#getoccupationlist)
+        - [getOccupationList.v1](#getoccupationlistv1)
+        - [getOccupationList.v2](#getoccupationlistv2)
+- [Kasutusõiguste süsteem DVK rakenduses](#kasutusõiduste-süsteem-dvk-rakenduses)
+- [Edastatavate dokumentide valideerimine DVK serveris](#edastavate-dokumentide-valideerimine-dvk-serveris)
+- [Adressaatide automaatne lisamine DVK serveris](#adressaatide-automaatne-lisamine-dvk-serveris)
+    - [Adressaatide automaatse lisamise seadistamine](#adressaatide-automaatse-lisamise-seadistamine)
+- [Dokumentide edastamine DVK serverite vahel (DVK lüüsid)](#dokumentide-edastamine-dvk-serverite-vahel-dvk-lüüsid)
+    - [Sissejuhatus](#sissejuhatus-1)
+    - [Tehnilised piirangud DVK lüüside kasutamisele](#tehnilised-piirangud-dvk-lüüside-kasutamisele)
+    - [DVK lüüside lahendusest tingitud muudatused DVK spetsifikatsioonis](#dvk-lüüside-lahendusest-tingitud-muudatused-dvk-spetsifikatsioonis)
+        - [Vahendaja kirje DVK konteineri transport andmestruktuuris](#vahendaja-kirje-dvk-konteineri-transport-andmestruktuuris)
+        - [DVK serveri täiendavad seadistused](#dvk-serveri-täiendavad-seadistused)
+- [Dokumentide edastamine fragmentidena](#dokumentide-edastamine-fragmentidena)
+- [Teadaolevad vead DVK rakenduses](#teadaolevad-vead-dvk-rakenduses)
+    - [Content-Transfer-Encoding päise vigane esitus](#content-transfer-encoding-päise-vigane-esitus)
+    - [Tundlikkus Content-Type päise kirjapildi suhtes](#tundlikkus-content-type-päise-kirjapildi-suhtes)
+- [LISA 1: Kasutatavate andmete XML Schema kirjeldused](#lisa-1-kasutatavate-andmete-xml-schema-kirjeldused)
+    - [Automaatsed metaandmed](#automaatsed-metaandmed)
+    - [Manuaalsed metaandmed](#manuaalsed-metaandmed)
+    - [DVK dokument](#dvk-dokument)
+    - [Päringute WSDL kirjeldus](#päringute-wsdl-kirjeldus)
+- [LISA 2: <dokument> XML struktuuri kasutusnäide (DVK konteineri versioon 1)](#lisa-2-dokument-xml-struktuuri-kasutusnäide-dvk-konteineri-versioon-1)
+- [LISA 3: <dokument> XML struktuuri kasutusnäide (DVK konteineri versioon 2)](#lisa-3-dokument-xml-struktuuri-kasutusnäide-dvk-konteineri-versioon-2)
 
 
 
@@ -91,9 +88,9 @@
 Dokumendivahetuskeskus (DVK) on erinevatele dokumendihaldussüsteemidele ja muudele dokumente käsitlevatele infosüsteemidele ühine keskset dokumendivahetuse teenust pakkuv infosüsteem. DVK ülesanne on hajutatult paiknevate infosüsteemide liidestamine X-tee vahendusel, dokumentide lühiajaline säilitamine ja lähimas tulevikus ka dokumentide menetlemist toetavate teenuste pakkumine.
 
 Spetsifikatsioonile on eraldi lisatud kolm lisa:
-- [Lisa 1. Viited kasutatavatele nimeruumidele ja XML skeemikirjeldustele]()
-- [Lisa 2. DVK dokumendi näide (DVK konteineri versioon 1)]()
-- [Lisa 3. DVK dokumendi näide (DVK konteineri versioon 2)]()
+- [Lisa 1. Viited kasutatavatele nimeruumidele ja XML skeemikirjeldustele](#lisa-1-kasutatavate-andmete-xml-schema-kirjeldused)
+- [Lisa 2. DVK dokumendi näide (DVK konteineri versioon 1)](#lisa-2-dokument-xml-struktuuri-kasutusnäide-dvk-konteineri-versioon-1)
+- [Lisa 3. DVK dokumendi näide (DVK konteineri versioon 2)](#lisa-2-dokument-xml-struktuuri-kasutusnäide-dvk-konteineri-versioon-2)
 
 ##Üldskeem: dokumendid, metainfo, dokumendivahetus
 
@@ -845,31 +842,31 @@ DigiDoc fail sisaldab ühe või enama algandmefaili või viite väliselt salvest
 
 Iga faili kohta tehakse kirje `<DataFile>`, mis omab järgmisi atribuute:
 
-Id - faili sisemine unikaalne tunnus.
+    Id - faili sisemine unikaalne tunnus.
     Andmefailide tunnused algavad sümboliga 'D', millele järgneb faili järjekorranumber.
 
-Filename - faili tegelik (väline) nimi ilma teekonnata.
+    Filename - faili tegelik (väline) nimi ilma teekonnata.
 
-ContentType - dokumendi salvestamise meetod (DETATCHED, EMBEDDED\_BASE64 või EMBEDDED)
+    ContentType - dokumendi salvestamise meetod (DETATCHED, EMBEDDED\_BASE64 või EMBEDDED)
 
-EMBEDDED - faili andmed on sisestatud algkujul antud kirjes.
+    EMBEDDED - faili andmed on sisestatud algkujul antud kirjes.
 Kasutatav vaid XML kujul algandmete jaoks. Tähelepanu tuleb osutada sellel, et algandmete XML fail ei sisaldaks XML päist (`<?xml ... ?>`) ega DTD-d. Siin kirjeldatud XML elemendid ei ole keelatud. Võmalik on ühe faili sisse salvestada algkujul teist DigiDoc faili.
 
-EMBEDDED\_BASE64 - faili andmed on sisestatud Base64 kujul antud kirjes.
+    EMBEDDED\_BASE64 - faili andmed on sisestatud Base64 kujul antud kirjes.
 
-DETATCHED - algandmed sisalduvad failis, mille nimi on salvestatud atribuudis Filename.
+    DETATCHED - algandmed sisalduvad failis, mille nimi on salvestatud atribuudis Filename.
 
-MimeType - algandmete andmetüüp.
+    MimeType - algandmete andmetüüp.
 
-Size - tegeliku algandmefaili suurus baitides.
+    Size - tegeliku algandmefaili suurus baitides.
 
-DigestType - algandmefaili räsikoodi tüüp. Esialgu toetatakse vaid sha1 tüüpi. Nõutud vaid DETATCHED tüüpi faili puhul.
+    DigestType - algandmefaili räsikoodi tüüp. Esialgu toetatakse vaid sha1 tüüpi. Nõutud vaid DETATCHED tüüpi faili puhul.
 
-DigestValue - algandmefaili räsikoodi väärtus Base64 kujul. Räsi arvutatakse algandmete üle nende originaalkujul. Nõutud vaid DETATCHED tüüpi faili puhul.
+    DigestValue - algandmefaili räsikoodi väärtus Base64 kujul. Räsi arvutatakse algandmete üle nende originaalkujul. Nõutud vaid DETATCHED tüüpi faili puhul.
 
-Suvaline hulk muid atribuute (metaandmed) kujul `<nimi>`="`<väärtus>`".
+    Suvaline hulk muid atribuute (metaandmed) kujul `<nimi>`="`<väärtus>`".
 
-xmlns - peab kasutama SignedDoc namespacet: http://www.sk.ee/DigiDoc/v1.3.0\#.
+    xmlns - peab kasutama SignedDoc namespacet: http://www.sk.ee/DigiDoc/v1.3.0\#.
 
 
 ###Taustinfoks:`<failid>` konteiner
@@ -925,6 +922,7 @@ Vaikimisi võiks DVK rakendus sisaldada järgmisi kaustu:
 ##### Kaustade kasutamine testimisel
 
 Testimiseks on loodud eraldi testkeskkond. Toodangukeskkonnas tohib teostada vaid minimaalset testimist, kindlustamaks et DHS on suuteline DVK-ga andmeid vahetama.
+
 Toodangukeskkonnas testimiseks tuleb test dokumente edastada kausta TEST. Selleks, et test dokumendid ei segaks asutuse kirjavahetust on väljaspool testperioodi soovitatav pärida dokumente kaustast „/“, mis tagastab vaid juurkataloogis olevad dokumendid.
 
 ##### Kaustade kasutamine e-vormide andmevahetuses
@@ -958,8 +956,11 @@ Kui DVK server tuvastab, et mõne adressaadi jaoks tuleb dokument edastada mõnd
 -   vahendaja – element määrab selle asutuse andmed, mille nimel dokument ühest DVK serverist teise edastati.
 
 DVK poolel saavad dokumendid staatuse „saatmisel” ja jäävad ootama *dhl.receiveDocuments* päringut. Päring tagastab vea, kui edastatud dokumentide struktuur sisaldab olulisi vigu. Päring ei tagasta viga juhul, kui mingite dokumentide adressaadile edastamine ei õnnestunud – edastamine toimub asünkroonselt. Edastamise õnnestumist saab kontrollida päringuga *dhl.getSendStatus*.
+
 Antud päringuga saab dokumente salvestada ka DVK-sse selliselt, et edastamist saaja(te)le ei toimu. Sellisel juhul peab olema päringu parameeter „kaust“ olema väärtustatud selle kaustateega, kuhu soovitakse dokumendid salvestada ning „transport“ element ei tohi sisaldada ühtegi elementi „saaja“.
+
 Päringuga on võimalik edastada ka dokumente, mis asuvad DVK dokumendikontol. Sellisel juhul tuleb tegeliku dokumendi asemel esitada dokumendi kehas element „ref“ vajaliku atribuudi väärtusega (kas atribuut „dhl\_id“ dokumendi ID väärtusega või siis „dhl\_taisnimi“ DVK kaustapuu dokumendi täispika nimega). Sealjuures on lubatud esitada ka element „Transport“, mis kirjutab dokumendil esineda võiva „Transport“ elemendi üle.
+
 Päring tagastab resultaadina massiivi, mille vastavatel positsioonidel on edastatud dokumentide DVK seesmised ID-id.
 
 ####Edastatud dokumentide staatuse kontroll
@@ -1008,8 +1009,8 @@ Päring tagastab oma kehas väärtuse „OK“.
 
 Päringu nimi: dhl.sendDocuments.v1
 Sisendi keha: Struct
-base64Binary dokumendid
-string kaust
+    base64Binary dokumendid
+    string kaust
 Väljundi keha: base64Binary
 
 Päring tuleb realiseerida vastavalt X-Tee dokumentatsioonis MIME manuseid sisaldavate teadete realiseerimise skeemile.
@@ -1193,11 +1194,17 @@ Väljundi keha: base64Binary
 
 Päring tuleb realiseerida vastavalt X-Tee dokumentatsioonis MIME manuseid sisaldavate teadete realiseerimise skeemile.
 Element „dokumendid“ on base64 kodeeringus documentsArrayType tüüpi massiiv DVK-sse saadetavatest dokumentidest.
+
 Element „kaust“ määrab ära kataloogitee, kuhu tuleb dokumendid paigutada. Element võib ka puududa, sellisel juhul on kataloogiks üldine juurkataloog „/”. Kui elemendiga „kaust” antud kausta ei eksisteeri DVK-s, siis luuakse see automaatselt.
+
 Element „sailitustahtaeg“ määrab ära, kui kaua DVK server peaks saadetavat dokumenti säilitama, enne kui see kettaruumi vabastamiseks serverist maha kustutatakse.
+
 Element „edastus\_id“ määrab edastussessiooni identifikaatori, kui dokumente saadetakse tükkhaaval. Tükkhaaval saatmisel loeb DVK server kõik sama „edastus\_id“ väärtusega saadetud andmed ühe ja sama dokumendi fragmentideks. Kui andmeid ei saadeta tükkhaaval, siis pole seda parameetrit vaja määrata.
+
 Element „fragment\_nr“ määrab tükkhaaval saadetavate andmete puhul, mitmenda tükiga on antud juhul tegu (loendamine algab 0-st). Kui andmeid ei saadeta tükkhaaval, siis pole seda parameetrit vaja määrata.
+
 Element „fragmente\_kokku“ määrab tükkhaaval saadetavate andmete puhul, mitmeks tükiks on saadetavad andmed jaotatud. Kui andmeid ei saadeta tükkhaaval, siis pole seda parameetrit vaja määrata.
+
 Väljundi kehaks on base64 kodeeringus documentRefsArrayType tüüpi massiiv, mis sisaldab DVK poolt dokumentidele omistatud unikaalseid ID-e.
 
 Dokumentide saatmisel sendDocuments päringuga teostatakse DVK konteineri ning saadetavate XML, DDOC ja BDOC failide valideerimine. Täpsem info failide valideerimise kohta asub käesoleva dokumendi peatükis „[Edastatavate dokumentide valideerimine DVK serveris](#)“.
@@ -2023,8 +2030,8 @@ Elemendi „keha“ sisu kodeerimata kujul on:
 
 Päringu nimi: dhl.getSendStatus.v2
 Sisendi keha: Struct
-  dokumendid  base64Binary
-  staatuse\_ajalugu   boolean
+    dokumendid  base64Binary
+    staatuse\_ajalugu   boolean
 Väljundi keha: base64Binary
 
 „dokumendid“ element sisendi kehas on base64 kodeeringus documentRefsArrayType tüüpi massiiv, mis sisaldab DVK poolt dokumentidele omistatud unikaalseid ID-e, mille kohta saatmisinfot soovitakse saada. „staatuse\_ajalugu“ parameetriga (true või false) saab määrata, kas päringu vastus sisaldab ka dokumentide staatuse ajalugu. Alternatiiv on kasutada dokumendi identifitseerimiseks dokumendi GUID-i.
@@ -2261,8 +2268,8 @@ Kui vastuvõtjale on saadetud 2.1 versioon kapslist ja asutuse toetatav kapsli v
 ####receiveDocuments.v1
 Päringu nimi: dhl.receiveDocuments.v1
 Sisendi keha: Struct
-  integer   arv
-  string\[\]  kaust
+    integer   arv
+    string\[\]  kaust
 Väljundi keha: base64Binary
 
 Element „arv“ määrab ära maksimaalse loetavate dokumentide arvu. Element võib puududa, sellisel juhul tagastatakse vaikimisi 10 dokumenti.
@@ -2448,11 +2455,11 @@ Päringu receiveDocuments versioon v2 erineb eelmisest versioonist selle poolest
 
 Päringu nimi: dhl.receiveDocuments.v2
 Sisendi keha: Struct
-  integer   arv
-  string\[\]  kaust
-  string  edastus\_id
-  integer   fragment\_nr
-  long  fragmendi\_suurus\_baitides
+    integer   arv
+    string\[\]  kaust
+    string  edastus\_id
+    integer   fragment\_nr
+    long  fragmendi\_suurus\_baitides
 Väljundi keha: base64Binary
 
 Element „arv“ määrab ära maksimaalse loetavate dokumentide arvu. Element võib puududa, sellisel juhul tagastatakse vaikimisi 10 dokumenti.
@@ -2609,13 +2616,13 @@ Päringu receiveDocuments versioon v3 erineb eelmisest versioonist selle poolest
 
 Päringu nimi: dhl.receiveDocuments.v3
 Sisendi keha: Struct
-  integer   arv
-  integer   allyksus
-  integer   ametikoht
-  string\[\]  kaust
-  string  edastus\_id
-  integer   fragment\_nr
-  long  fragmendi\_suurus\_baitides
+    integer   arv
+    integer   allyksus
+    integer   ametikoht
+    string\[\]  kaust
+    string  edastus\_id
+    integer   fragment\_nr
+    long  fragmendi\_suurus\_baitides
 Väljundi keha: base64Binary
 
 Element „arv“ määrab ära maksimaalse loetavate dokumentide arvu. Element võib puududa, sellisel juhul tagastatakse vaikimisi 10 dokumenti.
@@ -2639,13 +2646,95 @@ Väljund on base64 kodeeringus documentsArrayType tüüpi massiiv, mille iga ele
 ##### Päring
 
 ```
+POST /cgi-bin/consumer_proxy HTTP/1.0
+Content-Type: text/xml
+SOAPAction: ""
 
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope
+  xmlns:SOAPENV="http://schemas.xmlsoap.org/soap/envelope/"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"
+  xmlns:xtee="http://x-tee.riik.ee/xsd/xtee.xsd"
+  xmlns:dhl="http://producers.dhl.xtee.riik.ee/producer/dhl"
+  SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+<SOAP-ENV:Header>
+  <xtee:asutus xsi:type="xsd:string">12345678</xtee:asutus>
+  <xtee:andmekogu xsi:type="xsd:string">dhl</xtee:andmekogu>
+  <xtee:isikukood xsi:type="xsd:string">EE12345678901</xtee:isikukood>
+  <xtee:id xsi:type="xsd:string">6cae248568b3db7e97ff784673a4d38c5906bee0</xtee:id>
+  <xtee:nimi xsi:type="xsd:string">dhl.receiveDocuments.v3</xtee:nimi>
+  <xtee:toimik xsi:type="xsd:string"></xtee:toimik>
+  <xtee:amet xsi:type="xsd:string"></xtee:amet>
+</SOAP-ENV:Header>
+<SOAP-ENV:Body>
+  <dhl:receiveDocuments>
+    <keha>
+      <arv xsi:type="xsd:integer">10</arv>
+      <kaust/>
+    </keha>
+  </dhl:receiveDocuments>
+</SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
 ```
 
 ##### Päringu vastus
 
 ```
+HTTP/1.1 200 OK
+Content-Type: multipart/related; type=text/xml;
+    boundary="=_9d665408f43f4698f71029c2df2b834e"
 
+--=_9d665408f43f4698f71029c2df2b834e
+Content-Type:text/xml; charset="UTF-8"
+Content-Transfer-Encoding:8bit
+
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAPENV="
+  http://schemas.xmlsoap.org/soap/envelope/"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"
+  xmlns:xtee="http://x-tee.riik.ee/xsd/xtee.xsd"
+  xmlns:dhl="http://producers.dhl.xtee.riik.ee/producer/dhl"
+  SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+<SOAP-ENV:Header>
+<xtee:asutus xsi:type="xsd:string">12345678</xtee:asutus>
+<xtee:andmekogu xsi:type="xsd:string">dhl</xtee:andmekogu>
+<xtee:isikukood xsi:type="xsd:string">EE12345678901</xtee:isikukood>
+<xtee:id
+xsi:type="xsd:string">6cae248568b3db7e97ff784673a4d38c5906bee0</xtee:id>
+<xtee:nimi xsi:type="xsd:string">dhl.receiveDocuments.v3</xtee:nimi>
+<xtee:toimik xsi:type="xsd:string"></xtee:toimik>
+<xtee:amet xsi:type="xsd:string"></xtee:amet>
+</SOAP-ENV:Header>
+<SOAP-ENV:Body>
+  <dhl:receiveDocumentsResponse>
+    <paring>
+      <arv>10</arv>
+      <allyksus>1</allyksus>
+      <ametikoht>0</ametikoht>
+      <kaust/>
+      <edastus_id>12345678_1234</edastus_id>
+      <fragment_nr>-1</fragment_nr>
+      <fragmendi_suurus_baiides>0</fragmendi_suurus_baitides>
+    </paring>
+    <keha href="cid:793340a8216da081f3d785bcc74c0f74"/>
+  </dhl:receiveDocumentsResponse>
+</SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+
+--=_9d665408f43f4698f71029c2df2b834e
+Content-Type:{http://www.w3.org/2001/XMLSchema}base64Binary
+Content-Transfer-Encoding:base64
+Content-Encoding: gzip
+Content-ID:<793340a8216da081f3d785bcc74c0f74>
+
+VMO1ZWxpbmUgdGFsdiB2w7VpYiBzYWFidWRhIGhpbGplbSBrdWkgdGF2YWxpc2Vs
+dC4K
+
+--=_9d665408f43f4698f71029c2df2b834e
 ```
 
 ##### Päringu vastuse „keha“ elemendi sisu
@@ -2653,7 +2742,37 @@ Väljund on base64 kodeeringus documentsArrayType tüüpi massiiv, mille iga ele
 Elemendi „keha“ sisu kodeerimata kujul on:
 
 ```
-
+<dokument>
+    <metainfo>
+        <dhl_id>54365435</dhl_id>
+    </metainfo>
+    <transport>
+        <saatja>
+            <regnr>00000000</regnr>
+            <nimi>String</nimi>
+            <osakonna_kood>String</osakonna_kood>
+            <osakonna_nimi>String</osakonna_nimi>
+        </saatja>
+        <saaja>
+            <regnr>00000000</regnr>
+            <nimi>String</nimi>
+            <allyksuse_kood>1</allyksuse_kood>
+            <osakonna_kood>String</osakonna_kood>
+            <osakonna_nimi>String</osakonna_nimi>
+        </saaja>
+    </transport>
+    <ajalugu/>
+    <metaxml>
+        <p>Siin sees võib olla suvaline XML jada</p>
+        <item>Mingeid piiraguid elementidele pole</item>
+    </metaxml>
+    <SignedDoc format="DIGIDOC-XML" version="1.3" xmlns="http://www.sk.ee/DigiDoc/v1.3.0#">
+        <DataFile ContentType="EMBEDDED_BASE64" Filename="dhl.xsd" Id="D0" MimeType="text/xml" Size="3075" xmlns="http://www.sk.ee/DigiDoc/v1.3.0#">PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEt
+</DataFile>
+        <DataFile ContentType="EMBEDDED_BASE64" Filename="dhl-aadress.xsd" Id="D1" MimeType="text/xml" Size="2679" xmlns="http://www.sk.ee/DigiDoc/v1.3.0#">PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEt
+</DataFile>
+    </SignedDoc>
+</dokument>
 ```
 
 ####receiveDocuments.v4
@@ -2661,14 +2780,14 @@ Elemendi „keha“ sisu kodeerimata kujul on:
 Päringu receiveDocuments versioon v4 erineb versioonist V3 selle poolest, et võimaldab allüskuse ja ametikoha parameetritena kasutada lühinimetusi (versioon V3 kasutas numbrilisi ID koode). See võimaldab vastu võtta ainult konkreetsele allüksusele ja/või ametikohale adresseeritud dokumente. Vastussõnumis olevad dokumendid kasutavad DVK konteineri versioon 2.
 
 Päringu nimi: dhl.receiveDocuments.v4
-  Sisendi keha: Struct
-  integer arv
-  string allyksuse\_lyhinimetus
-  string ametikoha\_lyhinimetus
-  string\[\] kaust
-  string edastus\_id
-  integer fragment\_nr
-  long fragmendi\_suurus\_baitides
+    Sisendi keha: Struct
+    integer arv
+    string allyksuse\_lyhinimetus
+    string ametikoha\_lyhinimetus
+    string\[\] kaust
+    string edastus\_id
+    integer fragment\_nr
+    long fragmendi\_suurus\_baitides
 Väljundi keha: base64Binary
 
 Element „arv“ määrab ära maksimaalse loetavate dokumentide arvu. Element võib puududa, sellisel juhul tagastatakse vaikimisi 10 dokumenti.
@@ -2691,14 +2810,156 @@ Väljund on base64 kodeeringus documentsArrayType tüüpi massiiv, mille iga ele
 
 ##### Päring
 
+```
+POST /cgi-bin/consumer_proxy HTTP/1.0
+Content-Type: text/xml
+SOAPAction: ""
+
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope
+  xmlns:SOAPENV="http://schemas.xmlsoap.org/soap/envelope/"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"
+  xmlns:xtee="http://x-tee.riik.ee/xsd/xtee.xsd"
+  xmlns:dhl="http://producers.dhl.xtee.riik.ee/producer/dhl"
+  SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+<SOAP-ENV:Header>
+  <xtee:asutus xsi:type="xsd:string">12345678</xtee:asutus>
+  <xtee:andmekogu xsi:type="xsd:string">dhl</xtee:andmekogu>
+  <xtee:isikukood xsi:type="xsd:string">EE12345678901</xtee:isikukood>
+  <xtee:id xsi:type="xsd:string">6cae248568b3db7e97ff784673a4d38c5906bee0</xtee:id>
+  <xtee:nimi xsi:type="xsd:string">dhl.receiveDocuments.v4</xtee:nimi>
+  <xtee:toimik xsi:type="xsd:string"></xtee:toimik>
+  <xtee:amet xsi:type="xsd:string"></xtee:amet>
+</SOAP-ENV:Header>
+<SOAP-ENV:Body>
+  <dhl:receiveDocuments>
+    <keha>
+      <arv>10</arv>
+      <allyksuse_lyhinimetus>RMTP</allyksuse_lyhinimetus>
+      <ametikoha_lyhinimetus>RAAMATUPIDAJA</ametikoha_lyhinimetus>
+      <kaust/>
+      <edastus_id>12345678_1234</edastus_id>
+      <fragment_nr>-1</fragment_nr>
+      <fragmendi_suurus_baiides>0</fragmendi_suurus_baitides>
+    </keha>
+  </dhl:receiveDocuments>
+</SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+```
 
 ##### Päringu vastus
 
+```
+HTTP/1.1 200 OK
+Content-Type: multipart/related; type=text/xml;
+    boundary="=_9d665408f43f4698f71029c2df2b834e"
 
+--=_9d665408f43f4698f71029c2df2b834e
+Content-Type:text/xml; charset="UTF-8"
+Content-Transfer-Encoding:8bit
+
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAPENV="
+  http://schemas.xmlsoap.org/soap/envelope/"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"
+  xmlns:xtee="http://x-tee.riik.ee/xsd/xtee.xsd"
+  xmlns:dhl="http://producers.dhl.xtee.riik.ee/producer/dhl"
+  SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+<SOAP-ENV:Header>
+<xtee:asutus xsi:type="xsd:string">12345678</xtee:asutus>
+<xtee:andmekogu xsi:type="xsd:string">dhl</xtee:andmekogu>
+<xtee:isikukood xsi:type="xsd:string">EE12345678901</xtee:isikukood>
+<xtee:id
+xsi:type="xsd:string">6cae248568b3db7e97ff784673a4d38c5906bee0</xtee:id>
+<xtee:nimi xsi:type="xsd:string">dhl.receiveDocuments.v4</xtee:nimi>
+<xtee:toimik xsi:type="xsd:string"></xtee:toimik>
+<xtee:amet xsi:type="xsd:string"></xtee:amet>
+</SOAP-ENV:Header>
+<SOAP-ENV:Body>
+  <dhl:receiveDocumentsResponse>
+    <paring>
+      <arv>10</arv>
+      <allyksuse_lyhinimetus>RMTP</allyksuse_lyhinimetus>
+      <ametikoha_lyhinimetus>RAAMATUPIDAJA</ametikoha_lyhinimetus>
+      <kaust/>
+      <edastus_id>12345678_1234</edastus_id>
+      <fragment_nr>-1</fragment_nr>
+      <fragmendi_suurus_baiides>0</fragmendi_suurus_baitides>
+    </paring>
+    <keha href="cid:793340a8216da081f3d785bcc74c0f74"/>
+  </dhl:receiveDocumentsResponse>
+</SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+
+--=_9d665408f43f4698f71029c2df2b834e
+Content-Type:{http://www.w3.org/2001/XMLSchema}base64Binary
+Content-Transfer-Encoding:base64
+Content-Encoding: gzip
+Content-ID:<793340a8216da081f3d785bcc74c0f74>
+
+VMO1ZWxpbmUgdGFsdiB2w7VpYiBzYWFidWRhIGhpbGplbSBrdWkgdGF2YWxpc2Vs
+dC4K
+
+--=_9d665408f43f4698f71029c2df2b834e
+```
 
 ##### Päringu vastuse „keha“ elemendi sisu
 
 Elemendi „keha“ sisu kodeerimata kujul on:
+
+```
+<dokument>
+    <metainfo>
+        <dhl_id>54365435</dhl_id>
+    </metainfo>
+    <transport>
+        <saatja>
+            <regnr>00000000</regnr>
+            <nimi>String</nimi>
+            <allyksuse_lyhinimetus>String</allyksuse_lyhinimetus>
+            <allüksuse_nimetus>String</allüksuse_nimetus>
+        </saatja>
+        <saaja>
+            <regnr>00000000</regnr>
+            <nimi>String</nimi>
+            <allyksuse_lyhinimetus>String</allyksuse_lyhinimetus>
+            <allüksuse_nimetus>String</allüksuse_nimetus>
+        </saaja>
+    </transport>
+    <ajalugu/>
+    <metaxml>
+        <p>Siin sees võib olla suvaline XML jada</p>
+        <item>Mingeid piiraguid elementidele pole</item>
+    </metaxml>
+    <failid>
+        <kokku>2</kokku>
+        <fail>
+            <jrknr>1</jrknr>
+            <fail_pealkiri>DVK skeem</fail_pealkiri>
+            <fail_suurus>3075</fail_suurus>
+            <fail_tyyp>text/xml</fail_tyyp>
+            <fail_nimi>dhl.xsd</fail_nimi>
+            <zip_base64_sisu>
+    PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEt </zip_base64_sisu>
+<pohi_dokument>true</pohi_dokument>
+        </fail>
+        <fail>
+            <jrknr>2</jrknr>
+            <fail_pealkiri>DVK skeem</fail_pealkiri>
+            <fail_suurus>2679</fail_suurus>
+            <fail_tyyp>text/xml</fail_tyyp>
+            <fail_nimi>dhl-aadress.xsd</fail_nimi>
+            <zip_base64_sisu>
+    PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEt </zip_base64_sisu>
+<pohi_dokument>true</pohi_dokument>
+        </fail>
+    </failid>
+</dokument>
+```
 
 ###markDocumentsReceived
 
@@ -2706,8 +2967,8 @@ Elemendi „keha“ sisu kodeerimata kujul on:
 
 Päringu nimi: dhl.markDocumentsReceived.v1
 Sisendi keha: Struct
-  base64Binary dokumendid
-  string kaust
+    base64Binary  dokumendid
+    string  kaust
 Väljundi keha: string
 
 
@@ -2721,19 +2982,105 @@ Päring tagastab väljundi kehaks stringi sisuga „OK“.
 
 ##### Päring
 
+```
+POST /cgi-bin/consumer_proxy HTTP/1.0
+Content-Type: multipart/related; type=text/xml;
+    boundary="=_b5a8d09eeeb161be29def84633d6f6fc"
+SOAPAction: ""
 
+--=_b5a8d09eeeb161be29def84633d6f6fc
+Content-Type:text/xml; charset="UTF-8"
+Content-Transfer-Encoding:8bit
+
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope
+  xmlns:SOAPENV="http://schemas.xmlsoap.org/soap/envelope/"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"
+  xmlns:xtee="http://x-tee.riik.ee/xsd/xtee.xsd"
+  xmlns:dhl="http://producers.dhl.xtee.riik.ee/producer/dhl"
+  SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+<SOAP-ENV:Header>
+  <xtee:asutus xsi:type="xsd:string">12345678</xtee:asutus>
+  <xtee:andmekogu xsi:type="xsd:string">dhl</xtee:andmekogu>
+  <xtee:isikukood xsi:type="xsd:string">EE12345678901</xtee:isikukood>
+  <xtee:id xsi:type="xsd:string">6cae248568b3db7e97ff784673a4d38c5906bee0</xtee:id>
+  <xtee:nimi xsi:type="xsd:string">dhl.markDocumentsReceived.v1</xtee:nimi>
+  <xtee:toimik xsi:type="xsd:string"></xtee:toimik>
+  <xtee:amet xsi:type="xsd:string"></xtee:amet>
+</SOAP-ENV:Header>
+<SOAP-ENV:Body>
+  <dhl: markDocumentsReceived>
+    <keha>
+      <dokumendid href="cid:b8fdc418df27ba3095a2d21b7be6d802"/>
+      <kaust/>
+    </keha>
+  </dhl: markDocumentsReceived>
+</SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+
+--=_b5a8d09eeeb161be29def84633d6f6fc
+Content-Disposition:php5hmCiX
+Content-Type:{http://www.w3.org/2001/XMLSchema}base64Binary
+Content-Transfer-Encoding:base64
+Content-Encoding: gzip
+Content-ID:<b8fdc418df27ba3095a2d21b7be6d802>
+
+a29ybmkJa3cNCmtvcnNpa2EJY28NCmtyZWVrYQllbA0Ka3JpaQn1ZA0Ka3Vt9Wtp
+…
+dg0KbmVwYWxpCW5lDQpuaXZoaQnkdA0KbmphbmT+YQlueQ0Kbm9nYWkJ9ncNCg==
+--=_b5a8d09eeeb161be29def84633d6f6fc
+```
 
 ##### Päringu vastus
 
+```
+HTTP/1.1 200 OK
+Content-Type: text/xml
 
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAPENV="
+  http://schemas.xmlsoap.org/soap/envelope/"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"
+  xmlns:xtee="http://x-tee.riik.ee/xsd/xtee.xsd"
+  xmlns:dhl="http://producers.dhl.xtee.riik.ee/producer/dhl"
+  SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+<SOAP-ENV:Header>
+<xtee:asutus xsi:type="xsd:string">12345678</xtee:asutus>
+<xtee:andmekogu xsi:type="xsd:string">dhl</xtee:andmekogu>
+<xtee:isikukood xsi:type="xsd:string">EE12345678901</xtee:isikukood>
+<xtee:id
+xsi:type="xsd:string">6cae248568b3db7e97ff784673a4d38c5906bee0</xtee:id>
+<xtee:nimi xsi:type="xsd:string">dhl.markDocumentsReceived.v1</xtee:nimi>
+<xtee:toimik xsi:type="xsd:string"></xtee:toimik>
+<xtee:amet xsi:type="xsd:string"></xtee:amet>
+</SOAP-ENV:Header>
+<SOAP-ENV:Body>
+  <dhl:markDocumentsReceivedResponse>
+    <paring>
+      <dokumendid xsi:type="xsd:string">52ed0ffbf27fc34759dce05d0e7bed2302876cec</dokumendid>
+      <kaust/>
+    </paring>
+    <keha xsi:type="xsd:string">OK</keha>
+  </dhl: markDocumentsReceivedResponse>
+</SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+```
 
 ##### Päringu „keha“ elemendi sisu
 
 Elemendi „keha“ sisu kodeerimata kujul on:
 
+```
+<dhl_id>54365435</dhl_id>
+```
 
-Element „dokumendid“ on base64 kodeeringus massiiv, mille iga element
-„item” on alljärgneva struktuuriga:
+####markDocumentsReceived.v2
+
+Element „dokumendid“ on base64 kodeeringus massiiv, mille iga element „item” on alljärgneva struktuuriga:
 
 -   „dhl\_id” element sisaldab loetud dokumendi DVK ID-d.
 -   „vastuvotja\_staatus\_id” element sisaldab vastuvõtja poolel dokumendile omistatud staatuse identifikaatorit.
@@ -2757,16 +3104,124 @@ Päring tagastab väljundi kehaks stringi sisuga „OK“.
 
 ##### Päring
 
+```
+POST /cgi-bin/consumer_proxy HTTP/1.0
+Content-Type: multipart/related; type=text/xml;
+    boundary="=_b5a8d09eeeb161be29def84633d6f6fc"
+SOAPAction: ""
 
+--=_b5a8d09eeeb161be29def84633d6f6fc
+Content-Type:text/xml; charset="UTF-8"
+Content-Transfer-Encoding:8bit
+
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope
+  xmlns:SOAPENV="http://schemas.xmlsoap.org/soap/envelope/"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"
+  xmlns:xtee="http://x-tee.riik.ee/xsd/xtee.xsd"
+  xmlns:dhl="http://producers.dhl.xtee.riik.ee/producer/dhl"
+  SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+<SOAP-ENV:Header>
+  <xtee:asutus xsi:type="xsd:string">12345678</xtee:asutus>
+  <xtee:andmekogu xsi:type="xsd:string">dhl</xtee:andmekogu>
+  <xtee:isikukood xsi:type="xsd:string">EE12345678901</xtee:isikukood>
+  <xtee:id xsi:type="xsd:string">6cae248568b3db7e97ff784673a4d38c5906bee0</xtee:id>
+  <xtee:nimi xsi:type="xsd:string">dhl.markDocumentsReceived.v2</xtee:nimi>
+  <xtee:toimik xsi:type="xsd:string"></xtee:toimik>
+  <xtee:amet xsi:type="xsd:string"></xtee:amet>
+</SOAP-ENV:Header>
+<SOAP-ENV:Body>
+  <dhl: markDocumentsReceived>
+    <keha>
+      <dokumendid href="cid:b8fdc418df27ba3095a2d21b7be6d802"/>
+      <kaust/>
+    </keha>
+  </dhl: markDocumentsReceived>
+</SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+
+--=_b5a8d09eeeb161be29def84633d6f6fc
+Content-Disposition:php5hmCiX
+Content-Type:{http://www.w3.org/2001/XMLSchema}base64Binary
+Content-Transfer-Encoding:base64
+Content-Encoding: gzip
+Content-ID:<b8fdc418df27ba3095a2d21b7be6d802>
+
+a29ybmkJa3cNCmtvcnNpa2EJY28NCmtyZWVrYQllbA0Ka3JpaQn1ZA0Ka3Vt9Wtp
+…
+dg0KbmVwYWxpCW5lDQpuaXZoaQnkdA0KbmphbmT+YQlueQ0Kbm9nYWkJ9ncNCg==
+--=_b5a8d09eeeb161be29def84633d6f6fc
+```
 
 ##### Päringu vastus
 
+```
+HTTP/1.1 200 OK
+Content-Type: text/xml
 
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAPENV="
+  http://schemas.xmlsoap.org/soap/envelope/"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"
+  xmlns:xtee="http://x-tee.riik.ee/xsd/xtee.xsd"
+  xmlns:dhl="http://producers.dhl.xtee.riik.ee/producer/dhl"
+  SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+<SOAP-ENV:Header>
+<xtee:asutus xsi:type="xsd:string">12345678</xtee:asutus>
+<xtee:andmekogu xsi:type="xsd:string">dhl</xtee:andmekogu>
+<xtee:isikukood xsi:type="xsd:string">EE12345678901</xtee:isikukood>
+<xtee:id
+xsi:type="xsd:string">6cae248568b3db7e97ff784673a4d38c5906bee0</xtee:id>
+<xtee:nimi xsi:type="xsd:string">dhl.markDocumentsReceived.v2</xtee:nimi>
+<xtee:toimik xsi:type="xsd:string"></xtee:toimik>
+<xtee:amet xsi:type="xsd:string"></xtee:amet>
+</SOAP-ENV:Header>
+<SOAP-ENV:Body>
+  <dhl:markDocumentsReceivedResponse>
+    <paring>
+      <dokumendid xsi:type="xsd:string">52ed0ffbf27fc34759dce05d0e7bed2302876cec</dokumendid>
+      <kaust/>
+    </paring>
+    <keha xsi:type="xsd:string">OK</keha>
+  </dhl: markDocumentsReceivedResponse>
+</SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+```
 
 ##### Päringu „keha“ elemendi sisu
 
 Elemendi „keha“ sisu kodeerimata kujul on:
 
+```
+<item>
+    <dhl_id>54365435</dhl_id>
+    <vastuvotja_staatus_id>10</vastuvotja_staatus_id>
+    <fault>
+        <faultcode>100</faultcode>
+        <faultactor>CLIENT</faultactor>
+        <faultstring>Veateade</faultstring>
+        <faultdetail>vea kirjeldus</faultdetail>
+    </fault>
+    <metaxml>
+        <andmed_1>väärtus 1</andmed_1>
+        <andmed_2>väärtus 2</andmed_2>
+        <andmed_n>väärtus n</andmed_n>
+    </metaxml>
+    <staatuse_muutmise_aeg>2005-09-01T12:35:11</staatuse_muutmise_aeg>
+</item>
+<item>
+    <dhl_id>54365436</dhl_id>
+    <vastuvotja_staatus_id>7</vastuvotja_staatus_id>
+    <staatuse_muutmise_aeg>2005-09-02T14:15:00</staatuse_muutmise_aeg>
+</item>
+<item>
+    <dhl_id>54365437</dhl_id>
+</item>
+```
 
 ####markDocumentsReceived.v3
 
@@ -2796,10 +3251,131 @@ Päring tagastab väljundi kehaks stringi sisuga „OK“.
 
 ##### Päring
 
+```
+POST /cgi-bin/consumer_proxy HTTP/1.0
+Content-Type: multipart/related; type=text/xml;
+    boundary="=_b5a8d09eeeb161be29def84633d6f6fc"
+SOAPAction: ""
+
+--=_b5a8d09eeeb161be29def84633d6f6fc
+Content-Type:text/xml; charset="UTF-8"
+Content-Transfer-Encoding:8bit
+
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope
+  xmlns:SOAPENV="http://schemas.xmlsoap.org/soap/envelope/"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"
+  xmlns:xtee="http://x-tee.riik.ee/xsd/xtee.xsd"
+  xmlns:dhl="http://producers.dhl.xtee.riik.ee/producer/dhl"
+  SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+<SOAP-ENV:Header>
+  <xtee:asutus xsi:type="xsd:string">12345678</xtee:asutus>
+  <xtee:andmekogu xsi:type="xsd:string">dhl</xtee:andmekogu>
+  <xtee:isikukood xsi:type="xsd:string">EE12345678901</xtee:isikukood>
+  <xtee:id xsi:type="xsd:string">6cae248568b3db7e97ff784673a4d38c5906bee0</xtee:id>
+  <xtee:nimi xsi:type="xsd:string">dhl.markDocumentsReceived.v3</xtee:nimi>
+  <xtee:toimik xsi:type="xsd:string"></xtee:toimik>
+  <xtee:amet xsi:type="xsd:string"></xtee:amet>
+</SOAP-ENV:Header>
+<SOAP-ENV:Body>
+  <dhl:markDocumentsReceived>
+    <keha>
+      <dokumendid xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="dhl:asutus[3]">
+        <item>
+          <dhl_id>54365435</dhl_id>
+          <vastuvotja_staatus_id>10</vastuvotja_staatus_id>
+          <fault>
+            <faultcode>100</faultcode>
+            <faultactor>CLIENT</faultactor>
+            <faultstring>Veateade</faultstring>
+            <faultdetail>vea kirjeldus</faultdetail>
+          </fault>
+          <metaxml>
+            <andmed_1>väärtus 1</andmed_1>
+            <andmed_2>väärtus 2</andmed_2>
+            <andmed_n>väärtus n</andmed_n>
+          </metaxml>
+          <staatuse_muutmise_aeg>2005-09-01T12:35:11</staatuse_muutmise_aeg>
+        </item>
+        <item>
+          <dhl_id>54365436</dhl_id>
+          <vastuvotja_staatus_id>7</vastuvotja_staatus_id>
+          <staatuse_muutmise_aeg>2005-09-02T14:15:00</staatuse_muutmise_aeg>
+        </item>
+        <item>
+          <dhl_id>54365437</dhl_id>
+        </item>
+      </dokumendid>
+      <kaust/>
+    </keha>
+  </dhl:markDocumentsReceived>
+</SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+```
 
 ##### Päringu vastus
 
+```
+HTTP/1.1 200 OK
+Content-Type: text/xml
 
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAPENV="
+  http://schemas.xmlsoap.org/soap/envelope/"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"
+  xmlns:xtee="http://x-tee.riik.ee/xsd/xtee.xsd"
+  xmlns:dhl="http://producers.dhl.xtee.riik.ee/producer/dhl"
+  SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+<SOAP-ENV:Header>
+<xtee:asutus xsi:type="xsd:string">12345678</xtee:asutus>
+<xtee:andmekogu xsi:type="xsd:string">dhl</xtee:andmekogu>
+<xtee:isikukood xsi:type="xsd:string">EE12345678901</xtee:isikukood>
+<xtee:id
+xsi:type="xsd:string">6cae248568b3db7e97ff784673a4d38c5906bee0</xtee:id>
+<xtee:nimi xsi:type="xsd:string">dhl.markDocumentsReceived.v2</xtee:nimi>
+<xtee:toimik xsi:type="xsd:string"></xtee:toimik>
+<xtee:amet xsi:type="xsd:string"></xtee:amet>
+</SOAP-ENV:Header>
+<SOAP-ENV:Body>
+  <dhl:markDocumentsReceivedResponse>
+    <paring>
+      <dokumendid xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="dhl:asutus[3]">
+        <item>
+          <dhl_id>54365435</dhl_id>
+          <vastuvotja_staatus_id>10</vastuvotja_staatus_id>
+          <fault>
+            <faultcode>100</faultcode>
+            <faultactor>CLIENT</faultactor>
+            <faultstring>Veateade</faultstring>
+            <faultdetail>vea kirjeldus</faultdetail>
+          </fault>
+          <metaxml>
+            <andmed_1>väärtus 1</andmed_1>
+            <andmed_2>väärtus 2</andmed_2>
+            <andmed_n>väärtus n</andmed_n>
+          </metaxml>
+          <staatuse_muutmise_aeg>2005-09-01T12:35:11</staatuse_muutmise_aeg>
+        </item>
+        <item>
+          <dhl_id>54365436</dhl_id>
+          <vastuvotja_staatus_id>7</vastuvotja_staatus_id>
+          <staatuse_muutmise_aeg>2005-09-02T14:15:00</staatuse_muutmise_aeg>
+        </item>
+        <item>
+          <dhl_id>54365437</dhl_id>
+        </item>
+      </dokumendid>
+      <kaust/>
+    </paring>
+    <keha xsi:type="xsd:string">OK</keha>
+  </dhl:markDocumentsReceivedResponse>
+</SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+```
 
 ###getSendingOptions
 
@@ -2808,11 +3384,11 @@ Päring tagastab väljundi kehaks stringi sisuga „OK“.
 Päringu nimi: dhl.getSendingOptions.v1
 Sisendi keha: stringide massiiv
 Väljundi keha: massiiv andmetüübist „asutus”:
-  regnr   string
-  nimi  string
-  saatmine  massiiv
-  saatmisviis   string(väärtused: dhl | dhl\_otse)
-  ks\_asutuse\_regnr  string(kõrgemalseisva asutuse registrikood)
+    regnr   string
+    nimi  string
+    saatmine  massiiv
+    saatmisviis   string(väärtused: dhl | dhl\_otse)
+    ks\_asutuse\_regnr  string(kõrgemalseisva asutuse registrikood)
 
 Päring annab teada, kas ja kui siis millisel moel on asutused võimelised DVK-d kasutama. Ilma sisendparameetriteta käivitamise korral tagastab päring nimekirja kõigist DVK-ga liitunud asutustest. Kui aga päringule anda sisendparameetriks nimekiri asutuste registrikoodidest, tagastab päring info nimekirjas sisaldunud asutuste võimekuse kohta DVK kaudu andmeid vahetada.
 
@@ -2822,24 +3398,113 @@ Antud päringu puhul esitatakse nii sisend- kui väljundandmed pakkimata ja kode
 
 ##### Päring
 
+```
+POST /cgi-bin/consumer_proxy HTTP/1.0
+Content-Type: text/xml; charset=utf-8
+
+<?xml version="1.0" encoding="UTF-8"?>
+<env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:dhl="http://producers.dhl.xtee.riik.ee/producer/dhl"
+  xmlns:xtee="http://x-tee.riik.ee/xsd/xtee.xsd">  
+  <env:Header>
+    <xtee:asutus>11181967</xtee:asutus>
+    <xtee:andmekogu>dhl</xtee:andmekogu>
+    <xtee:ametnik>38005130332</xtee:ametnik>
+    <xtee:nimi>dhl.getSendingOptions.v1</xtee:nimi>
+    <xtee:id>dhl_client_1</xtee:id>
+    <xtee:toimik/>
+    <xtee:isikukood>EE38005130332</xtee:isikukood>
+  </env:Header>
+  <env:Body>
+    <dhl:getSendingOptions>
+      <keha>
+        <asutus>12345678</asutus>
+        <asutus>23456789</asutus>
+        <asutus>34567890</asutus>
+      </keha>
+    </dhl:getSendingOptions>
+  </env:Body>
+</env:Envelope>
+```
 
 ##### Päringu vastus
 
+```
+HTTP/1.1 200 OK
+SOAPAction: ""
+Content-Type: text/xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xtee="http://x-tee.riik.ee/xsd/xtee.xsd"
+  xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"
+  xmlns:dhl="http://www.riik.ee/schemas/dhl">
+
+  <env:Header>
+    <xtee:asutus>11181967</xtee:asutus>
+    <xtee:andmekogu>dhl</xtee:andmekogu>
+    <xtee:ametnik>38005130332</xtee:ametnik>
+    <xtee:nimi>dhl.getSendingOptions.v1</xtee:nimi>
+    <xtee:id>dhl_client_1</xtee:id>
+    <xtee:toimik/>
+    <xtee:isikukood>EE38005130332</xtee:isikukood>
+  </env:Header>
+
+  <soapenv:Body>
+    <dhl:getSendingOptionsResponse>
+      <paring xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="xsd:string[3]">
+        <asutus>12345678</asutus>
+        <asutus>23456789</asutus>
+        <asutus>34567890</asutus>
+      </paring>
+      <keha xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="dhl:asutus[3]">
+        <asutus>
+          <regnr>12345678</regnr>
+          <nimi>ASUTUS 1</nimi>
+          <saatmine>
+            <saatmisviis>dhl</saatmisviis>
+          </saatmine>
+          <ks_asutuse_regnr/>
+        </asutus>
+        <asutus>
+          <regnr>23456789</regnr>
+          <nimi>ASUTUS 2</nimi>
+          <saatmine>
+            <saatmisviis>dhl</saatmisviis>
+            <saatmisviis>dhl_otse</saatmisviis>
+          </saatmine>
+          <ks_asutuse_regnr>12345678</ks_asutuse_regnr>
+        </asutus>
+        <asutus>
+          <regnr>34567890</regnr>
+          <nimi/>
+          <saatmine/>
+          <ks_asutuse_regnr/>
+        </asutus>
+      </keha>
+    </dhl:getSendingOptionsResponse>
+  </soapenv:Body>
+</soapenv:Envelope>
+```
 
 ####getSendingOptions.v2
 
 Päringu nimi: dhl.getSendingOptions.v2
 Sisendi keha: andmestruktuur:
-  asutused  stringide massiiv
-  vahetatud\_dokumente\_vahemalt  number
-  vahetatud\_dokumente\_kuni  number
-  vastuvotmata\_dokumente\_ootel  tõeväärtus (jah/ei)
+    asutused  stringide massiiv
+    vahetatud\_dokumente\_vahemalt  number
+    vahetatud\_dokumente\_kuni  number
+    vastuvotmata\_dokumente\_ootel  tõeväärtus (jah/ei)
 Väljundi keha: massiiv andmetüübist „asutus”:
-  regnr   string
-  nimi  string
-  saatmine  massiiv
-  saatmisviis   string(väärtused: dhl | dhl\_otse)
-  ks\_asutuse\_regnr  string(kõrgemalseisva asutuse registrikood)
+    regnr   string
+    nimi  string
+    saatmine  massiiv
+    saatmisviis   string(väärtused: dhl | dhl\_otse)
+    ks\_asutuse\_regnr  string(kõrgemalseisva asutuse registrikood)
 
 Päring annab teada, kas ja kui siis millisel moel on asutused võimelised DVK-d kasutama. Ilma sisendparameetriteta käivitamise korral tagastab päring nimekirja kõigist DVK-ga liitunud asutustest.
 
@@ -2857,52 +3522,145 @@ Antud päringu puhul esitatakse nii sisend- kui väljundandmed pakkimata ja kode
 
 ##### Päring
 
+```
+POST /cgi-bin/consumer_proxy HTTP/1.0
+Content-Type: text/xml; charset=utf-8
 
+<?xml version="1.0" encoding="UTF-8"?>
+<env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:dhl="http://producers.dhl.xtee.riik.ee/producer/dhl"
+  xmlns:xtee="http://x-tee.riik.ee/xsd/xtee.xsd">  
+  <env:Header>
+    <xtee:asutus>11181967</xtee:asutus>
+    <xtee:andmekogu>dhl</xtee:andmekogu>
+    <xtee:ametnik>38005130332</xtee:ametnik>
+    <xtee:nimi>dhl.getSendingOptions.v2</xtee:nimi>
+    <xtee:id>dhl_client_1</xtee:id>
+    <xtee:toimik/>
+    <xtee:isikukood>EE38005130332</xtee:isikukood>
+  </env:Header>
+  <env:Body>
+    <dhl:getSendingOptions>
+      <keha>
+        <asutused>
+          <asutus>12345678</asutus>
+          <asutus>23456789</asutus>
+          <asutus>34567890</asutus>
+        </asutused>
+        <vahetatud_dokumente_vahemalt>0</vahetatud_dokumente_vahemalt>
+        <vahetatud_dokumente_kuni>1000</vahetatud_dokumente_kuni>
+        <vastuvotmata_dokumente_ootel>true</vastuvotmata_dokumente_ootel>
+      </keha>
+    </dhl:getSendingOptions>
+  </env:Body>
+</env:Envelope>
+```
 
 ##### Päringu vastus
 
+```
+HTTP/1.1 200 OK
+SOAPAction: ""
+Content-Type: text/xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xtee="http://x-tee.riik.ee/xsd/xtee.xsd"
+  xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"
+  xmlns:dhl="http://www.riik.ee/schemas/dhl">
+
+  <env:Header>
+    <xtee:asutus>11181967</xtee:asutus>
+    <xtee:andmekogu>dhl</xtee:andmekogu>
+    <xtee:ametnik>38005130332</xtee:ametnik>
+    <xtee:nimi>dhl.getSendingOptions.v2</xtee:nimi>
+    <xtee:id>dhl_client_1</xtee:id>
+    <xtee:toimik/>
+    <xtee:isikukood>EE38005130332</xtee:isikukood>
+  </env:Header>
+
+  <soapenv:Body>
+    <dhl:getSendingOptionsResponse>
+      <paring xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="xsd:string[3]">
+        <asutus>12345678</asutus>
+        <asutus>23456789</asutus>
+        <asutus>34567890</asutus>
+      </paring>
+      <keha xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="dhl:asutus[3]">
+        <asutus>
+          <regnr>12345678</regnr>
+          <nimi>ASUTUS 1</nimi>
+          <saatmine>
+            <saatmisviis>dhl</saatmisviis>
+          </saatmine>
+          <ks_asutuse_regnr/>
+        </asutus>
+        <asutus>
+          <regnr>23456789</regnr>
+          <nimi>ASUTUS 2</nimi>
+          <saatmine>
+            <saatmisviis>dhl</saatmisviis>
+            <saatmisviis>dhl_otse</saatmisviis>
+          </saatmine>
+          <ks_asutuse_regnr>12345678</ks_asutuse_regnr>
+        </asutus>
+        <asutus>
+          <regnr>34567890</regnr>
+          <nimi/>
+          <saatmine/>
+          <ks_asutuse_regnr/>
+        </asutus>
+      </keha>
+    </dhl:getSendingOptionsResponse>
+  </soapenv:Body>
+</soapenv:Envelope>
+```
 
 ####getSendingOptions.v3
 
 Päringu nimi:dhl.getSendingOptions.v3
 Sisendi keha:base64Binary
 Sisendi keha kodeerimata kujul:
-  keha  Struct
-  asutused  massiiv
-  asutus  string
-  allyksused  massiiv
-  asutuse\_kood   string
-  lyhinimetus   string
-  ametikohad  massiiv
-  asutuse\_kood   string
-  lyhinimetus   string
-  vahetatud\_dokumente\_vahemalt  number
-  vahetatud\_dokumente\_kuni  number
-  vastuvotmata\_dokumente\_ootel  tõeväärtus (jah/ei)
+    keha  Struct
+    asutused  massiiv
+    asutus  string
+    allyksused  massiiv
+    asutuse\_kood   string
+    lyhinimetus   string
+    ametikohad  massiiv
+    asutuse\_kood   string
+    lyhinimetus   string
+    vahetatud\_dokumente\_vahemalt  number
+    vahetatud\_dokumente\_kuni  number
+    vastuvotmata\_dokumente\_ootel  tõeväärtus (jah/ei)
 Väljundi keha:base64Binary
 Väljundi keha kodeerimata kujul:
-  keha  Struct
-  asutused  massiiv
-  asutus  Struct
-  regnr   string
-  nimi  string
-  saatmine  massiiv
-  saatmisviis   string(väärtused: dhl | dhl\_otse)
-  ks\_asutuse\_regnr  string(kõrgemalseisva asutuse registrikood)
-  allyksused  massiiv
-  allyksus  Struct
-  kood  string
-  nimetus   string
-  asutuse\_kood   string
-  lyhinimetus   string
-  ks\_allyksuse\_lyhinimetus  string
-  ametikohad  massiiv
-  ametikoht   Struct
-  kood  string
-  nimetus   string
-  asutuse\_kood   string
-  lyhinimetus   string
-  ks\_allyksuse\_lyhinimetus  string
+    keha  Struct
+    asutused  massiiv
+    asutus  Struct
+    regnr   string
+    nimi  string
+    saatmine  massiiv
+    saatmisviis   string(väärtused: dhl | dhl\_otse)
+    ks\_asutuse\_regnr  string(kõrgemalseisva asutuse registrikood)
+    allyksused  massiiv
+    allyksus  Struct
+    kood  string
+    nimetus   string
+    asutuse\_kood   string
+    lyhinimetus   string
+    ks\_allyksuse\_lyhinimetus  string
+    ametikohad  massiiv
+    ametikoht   Struct
+    kood  string
+    nimetus   string
+    asutuse\_kood   string
+    lyhinimetus   string
+    ks\_allyksuse\_lyhinimetus  string
 
 Päring annab teada, kas ja kui siis millisel moel on asutused võimelised DVK-d kasutama. Ilma sisendparameetriteta käivitamise korral tagastab päring nimekirja kõigist DVK-ga liitunud asutustest.
 
@@ -2925,91 +3683,222 @@ Päringu parameetrite otstarve on järgmine:
 
 ##### Päring
 
+```
+POST /cgi-bin/consumer_proxy HTTP/1.0
+Content-Type: text/xml; charset=utf-8
 
+<?xml version="1.0" encoding="UTF-8"?>
+<env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:dhl="http://producers.dhl.xtee.riik.ee/producer/dhl"
+  xmlns:xtee="http://x-tee.riik.ee/xsd/xtee.xsd">  
+  <env:Header>
+    <xtee:asutus>11181967</xtee:asutus>
+    <xtee:andmekogu>dhl</xtee:andmekogu>
+    <xtee:ametnik>38005130332</xtee:ametnik>
+    <xtee:nimi>dhl.getSendingOptions.v3</xtee:nimi>
+    <xtee:id>dhl_client_1</xtee:id>
+    <xtee:toimik/>
+    <xtee:isikukood>EE38005130332</xtee:isikukood>
+  </env:Header>
+  <env:Body>
+    <dhl:getSendingOptions>
+      <keha href="cid:1266238098953"/>
+    </dhl:getSendingOptions>
+  </env:Body>
+</env:Envelope>
+
+------=_Part_0_32961147.1266238098984
+Content-Type: {http://www.w3.org/2001/XMLSchema}base64Binary
+Content-Transfer-Encoding: binary
+Content-Id: <1266238098953>
+Content-Encoding: gzip
+
+H4sIAAAAAAAAAH2PSwrDMAxEj2T670L4BoVSujcCC2psR8WWArl9mpAEl0J3w/DmCcEbC2YiKcFb6LGK9iw
+...
+ZDbzrTXjHtuyN3z7yv/AAAAA==
+------=_Part_0_32961147.1266238098984—
+```
 
 ##### Päringu vastus
 
+```
+HTTP/1.1 200 OK
+SOAPAction: ""
+Content-Type: text/xml
 
+<?xml version="1.0" encoding="utf-8"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xtee="http://x-tee.riik.ee/xsd/xtee.xsd"
+  xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"
+  xmlns:dhl="http://www.riik.ee/schemas/dhl">
+  <env:Header>
+    <xtee:asutus>11181967</xtee:asutus>
+    <xtee:andmekogu>dhl</xtee:andmekogu>
+    <xtee:ametnik>38005130332</xtee:ametnik>
+    <xtee:nimi>dhl.getSendingOptions.v3</xtee:nimi>
+    <xtee:id>dhl_client_1</xtee:id>
+    <xtee:toimik/>
+    <xtee:isikukood>EE38005130332</xtee:isikukood>
+  </env:Header>
+  <soapenv:Body>
+    <dhl:getSendingOptionsResponse>
+      <paring>7EC4A81438DC484DE15A2DD2D371323B</paring>
+      <keha href="cid:514E5DB49902EC1EC1BCBA442FF37A02"/>
+    </dhl:getSendingOptionsResponse>
+  </soapenv:Body>
+</soapenv:Envelope>
+
+------=_Part_2_33268061.1266238099109
+Content-Type: {http://www.w3.org/2001/XMLSchema}base64Binary
+Content-Transfer-Encoding: binary
+Content-Id: <514E5DB49902EC1EC1BCBA442FF37A02>
+Content-Encoding: gzip
+
+H4sIAAAAAAAAAG2P3QrCMAyFHyk4fy9CYaAX4oWCD1AKLa6s68ayCXt7287OVr1qzslp8gUFjcNISjL8rhj
+...
+W9+AXNEgoqqAQAA
+------=_Part_2_33268061.1266238099109--
+```
 
 ##### Päringu „keha“ elemendi sisu
 
 Elemendi „keha“ sisu kodeerimata kujul on:
 
-
+```
+<keha>
+    <asutused>
+        <asutus>12345678</asutus>
+        <asutus>23456789</asutus>
+        <asutus>34567890</asutus>
+    </asutused>
+    <allyksused>
+        <allyksus>
+            <asutuse_kood>12345678</asutuse_kood>
+            <lyhinimetus>RMTP</lyhinimetus>
+        </allyksus>
+        <allyksus>
+            <asutuse_kood>23456789</asutuse_kood>
+            <lyhinimetus>DH</lyhinimetus>
+        </allyksus>
+        <allyksus>
+            <asutuse_kood>23456789</asutuse_kood>
+            <lyhinimetus>YLD</lyhinimetus>
+        </allyksus>
+    </allyksused>
+    <ametikohad>
+        <ametikoht>
+            <asutuse_kood>12345678</asutuse_kood>
+            <lyhinimetus>PEARAAMAT</lyhinimetus>
+        </ametikoht>
+        <ametikoht>
+            <asutuse_kood>12345678</asutuse_kood>
+            <lyhinimetus>RAAMATUPIDAJA</lyhinimetus>
+        </ametikoht>
+    </ametikohad>
+    <vahetatud_dokumente_vahemalt>0</vahetatud_dokumente_vahemalt>
+    <vahetatud_dokumente_kuni>1000</vahetatud_dokumente_kuni>
+    <vastuvotmata_dokumente_ootel>true</vastuvotmata_dokumente_ootel>
+</keha>
+```
 
 ##### Vastuse „keha“ elemendi sisu
 
 Elemendi „keha“ sisu kodeerimata kujul on:
 
+```
+<keha>
+    <asutused>
+        <asutus>
+            <regnr>12345678</regnr>
+            <nimi>ASUTUS 1</nimi>
+            <saatmine>
+                <saatmisviis>dhl</saatmisviis>
+            </saatmine>
+            <ks_asutuse_regnr/>
+        </asutus>
+        <asutus>
+            <regnr>23456789</regnr>
+            <nimi>ASUTUS 2</nimi>
+            <saatmine>
+                <saatmisviis>dhl</saatmisviis>
+                <saatmisviis>dhl_otse</saatmisviis>
+            </saatmine>
+            <ks_asutuse_regnr>12345678</ks_asutuse_regnr>
+        </asutus>
+        <asutus>
+            <regnr>34567890</regnr>
+            <nimi/>
+            <saatmine/>
+            <ks_asutuse_regnr/>
+        </asutus>
+    </asutused>
+    <allyksused>
+        <allyksus>
+            <kood>47</kood>
+            <nimetus>Raamatupidamine</nimetus>
+            <asutuse_kood>12345678</asutuse_kood>
+            <lyhinimetus>RMTP</lyhinimetus>
+            <ks_allyksuse_lyhinimetus>YLD</ks_allyksuse_lyhinimetus>
+        </allyksus>
+        <allyksus>
+            <kood>17</kood>
+            <nimetus>Üldosakond</nimetus>
+            <asutuse_kood>23456789</asutuse_kood>
+            <lyhinimetus>YLD</lyhinimetus>
+            <ks_allyksuse_lyhinimetus/>
+        </allyksus>
+    </allyksused>
+    <ametikohad>
+        <ametikoht>
+            <kood>92</kood>
+            <nimetus>Raamatupidaja</nimetus>
+            <asutuse_kood>12345678</asutuse_kood>
+            <lyhinimetus>RAAMATUPIDAJA</lyhinimetus>
+            <ks_allyksuse_lyhinimetus>RMTP</ks_allyksuse_lyhinimetus>
+        </ametikoht>
+    </ametikohad>
+</keha>
+```
 
 ###changeOrganizationData
 
 Päringu nimi: dhl.changeOrganizationData.v1
-
 Sisendi keha: Struct:
-
-string registrikood
-
-string endine\_registrikood
-
-string korgemalseisva\_asutuse\_registrikood
-
-string nimi
-
-string nime\_lyhend
-
-string liik1
-
-string liik2
-
-string tegevusala
-
-string tegevuspiirkond
-
-string maakond
-
-string asukoht
-
-string aadress
-
-string postikood
-
-string telefon
-
-string faks
-
-string e\_post
-
-string www
-
-string logo
-
-date asutamise\_kuupaev
-
-string moodustamise\_akti\_nimi
-
-string moodustamise\_akti\_number
-
-date moodustamise\_akti\_kuupaev
-
-string pohimaaruse\_akti\_nimi
-
-string pohimaaruse\_akti\_number
-
-date pohimaaruse\_kinnitamise\_kuupaev
-
-date pohimaaruse\_kande\_kuupaev
-
-string parameetrid
-
-boolean dvk\_saatmine
-
-boolean dvk\_otse\_saatmine
-
-string toetatav\_dvk\_versioon
-
-string dokumendihaldussysteemi\_nimetus
-
+    string registrikood
+    string endine\_registrikood
+    string korgemalseisva\_asutuse\_registrikood
+    string nimi
+    string nime\_lyhend
+    string liik1
+    string liik2
+    string tegevusala
+    string tegevuspiirkond
+    string maakond
+    string asukoht
+    string aadress
+    string postikood
+    string telefon
+    string faks
+    string e\_post
+    string www
+    string logo
+    date asutamise\_kuupaev
+    string moodustamise\_akti\_nimi
+    string moodustamise\_akti\_number
+    date moodustamise\_akti\_kuupaev
+    string pohimaaruse\_akti\_nimi
+    string pohimaaruse\_akti\_number
+    date pohimaaruse\_kinnitamise\_kuupaev
+    date pohimaaruse\_kande\_kuupaev
+    string parameetrid
+    boolean dvk\_saatmine
+    boolean dvk\_otse\_saatmine
+    string toetatav\_dvk\_versioon
+    string dokumendihaldussysteemi\_nimetus
 Väljundi keha: string
 
 Päringuga saab uuendada DVK serveri asutuste registris salvestatud andmeid asutuse kohta. Päringuga saab uuendada ainult selle asutuse andmeid, mille nimel päring käivitati (s.t. mille registrikood oli märgitud X-Tee päringu päistesse).
@@ -3022,17 +3911,133 @@ Antud päringu puhul esitatakse nii sisend- kui väljundandmed pakkimata ja kode
 
 ##### Päring
 
+```
+POST /cgi-bin/consumer_proxy HTTP/1.0
+Content-Type: text/xml; charset=utf-8
 
+<?xml version="1.0" encoding="UTF-8"?>
+<env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:dhl="http://producers.dhl.xtee.riik.ee/producer/dhl"
+  xmlns:xtee="http://x-tee.riik.ee/xsd/xtee.xsd">  
+  <env:Header>
+    <xtee:asutus>12345678</xtee:asutus>
+    <xtee:andmekogu>dhl</xtee:andmekogu>
+    <xtee:ametnik>12345678901</xtee:ametnik>
+    <xtee:nimi>dhl.changeOrganizationData.v1</xtee:nimi>
+    <xtee:id>dhl_client_1</xtee:id>
+    <xtee:toimik/>
+    <xtee:isikukood>EE12345678901</xtee:isikukood>
+  </env:Header>
+  <env:Body>
+    <dhl:changeOrganizationData>
+      <keha>
+        <registrikood>12345678</registrikood>
+        <endine_registrikood>12345</endine_registrikood>
+        <korgemalseisva_asutuse_registrikood>12322332 </korgemalseisva_asutuse_registrikood>
+        <nimi>Asutus AS</nimi>
+        <nime_lyhend>AAS</nime_lyhend>
+        <liik1>L1</liik1>
+        <liik2>L2</liik2>
+        <tegevusala>Kaubandus</tegevusala>
+        <tegevuspiirkond>Tallinn</tegevuspiirkond>
+        <maakond>Harjumaa</maakond>
+        <asukoht>Tallinn</asukoht>
+        <aadress>Akadeemia tee 21</aadress>
+        <postikood>12618</postikood>
+        <telefon>6543210</telefon>
+        <faks>6543211</faks>
+        <e_post>info@asutus.ee</e_post>
+        <www>http://www.asutus.ee</www>
+        <logo/>
+        <asutamise_kuupaev>2008-01-11</asutamise_kuupaev>
+        <moodustamise_akti_nimi>Moodustamise akt</moodustamise_akti_nimi>
+        <moodustamise_akti_number>1A2</moodustamise_akti_number>
+        <moodustamise_akti_kuupaev>2008-02-01</moodustamise_akti_kuupaev>
+        <pohimaaruse_akti_nimi>Põhimäärus</pohimaaruse_akti_nimi>
+        <pohimaaruse_akti_number>2A3</pohimaaruse_akti_number>
+        <pohimaaruse_kinnitamise_kuupaev>2008-03-01 </pohimaaruse_kinnitamise_kuupaev>
+        <pohimaaruse_kande_kuupaev>2008-03-05</pohimaaruse_kande_kuupaev>
+        <parameetrid>Parameetrid 123</parameetrid>
+        <dvk_saatmine>1</dvk_saatmine>
+        <dvk_otse_saatmine>0</dvk_otse_saatmine>
+        <toetatav_dvk_versioon>1.5</toetatav_dvk_versioon>
+        <dokumendihaldussysteemi_nimetus>SuperDoc 2000 </dokumendihaldussysteemi_nimetus>
+      </keha>
+    </dhl:changeOrganizationData>
+  </env:Body>
+</env:Envelope>
+```
 
 ##### Päringu vastus
 
+```
+HTTP/1.1 200 OK
+SOAPAction: ""
+Content-Type: text/xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xtee="http://x-tee.riik.ee/xsd/xtee.xsd"
+  xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"
+  xmlns:dhl="http://www.riik.ee/schemas/dhl">
+  <env:Header>
+    <xtee:asutus>12345678</xtee:asutus>
+    <xtee:andmekogu>dhl</xtee:andmekogu>
+    <xtee:ametnik>12345678901</xtee:ametnik>
+    <xtee:nimi>dhl.changeOrganizationData.v2</xtee:nimi>
+    <xtee:id>dhl_client_1</xtee:id>
+    <xtee:toimik/>
+    <xtee:isikukood>EE12345678901</xtee:isikukood>
+  </env:Header>
+  <soapenv:Body>
+    <dhl:changeOrganizationDataResponse>
+      <paring xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="xsd:string[3]">
+        <registrikood>12345678</registrikood>
+        <endine_registrikood>12345</endine_registrikood>
+        <korgemalseisva_asutuse_registrikood>12322332 </korgemalseisva_asutuse_registrikood>
+        <nimi>Asutus AS</nimi>
+        <nime_lyhend>AAS</nime_lyhend>
+        <liik1>L1</liik1>
+        <liik2>L2</liik2>
+        <tegevusala>Kaubandus</tegevusala>
+        <tegevuspiirkond>Tallinn</tegevuspiirkond>
+        <maakond>Harjumaa</maakond>
+        <asukoht>Tallinn</asukoht>
+        <aadress>Akadeemia tee 21</aadress>
+        <postikood>12618</postikood>
+        <telefon>6543210</telefon>
+        <faks>6543211</faks>
+        <e_post>info@asutus.ee</e_post>
+        <www>http://www.asutus.ee</www>
+        <logo/>
+        <asutamise_kuupaev>2008-01-11</asutamise_kuupaev>
+        <moodustamise_akti_nimi>Moodustamise akt</moodustamise_akti_nimi>
+        <moodustamise_akti_number>1A2</moodustamise_akti_number>
+        <moodustamise_akti_kuupaev>2008-02-01</moodustamise_akti_kuupaev>
+        <pohimaaruse_akti_nimi>Põhimäärus</pohimaaruse_akti_nimi>
+        <pohimaaruse_akti_number>2A3</pohimaaruse_akti_number>
+        <pohimaaruse_kinnitamise_kuupaev>2008-03-01 </pohimaaruse_kinnitamise_kuupaev>
+        <pohimaaruse_kande_kuupaev>2008-03-05</pohimaaruse_kande_kuupaev>
+        <parameetrid>Parameetrid 123</parameetrid>
+        <dvk_saatmine>1</dvk_saatmine>
+        <dvk_otse_saatmine>0</dvk_otse_saatmine>
+        <toetatav_dvk_versioon>1.5</toetatav_dvk_versioon>
+        <dokumendihaldussysteemi_nimetus>SuperDoc 2000 </dokumendihaldussysteemi_nimetus>
+      </paring>
+      <keha>OK</keha>
+    </dhl:changeOrganizationDataResponse>
+  </soapenv:Body>
+</soapenv:Envelope>
+```
 
 ###deleteOldDocuments
 
 Päringu nimi: dhl.deleteOldDocuments.v1
-
 Sisendi keha: -
-
 Väljundi keha: string
 
 Päring kustutab DVK andmebaasist säilitustähtaja ületanud dokumendid. Kui säilitustähtaja ületanud dokument on osadele adressaatidele veel saatmata, siis märgib DVK server dokumendi andmetesse, et dokumendi edastamine on katkestatud ning lükkab dokumendi säilitustähtaega mõnevõrra edasi (sõltub serveri seadistusest), et info saatmise katkestamisest jõuaks kindlasti ka dokumendi saatjale.
@@ -3043,10 +4048,64 @@ Kui säilitustähtaja ületanud dokumentide kustutamine õnnestub, siis tagastab
 
 ##### Päring
 
+```
+POST /cgi-bin/consumer_proxy HTTP/1.0
+Content-Type: text/xml; charset=utf-8
 
+<?xml version="1.0" encoding="UTF-8"?>
+<env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:dhl="http://producers.dhl.xtee.riik.ee/producer/dhl"
+  xmlns:xtee="http://x-tee.riik.ee/xsd/xtee.xsd">  
+  <env:Header>
+    <xtee:asutus>11181967</xtee:asutus>
+    <xtee:andmekogu>dhl</xtee:andmekogu>
+    <xtee:ametnik>38005130332</xtee:ametnik>
+    <xtee:nimi>dhl.deleteOldDocuments.v1</xtee:nimi>
+    <xtee:id>dhl_client_1</xtee:id>
+    <xtee:toimik/>
+    <xtee:isikukood>EE38005130332</xtee:isikukood>
+  </env:Header>
+  <env:Body>
+    <dhl:deleteOldDocuments>
+      <keha/>
+    </dhl:deleteOldDocuments>
+  </env:Body>
+</env:Envelope>
+```
 
 ##### Päringu vastus
 
+```
+HTTP/1.1 200 OK
+SOAPAction: ""
+Content-Type: text/xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xtee="http://x-tee.riik.ee/xsd/xtee.xsd"
+  xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"
+  xmlns:dhl="http://www.riik.ee/schemas/dhl">
+  <env:Header>
+    <xtee:asutus>11181967</xtee:asutus>
+    <xtee:andmekogu>dhl</xtee:andmekogu>
+    <xtee:ametnik>38005130332</xtee:ametnik>
+    <xtee:nimi>dhl.deleteOldDocuments.v1</xtee:nimi>
+    <xtee:id>dhl_client_1</xtee:id>
+    <xtee:toimik/>
+    <xtee:isikukood>EE38005130332</xtee:isikukood>
+  </env:Header>
+  <soapenv:Body>
+    <dhl:deleteOldDocumentsResponse>
+      <paring/>
+      <keha>OK</keha>
+    </dhl:deleteOldDocumentsResponse>
+  </soapenv:Body>
+</soapenv:Envelope>
+```
 
 ###runSystemCheck
 
@@ -3060,10 +4119,64 @@ Päring kontrollib DVK serveri kriitiliste funktsioonide toimimist (andmebaasi l
 
 ##### Päring
 
+```
+POST /cgi-bin/consumer_proxy HTTP/1.0
+Content-Type: text/xml; charset=utf-8
 
+<?xml version="1.0" encoding="UTF-8"?>
+<env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:dhl="http://producers.dhl.xtee.riik.ee/producer/dhl"
+  xmlns:xtee="http://x-tee.riik.ee/xsd/xtee.xsd">  
+  <env:Header>
+    <xtee:asutus>11181967</xtee:asutus>
+    <xtee:andmekogu>dhl</xtee:andmekogu>
+    <xtee:ametnik>38005130332</xtee:ametnik>
+    <xtee:nimi>dhl.runSystemCheck.v1</xtee:nimi>
+    <xtee:id>dhl_client_1</xtee:id>
+    <xtee:toimik/>
+    <xtee:isikukood>EE38005130332</xtee:isikukood>
+  </env:Header>
+  <env:Body>
+    <dhl:runSystemCheck>
+      <keha/>
+    </dhl:runSystemCheck>
+  </env:Body>
+</env:Envelope>
+```
 
 ##### Päringu vastus
 
+```
+HTTP/1.1 200 OK
+SOAPAction: ""
+Content-Type: text/xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xtee="http://x-tee.riik.ee/xsd/xtee.xsd"
+  xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"
+  xmlns:dhl="http://www.riik.ee/schemas/dhl">
+  <env:Header>
+    <xtee:asutus>11181967</xtee:asutus>
+    <xtee:andmekogu>dhl</xtee:andmekogu>
+    <xtee:ametnik>38005130332</xtee:ametnik>
+    <xtee:nimi>dhl.runSystemCheck.v1</xtee:nimi>
+    <xtee:id>dhl_client_1</xtee:id>
+    <xtee:toimik/>
+    <xtee:isikukood>EE38005130332</xtee:isikukood>
+  </env:Header>
+  <soapenv:Body>
+    <dhl:runSystemCheckResponse>
+      <paring/>
+      <keha>OK</keha>
+    </dhl:runSystemCheckResponse>
+  </soapenv:Body>
+</soapenv:Envelope>
+```
 
 ###getSubdivisionList
 
@@ -3072,11 +4185,11 @@ Päring kontrollib DVK serveri kriitiliste funktsioonide toimimist (andmebaasi l
 Päringu nimi: dhl.getSubdivisionList.v1
 Sisendi keha: stringide massiiv
 Väljundi keha: massiiv andmetüübist „allyksus”:
-  kood string
-  nimetus string
-  asutuse\_kood string
-  lyhinimetus string
-  ks\_allyksuse\_lyhinimetus string(kõrgemalseisva allüksuse lühinimetus)
+    kood string
+    nimetus string
+    asutuse\_kood string
+    lyhinimetus string
+    ks\_allyksuse\_lyhinimetus string(kõrgemalseisva allüksuse lühinimetus)
 
 Päring tagastab sisendparameetriga etteantud asutuste allüksuste nimekirja. Päring on vajalik selleks, et oleks võimalik dokumente adresseerida asutuse allüksusele (et oleks teada, millisele allüksusele DVK serveris milline unikaalne kood vastab).
 
@@ -3086,35 +4199,117 @@ Antud päringu puhul esitatakse nii sisend- kui väljundandmed pakkimata ja kode
 
 ##### Päring
 
+```
+POST /cgi-bin/consumer_proxy HTTP/1.0
+Content-Type: text/xml; charset=utf-8
 
+<?xml version="1.0" encoding="UTF-8"?>
+<env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:dhl="http://producers.dhl.xtee.riik.ee/producer/dhl"
+  xmlns:xtee="http://x-tee.riik.ee/xsd/xtee.xsd"
+  xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/">  
+  <env:Header>
+    <xtee:asutus>12345678</xtee:asutus>
+    <xtee:andmekogu>dhl</xtee:andmekogu>
+    <xtee:ametnik>12345678901</xtee:ametnik>
+    <xtee:nimi>dhl.getSubdivisionList.v1</xtee:nimi>
+    <xtee:id>dhl_client_1</xtee:id>
+    <xtee:toimik/>
+    <xtee:isikukood>EE12345678901</xtee:isikukood>
+  </env:Header>
+  <env:Body>
+    <dhl:getSubdivisionList>
+      <keha xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="xsd:string[3]">
+        <asutus>12345678</asutus>
+        <asutus>23456789</asutus>
+        <asutus>34567890</asutus>
+      </keha>
+    </dhl:getSubdivisionList>
+  </env:Body>
+</env:Envelope>
+```
 
 ##### Päringu vastus
 
+```
+HTTP/1.1 200 OK
+SOAPAction: ""
+Content-Type: text/xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xtee="http://x-tee.riik.ee/xsd/xtee.xsd"
+  xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"
+  xmlns:dhl="http://www.riik.ee/schemas/dhl">
+  <env:Header>
+    <xtee:asutus>12345678</xtee:asutus>
+    <xtee:andmekogu>dhl</xtee:andmekogu>
+    <xtee:ametnik>12345678901</xtee:ametnik>
+    <xtee:nimi>dhl.getSubdivisionList.v1</xtee:nimi>
+    <xtee:id>dhl_client_1</xtee:id>
+    <xtee:toimik/>
+    <xtee:isikukood>EE12345678901</xtee:isikukood>
+  </env:Header>
+  <soapenv:Body>
+    <dhl:getSubdivisionListResponse>
+      <paring xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="xsd:string[3]">
+        <asutus>12345678</asutus>
+        <asutus>23456789</asutus>
+        <asutus>34567890</asutus>
+      </paring>
+      <keha xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="dhl:allyksus[4]">
+        <allyksus>
+          <kood>1</kood>
+          <nimetus>IT osakond</nimetus>
+          <asutuse_kood>12345678</asutuse_kood>
+          <lyhinimetus>IT</lyhinimetus>
+          <ks_allyksuse_lyhinimetus>YLD</ks_allyksuse_lyhinimetus>
+        </allyksus>
+        <allyksus>
+          <kood>2</kood>
+          <nimetus>Üldosakond</nimetus>
+          <asutuse_kood>12345678</asutuse_kood>
+          <lyhinimetus>YLD</lyhinimetus>
+          <ks_allyksuse_lyhinimetus/>
+        </allyksus>
+        <allyksus>
+          <kood>12</kood>
+          <nimetus>Raamatupidamisosakond</nimetus>
+          <asutuse_kood>23456789</asutuse_kood>
+          <lyhinimetus>RMTP</lyhinimetus>
+          <ks_allyksuse_lyhinimetus/>
+        </allyksus>
+        <allyksus>
+          <kood>28</kood>
+          <nimetus>Haldusosakond</nimetus>
+          <asutuse_kood>34567890</asutuse_kood>
+          <lyhinimetus>haldus</lyhinimetus>
+          <ks_allyksuse_lyhinimetus/>
+        </allyksus>
+      </keha>
+    </dhl:getSubdivisionListResponse>
+  </soapenv:Body>
+</soapenv:Envelope>
+```
 
 ####getSubdivisionList.v2
 
 Päringu getSubdivisionList versioon v2 eelneb varasematest versioonidest selle poolest, et päringu ja vastuse andmed asuvad nüüd SOAP sõnumi manustes (varasemates versioonides asusid andmed SOAP sõnumi kehas).
 
 Päringu nimi: dhl.getSubdivisionList.v2
-
 Sisendi keha:
-
-asutusedstringide massiiv päringu MIME manuses base64 kujul
-
+    asutused    stringide massiiv päringu MIME manuses base64 kujul
 Väljundi keha:
-
-allyksusedmassiiv andmetüübist allyksus päringu MIME manuses base64
-kujul
-
-koodstring
-
-nimetusstring
-
-asutuse\_koodstring
-
-lyhinimetusstring
-
-ks\_allyksuse\_lyhinimetusstring(kõrgemalseisva allüksuse lühinimetus)
+    allyksused    massiiv andmetüübist allyksus päringu MIME manuses base64 kujul
+    kood    string
+    nimetus    string
+    asutuse\_kood    string
+    lyhinimetus    string
+    ks\_allyksuse\_lyhinimetus    string(kõrgemalseisva allüksuse lühinimetus)
 
 Päring tagastab sisendparameetriga etteantud asutuste allüksuste nimekirja. Päring on vajalik selleks, et oleks võimalik dokumente adresseerida asutuse allüksusele (et oleks teada, millisele allüksusele DVK serveris milline unikaalne kood vastab).
 
@@ -3124,43 +4319,150 @@ Antud päringu sisend- ja väljundandmed saadetakse SOAP sõnumi MIME manustes. 
 
 ##### Päring
 
+```
+POST /cgi-bin/consumer_proxy HTTP/1.0
+Content-Type: text/xml; charset=utf-8
 
+<?xml version="1.0" encoding="UTF-8"?>
+<env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:dhl="http://producers.dhl.xtee.riik.ee/producer/dhl"
+  xmlns:xtee="http://x-tee.riik.ee/xsd/xtee.xsd">  
+  <env:Header>
+    <xtee:asutus>12345678</xtee:asutus>
+    <xtee:andmekogu>dhl</xtee:andmekogu>
+    <xtee:ametnik>12345678901</xtee:ametnik>
+    <xtee:nimi>dhl.getSubdivisionList.v2</xtee:nimi>
+    <xtee:id>dhl_client_1</xtee:id>
+    <xtee:toimik/>
+    <xtee:isikukood>EE12345678901</xtee:isikukood>
+  </env:Header>
+  <env:Body>
+    <dhl:getSubdivisionList>
+      <keha>
+        <asutused href="cid:1265809289328"/>
+      </keha>
+    </dhl:getSubdivisionList>
+  </env:Body>
+</env:Envelope>
+
+------=_Part_1_16862753.1265809289328
+Content-Type: {http://www.w3.org/2001/XMLSchema}base64Binary
+Content-Transfer-Encoding: binary
+Content-Id: <1265809289328>
+Content-Encoding: gzip
+
+H4sIAAAAAAAAALNJLC4tKS1OTbGzgbDsLMzNTE2MjQxt9KECMAlDI2MTUzNzC4SEPlwzAG7f6Q9HAAAA
+------=_Part_1_16862753.1265809289328—
+```
 
 ##### Päringu vastus
 
+```
+HTTP/1.1 200 OK
+SOAPAction: ""
+Content-Type: text/xml
 
+<?xml version="1.0" encoding="utf-8"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xtee="http://x-tee.riik.ee/xsd/xtee.xsd"
+  xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"
+  xmlns:dhl="http://www.riik.ee/schemas/dhl">
+  <env:Header>
+    <xtee:asutus>12345678</xtee:asutus>
+    <xtee:andmekogu>dhl</xtee:andmekogu>
+    <xtee:ametnik>12345678901</xtee:ametnik>
+    <xtee:nimi>dhl.getSubdivisionList.v2</xtee:nimi>
+    <xtee:id>dhl_client_1</xtee:id>
+    <xtee:toimik/>
+    <xtee:isikukood>EE12345678901</xtee:isikukood>
+  </env:Header>
+  <soapenv:Body>
+    <dhl:getSubdivisionListResponse>
+      <paring>
+        <asutused>142E7683AA18F590EFEC96751000D91F</asutused>
+      </paring>
+      <keha>
+        <allyksused href="cid:B6EBE21AD4CC96D41942366EFADCFEFF"/>
+      </keha>
+    </dhl:getSubdivisionListResponse>
+  </soapenv:Body>
+</soapenv:Envelope>
+
+------=_Part_22_9158501.1265809289375
+Content-Type: {http://www.w3.org/2001/XMLSchema}base64Binary
+Content-Transfer-Encoding: binary
+Content-Id: <B6EBE21AD4CC96D41942366EFADCFEFF>
+Content-Encoding: gzip
+
+H4sIAAAAAAAAALXSzQqDMAwA4FfxDWTqfg5B2GGHocJwY1cJNGyltZXVDnz7FcWyyUAQPCVNmvAVCihlJ4w...
+Y6n+7x3eNW8N/z64R9dnckT7gIAAA==
+------=_Part_22_9158501.1265809289375--
+```
 
 ##### Päringu „keha“ elemendi sisu
 
 Elemendi „keha“ sisu kodeerimata kujul on:
 
-
+```
+<asutused>
+    <asutus>87654321</asutus>
+    <asutus>12345678</asutus>
+</asutused>
+```
 
 ##### Vastuse „keha“ elemendi sisu
 
 Elemendi „keha“ sisu kodeerimata kujul on:
 
-
+```
+<allyksused>
+    <allyksus>
+        <kood>1</kood>
+        <nimetus>IT osakond</nimetus>
+        <asutuse_kood>12345678</asutuse_kood>
+        <lyhinimetus>IT</lyhinimetus>
+        <ks_allyksuse_lyhinimetus>YLD</ks_allyksuse_lyhinimetus>
+    </allyksus>
+    <allyksus>
+        <kood>2</kood>
+        <nimetus>Üldosakond</nimetus>
+        <asutuse_kood>12345678</asutuse_kood>
+        <lyhinimetus>YLD</lyhinimetus>
+        <ks_allyksuse_lyhinimetus/>
+    </allyksus>
+    <allyksus>
+        <kood>12</kood>
+        <nimetus>Raamatupidamisosakond</nimetus>
+        <asutuse_kood>87654321</asutuse_kood>
+        <lyhinimetus>RMTP</lyhinimetus>
+        <ks_allyksuse_lyhinimetus/>
+    </allyksus>
+    <allyksus>
+        <kood>28</kood>
+        <nimetus>Haldusosakond</nimetus>
+        <asutuse_kood>87654321</asutuse_kood>
+        <lyhinimetus>haldus</lyhinimetus>
+        <ks_allyksuse_lyhinimetus/>
+    </allyksus>
+</allyksused>
+```
 
 ###getOccupationList
 
 ####getOccupationList.v1
 
 Päringu nimi: dhl.getOccupationList.v1
-
 Sisendi keha: stringide massiiv
-
 Väljundi keha: massiiv andmetüübist „ametikoht”:
-
-koodstring
-
-nimetusstring
-
-asutuse\_koodstring
-
-lyhinimetusstring
-
-ks\_allyksuse\_lyhinimetusstring(kõrgemalseisva allüksuse lühinimetus)
+    kood   string
+    nimetus     string
+    asutuse\_kood   string
+    lyhinimetus     string
+    ks\_allyksuse\_lyhinimetus string(kõrgemalseisva allüksuse lühinimetus)
 
 Päring tagastab sisendparameetriga etteantud asutuste ametikohtade
 nimekirja. Päring on vajalik selleks, et oleks võimalik dokumente
@@ -3174,35 +4476,115 @@ ja kodeerimata kujul.
 
 ##### Päring
 
+```
+POST /cgi-bin/consumer_proxy HTTP/1.0
+Content-Type: text/xml; charset=utf-8
 
+<?xml version="1.0" encoding="UTF-8"?>
+<env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:dhl="http://producers.dhl.xtee.riik.ee/producer/dhl"
+  xmlns:xtee="http://x-tee.riik.ee/xsd/xtee.xsd"
+  xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/">  
+  <env:Header>
+    <xtee:asutus>12345678</xtee:asutus>
+    <xtee:andmekogu>dhl</xtee:andmekogu>
+    <xtee:ametnik>12345678901</xtee:ametnik>
+    <xtee:nimi>dhl.getOccupationList.v1</xtee:nimi>
+    <xtee:id>dhl_client_1</xtee:id>
+    <xtee:toimik/>
+    <xtee:isikukood>EE12345678901</xtee:isikukood>
+  </env:Header>
+  <env:Body>
+    <dhl:getOccupationList>
+      <keha xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="xsd:string[2]">
+        <asutus>12345678</asutus>
+        <asutus>23456789</asutus>
+      </keha>
+    </dhl:getOccupationList>
+  </env:Body>
+</env:Envelope>
+```
 
 ##### Päringu vastus
 
+```
+HTTP/1.1 200 OK
+SOAPAction: ""
+Content-Type: text/xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xtee="http://x-tee.riik.ee/xsd/xtee.xsd"
+  xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"
+  xmlns:dhl="http://www.riik.ee/schemas/dhl">
+  <env:Header>
+    <xtee:asutus>12345678</xtee:asutus>
+    <xtee:andmekogu>dhl</xtee:andmekogu>
+    <xtee:ametnik>12345678901</xtee:ametnik>
+    <xtee:nimi>dhl.getOccupationList.v1</xtee:nimi>
+    <xtee:id>dhl_client_1</xtee:id>
+    <xtee:toimik/>
+    <xtee:isikukood>EE12345678901</xtee:isikukood>
+  </env:Header>
+  <soapenv:Body>
+    <dhl:getOccupationListResponse>
+      <paring xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="xsd:string[2]">
+        <asutus>12345678</asutus>
+        <asutus>23456789</asutus>
+      </paring>
+      <keha xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="dhl:ametikoht[4]">
+        <ametikoht>
+          <kood>2</kood>
+          <nimetus>Peadirektor</nimetus>
+          <asutuse_kood>12345678</asutuse_kood>
+          <lyhinimetus>DIR</lyhinimetus>
+          <ks_allyksuse_lyhinimetus/>
+        </ametikoht>
+        <ametikoht>
+          <kood>7</kood>
+          <nimetus>Finantsdirektor</nimetus>
+          <asutuse_kood>12345678</asutuse_kood>
+          <lyhinimetus>FIN-DIR</lyhinimetus>
+          <ks_allyksuse_lyhinimetus/>
+        </ametikoht>
+        <ametikoht>
+          <kood>46</kood>
+          <nimetus>Dokumendihaldusosakonna juhataja</nimetus>
+          <asutuse_kood>23456789</asutuse_kood>
+          <lyhinimetus>DH-JUH</lyhinimetus>
+          <ks_allyksuse_lyhinimetus>DH</ks_allyksuse_lyhinimetus>
+        </ametikoht>
+        <ametikoht>
+          <kood>92</kood>
+          <nimetus>Raamatupidaja</nimetus>
+          <asutuse_kood>23456789</asutuse_kood>
+          <lyhinimetus>RMTP</lyhinimetus>
+          <ks_allyksuse_lyhinimetus>RMTP</ks_allyksuse_lyhinimetus>
+        </ametikoht>
+      </keha>
+    </dhl:getOccupationListResponse>
+  </soapenv:Body>
+</soapenv:Envelope>
+```
 
 ####getOccupationList.v2
 
 Päringu getOccupationList versioon v2 eelneb varasematest versioonidest selle poolest, et päringu ja vastuse andmed asuvad nüüd SOAP sõnumi manustes (varasemates versioonides asusid andmed SOAP sõnumi kehas).
 
 Päringu nimi: dhl. getOccupationList.v2
-
 Sisendi keha:
-
-asutusedstringide massiiv päringu MIME manuses base64 kujul
-
+    asutused    stringide massiiv päringu MIME manuses base64 kujul
 Väljundi keha:
-
-ametikohadmassiiv andmetüübist allyksus päringu MIME manuses base64
-kujul
-
-koodstring
-
-nimetusstring
-
-asutuse\_koodstring
-
-lyhinimetusstring
-
-ks\_allyksuse\_lyhinimetusstring(kõrgemalseisva allüksuse lühinimetus)
+    ametikohad  massiiv andmetüübist allyksus päringu MIME manuses base64 kujul
+    kood    string
+    nimetus     string
+    asutuse\_kood   string
+    lyhinimetus     string
+    ks\_allyksuse\_lyhinimetus  string(kõrgemalseisva allüksuse lühinimetus)
 
 Päring tagastab sisendparameetriga etteantud asutuste ametikohtade nimekirja. Päring on vajalik selleks, et oleks võimalik dokumente adresseerida asutuse ametikohtadele (et oleks teada, millisele ametikohale DVK serveris milline unikaalne kood vastab).
 
@@ -3212,23 +4594,137 @@ Antud päringu sisend- ja väljundandmed saadetakse SOAP sõnumi MIME manustes. 
 
 ##### Päring
 
+```
+POST /cgi-bin/consumer_proxy HTTP/1.0
+Content-Type: text/xml; charset=utf-8
 
+<?xml version="1.0" encoding="UTF-8"?>
+<env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:dhl="http://producers.dhl.xtee.riik.ee/producer/dhl"
+  xmlns:xtee="http://x-tee.riik.ee/xsd/xtee.xsd">  
+  <env:Header>
+    <xtee:asutus>12345678</xtee:asutus>
+    <xtee:andmekogu>dhl</xtee:andmekogu>
+    <xtee:ametnik>12345678901</xtee:ametnik>
+    <xtee:nimi>dhl.getOccupationList.v2</xtee:nimi>
+    <xtee:id>dhl_client_1</xtee:id>
+    <xtee:toimik/>
+    <xtee:isikukood>EE12345678901</xtee:isikukood>
+  </env:Header>
+  <env:Body>
+    <dhl:getOccupationList>
+      <keha>
+        <asutused href="cid:1265809289390"/>
+      </keha>
+    </dhl:getOccupationList>
+  </env:Body>
+</env:Envelope>
+
+------=_Part_2_11235685.1265809289406
+Content-Type: {http://www.w3.org/2001/XMLSchema}base64Binary
+Content-Transfer-Encoding: binary
+Content-Id: <1265809289390>
+Content-Encoding: gzip
+
+H4sIAAAAAAAAALNJLC4tKS1OTbGzgbDsLMzNTE2MjQxt9KECMAlDI2MTUzNzC4SEPlwzAG7f6Q9HAAAA
+------=_Part_2_11235685.1265809289406—
+```
 
 ##### Päringu vastus
 
+```
+HTTP/1.1 200 OK
+SOAPAction: ""
+Content-Type: text/xml
 
+<?xml version="1.0" encoding="utf-8"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xtee="http://x-tee.riik.ee/xsd/xtee.xsd"
+  xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"
+  xmlns:dhl="http://www.riik.ee/schemas/dhl">
+  <env:Header>
+    <xtee:asutus>12345678</xtee:asutus>
+    <xtee:andmekogu>dhl</xtee:andmekogu>
+    <xtee:ametnik>12345678901</xtee:ametnik>
+    <xtee:nimi>dhl.getOccupationList.v2</xtee:nimi>
+    <xtee:id>dhl_client_1</xtee:id>
+    <xtee:toimik/>
+    <xtee:isikukood>EE12345678901</xtee:isikukood>
+  </env:Header>
+  <soapenv:Body>
+    <dhl:getOccupationListResponse>
+      <paring>
+        <asutused>142E7683AA18F590EFEC96751000D91F</asutused>
+      </paring>
+      <keha>
+        <ametikohad href="cid: DD284357A5C7762760F2BA30D7AD3B48"/>
+      </keha>
+    </dhl:getOccupationListResponse>
+  </soapenv:Body>
+</soapenv:Envelope>
+
+------=_Part_22_9158501.1265809289375
+Content-Type: {http://www.w3.org/2001/XMLSchema}base64Binary
+Content-Transfer-Encoding: binary
+Content-Id: < DD284357A5C7762760F2BA30D7AD3B48>
+Content-Encoding: gzip
+
+H4sIAAAAAAAAALNJzE0tyczOz0hMsbOBsUvsbLLz81PsDG30wbRNXiZQprTYLvjwnpyUTIWy/KLczKxEG32...
+Y4VR/JCwDpUv8hzwAAAA==
+------=_Part_22_9158501.1265809289375--
+``` 
 
 ##### Päringu „keha“ elemendi sisu
 
 Elemendi „keha“ sisu kodeerimata kujul on:
 
-
+```
+<asutused>
+    <asutus>87654321</asutus>
+    <asutus>12345678</asutus>
+</asutused>
+``` 
 
 ##### Vastuse „keha“ elemendi sisu
 
 Elemendi „keha“ sisu kodeerimata kujul on:
 
-
+```
+<ametikohad>
+    <ametikoht>
+        <kood>2</kood>
+        <nimetus>Peadirektor</nimetus>
+        <asutuse_kood>12345678</asutuse_kood>
+        <lyhinimetus>DIR</lyhinimetus>
+        <ks_allyksuse_lyhinimetus/>
+    </ametikoht>
+    <ametikoht>
+        <kood>7</kood>
+        <nimetus>Finantsdirektor</nimetus>
+        <asutuse_kood>12345678</asutuse_kood>
+        <lyhinimetus>FIN-DIR</lyhinimetus>
+        <ks_allyksuse_lyhinimetus/>
+    </ametikoht>
+    <ametikoht>
+        <kood>46</kood>
+        <nimetus>Dokumendihaldusosakonna juhataja</nimetus>
+        <asutuse_kood>87654321</asutuse_kood>
+        <lyhinimetus>DH-JUH</lyhinimetus>
+        <ks_allyksuse_lyhinimetus>DH</ks_allyksuse_lyhinimetus>
+    </ametikoht>
+    <ametikoht>
+        <kood>92</kood>
+        <nimetus>Raamatupidaja</nimetus>
+        <asutuse_kood>87654321</asutuse_kood>
+        <lyhinimetus>RMTP</lyhinimetus>
+        <ks_allyksuse_lyhinimetus>RMTP</ks_allyksuse_lyhinimetus>
+    </ametikoht>
+</ametikohad>
+``` 
 
 ##Kasutusõiduste süsteem DVK rakenduses
 
@@ -3334,25 +4830,19 @@ Nii XML failide kui ka digitaalallkirjade valideerimist saab DVK serveri konfigu
 ***Faili dhl.properties näidis:**\
 *
 
-\# Konteineri valideerimise seaded
+```
+# Konteineri valideerimise seaded
+server_validate_container = no
+server_ignore_invalid_containers = no
 
-*server\_validate\_container = no*
+# Määrab, kas DVK server üritab valideerida konteineri sisus
+# edastatavaid XML faile.
+server_validate_xml_files = no
 
-*server\_ignore\_invalid\_containers = no*
-
-\# Määrab, kas DVK server üritab valideerida konteineri sisus
-
-\# edastatavaid XML faile.
-
-*server\_validate\_xml\_files = no*
-
-\# Määrab, kas DVK server üritab valideerida digiallkirja
-
-\# konteinerite küljes olevaid allkirju.
-
-*server\_validate\_signatures = no*
-
-**
+# Määrab, kas DVK server üritab valideerida digiallkirja
+# konteinerite küljes olevaid allkirju.
+server_validate_signatures = no
+``` 
 
 
 ##Adressaatide automaatne lisamine DVK serveris
@@ -3366,6 +4856,39 @@ Automaatse adressaatide lisamise korral muudab DVK server saadetava dokumendikon
 DVK serveri poolt automaatselt lisatavaid aadressaate saab seadistada DVK serveri andmetabelis VASTUVOTJA\_MALL. Nimetatud andmetabeli struktuur näeb välja järgmine:
 
 TABEL!!!
+
+Andmevälja nimi
+Kirjeldus
+vastuvotja_mall_id
+Kirje unikaalne ID. Selle määrab andmebaas automaatselt.
+asutus_id
+Lisatava adressaadi asutuse ID. Viitab tabelisse ASUTUS.
+Vähemalt see lahter peaks adressaadi puhul alati täidetud olema.
+asutuse_nimi
+Lisatava adressaadi asutuse nimi.
+ametikoht_id
+Lisatava adressaadi ametikoha ID. Viitab tabelisse AMETIKOHT.
+isikukood
+Lisatava adressaadi isikukood.
+nimi
+Lisatava adressaadi nimi (isiku nimi)
+email
+Lisatava adressaadi e-posti aadress.
+osakonna_nr
+Lisatava adressaadi osakonna kood.
+Selle lahtri väärtust DVK server dokumentide edastamisel otseselt ei kasuta ja see on mõeldud pigem dokumendi vastuvõtnud infosüsteemile.
+osakonna_nimi
+Lisatava adressaadi osakonna nimetus.
+Selle lahtri väärtust DVK server dokumentide edastamisel otseselt ei kasuta ja see on mõeldud pigem dokumendi vastuvõtnud infosüsteemile.
+saatmisviis_id
+Saatmisviisi ID. Viitab tabelisse KLASSIFIKAATOR.
+DVK kaudu saatmise korral on selle lahtri väärtuseks 1.
+allyksus_id
+Lisatava adressaadi allüksuse ID. Viitab tabelisse ALLYKSUS.
+tingimus_xpath
+XPATH tingimus, millele vastavale XML konteinerile lisatakse ülejäänud lahtrites kirjeldatud adressaat. XPATH tingimuse kirjeldamisel tuleks ignoreerida DVK konteineri XML nimeruumide lühendeid ning kasutada XPATH stringis ainult elementide ja atribuutide lokaalseid nimesid.
+DVK server lisab adressaadi dokumendile siis, kui konteineri XML struktuurist õnnestub leida XPATH tingimusele vastav element.
+
 
 XPATH tingimuse näiteid:
 
@@ -3391,23 +4914,24 @@ XPATH tingimuse näiteid:
 5.  Oletame, et adressaat tuleks lisada dokumendile, mille metaxml blokk
     sisaldab järgmises XML näites paksemas kirjas esitatud väärtust:
 
-*&lt;dokument&gt;\
-...\
-&lt;metaxml&gt;\
-&lt;lepingu\_andmed&gt;\
-&lt;osapooled&gt;\
-&lt;osapool&gt;\
-&lt;registrikood&gt;**12345678**&lt;/registrikood&gt;\
-&lt;nimetus&gt;Ettevote1 AS&lt;/nimetus&gt;\
-&lt;/osapool&gt;\
-&lt;/osapooled&gt;\
-&lt;/lepingu\_andmed&gt;\
-&lt;/metaxml&gt;\
-...\
-&lt;/dokument&gt;*
+```
+<dokument>
+    ...
+    <metaxml>
+        <lepingu_andmed>
+            <osapooled>
+                <osapool>
+                    <registrikood>12345678</registrikood>
+                    <nimetus>Ettevote1 AS</nimetus>
+                </osapool>
+            </osapooled>
+        </lepingu_andmed>
+    </metaxml>
+    ...
+</dokument>
+``` 
 
-Sellisel juhul näeks andmeväli TINGIMUS\_XPATH väärtus välja järgmine:\
-*/dokument/metaxml/lepingu\_andmed/osapooled/osapool\[registrikood='12345678'\]*
+    Sellisel juhul näeks andmeväli TINGIMUS\_XPATH väärtus välja järgmine:\ */dokument/metaxml/lepingu\_andmed/osapooled/osapool\[registrikood='12345678'\]*
 
 
 
@@ -3446,11 +4970,49 @@ Tehniline lahendus jääb dokumendi saatja seisukohast täpselt samasuguseks nag
 
 Vastuvõtja seisukohast lisandub käesoleva lahendusega täiendav kirje „vahendaja“ DVK konteineri transport plokis. Antud kirje näol on tegemist automaatselt täidetavate andmetega, mille lisab DVK dokumendikonteinerisse dokumendi edastanud DVK server.
 
-
-
-
-
-
+```
+<dhl:transport>
+        <dhl:saatja>
+            <dhl:regnr>11111111</dhl:regnr>
+            <dhl:asutuse_nimi>Asutuse nimi</dhl:asutuse_nimi>
+            <dhl:allyksuse_kood>10</dhl:allyksuse_kood>
+            <dhl:allyksuse_nimetus>Saatmisosakond</dhl:allyksuse_nimetus>
+            <dhl:ametikoha_kood>20</dhl:ametikoha_kood>
+            <dhl:ametikoha_nimetus>Saatja</dhl:ametikoha_nimetus>
+            <dhl:isikukood>30000000001</dhl:isikukood>
+            <dhl:nimi>Isiku nimi</dhl:nimi>
+            <dhl:epost>epost@saatja.ee</dhl:epost>
+            <dhl:osakonna_kood>Osakonna kood</dhl:osakonna_kood>
+            <dhl:osakonna_nimi>Osakonna nimi</dhl:osakonna_nimi>
+        </dhl:saatja>
+        <dhl:saaja>
+            <dhl:regnr>33333333</dhl:regnr>
+            <dhl:asutuse_nimi>Asutuse nimi</dhl:asutuse_nimi>
+            <dhl:allyksuse_kood>11</dhl:allyksuse_kood>
+            <dhl:allyksuse_nimetus>Vastuvõtuosakond</dhl:allyksuse_nimetus>
+            <dhl:ametikoha_kood>21</dhl:ametikoha_kood>
+            <dhl:ametikoha_nimetus>Vastuvõtja</dhl:ametikoha_nimetus>
+            <dhl:isikukood>31111111112</dhl:isikukood>
+            <dhl:nimi>Isiku nimi</dhl:nimi>
+            <dhl:epost>epost@vastuvotja.ee</dhl:epost>
+            <dhl:osakonna_kood>Osakonna kood</dhl:osakonna_kood>
+            <dhl:osakonna_nimi>Osakonna nimi</dhl:osakonna_nimi>
+        </dhl:saaja>
+        <dhl:vahendaja>
+            <dhl:regnr>22222222</dhl:regnr>
+            <dhl:asutuse_nimi>Asutuse nimi</dhl:asutuse_nimi>
+            <dhl:allyksuse_kood/>
+            <dhl:allyksuse_nimetus/>
+            <dhl:ametikoha_kood/>
+            <dhl:ametikoha_nimetus/>
+            <dhl:isikukood>40000000001</dhl:isikukood>
+            <dhl:nimi>Isiku nimi</dhl:nimi>
+            <dhl:epost>epost@vahendaja.ee</dhl:epost>
+            <dhl:osakonna_kood/>
+            <dhl:osakonna_nimi/>
+        </dhl:vahendaja>
+    </dhl:transport>
+```
 
 Vahendaja kirje on ennekõike vajalik selleks, et DVK server lubaks dokumendiedastuse vahendajaks olnud asutusel teostada dokumendi edastuse staatust puudutavaid päringuid (üldjuhul on see õigus üksnes dokumendi saatjal).
 
@@ -3469,9 +5031,10 @@ Kuna dokumentide edastamine ühest DVK serverist teise toimub X-Tee päringutega
 
 Selleks tuleb DVK serveri konfiguratsioonifaili dhl.properties lisada järgmised read:
 
-*client\_default\_org\_code = 12345678*
-
-*client\_default\_person\_code = 11111111111*
+```
+client_default_org_code = 12345678
+client_default_person_code = 11111111111
+``` 
 
 **Väliste serverite aadresside lisamine DVK serverisse**
 
@@ -3516,23 +5079,21 @@ Content-Transfer-Encoding päises:
 
 Et MIME manustena saadetakse Base64 kodeeritud binaarfaile, siis peaks manused saama endale järgmise päise:
 
+```
 Content-Type:{http://www.w3.org/2001/XMLSchema}base64Binary
-
-*Content-Transfer-Encoding:**base64***
-
+Content-Transfer-Encoding:base64
 Content-Encoding: gzip
-
 Content-ID: ...
+``` 
 
 DVK rakendus väljastab aga kõik MIME manused järgmise päisega:
 
+``` 
 Content-Type:{http://www.w3.org/2001/XMLSchema}base64Binary
-
-*Content-Transfer-Encoding:**binary***
-
+Content-Transfer-Encoding:binary
 Content-Encoding: gzip
-
-*Content-ID: ...*
+Content-ID: ...
+``` 
 
 Antud juhul tuleks arvestada, et hoolimata päises märgitud *binary* kodeeringust saadab DVK MIME manuseid ikkagi Base64 kodeeritult. Samuti ignoreerib DVK rakendus antud päist saabuvate sõnumite puhul ning eeldab, et manus on saadetud Base64 kodeeritud kujul.
 
@@ -3541,33 +5102,29 @@ DVK rakendus ei suuda päringut korrektselt vastu võtta, kui saadetava sõnumi 
 
 DVK päringud töötavad korrektselt näiteks järgmise päise korral:
 
-POST /cgi-bin/consumer\_proxy HTTP/1.0
-
-*Content-Type: multipart/related; **type="text/xml";**
-start="&lt;FC392E97EB481BFCEB435125AA3B5B51&gt;";
-boundary="----=\_Part\_0\_20230270.1171971312715"*
-
+<pre>
+POST /cgi-bin/consumer_proxy HTTP/1.0
+Content-Type: multipart/related; <b>type="text/xml";</b> start="<FC392E97EB481BFCEB435125AA3B5B51>";   boundary="----=_Part_0_20230270.1171971312715"
 User-Agent: Axis/1.3
-
 ...
+</pre>
 
 DVK päringud ei tööta aga korrektselt näiteks järgmise päise korral:
 
-POST /cgi-bin/consumer\_proxy HTTP/1.0
-
-*Content-Type: multipart/related; **type=text/xml**;
-start="&lt;FC392E97EB481BFCEB435125AA3B5B51&gt;";
-boundary="----=\_Part\_0\_20230270.1171971312715"*
-
+<pre> 
+POST /cgi-bin/consumer_proxy HTTP/1.0
+Content-Type: multipart/related; <b>type=text/xml;</b> start="<FC392E97EB481BFCEB435125AA3B5B51>";     boundary="----=_Part_0_20230270.1171971312715"
 User-Agent: Axis/1.3
-
 ...
+</pre>
+
+
 
 Antud viga põhjustab Apache Axis 1.3 koosseisus kasutatav JavaMail teek, mis eeldab nimetatud jutumärkide olemasolu.
 
 
 
-##LISA 1: 1 Kasutatavate andmete XML Schema kirjeldused
+##LISA 1: Kasutatavate andmete XML Schema kirjeldused
 
 Alates versioonist 1.6.0 on kasutusel uus versioon DVK konteinerist. Seoses uue versiooni kasutuselevõtuga tekkisid ka uued nimeruumid
 manuaalsete metaandmete ja dokumenti kirjeldavate elementide jaoks. DVK konteineri uus versioon (2) töötab paralleelselt vanema versiooniga (1).
@@ -3618,14 +5175,291 @@ DVK konteineri versioon 2 puhul:
 -   XML skeemifaili asukoht on:
     *http://www.riik.ee/schemas/dhl/dhl.2010.r1.xsd*
 
-###Päringut WSDL kirjeldus
+###Päringute WSDL kirjeldus
 
 Päringute WSDL kirjeldus asub failis dhl.wsdl. See fail asub DVK serveri paketis juurkaustas. SVN-is:
 https://svn.eesti.ee/projektid/dvk/server/trunk/src/main/webapp/
 
 ##LISA 2: &lt;dokument&gt; XML struktuuri kasutusnäide (DVK konteineri versioon 1)
 
-
+```
+<dhl:dokument xmlns:dhl="http://www.riik.ee/schemas/dhl" dhl:schemaLocation=““>
+  <dhl:metainfo xmlns:ma="http://www.riik.ee/schemas/dhl-meta-automatic" ma:schemaLocation=“ http://www.riik.ee/schemas/dhl/dhl-meta-automatic.xsd“
+ xmlns:mm="http://www.riik.ee/schemas/dhl-meta-manual" mm:schemaLocation=“ http://www.riik.ee/schemas/dhl/dhl-meta-manual.xsd“>
+        
+    <!— Seda osa pole ise vaja täita, selle täidab DVK väljuval sõnumil ise -->
+    <ma:dhl_id>100</ma:dhl_id>
+    <ma:dhl_saabumisviis>xtee</ma:dhl_saabumisviis>
+    <ma:dhl_saabumisaeg>2006-03-16T14:11:23+02:00</ma:dhl_saabumisaeg>
+    <ma:dhl_saatmisviis>xtee</ma:dhl_saatmisviis>
+    <ma:dhl_saatmisaeg>2006-03-15T18:17:00+02:00</ma:dhl_saatmisaeg>
+    <ma:dhl_saatja_asutuse_nr>12345678</ma:dhl_saatja_asutuse_nr>
+    <ma:dhl_saatja_isikukood>37501010001</ma:dhl_saatja_isikukood>
+    <ma:dhl_saaja_asutuse_nr>87654321</ma:dhl_saaja_asutuse_nr>
+    <ma:dhl_saaja_isikukood>37005050005</ma:dhl_saaja_isikukood>
+    <ma:dhl_saatja_epost>hunt.kriimsilm@kuivendus.ee</ma:dhl_saatja_epost>
+    <ma:dhl_saaja_epost>karupoeg.puhh@vallavalitsus.ee</ma:dhl_saaja_epost>
+    <ma:dhl_kaust>/KIRJAD</ma:dhl_kaust>
+    <!— Automaatselt täidetava osa lõpp -->
+    
+    <mm:koostaja_asutuse_nr>12345678</mm:koostaja_asutuse_nr>
+    <mm:saaja_asutuse_nr>87654321</mm:saaja_asutuse_nr>
+    <mm:koostaja_dokumendinimi>Kaeveloa taotlus, H. Kriimsilm</mm:koostaja_dokumendinimi>
+    <mm:koostaja_dokumendityyp>Taotlus</mm:koostaja_dokumendityyp>
+    <mm:koostaja_dokumendinr>A-101</mm:koostaja_dokumendinr>
+    <mm:koostaja_failinimi>taotlus_hkriimsilm_110306.doc</mm:koostaja_failinimi>
+    <mm:koostaja_kataloog>/home/users/kriimsilm/dokumendid</mm:koostaja_kataloog>
+    <mm:koostaja_votmesona>taotlus, kraav</mm:koostaja_votmesona>
+    <mm:koostaja_kokkuvote>
+      Kaeveloa taotlus 200m kraavi kaevamiseks kahe kinnistu
+      piirile N maakonna X vallas.
+    </mm:koostaja_kokkuvote>
+    <mm:koostaja_kuupaev>2006-02-11T14:11:23+02:00</mm:koostaja_kuupaev>
+    <mm:koostaja_asutuse_nimi>Kuivendusekspert OÜ</mm:koostaja_asutuse_nimi>
+    <mm:koostaja_asutuse_kontakt>6 543 210</mm:koostaja_asutuse_kontakt>
+    <mm:autori_osakond>Projekteerimisosakond</mm:autori_osakond>
+    <mm:autori_isikukood>37501010001</mm:autori_isikukood>
+    <mm:autori_nimi>Hunt Kriimsilm</mm:autori_nimi>
+    <mm:autori_kontakt>56 123 456</mm:autori_kontakt>
+    <mm:seotud_dokumendinr_koostajal>B-005</mm:seotud_dokumendinr_koostajal>
+    <mm:seotud_dokumendinr_saajal>KT-2006-14</mm:seotud_dokumendinr_saajal>
+    <mm:saatja_dokumendinr>A-101</mm:saatja_dokumendinr>
+    <mm:saatja_kuupaev>2006-02-12T01:02:03+02:00</mm:saatja_kuupaev>
+    <mm:saatja_asutuse_kontakt>6 543 210</mm:saatja_asutuse_kontakt>
+    <mm:saaja_isikukood>37005050005</mm:saaja_isikukood>
+    <mm:saaja_nimi>Karupoeg Puhh</mm:saaja_nimi>
+    <mm:saaja_osakond>Maaparandusosakond</mm:saaja_osakond>
+    <mm:saatja_defineeritud mm:valjanimi="PlaneeringuNr">1825/1</mm:saatja_defineeritud>
+    <mm:saatja_defineeritud mm:valjanimi="EhitusloaNr">2005-195</mm:saatja_defineeritud>
+  </dhl:metainfo>
+  <dhl:transport>
+    <dhl:saatja>
+      <dhl:regnr>12345678</dhl:regnr>
+      <dhl:isikukood>37501010001</dhl:isikukood>
+      <dhl:ametikoha_kood>171</dhl:ametikoha_kood>
+      <dhl:ametikoha_nimetus>Noorembrigadir</dhl:ametikoha_nimetus>
+      <dhl:epost>hunt.kriimsilm@kuivendus.ee</dhl:epost>
+      <dhl:nimi>Hunt Kriimsilm</dhl:nimi>
+      <dhl:asutuse_nimi>Kuivendusekspert OÜ</dhl:asutuse_nimi>
+      <dhl:allyksuse_kood>10</dhl:allyksuse_kood>
+      <dhl:allyksuse_nimetus>Planeerimisosakond</dhl:allyksuse_nimetus>
+      <dhl:osakonna_kood>1</dhl:osakonna_kood>
+      <dhl:osakonna_nimi>Planeerimisosakond</dhl:osakonna_nimi>
+    </dhl:saatja>
+    <dhl:saaja>
+      <dhl:regnr>87654321</dhl:regnr>
+      <dhl:isikukood>37005050005</dhl:isikukood>
+      <dhl:ametikoha_kood>411</dhl:ametikoha_kood>
+      <dhl:ametikoha_kood>Peaspetsialist</dhl:ametikoha_kood>
+      <dhl:epost>karupoeg.puhh@vallavalitsus.ee</dhl:epost>
+      <dhl:nimi>Karupoeg Puhh</dhl:nimi>
+      <dhl:asutuse_nimi>Vallavalitsus</dhl:asutuse_nimi>
+      <dhl:allyksuse_kood>7</dhl:allyksuse_kood>
+      <dhl:allyksuse_nimetus>Maaparandusosakond</dhl:allyksuse_nimetus>
+      <dhl:osakonna_kood>MP</dhl:osakonna_kood>
+      <dhl:osakonna_nimi>Maaparandusosakond</dhl:osakonna_nimi>
+    </dhl:saaja>
+  </dhl:transport>
+  <dhl:ajalugu/>
+  <dhl:metaxml xmlns="http://www.riik.ee/schemas/dhl/rkel_letter"
+    schemaLocation="http://www.riik.ee/schemas/dhl/rkel_letter
+    http://www.riik.ee/schemas/dhl/rkel_letter.xsd">
+    <Addressees>
+      <Addressee>
+        <Organisation>
+          <organisationName>Vallavalitsus</organisationName>
+          <departmentName>Maaparandusosakond</departmentName>
+        </Organisation>
+        <Person>
+          <firstname>Karupoeg</firstname>
+          <surname>Puhh</surname>
+          <jobtitle>Peaspetsialist</jobtitle>
+          <email>karupoeg.puhh@vallavalitsus.ee</email>
+          <telephone>53 535 353</telephone>
+        </Person>
+      </Addressee>
+    </Addressees>
+    <Author>
+      <Organisation>
+        <organisationName>Kuivendusekspert OÜ</organisationName>
+        <departmentName>Planeerimisosakond</departmentName>
+      </Organisation>
+      <Person>
+        <firstname>Hunt</firstname>
+        <surname>Kriimsilm</surname>
+        <jobtitle>Noorembrigadir</jobtitle>
+        <email>hunt.kriimsilm@kuivendus.ee</email>
+        <telephone>6 543 210</telephone>
+      </Person>
+    </Author>
+    <Signatures>
+      <Signature>
+        <Person>
+          <firstname>Krokodill</firstname>
+          <surname>Gena</surname>
+          <jobtitle>Tegevjuht</jobtitle>
+          <email>krokodill.gena@kuivendus.ee</email>
+          <telephone>6 543 200</telephone>
+        </Person>
+        <SignatureData>
+          <SignatureDate>2006-03-11</SignatureDate>
+          <SignatureTime>18:11:10</SignatureTime>
+        </SignatureData>
+      </Signature>
+      <Signature>
+        <Person>
+          <firstname>Piilupart</firstname>
+          <surname>Donald</surname>
+          <jobtitle>Ehitusjärelvalve inspektor</jobtitle>
+          <email>piilupart.donald@maavalitsus.ee</email>
+          <telephone>77 43 210</telephone>
+        </Person>
+        <SignatureData>
+          <SignatureDate>2006-03-14</SignatureDate>
+          <SignatureTime>23:59:59</SignatureTime>
+        </SignatureData>
+      </Signature>
+    </Signatures>
+    <Compilators>
+      <Compilator>
+        <firstname>Hunt</firstname>
+          <surname>Kriimsilm</surname>
+          <jobtitle>Noorembrigadir</jobtitle>
+          <email>hunt.kriimsilm@kuivendus.ee</email>
+          <telephone>6 543 210</telephone>
+        </Compilator>
+      </Compilators>
+      <LetterMetaData>
+        <SignDate>2006-02-11</SignDate>
+        <SenderIdentifier>A-101</SenderIdentifier>
+        <OriginalIdentifier>A-101</OriginalIdentifier>
+        <Type>Taotlus</Type>
+        <Language>Eesti keel</Language>
+        <Title>Kaeveloa taotlus, H. Kriimsilm</Title>
+        <Deadline>2006-04-20</Deadline>
+        <Enclosures>
+          <EnclosureTitle>Kraavi projekt</EnclosureTitle>
+          <EnclosureTitle>Ehitusjärelvalve osakonna luba</EnclosureTitle>
+        </Enclosures>
+        <AccessRights>
+          <Restriction>Asutusesiseseks kasutamiseks</Restriction>
+          <BeginDate>2006-03-16</BeginDate>
+          <EndDate>2011-03-16</EndDate>
+          <Reason>Seadus §67 lg. 3</Reason>
+        </AccessRights>
+      </LetterMetaData>
+    </dhl:metaxml>
+    <SignedDoc/>
+</dhl:dokument>
+``` 
 
 ##LISA 3: &lt;dokument&gt; XML struktuuri kasutusnäide (DVK konteineri versioon 2)
 
+```
+<dhl:dokument xmlns:dhl="http://www.riik.ee/schemas/dhl/2010/r1" dhl:schemaLocation=“http://www.riik.ee/schemas/dhl.2010.r1.xsd“>
+    <dhl:metainfo xmlns:ma="http://www.riik.ee/schemas/dhl-meta-automatic" ma:schemaLocation=“ http://www.riik.ee/schemas/dhl/dhl-meta-automatic.2010.r1.xsd“
+ xmlns:mm="http://www.riik.ee/schemas/dhl-meta-manual" mm:schemaLocation=“ http://www.riik.ee/schemas/dhl/dhl-meta-manual.2010.r1.xsd“>
+        <mm:koostaja_asutuse_nr>87654321</mm:koostaja_asutuse_nr>
+        <mm:saaja_asutuse_nr>99954321</mm:saaja_asutuse_nr>
+        <mm:koostaja_dokumendinimi>Avaldus üritus</mm:koostaja_dokumendinimi>
+        <mm:koostaja_dokumendityyp>Avaldus</mm:koostaja_dokumendityyp>
+        <mm:koostaja_dokumendinr>A-101</mm:koostaja_dokumendinr>
+        <mm:koostaja_failinimi>document.doc</mm:koostaja_failinimi>
+        <mm:koostaja_kataloog>C:\Dokumendid</mm:koostaja_kataloog>
+        <mm:koostaja_votmesona>avaldus</mm:koostaja_votmesona>
+        <mm:koostaja_kokkuvote>Avaldus massiürituse korraldamiseks</mm:koostaja_kokkuvote>
+        <mm:koostaja_kuupaev>2006-02-11T14:11:23+02:00</mm:koostaja_kuupaev>
+        <mm:koostaja_asutuse_nimi>Asutus AS</mm:koostaja_asutuse_nimi>
+        <mm:koostaja_asutuse_kontakt>Lauteri 21a</mm:koostaja_asutuse_kontakt>
+        <mm:autori_osakond>Haldusosakond</mm:autori_osakond>
+        <mm:autori_isikukood>45604020013</mm:autori_isikukood>
+        <mm:autori_nimi>Jaana Lind</mm:autori_nimi>
+        <mm:autori_kontakt>51 22 762</mm:autori_kontakt>
+        <mm:seotud_dokumendinr_koostajal>XY-123</mm:seotud_dokumendinr_koostajal>
+        <mm:seotud_dokumendinr_saajal>?Õ-ZŠ//Ä</mm:seotud_dokumendinr_saajal>
+        <mm:saatja_dokumendinr>AB-123</mm:saatja_dokumendinr>
+        <mm:saatja_kuupaev>2006-02-12T01:02:03+02:00</mm:saatja_kuupaev>
+        <mm:saatja_asutuse_kontakt>Pärnu mnt. 176a</mm:saatja_asutuse_kontakt>
+        <mm:saaja_isikukood>38802280237</mm:saaja_isikukood>
+        <mm:saaja_nimi>Eino Muidugi</mm:saaja_nimi>
+        <mm:saaja_osakond>Sanitaarosakond</mm:saaja_osakond>
+        <mm:saatja_defineeritud mm:valjanimi="Koosolekul osaleja 1">Aksel</mm:saatja_defineeritud>
+        <mm:saatja_defineeritud mm:valjanimi="Koosolekul osaleja 2">Heldur</mm:saatja_defineeritud>
+        <mm:saatja_defineeritud mm:valjanimi="Koosolekul osaleja 3">Mari</mm:saatja_defineeritud>
+        <mm:saatja_defineeritud mm:valjanimi="Koosolekul osaleja 4">Loreida</mm:saatja_defineeritud>
+        <mm:test>false</mm:test>
+        <mm:dokument_liik>Kiri</mm:dokument_liik>
+        <mm:dokument_keel>Eesti</mm:dokument_keel>
+        <mm:dokument_pealkiri>Test dokument</mm:dokument_pealkiri>
+        <mm:versioon_number>1</mm:versioon_number>
+        <mm:dokument_guid>cd171f7c-560d-4a62-8d65-16b87419a58c</mm:dokument_guid>
+        <mm:dokument_viit>1.2/4-6</mm:dokument_viit>
+        <mm:kuupaev_registreerimine>2010-02-12T01:02:03+02:00</mm:kuupaev_registreerimine>
+        <mm:kuupaev_saatmine>2010-02-14T01:02:03+02:00</mm:kuupaev_saatmine>
+        <mm:tahtaeg>2010-02-28T01:02:03+02:00</mm:tahtaeg>
+        <mm:saatja_kontekst>
+          <mm:seosviit>1.1/5-7</mm:seosviit>
+          <mm:kuupaev_saatja_registreerimine>2010-02-04T01:02:03+02:00</mm:kuupaev_saatja_registreerimine>
+          <mm:dokument_saatja_guid>17084b40-08f5-4bcd-a739-c0d08c176bad</mm:dokument_saatja_guid>
+        </mm:saatja_kontekst>
+        <mm:ipr>
+          <mm:ipr_tahtaeg>2012-01-01T00:00:00+02:00</mm:ipr_tahtaeg>
+          <mm:ipr_omanik></mm:ipr_omanik>
+          <mm:reprodutseerimine_keelatud>true</mm:reprodutseerimine_keelatud>
+        </mm:ipr>
+        <mm:juurdepaas_piirang>
+          <mm:piirang>Salastatud</mm:piirang>
+          <mm:piirang_algus>2009-01-01T00:00:00+02:00</mm:piirang_algus>
+          <mm:piirang_lopp>2020-01-01T00:00:00+02:00</mm:piirang_lopp>
+          <mm:piirang_alus>Riigisaladus</mm:piirang_alus>
+        </mm:juurdepaas_piirang>
+        <mm:koostajad>
+          <mm:koostaja>
+            <mm:eesnimi>Marko</mm:eesnimi>
+            <mm:perenimi>Kurm</mm:perenimi>
+            <mm:ametinimetus>Arendaja</mm:ametinimetus>
+            <mm:epost>marko.kurm@microlink.ee</mm:epost>
+            <mm:telefon>543322556</mm:telefon>
+          </mm:koostaja>
+        </mm:koostajad>
+    </dhl:metainfo>
+    <dhl:transport>
+        <dhl:saatja>
+            <dhl:regnr>87654321</dhl:regnr>
+            <dhl:nimi>Jaak Lember</dhl:nimi>
+            <dhl:asutuse_nimi>Asutus</dhl:asutuse_nimi>
+            <dhl:ametikoha_nimetus>Insenser</dhl:ametikoha_nimetus>
+            <dhl:ametikoha_lyhinimetus>INSENER</dhl:ametikoha_lyhinimetus>
+            <dhl:allyksuse_nimetus>Sepikoda</dhl:allyksuse_nimetus>
+            <dhl:allyksuse_lyhinimetus>SEPIKODA</dhl:allyksuse_lyhinimetus>
+        </dhl:saatja>
+        <dhl:saaja>
+            <dhl:regnr>99954321</dhl:regnr>
+            <dhl:asutuse_nimi>Maa-amet</dhl:asutuse_nimi>
+            <dhl:allyksuse_lyhinimetus>SEPIKODA</dhl:allyksuse_lyhinimetus>
+            <dhl:allyksuse_nimetus>Sepikoda</dhl:allyksuse_nimetus>
+            <dhl:teadmiseks>teadmiseks</dhl:teadmiseks>
+            <dhl:ametikoha_nimetus>Sepp</dhl:ametikoha_nimetus>
+            <dhl:ametikoha_lyhinimetus>SEPP</dhl:ametikoha_lyhinimetus>
+        </dhl:saaja>
+    </dhl:transport>
+    <dhl:ajalugu/>
+    <dhl:metaxml>
+        ...
+    </dhl:metaxml>
+    <dhl:failid>
+      <dhl:kokku>1</dhl:kokku>
+      <dhl:fail>
+        <dhl:jrknr>1</dhl:jrknr>
+        <dhl:fail_pealkiri>Test dokument</dhl:fail_pealkiri>
+        <dhl:fail_suurus>779</dhl:fail_suurus>
+        <dhl:fail_tyyp>text/plain</dhl:fail_tyyp>
+        <dhl:fail_nimi>testdoc.txt</dhl:fail_nimi>
+        <dhl:zip_base64_sisu>...</dhl:zip_base64_sisu>
+        <dhl:krypteering>false</dhl:krypteering>
+        <dhl:pohi_dokument>true</dhl:pohi_dokument>
+      </dhl:fail>
+    </dhl:failid>
+    <dhl:konteineri_versioon>2</dhl:konteineri_versioon>
+</dhl:dokument>
+``` 
