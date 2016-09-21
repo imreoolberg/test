@@ -682,6 +682,7 @@ Dokumendi koostaja kontakttelefon
 ###Transport blokk dokumendis
 
 Transport blokk sisaldab dokumendi edasisaatmiseks kriitilist vajalikku infot. Blokk on kohustuslik, kui dokument on mõeldud edasisaatmiseks. Täpsemalt vaata dokumentide logistika peatükist ja dhl.xsd schemast edasises. Ka siin sõltub bloki struktuur kasutatavast DVK konteineri versioonist. **Versioon 1** puhul on kasutusel järgmine struktuur:
+
 ```xml
 <dhl:transport xmlns:dhl="http://www.riik.ee/schemas/dhl">
   <!-- üks saatja info blokk -->
@@ -986,6 +987,9 @@ Saatmisinfo kirje sisaldab ka elemendi „olek“, **mille väärtus määrab do
 - „katkestatud“ – vähemalt ühele saajale ei õnnestunud dokumenti edastada.
 
 ####Dokumentide vastuvõtt
+
+!!PILT 
+
 DHS-i poolne teiste asutuste poolt antud asutusele saadetud dokumentide vastuvõtt toimub päringu *dhl.receiveDocuments* abil. Päring tagastab kõik DVK-s antud asutusele teiste asutuste poolt edastatud dokumendid. Päringule saab elemendi „arv“ abil määrata piirangu, mitu dokumenti maksimaalselt tohib vastuses tagastada. Lisaks saab elemendi „kaust“ abil määrata kausta(d), kust dokumente loetakse.
 Päring tagastab loetud dokumentide massiivi.
 Peale edukat dokumentide vastuvõttu peab DHS käivitama päringu *dhl.markDocumentsReceived*, mille abil signaliseeritakse DVK-le, et näidatud dokumendid said edukalt alla laetud. Sellest päringust eksisteerib 3 versiooni:
@@ -1007,23 +1011,25 @@ Päring tagastab oma kehas väärtuse „OK“.
 
 ###sendDocuments.v1
 
-Päringu nimi: dhl.sendDocuments.v1
-Sisendi keha: Struct
-    base64Binary dokumendid
-    string kaust
-Väljundi keha: base64Binary
+<pre style="font-family: 'Roboto', sans-serif;">
+Päringu nimi: dhl.sendDocuments.v1  
+Sisendi keha: Struct  
+        base64Binary - dokumendid  
+        string - kaust  
+Väljundi keha: base64Binary  
+</pre>
 
 Päring tuleb realiseerida vastavalt X-Tee dokumentatsioonis MIME manuseid sisaldavate teadete realiseerimise skeemile.
 Element „dokumendid“ on base64 kodeeringus documentsArrayType tüüpi massiiv DVK-sse saadetavatest dokumentidest.
 Element „kaust“ määrab ära kataloogitee, kuhu tuleb dokumendid paigutada. Element võib ka puududa, sellisel juhul on kataloogiks üldine juurkataloog „/”. Kui elemendiga „kaust” antud kausta ei eksisteeri DVK-s, siis luuakse see automaatselt.
-Väljundi kehaks on base64 kodeeringus documentRefsArrayType tüüpi massiiv, mis sisaldab DVK poolt dokumentidele omistatud unikaalseid ID-e.
+Väljundi kehaks on base64 kodeeringus documentRefsArrayType tüüpi massiiv, mis sisaldab DVK poolt dokumentidele omistatud unikaalseid ID-e.  
 Dokumentide saatmisel sendDocuments päringuga teostatakse DVK konteineri ning saadetavate XML, DDOC ja BDOC failide valideerimine. Täpsem info failide valideerimise kohta asub käesoleva dokumendi peatükis „[Edastatavate dokumentide valideerimine DVK serveris](#edastatavate-dokumentide-valideerimine-dvk-serveris)“.
 
 ####Näide
 
 #####Päring
 
-```
+```xml
 POST /cgi-bin/consumer_proxy HTTP/1.0
 Content-Type: multipart/related; type=text/xml;
     boundary="=_b5a8d09eeeb161be29def84633d6f6fc"
@@ -1173,7 +1179,7 @@ Elemendi „keha“ sisu kodeerimata kujul on: `<dhl_id>54365435</dhl>`
 
 Kui saadeti korraga mitu dokumenti, siis on elemendi „keha“ sisu kodeerimata kujul selline:
 
-```
+```xml
 <dhl_id>54365435</dhl_id>
 <dhl_id>54365436</dhl_id>
 <dhl_id>54365437</dhl_id>
@@ -1181,16 +1187,17 @@ Kui saadeti korraga mitu dokumenti, siis on elemendi „keha“ sisu kodeerimata
 
 ###sendDocuments.v2
 Päringu sendDocuments versioon v2 erineb eelmisest versioonist selle poolest, et võimaldab dokumente DVK serverisse saata fragmenteeritud kujul.
-
+<pre style="font-family: 'Roboto', sans-serif;">
 Päringu nimi: dhl.sendDocuments.v2
 Sisendi keha: Struct
-    base64Binary dokumendid
-    string kaust
-    date sailitustahtaeg
-    string edastus\_id
-    integer fragment\_nr
-    integer fragmente\_kokku
+        base64Binary - dokumendid
+        string - kaust
+        date - sailitustahtaeg
+        string - edastus_id
+        integer - fragment_nr
+        integer - fragmente_kokku
 Väljundi keha: base64Binary
+</pre>
 
 Päring tuleb realiseerida vastavalt X-Tee dokumentatsioonis MIME manuseid sisaldavate teadete realiseerimise skeemile.
 Element „dokumendid“ on base64 kodeeringus documentsArrayType tüüpi massiiv DVK-sse saadetavatest dokumentidest.
@@ -1213,7 +1220,7 @@ Dokumentide saatmisel sendDocuments päringuga teostatakse DVK konteineri ning s
 
 ##### Päring
 
-```
+```xml
 POST /cgi-bin/consumer_proxy HTTP/1.0
 Content-Type: multipart/related; type=text/xml;
     boundary="=_b5a8d09eeeb161be29def84633d6f6fc"
@@ -1270,7 +1277,7 @@ dg0KbmVwYWxpCW5lDQpuaXZoaQnkdA0KbmphbmT+YQlueQ0Kbm9nYWkJ9ncNCg==
 
 ##### Päringu vastus
 
-```
+```xml
 HTTP/1.1 200 OK
 Content-Type: multipart/related; type=text/xml;
     boundary="=_9d665408f43f4698f71029c2df2b834e"
@@ -1330,7 +1337,7 @@ dC4K
 
 Elemendi „dokumendid“ sisu kodeerimata kujul on:
 
-```
+```xml
 <dokument xmlns:dhl="http://producers.dhl.xtee.riik.ee/producer/dhl">
     <metainfo/>
     <transport>
@@ -1371,13 +1378,13 @@ Elemendi „dokumendid“ sisu kodeerimata kujul on:
 
 Elemendi „keha“ sisu kodeerimata kujul on:
 
-```
+```xml
 <dhl_id>54365435</dhl_id>
 ```
 
 Kui saadeti korraga mitu dokumenti, siis on elemendi „keha“ sisu kodeerimata kujul selline:
 
-```
+```xml
 <dhl_id>54365435</dhl_id>
 <dhl_id>54365436</dhl_id>
 <dhl_id>54365437</dhl_id>
@@ -1391,7 +1398,7 @@ Päring tuleb realiseerida vastavalt X-Tee dokumentatsioonis MIME manuseid sisal
 
 ##### Päring
 
-```
+```xml
 POST /cgi-bin/consumer_proxy HTTP/1.0
 Content-Type: multipart/related; type=text/xml;
     boundary="=_b5a8d09eeeb161be29def84633d6f6fc"
@@ -1448,7 +1455,7 @@ dg0KbmVwYWxpCW5lDQpuaXZoaQnkdA0KbmphbmT+YQlueQ0Kbm9nYWkJ9ncNCg==
 
 ##### Päringu vastus
 
-```
+```xml
 HTTP/1.1 200 OK
 Content-Type: multipart/related; type=text/xml;
     boundary="=_9d665408f43f4698f71029c2df2b834e"
@@ -1505,7 +1512,7 @@ dC4K
 
 ##### Päringu „dokumendid“ elemendi sisu
 
-```
+```xml
 <dokument xmlns:dhl="http://producers.dhl.xtee.riik.ee/producer/dhl/2010/2">
     <metainfo/>
     <transport>
@@ -1561,11 +1568,11 @@ dC4K
 ##### Päringu vastuses „keha“ elemendi sisu
 
 Elemendi „keha“ sisu kodeerimata kujul on:
-```
+```xml
 <dhl_id>54365435</dhl_id>
 ```
 Kui saadeti korraga mitu dokumenti, siis on elemendi „keha“ sisu kodeerimata kujul selline:
-```
+```xml
 <dhl_id>54365435</dhl_id>
 <dhl_id>54365436</dhl_id>
 <dhl_id>54365437</dhl_id>
@@ -1577,9 +1584,8 @@ Päring erineb versioonist 3 selle poolest, et teenus võtab vastu kapsli versio
 
 ####Näide:
 
-
 #####Päring
-```
+```xml
 POST dhl/services/dhlHttpSoapPort HTTP/1.1
 Accept-Encoding: gzip,deflate
 Content-Type: multipart/related; type="text/xml"; start="<rootpart@soapui.org>"; boundary="----=_Part_0_316047069.1405334028041"
@@ -1793,7 +1799,7 @@ xmlns:xtee="http://x-tee.riik.ee/xsd/xtee.xsd">
 
 #####Päringu vastus:
 
-```
+```xml
 HTTP/1.1 200 OK
 Server: Apache-Coyote/1.1
 Content-Type: multipart/related; type="text/xml"; start="<5574F4BD89CBE8B76D6026DA6266F8AC>";   boundary="----=_Part_0_49658970.1405334024943"
@@ -1843,7 +1849,7 @@ H4sIAAAAAAAAALPJTs1ItLNJyciJz0yxMzMxMrbRh3Js9MFyAK8AUnUiAAAA
 
 Vastuse keha sisu pärast base64 dekodeerimise ning Gzip'ist lahti
 pakkimist:
-```
+```xml
 <keha><dhl_id>6423</dhl_id></keha>
 ```
 
@@ -1851,25 +1857,26 @@ pakkimist:
 
 ####getSendStatus.v1
 
-Päringu nimi: dhl.getSendStatus.v1
-Sisendi keha: base64Binary
-Väljundi keha: base64Binary
+<pre style="font-family: 'Roboto', sans-serif;">
+Päringu nimi: dhl.getSendStatus.v1  
+Sisendi keha: base64Binary  
+Väljundi keha: base64Binary  
+</pre>
 
-Sisendi kehaks on base64 kodeeringus documentRefsArrayType tüüpi massiiv, mis sisaldab DVK poolt dokumentidele omistatud unikaalseid ID-e, mille kohta saatmisinfot soovitakse saada.
+Sisendi kehaks on base64 kodeeringus documentRefsArrayType tüüpi massiiv, mis sisaldab DVK poolt dokumentidele omistatud unikaalseid ID-e, mille kohta saatmisinfot soovitakse saada.  
 Väljundi kehaks on base64 kodeeringus massiiv, mille elemendid „item“ on struktuurid elementidega:
 
 - dhl\_id – dokumendile DVK poolt omistatud unikaalne id
 - edastus – null kuni mitu elementi, millest igaüks kirjeldab konkreetse edastuse infot (vt punkt „Edastatud dokumentide staatuse kontroll“)
 - olek – dokumendi edastamise koondolek
 
-Olekute täpsema kirjelduse leiad käesoleva dokumendi peatüki „Dokumentide logistika” alampeatükist „[Edastatud dokumentide staatuse
-kontroll](#Edastatud-dokumentide-staatuse-kontroll)”.
+Olekute täpsema kirjelduse leiad käesoleva dokumendi peatüki „Dokumentide logistika” alampeatükist „[Edastatud dokumentide staatuse kontroll](#Edastatud-dokumentide-staatuse-kontroll)”.
 
 #### Näide
 
 ##### Päring
 
-```
+```xml
 POST /cgi-bin/consumer_proxy HTTP/1.0
 Content-Type: multipart/related; type=text/xml;
     boundary="=_b5a8d09eeeb161be29def84633d6f6fc"
@@ -1919,7 +1926,7 @@ dg0KbmVwYWxpCW5lDQpuaXZoaQnkdA0KbmphbmT+YQlueQ0Kbm9nYWkJ9ncNCg==
 
 ##### Päringu vastus
 
-```
+```xml
 HTTP/1.1 200 OK
 Content-Type: multipart/related; type=text/xml;
     boundary="=_9d665408f43f4698f71029c2df2b834e"
@@ -1971,7 +1978,7 @@ dC4K
 
 Elemendi „keha“ sisu kodeerimata kujul on:
 
-```
+```xml
 <dhl_id>54365435</dhl_id>
 ```
 
@@ -1979,7 +1986,7 @@ Elemendi „keha“ sisu kodeerimata kujul on:
 
 Elemendi „keha“ sisu kodeerimata kujul on:
 
-```
+```xml
 <item>
   <dhl_id>54365435</dhl_id>
   <edastus>
@@ -2028,16 +2035,18 @@ Elemendi „keha“ sisu kodeerimata kujul on:
 
 ####getSendStatus.v2
 
-Päringu nimi: dhl.getSendStatus.v2
-Sisendi keha: Struct
-    dokumendid  base64Binary
-    staatuse\_ajalugu   boolean
+<pre style="font-family: 'Roboto', sans-serif;">
+Päringu nimi: dhl.getSendStatus.v2  
+Sisendi keha: Struct  
+        dokumendid  - base64Binary  
+        taatuse\_ajalugu  - boolean  
 Väljundi keha: base64Binary
+</pre>
 
 „dokumendid“ element sisendi kehas on base64 kodeeringus documentRefsArrayType tüüpi massiiv, mis sisaldab DVK poolt dokumentidele omistatud unikaalseid ID-e, mille kohta saatmisinfot soovitakse saada. „staatuse\_ajalugu“ parameetriga (true või false) saab määrata, kas päringu vastus sisaldab ka dokumentide staatuse ajalugu. Alternatiiv on kasutada dokumendi identifitseerimiseks dokumendi GUID-i.
 Selleks kasutatakse päringu sisendiks massiivi kujul:
 
-```
+```xml
 <item>
   <dokument_guid>25892e17-80f6-415f-9c65-7395632f0223</dokument_guid>
 </item>
@@ -2057,7 +2066,7 @@ kontroll](#Edastatud-dokumentide-staatuse-kontroll)”.
 
 ##### Päring
 
-```
+```xml
 POST /cgi-bin/consumer_proxy HTTP/1.0
 Content-Type: multipart/related; type=text/xml;
     boundary="=_b5a8d09eeeb161be29def84633d6f6fc"
@@ -2109,7 +2118,7 @@ dg0KbmVwYWxpCW5lDQpuaXZoaQnkdA0KbmphbmT+YQlueQ0Kbm9nYWkJ9ncNCg==
 
 ##### Päringu vastus
 
-```
+```xml
 HTTP/1.1 200 OK
 Content-Type: multipart/related; type=text/xml;
     boundary="=_9d665408f43f4698f71029c2df2b834e"
@@ -2165,7 +2174,7 @@ dC4K
 Elemendi „keha“ sisu kodeerimata kujul on (kasutatakse dokumendi DVK
 unikaalset ID-d):
 
-```
+```xml
 <item>
   <dhl_id>54365435</dhl_id>
 </item>
@@ -2174,7 +2183,7 @@ unikaalset ID-d):
 Elemendi „keha“ sisu kodeerimata kujul on (kasutatakse dokumendi
 GUID-i):
 
-```
+```xml
 <item>
   <dokument_guid>25892e17-80f6-415f-9c65-7395632f0223</dokument_guid>
 </item>
@@ -2184,7 +2193,7 @@ GUID-i):
 
 Elemendi „keha“ sisu kodeerimata kujul on:
 
-```
+```xml
 <item>
   <dhl_id>54365435</dhl_id>
   <dokument_guid>25892e17-80f6-415f-9c65-7395632f0223</dokument_guid>
@@ -2266,11 +2275,14 @@ Kui vastuvõtjale on saadetud 2.1 versioon kapslist ja asutuse toetatav kapsli v
 2.1 versiooni 1.0. **NB! Teistpidi konverteerimist ei eksisteeri.**
 
 ####receiveDocuments.v1
-Päringu nimi: dhl.receiveDocuments.v1
-Sisendi keha: Struct
-    integer   arv
-    string\[\]  kaust
+
+<pre style="font-family: 'Roboto', sans-serif;">
+Päringu nimi: dhl.receiveDocuments.v1  
+Sisendi keha: Struct  
+        integer -  arv  
+        string [] - kaust  
 Väljundi keha: base64Binary
+</pre>
 
 Element „arv“ määrab ära maksimaalse loetavate dokumentide arvu. Element võib puududa, sellisel juhul tagastatakse vaikimisi 10 dokumenti.
 
@@ -2282,7 +2294,7 @@ Väljund on base64 kodeeringus documentsArrayType tüüpi massiiv, mille iga ele
 
 #####Päring
 
-```
+```xml
 POST /cgi-bin/consumer_proxy HTTP/1.0
 Content-Type: text/xml
 SOAPAction: ""
@@ -2318,7 +2330,7 @@ SOAPAction: ""
 
 ##### Päring mitmest kaustast vastuvõtmise korral
 
-```
+```xml
 POST /cgi-bin/consumer_proxy HTTP/1.0
 Content-Type: text/xml
 SOAPAction: ""
@@ -2356,7 +2368,7 @@ SOAPAction: ""
 
 ##### Päringu vastus
 
-```
+```xml
 HTTP/1.1 200 OK
 Content-Type: multipart/related; type=text/xml;
     boundary="=_9d665408f43f4698f71029c2df2b834e"
@@ -2411,7 +2423,7 @@ dC4K
 
 Elemendi „keha“ sisu kodeerimata kujul on:
 
-```
+```xml
 <dokument>
   <metainfo>
     <dhl_id>54365435</dhl_id>
@@ -2453,14 +2465,16 @@ Elemendi „keha“ sisu kodeerimata kujul on:
 ####receiveDocuments.v2
 Päringu receiveDocuments versioon v2 erineb eelmisest versioonist selle poolest, et võimaldab dokumente DVK serverist alla laadida fragmenteeritud kujul.
 
-Päringu nimi: dhl.receiveDocuments.v2
-Sisendi keha: Struct
-    integer   arv
-    string\[\]  kaust
-    string  edastus\_id
-    integer   fragment\_nr
-    long  fragmendi\_suurus\_baitides
+<pre style="font-family: 'Roboto', sans-serif;">
+Päringu nimi: dhl.receiveDocuments.v2  
+Sisendi keha: Struct  
+        integer  - arv  
+        string[] - kaust  
+        string - edastus_id  
+        integer - fragment_nr  
+        long - fragmendi_suurus_baitides  
 Väljundi keha: base64Binary
+</pre>
 
 Element „arv“ määrab ära maksimaalse loetavate dokumentide arvu. Element võib puududa, sellisel juhul tagastatakse vaikimisi 10 dokumenti.
 
@@ -2478,7 +2492,7 @@ Väljund on base64 kodeeringus documentsArrayType tüüpi massiiv, mille iga ele
 
 ##### Päring
 
-```
+```xml
 POST /cgi-bin/consumer_proxy HTTP/1.0
 Content-Type: text/xml
 SOAPAction: ""
@@ -2514,7 +2528,7 @@ SOAPAction: ""
 
 ##### Päringu vastus
 
-```
+```xml
 HTTP/1.1 200 OK
 Content-Type: multipart/related; type=text/xml;
     boundary="=_9d665408f43f4698f71029c2df2b834e"
@@ -2572,7 +2586,7 @@ dC4K
 
 Elemendi „keha“ sisu kodeerimata kujul on:
 
-```
+```xml
 <dokument>
   <metainfo>
     <dhl_id>54365435</dhl_id>
@@ -2614,16 +2628,18 @@ Elemendi „keha“ sisu kodeerimata kujul on:
 ####receiveDocuments.v3
 Päringu receiveDocuments versioon v3 erineb eelmisest versioonist selle poolest, et võimaldab parameetritena ette anda allüksuse koodi ja ametikoha koodi. See võimaldab vastu võtta ainult konkreetsele allüksusele ja/või ametikohale adresseeritud dokumendid.
 
+<pre style="font-family: 'Roboto', sans-serif;">
 Päringu nimi: dhl.receiveDocuments.v3
 Sisendi keha: Struct
-    integer   arv
-    integer   allyksus
-    integer   ametikoht
-    string\[\]  kaust
-    string  edastus\_id
-    integer   fragment\_nr
-    long  fragmendi\_suurus\_baitides
+        integer - arv
+        integer - allyksus
+        integer - ametikoht
+        string[] - kaust
+        string - edastus_id
+        integer - fragment_nr
+        long - fragmendi_suurus_baitides
 Väljundi keha: base64Binary
+</pre>
 
 Element „arv“ määrab ära maksimaalse loetavate dokumentide arvu. Element võib puududa, sellisel juhul tagastatakse vaikimisi 10 dokumenti.
 
@@ -2645,7 +2661,7 @@ Väljund on base64 kodeeringus documentsArrayType tüüpi massiiv, mille iga ele
 
 ##### Päring
 
-```
+```xml
 POST /cgi-bin/consumer_proxy HTTP/1.0
 Content-Type: text/xml
 SOAPAction: ""
@@ -2681,7 +2697,7 @@ SOAPAction: ""
 
 ##### Päringu vastus
 
-```
+```xml
 HTTP/1.1 200 OK
 Content-Type: multipart/related; type=text/xml;
     boundary="=_9d665408f43f4698f71029c2df2b834e"
@@ -2741,7 +2757,7 @@ dC4K
 
 Elemendi „keha“ sisu kodeerimata kujul on:
 
-```
+```xml
 <dokument>
     <metainfo>
         <dhl_id>54365435</dhl_id>
@@ -2779,16 +2795,18 @@ Elemendi „keha“ sisu kodeerimata kujul on:
 
 Päringu receiveDocuments versioon v4 erineb versioonist V3 selle poolest, et võimaldab allüskuse ja ametikoha parameetritena kasutada lühinimetusi (versioon V3 kasutas numbrilisi ID koode). See võimaldab vastu võtta ainult konkreetsele allüksusele ja/või ametikohale adresseeritud dokumente. Vastussõnumis olevad dokumendid kasutavad DVK konteineri versioon 2.
 
+<pre style="font-family: 'Roboto', sans-serif;">
 Päringu nimi: dhl.receiveDocuments.v4
-    Sisendi keha: Struct
-    integer arv
-    string allyksuse\_lyhinimetus
-    string ametikoha\_lyhinimetus
-    string\[\] kaust
-    string edastus\_id
-    integer fragment\_nr
-    long fragmendi\_suurus\_baitides
+        Sisendi keha: Struct
+        integer - arv
+        string - allyksuse_lyhinimetus
+        string - ametikoha_lyhinimetus
+        string[] - kaust
+        string - edastus_id
+        integer - fragment_nr
+        long - fragmendi_suurus_baitides
 Väljundi keha: base64Binary
+</pre>
 
 Element „arv“ määrab ära maksimaalse loetavate dokumentide arvu. Element võib puududa, sellisel juhul tagastatakse vaikimisi 10 dokumenti.
 
@@ -2810,7 +2828,7 @@ Väljund on base64 kodeeringus documentsArrayType tüüpi massiiv, mille iga ele
 
 ##### Päring
 
-```
+```xml
 POST /cgi-bin/consumer_proxy HTTP/1.0
 Content-Type: text/xml
 SOAPAction: ""
@@ -2851,7 +2869,7 @@ SOAPAction: ""
 
 ##### Päringu vastus
 
-```
+```xml
 HTTP/1.1 200 OK
 Content-Type: multipart/related; type=text/xml;
     boundary="=_9d665408f43f4698f71029c2df2b834e"
@@ -2911,7 +2929,7 @@ dC4K
 
 Elemendi „keha“ sisu kodeerimata kujul on:
 
-```
+```xml
 <dokument>
     <metainfo>
         <dhl_id>54365435</dhl_id>
@@ -2965,12 +2983,13 @@ Elemendi „keha“ sisu kodeerimata kujul on:
 
 ####markDocumentsReceived.v1
 
+<pre style="font-family: 'Roboto', sans-serif;">
 Päringu nimi: dhl.markDocumentsReceived.v1
 Sisendi keha: Struct
-    base64Binary  dokumendid
-    string  kaust
+        base64Binary - dokumendid
+        string - kaust
 Väljundi keha: string
-
+</pre>
 
 Element „dokumendid“ on base64 kodeeringus documentRefsArrayType tüüpi massiiv, mille iga element sisaldab loetud dokumendile DVK poolt omistatud unikaalset ID-d. Kõik massiiviga antud dokumendid parameetriga „kaust” näidatud kaustast märgitakse kättesaaduks.
 
@@ -2982,7 +3001,7 @@ Päring tagastab väljundi kehaks stringi sisuga „OK“.
 
 ##### Päring
 
-```
+```xml
 POST /cgi-bin/consumer_proxy HTTP/1.0
 Content-Type: multipart/related; type=text/xml;
     boundary="=_b5a8d09eeeb161be29def84633d6f6fc"
@@ -3035,7 +3054,7 @@ dg0KbmVwYWxpCW5lDQpuaXZoaQnkdA0KbmphbmT+YQlueQ0Kbm9nYWkJ9ncNCg==
 
 ##### Päringu vastus
 
-```
+```xml
 HTTP/1.1 200 OK
 Content-Type: text/xml
 
@@ -3074,7 +3093,7 @@ xsi:type="xsd:string">6cae248568b3db7e97ff784673a4d38c5906bee0</xtee:id>
 
 Elemendi „keha“ sisu kodeerimata kujul on:
 
-```
+```xml
 <dhl_id>54365435</dhl_id>
 ```
 
@@ -3104,7 +3123,7 @@ Päring tagastab väljundi kehaks stringi sisuga „OK“.
 
 ##### Päring
 
-```
+```xml
 POST /cgi-bin/consumer_proxy HTTP/1.0
 Content-Type: multipart/related; type=text/xml;
     boundary="=_b5a8d09eeeb161be29def84633d6f6fc"
@@ -3157,7 +3176,7 @@ dg0KbmVwYWxpCW5lDQpuaXZoaQnkdA0KbmphbmT+YQlueQ0Kbm9nYWkJ9ncNCg==
 
 ##### Päringu vastus
 
-```
+```xml
 HTTP/1.1 200 OK
 Content-Type: text/xml
 
@@ -3196,7 +3215,7 @@ xsi:type="xsd:string">6cae248568b3db7e97ff784673a4d38c5906bee0</xtee:id>
 
 Elemendi „keha“ sisu kodeerimata kujul on:
 
-```
+```xml
 <item>
     <dhl_id>54365435</dhl_id>
     <vastuvotja_staatus_id>10</vastuvotja_staatus_id>
@@ -3251,7 +3270,7 @@ Päring tagastab väljundi kehaks stringi sisuga „OK“.
 
 ##### Päring
 
-```
+```xml
 POST /cgi-bin/consumer_proxy HTTP/1.0
 Content-Type: multipart/related; type=text/xml;
     boundary="=_b5a8d09eeeb161be29def84633d6f6fc"
@@ -3317,7 +3336,7 @@ Content-Transfer-Encoding:8bit
 
 ##### Päringu vastus
 
-```
+```xml
 HTTP/1.1 200 OK
 Content-Type: text/xml
 
@@ -3381,15 +3400,16 @@ xsi:type="xsd:string">6cae248568b3db7e97ff784673a4d38c5906bee0</xtee:id>
 
 ####getSendingOptions.v1
 
+<pre style="font-family: 'Roboto', sans-serif;">
 Päringu nimi: dhl.getSendingOptions.v1
 Sisendi keha: stringide massiiv
 Väljundi keha: massiiv andmetüübist „asutus”:
-    regnr   string
-    nimi  string
-    saatmine  massiiv
-    saatmisviis   string(väärtused: dhl | dhl\_otse)
-    ks\_asutuse\_regnr  string(kõrgemalseisva asutuse registrikood)
-
+        regnr - string
+        nimi - string
+        saatmine - massiiv
+        saatmisviis - string   (väärtused: dhl | dhl_otse)
+        ks_asutuse_regnr - string    (kõrgemalseisva asutuse registrikood)
+</pre>
 Päring annab teada, kas ja kui siis millisel moel on asutused võimelised DVK-d kasutama. Ilma sisendparameetriteta käivitamise korral tagastab päring nimekirja kõigist DVK-ga liitunud asutustest. Kui aga päringule anda sisendparameetriks nimekiri asutuste registrikoodidest, tagastab päring info nimekirjas sisaldunud asutuste võimekuse kohta DVK kaudu andmeid vahetada.
 
 Antud päringu puhul esitatakse nii sisend- kui väljundandmed pakkimata ja kodeerimata kujul.
@@ -3398,7 +3418,7 @@ Antud päringu puhul esitatakse nii sisend- kui väljundandmed pakkimata ja kode
 
 ##### Päring
 
-```
+```xml
 POST /cgi-bin/consumer_proxy HTTP/1.0
 Content-Type: text/xml; charset=utf-8
 
@@ -3431,7 +3451,7 @@ Content-Type: text/xml; charset=utf-8
 
 ##### Päringu vastus
 
-```
+```xml
 HTTP/1.1 200 OK
 SOAPAction: ""
 Content-Type: text/xml
@@ -3491,20 +3511,25 @@ Content-Type: text/xml
 </soapenv:Envelope>
 ```
 
-####getSendingOptions.v2
-
+####getSendingOptions.v2  
+<pre style="font-family: 'Roboto', sans-serif;">
 Päringu nimi: dhl.getSendingOptions.v2
+
 Sisendi keha: andmestruktuur:
-    asutused  stringide massiiv
-    vahetatud\_dokumente\_vahemalt  number
-    vahetatud\_dokumente\_kuni  number
-    vastuvotmata\_dokumente\_ootel  tõeväärtus (jah/ei)
+
+        asutused  - stringide massiiv
+        vahetatud_dokumente_vahemalt - number
+        vahetatud_dokumente_kuni - number
+        vastuvotmata_dokumente_ootel - tõeväärtus (jah/ei)
+
 Väljundi keha: massiiv andmetüübist „asutus”:
-    regnr   string
-    nimi  string
-    saatmine  massiiv
-    saatmisviis   string(väärtused: dhl | dhl\_otse)
-    ks\_asutuse\_regnr  string(kõrgemalseisva asutuse registrikood)
+
+        regnr - string
+        nimi - string
+        saatmine - massiiv
+                saatmisviis - string    (väärtused: dhl | dhl_otse)
+        ks_asutuse_regnr - string    (kõrgemalseisva asutuse registrikood)
+</pre>
 
 Päring annab teada, kas ja kui siis millisel moel on asutused võimelised DVK-d kasutama. Ilma sisendparameetriteta käivitamise korral tagastab päring nimekirja kõigist DVK-ga liitunud asutustest.
 
@@ -3522,7 +3547,7 @@ Antud päringu puhul esitatakse nii sisend- kui väljundandmed pakkimata ja kode
 
 ##### Päring
 
-```
+```xml
 POST /cgi-bin/consumer_proxy HTTP/1.0
 Content-Type: text/xml; charset=utf-8
 
@@ -3560,7 +3585,7 @@ Content-Type: text/xml; charset=utf-8
 
 ##### Päringu vastus
 
-```
+```xml
 HTTP/1.1 200 OK
 SOAPAction: ""
 Content-Type: text/xml
@@ -3622,45 +3647,51 @@ Content-Type: text/xml
 
 ####getSendingOptions.v3
 
-Päringu nimi:dhl.getSendingOptions.v3
-Sisendi keha:base64Binary
+<pre style="font-family: Segoe UI, Roboto, Helvetica, Arial, sans-serif;">
+Päringu nimi: dhl.getSendingOptions.v3
+
+Sisendi keha: base64Binary
 Sisendi keha kodeerimata kujul:
-    keha  Struct
-    asutused  massiiv
-    asutus  string
-    allyksused  massiiv
-    asutuse\_kood   string
-    lyhinimetus   string
-    ametikohad  massiiv
-    asutuse\_kood   string
-    lyhinimetus   string
-    vahetatud\_dokumente\_vahemalt  number
-    vahetatud\_dokumente\_kuni  number
-    vastuvotmata\_dokumente\_ootel  tõeväärtus (jah/ei)
+
+    keha - Struct
+        asutused - massiiv
+            asutus - string
+        allyksused - massiiv
+            asutuse_kood - string
+            lyhinimetus - string
+        ametikohad - massiiv
+            asutuse_kood - string
+            lyhinimetus - string
+        vahetatud_dokumente_vahemalt - number
+        vahetatud_dokumente_kuni - number
+        vastuvotmata_dokumente_ootel - tõeväärtus (jah/ei)
+
 Väljundi keha:base64Binary
 Väljundi keha kodeerimata kujul:
-    keha  Struct
-    asutused  massiiv
-    asutus  Struct
-    regnr   string
-    nimi  string
-    saatmine  massiiv
-    saatmisviis   string(väärtused: dhl | dhl\_otse)
-    ks\_asutuse\_regnr  string(kõrgemalseisva asutuse registrikood)
-    allyksused  massiiv
-    allyksus  Struct
-    kood  string
-    nimetus   string
-    asutuse\_kood   string
-    lyhinimetus   string
-    ks\_allyksuse\_lyhinimetus  string
-    ametikohad  massiiv
-    ametikoht   Struct
-    kood  string
-    nimetus   string
-    asutuse\_kood   string
-    lyhinimetus   string
-    ks\_allyksuse\_lyhinimetus  string
+
+    keha - Struct
+        asutused - massiiv
+            asutus - Struct
+                regnr - string
+                nimi - string
+                saatmine - massiiv
+                saatmisviis - string    (väärtused: dhl | dhl_otse)
+                ks_asutuse_regnr - string    (kõrgemalseisva asutuse registrikood)
+        allyksused - massiiv
+            allyksus - Struct
+                kood - string
+                nimetus - string
+                asutuse_kood - string
+                lyhinimetus - string
+                ks_allyksuse_lyhinimetus - string
+        ametikohad - massiiv
+            ametikoht - Struct
+                kood - string
+                nimetus - string
+                asutuse_kood - string
+                lyhinimetus - string
+                ks_allyksuse_lyhinimetus -  string
+</pre>
 
 Päring annab teada, kas ja kui siis millisel moel on asutused võimelised DVK-d kasutama. Ilma sisendparameetriteta käivitamise korral tagastab päring nimekirja kõigist DVK-ga liitunud asutustest.
 
@@ -3683,7 +3714,7 @@ Päringu parameetrite otstarve on järgmine:
 
 ##### Päring
 
-```
+```xml
 POST /cgi-bin/consumer_proxy HTTP/1.0
 Content-Type: text/xml; charset=utf-8
 
@@ -3723,7 +3754,7 @@ ZDbzrTXjHtuyN3z7yv/AAAAA==
 
 ##### Päringu vastus
 
-```
+```xml
 HTTP/1.1 200 OK
 SOAPAction: ""
 Content-Type: text/xml
@@ -3768,7 +3799,7 @@ W9+AXNEgoqqAQAA
 
 Elemendi „keha“ sisu kodeerimata kujul on:
 
-```
+```xml
 <keha>
     <asutused>
         <asutus>12345678</asutus>
@@ -3809,7 +3840,7 @@ Elemendi „keha“ sisu kodeerimata kujul on:
 
 Elemendi „keha“ sisu kodeerimata kujul on:
 
-```
+```xml
 <keha>
     <asutused>
         <asutus>
@@ -3866,40 +3897,45 @@ Elemendi „keha“ sisu kodeerimata kujul on:
 
 ###changeOrganizationData
 
+<pre style="font-family: Segoe UI, Roboto, Helvetica, Arial, sans-serif;">
 Päringu nimi: dhl.changeOrganizationData.v1
+
 Sisendi keha: Struct:
-    string registrikood
-    string endine\_registrikood
-    string korgemalseisva\_asutuse\_registrikood
-    string nimi
-    string nime\_lyhend
-    string liik1
-    string liik2
-    string tegevusala
-    string tegevuspiirkond
-    string maakond
-    string asukoht
-    string aadress
-    string postikood
-    string telefon
-    string faks
-    string e\_post
-    string www
-    string logo
-    date asutamise\_kuupaev
-    string moodustamise\_akti\_nimi
-    string moodustamise\_akti\_number
-    date moodustamise\_akti\_kuupaev
-    string pohimaaruse\_akti\_nimi
-    string pohimaaruse\_akti\_number
-    date pohimaaruse\_kinnitamise\_kuupaev
-    date pohimaaruse\_kande\_kuupaev
-    string parameetrid
-    boolean dvk\_saatmine
-    boolean dvk\_otse\_saatmine
-    string toetatav\_dvk\_versioon
-    string dokumendihaldussysteemi\_nimetus
+
+        string registrikood
+        string endine_registrikood
+        string korgemalseisva_asutuse_registrikood
+        string nimi
+        string nime_lyhend
+        string liik1
+        string liik2
+        string tegevusala
+        string tegevuspiirkond
+        string maakond
+        string asukoht
+        string aadress
+        string postikood
+        string telefon
+        string faks
+        string e_post
+        string www
+        string logo
+        date asutamise_kuupaev
+        string moodustamise_akti_nimi
+        string moodustamise_akti_number
+        date moodustamise_akti_kuupaev
+        string pohimaaruse_akti_nimi
+        string pohimaaruse_akti_number
+        date pohimaaruse_kinnitamise_kuupaev
+        date pohimaaruse_kande_kuupaev
+        string parameetrid
+        boolean dvk_saatmine
+        boolean dvk_otse_saatmine
+        string toetatav_dvk_versioon
+        string dokumendihaldussysteemi_nimetus
+
 Väljundi keha: string
+</pre>
 
 Päringuga saab uuendada DVK serveri asutuste registris salvestatud andmeid asutuse kohta. Päringuga saab uuendada ainult selle asutuse andmeid, mille nimel päring käivitati (s.t. mille registrikood oli märgitud X-Tee päringu päistesse).
 
@@ -3911,7 +3947,7 @@ Antud päringu puhul esitatakse nii sisend- kui väljundandmed pakkimata ja kode
 
 ##### Päring
 
-```
+```xml
 POST /cgi-bin/consumer_proxy HTTP/1.0
 Content-Type: text/xml; charset=utf-8
 
@@ -3972,7 +4008,7 @@ Content-Type: text/xml; charset=utf-8
 
 ##### Päringu vastus
 
-```
+```xml
 HTTP/1.1 200 OK
 SOAPAction: ""
 Content-Type: text/xml
@@ -4048,7 +4084,7 @@ Kui säilitustähtaja ületanud dokumentide kustutamine õnnestub, siis tagastab
 
 ##### Päring
 
-```
+```xml
 POST /cgi-bin/consumer_proxy HTTP/1.0
 Content-Type: text/xml; charset=utf-8
 
@@ -4077,7 +4113,7 @@ Content-Type: text/xml; charset=utf-8
 
 ##### Päringu vastus
 
-```
+```xml
 HTTP/1.1 200 OK
 SOAPAction: ""
 Content-Type: text/xml
@@ -4109,9 +4145,11 @@ Content-Type: text/xml
 
 ###runSystemCheck
 
+<pre style="font-family: Segoe UI, Roboto, Helvetica, Arial, sans-serif;">
 Päringu nimi: dhl.runSystemCheck.v1
 Sisendi keha: -
 Väljundi keha: string
+</pre>
 
 Päring kontrollib DVK serveri kriitiliste funktsioonide toimimist (andmebaasi ligipääs, kettale kirjutamine, jne.). Kui kõik kontrollitavad funktsioonid toimivad, siis tagastab päring väärtuse „OK“. Avastatud vea korral tagastab päring veateate SOAP veateate kujul.
 
@@ -4119,7 +4157,7 @@ Päring kontrollib DVK serveri kriitiliste funktsioonide toimimist (andmebaasi l
 
 ##### Päring
 
-```
+```xml
 POST /cgi-bin/consumer_proxy HTTP/1.0
 Content-Type: text/xml; charset=utf-8
 
@@ -4148,7 +4186,7 @@ Content-Type: text/xml; charset=utf-8
 
 ##### Päringu vastus
 
-```
+```xml
 HTTP/1.1 200 OK
 SOAPAction: ""
 Content-Type: text/xml
@@ -4182,14 +4220,19 @@ Content-Type: text/xml
 
 ####getSubdivisionList.v1
 
+<pre style="font-family: Segoe UI, Roboto, Helvetica, Arial, sans-serif;">
 Päringu nimi: dhl.getSubdivisionList.v1
+
 Sisendi keha: stringide massiiv
+
 Väljundi keha: massiiv andmetüübist „allyksus”:
-    kood string
-    nimetus string
-    asutuse\_kood string
-    lyhinimetus string
-    ks\_allyksuse\_lyhinimetus string(kõrgemalseisva allüksuse lühinimetus)
+
+        kood string
+        nimetus string
+        asutuse_kood string
+        lyhinimetus string
+        ks_allyksuse_lyhinimetus string    (kõrgemalseisva allüksuse lühinimetus)
+</pre>
 
 Päring tagastab sisendparameetriga etteantud asutuste allüksuste nimekirja. Päring on vajalik selleks, et oleks võimalik dokumente adresseerida asutuse allüksusele (et oleks teada, millisele allüksusele DVK serveris milline unikaalne kood vastab).
 
@@ -4199,7 +4242,7 @@ Antud päringu puhul esitatakse nii sisend- kui väljundandmed pakkimata ja kode
 
 ##### Päring
 
-```
+```xml
 POST /cgi-bin/consumer_proxy HTTP/1.0
 Content-Type: text/xml; charset=utf-8
 
@@ -4233,7 +4276,7 @@ Content-Type: text/xml; charset=utf-8
 
 ##### Päringu vastus
 
-```
+```xml
 HTTP/1.1 200 OK
 SOAPAction: ""
 Content-Type: text/xml
@@ -4300,16 +4343,22 @@ Content-Type: text/xml
 
 Päringu getSubdivisionList versioon v2 eelneb varasematest versioonidest selle poolest, et päringu ja vastuse andmed asuvad nüüd SOAP sõnumi manustes (varasemates versioonides asusid andmed SOAP sõnumi kehas).
 
+<pre style="font-family: Segoe UI, Roboto, Helvetica, Arial, sans-serif;">
 Päringu nimi: dhl.getSubdivisionList.v2
+
 Sisendi keha:
-    asutused    stringide massiiv päringu MIME manuses base64 kujul
+
+        asutused    stringide massiiv päringu MIME manuses base64 kujul
+
 Väljundi keha:
-    allyksused    massiiv andmetüübist allyksus päringu MIME manuses base64 kujul
-    kood    string
-    nimetus    string
-    asutuse\_kood    string
-    lyhinimetus    string
-    ks\_allyksuse\_lyhinimetus    string(kõrgemalseisva allüksuse lühinimetus)
+
+        allyksused    massiiv andmetüübist allyksus päringu MIME manuses base64 kujul
+        kood    string
+        nimetus    string
+        asutuse_kood    string
+        lyhinimetus    string
+        ks_allyksuse_lyhinimetus    string(kõrgemalseisva allüksuse lühinimetus)
+</pre>
 
 Päring tagastab sisendparameetriga etteantud asutuste allüksuste nimekirja. Päring on vajalik selleks, et oleks võimalik dokumente adresseerida asutuse allüksusele (et oleks teada, millisele allüksusele DVK serveris milline unikaalne kood vastab).
 
@@ -4319,7 +4368,7 @@ Antud päringu sisend- ja väljundandmed saadetakse SOAP sõnumi MIME manustes. 
 
 ##### Päring
 
-```
+```xml
 POST /cgi-bin/consumer_proxy HTTP/1.0
 Content-Type: text/xml; charset=utf-8
 
@@ -4359,7 +4408,7 @@ H4sIAAAAAAAAALNJLC4tKS1OTbGzgbDsLMzNTE2MjQxt9KECMAlDI2MTUzNzC4SEPlwzAG7f6Q9HAAAA
 
 ##### Päringu vastus
 
-```
+```xml
 HTTP/1.1 200 OK
 SOAPAction: ""
 Content-Type: text/xml
@@ -4407,7 +4456,7 @@ Y6n+7x3eNW8N/z64R9dnckT7gIAAA==
 
 Elemendi „keha“ sisu kodeerimata kujul on:
 
-```
+```xml
 <asutused>
     <asutus>87654321</asutus>
     <asutus>12345678</asutus>
@@ -4418,7 +4467,7 @@ Elemendi „keha“ sisu kodeerimata kujul on:
 
 Elemendi „keha“ sisu kodeerimata kujul on:
 
-```
+```xml
 <allyksused>
     <allyksus>
         <kood>1</kood>
@@ -4455,14 +4504,19 @@ Elemendi „keha“ sisu kodeerimata kujul on:
 
 ####getOccupationList.v1
 
+<pre style="font-family: Segoe UI, Roboto, Helvetica, Arial, sans-serif;">
 Päringu nimi: dhl.getOccupationList.v1
+
 Sisendi keha: stringide massiiv
+
 Väljundi keha: massiiv andmetüübist „ametikoht”:
-    kood   string
-    nimetus     string
-    asutuse\_kood   string
-    lyhinimetus     string
-    ks\_allyksuse\_lyhinimetus string(kõrgemalseisva allüksuse lühinimetus)
+
+        kood   string
+        nimetus     string
+        asutuse_kood   string
+        lyhinimetus     string
+        ks_allyksuse_lyhinimetus string    (kõrgemalseisva allüksuse lühinimetus)
+</pre>
 
 Päring tagastab sisendparameetriga etteantud asutuste ametikohtade
 nimekirja. Päring on vajalik selleks, et oleks võimalik dokumente
@@ -4476,7 +4530,7 @@ ja kodeerimata kujul.
 
 ##### Päring
 
-```
+```xml
 POST /cgi-bin/consumer_proxy HTTP/1.0
 Content-Type: text/xml; charset=utf-8
 
@@ -4509,7 +4563,7 @@ Content-Type: text/xml; charset=utf-8
 
 ##### Päringu vastus
 
-```
+```xml
 HTTP/1.1 200 OK
 SOAPAction: ""
 Content-Type: text/xml
@@ -4575,16 +4629,21 @@ Content-Type: text/xml
 
 Päringu getOccupationList versioon v2 eelneb varasematest versioonidest selle poolest, et päringu ja vastuse andmed asuvad nüüd SOAP sõnumi manustes (varasemates versioonides asusid andmed SOAP sõnumi kehas).
 
+<pre style="font-family: Segoe UI, Roboto, Helvetica, Arial, sans-serif;">
 Päringu nimi: dhl. getOccupationList.v2
+
 Sisendi keha:
-    asutused    stringide massiiv päringu MIME manuses base64 kujul
+
+        asutused    stringide massiiv päringu MIME manuses base64 kujul
 Väljundi keha:
-    ametikohad  massiiv andmetüübist allyksus päringu MIME manuses base64 kujul
-    kood    string
-    nimetus     string
-    asutuse\_kood   string
-    lyhinimetus     string
-    ks\_allyksuse\_lyhinimetus  string(kõrgemalseisva allüksuse lühinimetus)
+
+        ametikohad  massiiv andmetüübist allyksus päringu MIME manuses base64 kujul
+        kood    string
+        nimetus     string
+        asutuse_kood   string
+        lyhinimetus     string
+        ks_allyksuse_lyhinimetus  string    (kõrgemalseisva allüksuse lühinimetus)
+</pre>
 
 Päring tagastab sisendparameetriga etteantud asutuste ametikohtade nimekirja. Päring on vajalik selleks, et oleks võimalik dokumente adresseerida asutuse ametikohtadele (et oleks teada, millisele ametikohale DVK serveris milline unikaalne kood vastab).
 
@@ -4594,7 +4653,7 @@ Antud päringu sisend- ja väljundandmed saadetakse SOAP sõnumi MIME manustes. 
 
 ##### Päring
 
-```
+```xml
 POST /cgi-bin/consumer_proxy HTTP/1.0
 Content-Type: text/xml; charset=utf-8
 
@@ -4634,7 +4693,7 @@ H4sIAAAAAAAAALNJLC4tKS1OTbGzgbDsLMzNTE2MjQxt9KECMAlDI2MTUzNzC4SEPlwzAG7f6Q9HAAAA
 
 ##### Päringu vastus
 
-```
+```xml
 HTTP/1.1 200 OK
 SOAPAction: ""
 Content-Type: text/xml
@@ -4682,7 +4741,7 @@ Y4VR/JCwDpUv8hzwAAAA==
 
 Elemendi „keha“ sisu kodeerimata kujul on:
 
-```
+```xml
 <asutused>
     <asutus>87654321</asutus>
     <asutus>12345678</asutus>
@@ -4693,7 +4752,7 @@ Elemendi „keha“ sisu kodeerimata kujul on:
 
 Elemendi „keha“ sisu kodeerimata kujul on:
 
-```
+```xml
 <ametikohad>
     <ametikoht>
         <kood>2</kood>
@@ -4914,14 +4973,14 @@ XPATH tingimuse näiteid:
 5.  Oletame, et adressaat tuleks lisada dokumendile, mille metaxml blokk
     sisaldab järgmises XML näites paksemas kirjas esitatud väärtust:
 
-```
+<pre>
 <dokument>
     ...
     <metaxml>
         <lepingu_andmed>
             <osapooled>
                 <osapool>
-                    <registrikood>12345678</registrikood>
+                    <registrikood><b>12345678</b></registrikood>
                     <nimetus>Ettevote1 AS</nimetus>
                 </osapool>
             </osapooled>
@@ -4929,7 +4988,7 @@ XPATH tingimuse näiteid:
     </metaxml>
     ...
 </dokument>
-``` 
+</pre> 
 
     Sellisel juhul näeks andmeväli TINGIMUS\_XPATH väärtus välja järgmine:\ */dokument/metaxml/lepingu\_andmed/osapooled/osapool\[registrikood='12345678'\]*
 
@@ -4970,7 +5029,7 @@ Tehniline lahendus jääb dokumendi saatja seisukohast täpselt samasuguseks nag
 
 Vastuvõtja seisukohast lisandub käesoleva lahendusega täiendav kirje „vahendaja“ DVK konteineri transport plokis. Antud kirje näol on tegemist automaatselt täidetavate andmetega, mille lisab DVK dokumendikonteinerisse dokumendi edastanud DVK server.
 
-```
+<pre>
 <dhl:transport>
         <dhl:saatja>
             <dhl:regnr>11111111</dhl:regnr>
@@ -4998,7 +5057,7 @@ Vastuvõtja seisukohast lisandub käesoleva lahendusega täiendav kirje „vahen
             <dhl:osakonna_kood>Osakonna kood</dhl:osakonna_kood>
             <dhl:osakonna_nimi>Osakonna nimi</dhl:osakonna_nimi>
         </dhl:saaja>
-        <dhl:vahendaja>
+        <b><dhl:vahendaja>
             <dhl:regnr>22222222</dhl:regnr>
             <dhl:asutuse_nimi>Asutuse nimi</dhl:asutuse_nimi>
             <dhl:allyksuse_kood/>
@@ -5010,9 +5069,9 @@ Vastuvõtja seisukohast lisandub käesoleva lahendusega täiendav kirje „vahen
             <dhl:epost>epost@vahendaja.ee</dhl:epost>
             <dhl:osakonna_kood/>
             <dhl:osakonna_nimi/>
-        </dhl:vahendaja>
+        </dhl:vahendaja> </b>
     </dhl:transport>
-```
+</pre>
 
 Vahendaja kirje on ennekõike vajalik selleks, et DVK server lubaks dokumendiedastuse vahendajaks olnud asutusel teostada dokumendi edastuse staatust puudutavaid päringuid (üldjuhul on see õigus üksnes dokumendi saatjal).
 
@@ -5079,21 +5138,21 @@ Content-Transfer-Encoding päises:
 
 Et MIME manustena saadetakse Base64 kodeeritud binaarfaile, siis peaks manused saama endale järgmise päise:
 
-```
+<pre>
 Content-Type:{http://www.w3.org/2001/XMLSchema}base64Binary
-Content-Transfer-Encoding:base64
+Content-Transfer-Encoding:<b>base64</b>
 Content-Encoding: gzip
 Content-ID: ...
-``` 
+</pre>
 
 DVK rakendus väljastab aga kõik MIME manused järgmise päisega:
 
-``` 
+<pre>
 Content-Type:{http://www.w3.org/2001/XMLSchema}base64Binary
-Content-Transfer-Encoding:binary
+Content-Transfer-Encoding:<b>binary</b>
 Content-Encoding: gzip
 Content-ID: ...
-``` 
+</pre>
 
 Antud juhul tuleks arvestada, et hoolimata päises märgitud *binary* kodeeringust saadab DVK MIME manuseid ikkagi Base64 kodeeritult. Samuti ignoreerib DVK rakendus antud päist saabuvate sõnumite puhul ning eeldab, et manus on saadetud Base64 kodeeritud kujul.
 
@@ -5182,7 +5241,7 @@ https://svn.eesti.ee/projektid/dvk/server/trunk/src/main/webapp/
 
 ##LISA 2: &lt;dokument&gt; XML struktuuri kasutusnäide (DVK konteineri versioon 1)
 
-```
+```xml
 <dhl:dokument xmlns:dhl="http://www.riik.ee/schemas/dhl" dhl:schemaLocation=““>
   <dhl:metainfo xmlns:ma="http://www.riik.ee/schemas/dhl-meta-automatic" ma:schemaLocation=“ http://www.riik.ee/schemas/dhl/dhl-meta-automatic.xsd“
  xmlns:mm="http://www.riik.ee/schemas/dhl-meta-manual" mm:schemaLocation=“ http://www.riik.ee/schemas/dhl/dhl-meta-manual.xsd“>
@@ -5355,7 +5414,7 @@ https://svn.eesti.ee/projektid/dvk/server/trunk/src/main/webapp/
 
 ##LISA 3: &lt;dokument&gt; XML struktuuri kasutusnäide (DVK konteineri versioon 2)
 
-```
+```xml
 <dhl:dokument xmlns:dhl="http://www.riik.ee/schemas/dhl/2010/r1" dhl:schemaLocation=“http://www.riik.ee/schemas/dhl.2010.r1.xsd“>
     <dhl:metainfo xmlns:ma="http://www.riik.ee/schemas/dhl-meta-automatic" ma:schemaLocation=“ http://www.riik.ee/schemas/dhl/dhl-meta-automatic.2010.r1.xsd“
  xmlns:mm="http://www.riik.ee/schemas/dhl-meta-manual" mm:schemaLocation=“ http://www.riik.ee/schemas/dhl/dhl-meta-manual.2010.r1.xsd“>
