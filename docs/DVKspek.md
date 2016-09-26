@@ -4922,46 +4922,26 @@ server_validate_signatures = no
 ##Adressaatide automaatne lisamine DVK serveris
 DVK serverit on võimalik seadistada nii, et kui saadetav dokumendikonteiner vastab etteantud tingimustele, siis lisatakse dokumendi adressaatide hulka üks või mitu täiendavat adressaati. Nimetatud lahendus on vajalik näiteks selleks, et garanteerida mingi projektiga seotud dokumentide jõudmine kõigile asjassepuutuvatele osapooltele.
 
-###Adressaatide automaatse lisamise seadistamine
-
 Automaatse adressaatide lisamise korral muudab DVK server saadetava dokumendikonteineri XML andmeid, s.t. lisatud adressaadid on nähtavad ka kõigile teistele adressaatidele ja dokumendi esialgsele saatjale.
 
+###Adressaatide automaatse lisamise seadistamine
 
 DVK serveri poolt automaatselt lisatavaid aadressaate saab seadistada DVK serveri andmetabelis VASTUVOTJA\_MALL. Nimetatud andmetabeli struktuur näeb välja järgmine:
 
-TABEL!!!
-
-Andmevälja nimi
-Kirjeldus
-vastuvotja_mall_id
-Kirje unikaalne ID. Selle määrab andmebaas automaatselt.
-asutus_id
-Lisatava adressaadi asutuse ID. Viitab tabelisse ASUTUS.
-Vähemalt see lahter peaks adressaadi puhul alati täidetud olema.
-asutuse_nimi
-Lisatava adressaadi asutuse nimi.
-ametikoht_id
-Lisatava adressaadi ametikoha ID. Viitab tabelisse AMETIKOHT.
-isikukood
-Lisatava adressaadi isikukood.
-nimi
-Lisatava adressaadi nimi (isiku nimi)
-email
-Lisatava adressaadi e-posti aadress.
-osakonna_nr
-Lisatava adressaadi osakonna kood.
-Selle lahtri väärtust DVK server dokumentide edastamisel otseselt ei kasuta ja see on mõeldud pigem dokumendi vastuvõtnud infosüsteemile.
-osakonna_nimi
-Lisatava adressaadi osakonna nimetus.
-Selle lahtri väärtust DVK server dokumentide edastamisel otseselt ei kasuta ja see on mõeldud pigem dokumendi vastuvõtnud infosüsteemile.
-saatmisviis_id
-Saatmisviisi ID. Viitab tabelisse KLASSIFIKAATOR.
-DVK kaudu saatmise korral on selle lahtri väärtuseks 1.
-allyksus_id
-Lisatava adressaadi allüksuse ID. Viitab tabelisse ALLYKSUS.
-tingimus_xpath
-XPATH tingimus, millele vastavale XML konteinerile lisatakse ülejäänud lahtrites kirjeldatud adressaat. XPATH tingimuse kirjeldamisel tuleks ignoreerida DVK konteineri XML nimeruumide lühendeid ning kasutada XPATH stringis ainult elementide ja atribuutide lokaalseid nimesid.
-DVK server lisab adressaadi dokumendile siis, kui konteineri XML struktuurist õnnestub leida XPATH tingimusele vastav element.
+| Andmevälja nimi | Kirjeldus | 
+|-------|----------------------|
+| vastuvotja_mall_id | Kirje unikaalne ID. Selle määrab andmebaas automaatselt. |
+| asutus_id | Lisatava adressaadi asutuse ID. Viitab tabelisse ASUTUS. Vähemalt see lahter peaks adressaadi puhul alati täidetud olema. |
+| asutuse_nimi | Lisatava adressaadi asutuse nimi. |
+| ametikoht_id | Lisatava adressaadi ametikoha ID. Viitab tabelisse AMETIKOHT. |
+| isikukood | Lisatava adressaadi isikukood. |
+| nimi | Lisatava adressaadi nimi (isiku nimi) |
+| email | Lisatava adressaadi e-posti aadress. |
+| osakonna_nr | Lisatava adressaadi osakonna kood. Selle lahtri väärtust DVK server dokumentide edastamisel otseselt ei kasuta ja see on mõeldud pigem dokumendi vastuvõtnud infosüsteemile. |
+| osakonna_nimi | Lisatava adressaadi osakonna nimetus. Selle lahtri väärtust DVK server dokumentide edastamisel otseselt ei kasuta ja see on mõeldud pigem dokumendi vastuvõtnud infosüsteemile. |
+| saatmisviis_id | Saatmisviisi ID. Viitab tabelisse KLASSIFIKAATOR. DVK kaudu saatmise korral on selle lahtri väärtuseks 1. |
+| allyksus_id | Lisatava adressaadi allüksuse ID. Viitab tabelisse ALLYKSUS. |
+| tingimus_xpath | XPATH tingimus, millele vastavale XML konteinerile lisatakse ülejäänud lahtrites kirjeldatud adressaat. XPATH tingimuse kirjeldamisel tuleks ignoreerida DVK konteineri XML nimeruumide lühendeid ning kasutada XPATH stringis ainult elementide ja atribuutide lokaalseid nimesid. DVK server lisab adressaadi dokumendile siis, kui konteineri XML struktuurist õnnestub leida XPATH tingimusele vastav element. |
 
 
 XPATH tingimuse näiteid:
