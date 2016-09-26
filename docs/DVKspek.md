@@ -1030,7 +1030,7 @@ Päring tagastab oma kehas väärtuse „OK“.
 ###sendDocuments.v1
 ------
 
-<pre style="font-family: 'Roboto', sans-serif;">
+<pre>
 Päringu nimi: dhl.sendDocuments.v1  
 Sisendi keha: Struct  
         base64Binary - dokumendid  
@@ -1208,7 +1208,7 @@ Kui saadeti korraga mitu dokumenti, siis on elemendi „keha“ sisu kodeerimata
 ------
 
 Päringu sendDocuments versioon v2 erineb eelmisest versioonist selle poolest, et võimaldab dokumente DVK serverisse saata fragmenteeritud kujul.
-<pre style="font-family: 'Roboto', sans-serif;">
+<pre>
 Päringu nimi: dhl.sendDocuments.v2
 Sisendi keha: Struct
         base64Binary - dokumendid
@@ -1883,7 +1883,7 @@ pakkimist:
 ###getSendStatus.v1
 ------
 
-<pre style="font-family: 'Roboto', sans-serif;">
+<pre>
 Päringu nimi: dhl.getSendStatus.v1  
 Sisendi keha: base64Binary  
 Väljundi keha: base64Binary  
@@ -2062,7 +2062,7 @@ Elemendi „keha“ sisu kodeerimata kujul on:
 ###getSendStatus.v2
 ------
 
-<pre style="font-family: 'Roboto', sans-serif;">
+<pre>
 Päringu nimi: dhl.getSendStatus.v2  
 Sisendi keha: Struct  
         dokumendid  - base64Binary  
@@ -2304,7 +2304,7 @@ Kui vastuvõtjale on saadetud 2.1 versioon kapslist ja asutuse toetatav kapsli v
 ###receiveDocuments.v1
 ------
 
-<pre style="font-family: 'Roboto', sans-serif;">
+<pre>
 Päringu nimi: dhl.receiveDocuments.v1  
 Sisendi keha: Struct  
         integer -  arv  
@@ -2494,7 +2494,7 @@ Elemendi „keha“ sisu kodeerimata kujul on:
 
 Päringu receiveDocuments versioon v2 erineb eelmisest versioonist selle poolest, et võimaldab dokumente DVK serverist alla laadida fragmenteeritud kujul.
 
-<pre style="font-family: 'Roboto', sans-serif;">
+<pre>
 Päringu nimi: dhl.receiveDocuments.v2  
 Sisendi keha: Struct  
         integer  - arv  
@@ -2659,7 +2659,7 @@ Elemendi „keha“ sisu kodeerimata kujul on:
 
 Päringu receiveDocuments versioon v3 erineb eelmisest versioonist selle poolest, et võimaldab parameetritena ette anda allüksuse koodi ja ametikoha koodi. See võimaldab vastu võtta ainult konkreetsele allüksusele ja/või ametikohale adresseeritud dokumendid.
 
-<pre style="font-family: 'Roboto', sans-serif;">
+<pre>
 Päringu nimi: dhl.receiveDocuments.v3
 Sisendi keha: Struct
         integer - arv
@@ -2827,7 +2827,7 @@ Elemendi „keha“ sisu kodeerimata kujul on:
 
 Päringu receiveDocuments versioon v4 erineb versioonist V3 selle poolest, et võimaldab allüskuse ja ametikoha parameetritena kasutada lühinimetusi (versioon V3 kasutas numbrilisi ID koode). See võimaldab vastu võtta ainult konkreetsele allüksusele ja/või ametikohale adresseeritud dokumente. Vastussõnumis olevad dokumendid kasutavad DVK konteineri versioon 2.
 
-<pre style="font-family: 'Roboto', sans-serif;">
+<pre>
 Päringu nimi: dhl.receiveDocuments.v4
         Sisendi keha: Struct
         integer - arv
@@ -3015,7 +3015,7 @@ Elemendi „keha“ sisu kodeerimata kujul on:
 ###markDocumentsReceived.v1
 ------
 
-<pre style="font-family: 'Roboto', sans-serif;">
+<pre>
 Päringu nimi: dhl.markDocumentsReceived.v1
 Sisendi keha: Struct
         base64Binary - dokumendid
@@ -3433,7 +3433,7 @@ Content-Type: text/xml
 ###getSendingOptions.v1
 ------
 
-<pre style="font-family: 'Roboto', sans-serif;">
+<pre>
 Päringu nimi: dhl.getSendingOptions.v1
 Sisendi keha: stringide massiiv
 Väljundi keha: massiiv andmetüübist „asutus”:
@@ -3547,7 +3547,7 @@ Content-Type: text/xml
 ###getSendingOptions.v2  
 ------
 
-<pre style="font-family: 'Roboto', sans-serif;">
+<pre>
 Päringu nimi: dhl.getSendingOptions.v2
 
 Sisendi keha: andmestruktuur:
@@ -3683,7 +3683,7 @@ Content-Type: text/xml
 ###getSendingOptions.v3
 ------
 
-<pre style="font-family: Segoe UI, Roboto, Helvetica, Arial, sans-serif;">
+<pre>
 Päringu nimi: dhl.getSendingOptions.v3
 
 Sisendi keha: base64Binary
@@ -3934,7 +3934,7 @@ Elemendi „keha“ sisu kodeerimata kujul on:
 ###changeOrganizationData
 ------
 
-<pre style="font-family: Segoe UI, Roboto, Helvetica, Arial, sans-serif;">
+<pre>
 Päringu nimi: dhl.changeOrganizationData.v1
 
 Sisendi keha: Struct:
@@ -4109,10 +4109,11 @@ Content-Type: text/xml
 
 ###deleteOldDocuments
 ------
-
+<pre>
 Päringu nimi: dhl.deleteOldDocuments.v1
 Sisendi keha: -
 Väljundi keha: string
+</pre>
 
 Päring kustutab DVK andmebaasist säilitustähtaja ületanud dokumendid. Kui säilitustähtaja ületanud dokument on osadele adressaatidele veel saatmata, siis märgib DVK server dokumendi andmetesse, et dokumendi edastamine on katkestatud ning lükkab dokumendi säilitustähtaega mõnevõrra edasi (sõltub serveri seadistusest), et info saatmise katkestamisest jõuaks kindlasti ka dokumendi saatjale.
 
@@ -4184,7 +4185,7 @@ Content-Type: text/xml
 ###runSystemCheck
 ------
 
-<pre style="font-family: Segoe UI, Roboto, Helvetica, Arial, sans-serif;">
+<pre>
 Päringu nimi: dhl.runSystemCheck.v1
 Sisendi keha: -
 Väljundi keha: string
@@ -4260,7 +4261,7 @@ Content-Type: text/xml
 ###getSubdivisionList.v1
 ------
 
-<pre style="font-family: Segoe UI, Roboto, Helvetica, Arial, sans-serif;">
+<pre>
 Päringu nimi: dhl.getSubdivisionList.v1
 
 Sisendi keha: stringide massiiv
@@ -4384,7 +4385,7 @@ Content-Type: text/xml
 
 Päringu getSubdivisionList versioon v2 eelneb varasematest versioonidest selle poolest, et päringu ja vastuse andmed asuvad nüüd SOAP sõnumi manustes (varasemates versioonides asusid andmed SOAP sõnumi kehas).
 
-<pre style="font-family: Segoe UI, Roboto, Helvetica, Arial, sans-serif;">
+<pre>
 Päringu nimi: dhl.getSubdivisionList.v2
 
 Sisendi keha:
@@ -4546,7 +4547,7 @@ Elemendi „keha“ sisu kodeerimata kujul on:
 ###getOccupationList.v1
 ------
 
-<pre style="font-family: Segoe UI, Roboto, Helvetica, Arial, sans-serif;">
+<pre>
 Päringu nimi: dhl.getOccupationList.v1
 
 Sisendi keha: stringide massiiv
@@ -4672,7 +4673,7 @@ Content-Type: text/xml
 
 Päringu getOccupationList versioon v2 eelneb varasematest versioonidest selle poolest, et päringu ja vastuse andmed asuvad nüüd SOAP sõnumi manustes (varasemates versioonides asusid andmed SOAP sõnumi kehas).
 
-<pre style="font-family: Segoe UI, Roboto, Helvetica, Arial, sans-serif;">
+<pre>
 Päringu nimi: dhl. getOccupationList.v2
 
 Sisendi keha:
@@ -4995,7 +4996,7 @@ Tehniline lahendus jääb dokumendi saatja seisukohast täpselt samasuguseks nag
 
 Vastuvõtja seisukohast lisandub käesoleva lahendusega täiendav kirje „vahendaja“ DVK konteineri transport plokis. Antud kirje näol on tegemist automaatselt täidetavate andmetega, mille lisab DVK dokumendikonteinerisse dokumendi edastanud DVK server.
 
-<pre>
+```xml
 <dhl:transport>
         <dhl:saatja>
             <dhl:regnr>11111111</dhl:regnr>
@@ -5037,7 +5038,7 @@ Vastuvõtja seisukohast lisandub käesoleva lahendusega täiendav kirje „vahen
             <dhl:osakonna_nimi/>
         </dhl:vahendaja> </b>
     </dhl:transport>
-</pre>
+```
 
 Vahendaja kirje on ennekõike vajalik selleks, et DVK server lubaks dokumendiedastuse vahendajaks olnud asutusel teostada dokumendi edastuse staatust puudutavaid päringuid (üldjuhul on see õigus üksnes dokumendi saatjal).
 
@@ -5170,17 +5171,13 @@ Manuaalsete metaandmete koosseis muutus seoses DVK konteineri versiooni 2 kasutu
 
 DVK konteineri versioon 1 puhul:
 
--   Nimeruumi väärtuseks on:
-    *http://www.riik.ee/schemas/dhl-meta-manual*
--   XML skeemifaili asukoht on:
-    http://www.riik.ee/schemas/dhl/dhl-meta-manual.xsd
+-   Nimeruumi väärtuseks on:  *http://www.riik.ee/schemas/dhl-meta-manual*
+-   XML skeemifaili asukoht on: *http://www.riik.ee/schemas/dhl/dhl-meta-manual.xsd*
 
 DVK konteineri versioon 2 puhul:
 
--   Nimeruumi väärtuseks on:
-    *http://www.riik.ee/schemas/dhl-meta-manual/2010/r1*
--   XML skeemifaili asukoht on:
-    *http://www.riik.ee/schemas/dhl/dhl-meta-manual.2010.r1.xsd*
+-   Nimeruumi väärtuseks on: *http://www.riik.ee/schemas/dhl-meta-manual/2010/r1*
+-   XML skeemifaili asukoht on: *http://www.riik.ee/schemas/dhl/dhl-meta-manual.2010.r1.xsd*
 
 ###DVK dokument
 Dokumendi andmete koosseis muutus seoses DVK konteineri versiooni 2 kasutuselevõtuga. Toimivad järgmised nimeruumid:
@@ -5189,18 +5186,13 @@ DVK konteineri versioon 1 puhul:
 
 -   Nimeruumi väärtuseks on: *http://www.riik.ee/schemas/dhl*
 
-<!-- -->
-
--   *XML skeemifaili asukoht on: http://www.riik.ee/schemas/dhl/dhl.xsd*
+-   XML skeemifaili asukoht on: *http://www.riik.ee/schemas/dhl/dhl.xsd*
 
 DVK konteineri versioon 2 puhul:
 
 -   Nimeruumi väärtuseks on: *http://www.riik.ee/schemas/dhl/2010/r1*
 
-<!-- -->
-
--   XML skeemifaili asukoht on:
-    *http://www.riik.ee/schemas/dhl/dhl.2010.r1.xsd*
+-   XML skeemifaili asukoht on:  *http://www.riik.ee/schemas/dhl/dhl.2010.r1.xsd*
 
 ###Päringute WSDL kirjeldus
 
