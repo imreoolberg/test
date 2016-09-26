@@ -1412,6 +1412,8 @@ Kui saadeti korraga mitu dokumenti, siis on elemendi „keha“ sisu kodeerimata
 ```
 
 ###sendDocuments.v3
+------
+
 Päring erineb versioonist 2 selle poolest, et kasutusele on võetud asutuse ja allüksuse lühinimetused.
 Päring tuleb realiseerida vastavalt X-Tee dokumentatsioonis MIME manuseid sisaldavate teadete realiseerimise skeemile.
 
@@ -1878,7 +1880,7 @@ pakkimist:
 
 ###getSendStatus
 
-####getSendStatus.v1
+###getSendStatus.v1
 ------
 
 <pre style="font-family: 'Roboto', sans-serif;">
@@ -2057,7 +2059,7 @@ Elemendi „keha“ sisu kodeerimata kujul on:
 </item>
 ```
 
-####getSendStatus.v2
+###getSendStatus.v2
 ------
 
 <pre style="font-family: 'Roboto', sans-serif;">
@@ -2299,7 +2301,7 @@ Elemendi „keha“ sisu kodeerimata kujul on:
 Kui vastuvõtjale on saadetud 2.1 versioon kapslist ja asutuse toetatav kapsli versioon on 1.0, siis kapsel konverteeritakse kapsli versioonist
 2.1 versiooni 1.0. **NB! Teistpidi konverteerimist ei eksisteeri.**
 
-####receiveDocuments.v1
+###receiveDocuments.v1
 ------
 
 <pre style="font-family: 'Roboto', sans-serif;">
@@ -2416,8 +2418,7 @@ Content-Transfer-Encoding:8bit
 <xtee:asutus xsi:type="xsd:string">12345678</xtee:asutus>
 <xtee:andmekogu xsi:type="xsd:string">dhl</xtee:andmekogu>
 <xtee:isikukood xsi:type="xsd:string">EE12345678901</xtee:isikukood>
-<xtee:id
-xsi:type="xsd:string">6cae248568b3db7e97ff784673a4d38c5906bee0</xtee:id>
+<xtee:id xsi:type="xsd:string">6cae248568b3db7e97ff784673a4d38c5906bee0</xtee:id>
 <xtee:nimi xsi:type="xsd:string">dhl.receiveDocuments.v1</xtee:nimi>
 <xtee:toimik xsi:type="xsd:string"></xtee:toimik>
 <xtee:amet xsi:type="xsd:string"></xtee:amet>
@@ -2488,7 +2489,7 @@ Elemendi „keha“ sisu kodeerimata kujul on:
 </dokument>
 ```
 
-####receiveDocuments.v2
+###receiveDocuments.v2
 ------
 
 Päringu receiveDocuments versioon v2 erineb eelmisest versioonist selle poolest, et võimaldab dokumente DVK serverist alla laadida fragmenteeritud kujul.
@@ -2653,7 +2654,7 @@ Elemendi „keha“ sisu kodeerimata kujul on:
 </dokument>
 ```
 
-####receiveDocuments.v3
+###receiveDocuments.v3
 ------
 
 Päringu receiveDocuments versioon v3 erineb eelmisest versioonist selle poolest, et võimaldab parameetritena ette anda allüksuse koodi ja ametikoha koodi. See võimaldab vastu võtta ainult konkreetsele allüksusele ja/või ametikohale adresseeritud dokumendid.
@@ -2821,7 +2822,7 @@ Elemendi „keha“ sisu kodeerimata kujul on:
 </dokument>
 ```
 
-####receiveDocuments.v4
+###receiveDocuments.v4
 ------
 
 Päringu receiveDocuments versioon v4 erineb versioonist V3 selle poolest, et võimaldab allüskuse ja ametikoha parameetritena kasutada lühinimetusi (versioon V3 kasutas numbrilisi ID koode). See võimaldab vastu võtta ainult konkreetsele allüksusele ja/või ametikohale adresseeritud dokumente. Vastussõnumis olevad dokumendid kasutavad DVK konteineri versioon 2.
@@ -2922,8 +2923,7 @@ Content-Transfer-Encoding:8bit
 <xtee:asutus xsi:type="xsd:string">12345678</xtee:asutus>
 <xtee:andmekogu xsi:type="xsd:string">dhl</xtee:andmekogu>
 <xtee:isikukood xsi:type="xsd:string">EE12345678901</xtee:isikukood>
-<xtee:id
-xsi:type="xsd:string">6cae248568b3db7e97ff784673a4d38c5906bee0</xtee:id>
+<xtee:id xsi:type="xsd:string">6cae248568b3db7e97ff784673a4d38c5906bee0</xtee:id>
 <xtee:nimi xsi:type="xsd:string">dhl.receiveDocuments.v4</xtee:nimi>
 <xtee:toimik xsi:type="xsd:string"></xtee:toimik>
 <xtee:amet xsi:type="xsd:string"></xtee:amet>
@@ -3012,7 +3012,7 @@ Elemendi „keha“ sisu kodeerimata kujul on:
 
 ###markDocumentsReceived
 
-####markDocumentsReceived.v1
+###markDocumentsReceived.v1
 ------
 
 <pre style="font-family: 'Roboto', sans-serif;">
@@ -3103,8 +3103,7 @@ Content-Type: text/xml
 <xtee:asutus xsi:type="xsd:string">12345678</xtee:asutus>
 <xtee:andmekogu xsi:type="xsd:string">dhl</xtee:andmekogu>
 <xtee:isikukood xsi:type="xsd:string">EE12345678901</xtee:isikukood>
-<xtee:id
-xsi:type="xsd:string">6cae248568b3db7e97ff784673a4d38c5906bee0</xtee:id>
+<xtee:id xsi:type="xsd:string">6cae248568b3db7e97ff784673a4d38c5906bee0</xtee:id>
 <xtee:nimi xsi:type="xsd:string">dhl.markDocumentsReceived.v1</xtee:nimi>
 <xtee:toimik xsi:type="xsd:string"></xtee:toimik>
 <xtee:amet xsi:type="xsd:string"></xtee:amet>
@@ -3129,7 +3128,7 @@ Elemendi „keha“ sisu kodeerimata kujul on:
 <dhl_id>54365435</dhl_id>
 ```
 
-####markDocumentsReceived.v2
+###markDocumentsReceived.v2
 ------
 
 Element „dokumendid“ on base64 kodeeringus massiiv, mille iga element „item” on alljärgneva struktuuriga:
@@ -3387,8 +3386,7 @@ Content-Type: text/xml
 <xtee:asutus xsi:type="xsd:string">12345678</xtee:asutus>
 <xtee:andmekogu xsi:type="xsd:string">dhl</xtee:andmekogu>
 <xtee:isikukood xsi:type="xsd:string">EE12345678901</xtee:isikukood>
-<xtee:id
-xsi:type="xsd:string">6cae248568b3db7e97ff784673a4d38c5906bee0</xtee:id>
+<xtee:id xsi:type="xsd:string">6cae248568b3db7e97ff784673a4d38c5906bee0</xtee:id>
 <xtee:nimi xsi:type="xsd:string">dhl.markDocumentsReceived.v2</xtee:nimi>
 <xtee:toimik xsi:type="xsd:string"></xtee:toimik>
 <xtee:amet xsi:type="xsd:string"></xtee:amet>
@@ -3432,7 +3430,7 @@ xsi:type="xsd:string">6cae248568b3db7e97ff784673a4d38c5906bee0</xtee:id>
 
 ###getSendingOptions
 
-####getSendingOptions.v1
+###getSendingOptions.v1
 ------
 
 <pre style="font-family: 'Roboto', sans-serif;">
@@ -3546,7 +3544,7 @@ Content-Type: text/xml
 </soapenv:Envelope>
 ```
 
-####getSendingOptions.v2  
+###getSendingOptions.v2  
 ------
 
 <pre style="font-family: 'Roboto', sans-serif;">
@@ -3682,7 +3680,7 @@ Content-Type: text/xml
 </soapenv:Envelope>
 ```
 
-####getSendingOptions.v3
+###getSendingOptions.v3
 ------
 
 <pre style="font-family: Segoe UI, Roboto, Helvetica, Arial, sans-serif;">
@@ -4259,7 +4257,7 @@ Content-Type: text/xml
 
 ###getSubdivisionList
 
-####getSubdivisionList.v1
+###getSubdivisionList.v1
 ------
 
 <pre style="font-family: Segoe UI, Roboto, Helvetica, Arial, sans-serif;">
@@ -4381,7 +4379,7 @@ Content-Type: text/xml
 </soapenv:Envelope>
 ```
 
-####getSubdivisionList.v2
+###getSubdivisionList.v2
 ------
 
 Päringu getSubdivisionList versioon v2 eelneb varasematest versioonidest selle poolest, et päringu ja vastuse andmed asuvad nüüd SOAP sõnumi manustes (varasemates versioonides asusid andmed SOAP sõnumi kehas).
@@ -4545,7 +4543,7 @@ Elemendi „keha“ sisu kodeerimata kujul on:
 
 ###getOccupationList
 
-####getOccupationList.v1
+###getOccupationList.v1
 ------
 
 <pre style="font-family: Segoe UI, Roboto, Helvetica, Arial, sans-serif;">
@@ -4669,7 +4667,7 @@ Content-Type: text/xml
 </soapenv:Envelope>
 ```
 
-####getOccupationList.v2
+###getOccupationList.v2
 ------
 
 Päringu getOccupationList versioon v2 eelneb varasematest versioonidest selle poolest, et päringu ja vastuse andmed asuvad nüüd SOAP sõnumi manustes (varasemates versioonides asusid andmed SOAP sõnumi kehas).
