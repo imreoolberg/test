@@ -960,7 +960,7 @@ Vormile vastuse saatmisel peaks vastus olema adresseeritud samasse kausta, kuhu 
 
 ####Dokumentide edastamine
 
-PILT!
+![Dokumentide edastamine](/img/image1.png "Dokumentide edastamine")
 
 Dokumentide edastamiseks teis(t)ele asutus(t)ele käivitab DHS päringu *dhl.sendDocuments*. Päringu kehasse paigutatakse massiivina kõik edastamist nõudvad dokumendid. Dokumendid peavad olema esitatud „dhlDokumentType“ XML tüübile vastavas formaadis (vt punkti „Dokumentide formaat“) ning omama elemendi „Transport“ all järgmisi kohustuslikke elemente:
 
