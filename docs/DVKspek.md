@@ -100,6 +100,8 @@
 
 
 ##Sissejuhatus
+------
+
 Dokumendivahetuskeskus (DVK) on erinevatele dokumendihaldussüsteemidele ja muudele dokumente käsitlevatele infosüsteemidele ühine keskset dokumendivahetuse teenust pakkuv infosüsteem. DVK ülesanne on hajutatult paiknevate infosüsteemide liidestamine X-tee vahendusel, dokumentide lühiajaline säilitamine ja lähimas tulevikus ka dokumentide menetlemist toetavate teenuste pakkumine.
 
 Spetsifikatsioonile on eraldi lisatud kolm lisa:
@@ -910,6 +912,7 @@ Kui tegemist on konteinerfailiga (BDOC, DDOC, ZIP), siis annab põhifaili nime
 ```
 
 ##Dokumentide logistika
+------
 
 ###Üldist
 Kahe erineva asutuse dokumendihaldussüsteemide (DHS) vaheline automaatne elektrooniline dokumendivahetus realiseeritakse üle X-tee dokumendivahetuskeskuse (DVK) kaasabil. DHS-ile paistab DVK kätte kui X-tee infrastruktuuris asuv andmekogu ning ka sellega suhtlus realiseeritakse standardsel viisil – DHS-i juurde realiseeritakse X-tee adapterserver, mis suhtleb läbi asutuse turvaserveri DVK-ga.
@@ -1025,6 +1028,7 @@ Päring tagastab oma kehas väärtuse „OK“.
 ###sendDocuments
 
 ###sendDocuments.v1
+------
 
 <pre style="font-family: 'Roboto', sans-serif;">
 Päringu nimi: dhl.sendDocuments.v1  
@@ -1201,6 +1205,8 @@ Kui saadeti korraga mitu dokumenti, siis on elemendi „keha“ sisu kodeerimata
 ```
 
 ###sendDocuments.v2
+------
+
 Päringu sendDocuments versioon v2 erineb eelmisest versioonist selle poolest, et võimaldab dokumente DVK serverisse saata fragmenteeritud kujul.
 <pre style="font-family: 'Roboto', sans-serif;">
 Päringu nimi: dhl.sendDocuments.v2
@@ -1595,6 +1601,8 @@ Kui saadeti korraga mitu dokumenti, siis on elemendi „keha“ sisu kodeerimata
 
 
 ###sendDocuments.v4
+------
+
 Päring erineb versioonist 3 selle poolest, et teenus võtab vastu kapsli versiooni 2.1.
 
 ####Näide:
@@ -1871,6 +1879,7 @@ pakkimist:
 ###getSendStatus
 
 ####getSendStatus.v1
+------
 
 <pre style="font-family: 'Roboto', sans-serif;">
 Päringu nimi: dhl.getSendStatus.v1  
@@ -2049,6 +2058,7 @@ Elemendi „keha“ sisu kodeerimata kujul on:
 ```
 
 ####getSendStatus.v2
+------
 
 <pre style="font-family: 'Roboto', sans-serif;">
 Päringu nimi: dhl.getSendStatus.v2  
@@ -2290,6 +2300,7 @@ Kui vastuvõtjale on saadetud 2.1 versioon kapslist ja asutuse toetatav kapsli v
 2.1 versiooni 1.0. **NB! Teistpidi konverteerimist ei eksisteeri.**
 
 ####receiveDocuments.v1
+------
 
 <pre style="font-family: 'Roboto', sans-serif;">
 Päringu nimi: dhl.receiveDocuments.v1  
@@ -2478,6 +2489,8 @@ Elemendi „keha“ sisu kodeerimata kujul on:
 ```
 
 ####receiveDocuments.v2
+------
+
 Päringu receiveDocuments versioon v2 erineb eelmisest versioonist selle poolest, et võimaldab dokumente DVK serverist alla laadida fragmenteeritud kujul.
 
 <pre style="font-family: 'Roboto', sans-serif;">
@@ -2641,6 +2654,8 @@ Elemendi „keha“ sisu kodeerimata kujul on:
 ```
 
 ####receiveDocuments.v3
+------
+
 Päringu receiveDocuments versioon v3 erineb eelmisest versioonist selle poolest, et võimaldab parameetritena ette anda allüksuse koodi ja ametikoha koodi. See võimaldab vastu võtta ainult konkreetsele allüksusele ja/või ametikohale adresseeritud dokumendid.
 
 <pre style="font-family: 'Roboto', sans-serif;">
@@ -2807,6 +2822,7 @@ Elemendi „keha“ sisu kodeerimata kujul on:
 ```
 
 ####receiveDocuments.v4
+------
 
 Päringu receiveDocuments versioon v4 erineb versioonist V3 selle poolest, et võimaldab allüskuse ja ametikoha parameetritena kasutada lühinimetusi (versioon V3 kasutas numbrilisi ID koode). See võimaldab vastu võtta ainult konkreetsele allüksusele ja/või ametikohale adresseeritud dokumente. Vastussõnumis olevad dokumendid kasutavad DVK konteineri versioon 2.
 
@@ -2997,6 +3013,7 @@ Elemendi „keha“ sisu kodeerimata kujul on:
 ###markDocumentsReceived
 
 ####markDocumentsReceived.v1
+------
 
 <pre style="font-family: 'Roboto', sans-serif;">
 Päringu nimi: dhl.markDocumentsReceived.v1
@@ -3113,6 +3130,7 @@ Elemendi „keha“ sisu kodeerimata kujul on:
 ```
 
 ####markDocumentsReceived.v2
+------
 
 Element „dokumendid“ on base64 kodeeringus massiiv, mille iga element „item” on alljärgneva struktuuriga:
 
@@ -3258,6 +3276,7 @@ Elemendi „keha“ sisu kodeerimata kujul on:
 ```
 
 ####markDocumentsReceived.v3
+------
 
 Päringu markDogumentsReceived versioon v3 eelneb varasematest versioonidest selle poolest, et elemendi „dokumendid“ sisu asub nüüd SOAP sõnumi kehas (varasemates versioonides asus base64 kodeeritud kujul SOAP sõnumi manuses). Samuti on lisatud võimalus märkida dokumendid vastuvõetuks kasutades dokumendi GUID tüüpi identifikaatorit (sellisel juhul asendab element &lt;dokument\_guid&gt; elemendi &lt;dhl\_id&gt;).
 
@@ -3414,6 +3433,7 @@ xsi:type="xsd:string">6cae248568b3db7e97ff784673a4d38c5906bee0</xtee:id>
 ###getSendingOptions
 
 ####getSendingOptions.v1
+------
 
 <pre style="font-family: 'Roboto', sans-serif;">
 Päringu nimi: dhl.getSendingOptions.v1
@@ -3527,6 +3547,8 @@ Content-Type: text/xml
 ```
 
 ####getSendingOptions.v2  
+------
+
 <pre style="font-family: 'Roboto', sans-serif;">
 Päringu nimi: dhl.getSendingOptions.v2
 
@@ -3661,6 +3683,7 @@ Content-Type: text/xml
 ```
 
 ####getSendingOptions.v3
+------
 
 <pre style="font-family: Segoe UI, Roboto, Helvetica, Arial, sans-serif;">
 Päringu nimi: dhl.getSendingOptions.v3
@@ -3911,6 +3934,7 @@ Elemendi „keha“ sisu kodeerimata kujul on:
 ```
 
 ###changeOrganizationData
+------
 
 <pre style="font-family: Segoe UI, Roboto, Helvetica, Arial, sans-serif;">
 Päringu nimi: dhl.changeOrganizationData.v1
@@ -4086,6 +4110,7 @@ Content-Type: text/xml
 ```
 
 ###deleteOldDocuments
+------
 
 Päringu nimi: dhl.deleteOldDocuments.v1
 Sisendi keha: -
@@ -4159,6 +4184,7 @@ Content-Type: text/xml
 ```
 
 ###runSystemCheck
+------
 
 <pre style="font-family: Segoe UI, Roboto, Helvetica, Arial, sans-serif;">
 Päringu nimi: dhl.runSystemCheck.v1
@@ -4234,6 +4260,7 @@ Content-Type: text/xml
 ###getSubdivisionList
 
 ####getSubdivisionList.v1
+------
 
 <pre style="font-family: Segoe UI, Roboto, Helvetica, Arial, sans-serif;">
 Päringu nimi: dhl.getSubdivisionList.v1
@@ -4355,6 +4382,7 @@ Content-Type: text/xml
 ```
 
 ####getSubdivisionList.v2
+------
 
 Päringu getSubdivisionList versioon v2 eelneb varasematest versioonidest selle poolest, et päringu ja vastuse andmed asuvad nüüd SOAP sõnumi manustes (varasemates versioonides asusid andmed SOAP sõnumi kehas).
 
@@ -4518,6 +4546,7 @@ Elemendi „keha“ sisu kodeerimata kujul on:
 ###getOccupationList
 
 ####getOccupationList.v1
+------
 
 <pre style="font-family: Segoe UI, Roboto, Helvetica, Arial, sans-serif;">
 Päringu nimi: dhl.getOccupationList.v1
@@ -4641,6 +4670,7 @@ Content-Type: text/xml
 ```
 
 ####getOccupationList.v2
+------
 
 Päringu getOccupationList versioon v2 eelneb varasematest versioonidest selle poolest, et päringu ja vastuse andmed asuvad nüüd SOAP sõnumi manustes (varasemates versioonides asusid andmed SOAP sõnumi kehas).
 
@@ -4800,7 +4830,8 @@ Elemendi „keha“ sisu kodeerimata kujul on:
 </ametikohad>
 ``` 
 
-##Kasutusõiduste süsteem DVK rakenduses
+##Kasutusõiguste süsteem DVK rakenduses
+------
 
 Dokumendivahetuskeskuses kasutatakse kahetasemelist kasutusõiguste süsteemi:
 
@@ -4811,98 +4842,53 @@ DVK serveri kasutamiseks peavad seega esmajoones olema RIA turvaserveris asutuse
 
 Kui DVK päringud on RIA turvaserveris lubatud, siis jõuavad päringud DVK serverisse ja läbivad seal järgmise kontrolli:
 
--   **Kas päringu saatnud asutus on registreeritud DVK asutuste
-    registris?**\
-    Kui asutus ei ole DVK asutuste registris registreeritud, siis
-    päringu töötlemine katkestatakse, kuna päringu töötlemiseks (näit.
-    adresseerimiseks) vajalikke andmeid ei ole olemas.
+-   **Kas päringu saatnud asutus on registreeritud DVK asutuste registris?**  
+    Kui asutus ei ole DVK asutuste registris registreeritud, siis päringu töötlemine katkestatakse, kuna päringu töötlemiseks (näit. adresseerimiseks) vajalikke andmeid ei ole olemas.
 
-<!-- -->
-
--   **Kas päringu saatnud isik on registreeritud DVK isikute
-    registris?**\
-    Kui päringu saatja ei ole isikute registris registreeritud, siis
-    päringu töötlemine katkestatakse, kuna pole võimalik määrata
-    konkreetse isiku kasutajaõigusi.
+-   **Kas päringu saatnud isik on registreeritud DVK isikute registris?**  
+    Kui päringu saatja ei ole isikute registris registreeritud, siis päringu töötlemine katkestatakse, kuna pole võimalik määrata konkreetse isiku kasutajaõigusi.
 
 Sõltuvalt tehtavast päringust kontrollib DVK server veel järgmisi tingimusi:
 
--   sendDocuments
+-   **sendDocuments**
 
-<!-- -->
+-   -   Saadetava dokumendi adressaadiks olev asutus peab olema registreeritud DVK asutuste registrisse.
 
--   -   Saadetava dokumendi adressaadiks olev asutus peab olema
-        registreeritud DVK asutuste registrisse.
+-   **receiveDocuments**
 
-<!-- -->
+-   -   Kui päringu teinud isik täidab oma asutuses ametikohta, mille rolliks on „DHL: Asutuse administraator“, siis saab ta alla laadida kõik antud asutusele adresseeritud dokumendid.
+    -   Kui päringu teinud isik töötab oma asutuses mingis allüksuses, siis saab ta alla laadida kõik antud allüksusele adresseeritud dokumendid.
+    -   Kui päringu teinud isik täidab oma asutuses mingit ametikohta, siis saab ta alla laadida kõik antud ametikohale adresseeritud dokumendid.
+    -   Päringu teinud isik saab alla laadida kõik isiklikult talle adresseeritud dokumendid.
 
--   receiveDocuments
+-   **getSendStatus**
 
-<!-- -->
-
--   -   Kui päringu teinud isik täidab oma asutuses ametikohta, mille
-        rolliks on „DHL: Asutuse administraator“, siis saab ta alla
-        laadida kõik antud asutusele adresseeritud dokumendid.
-    -   Kui päringu teinud isik töötab oma asutuses mingis allüksuses,
-        siis saab ta alla laadida kõik antud allüksusele
-        adresseeritud dokumendid.
-    -   Kui päringu teinud isik täidab oma asutuses mingit ametikohta,
-        siis saab ta alla laadida kõik antud ametikohale
-        adresseeritud dokumendid.
-    -   Päringu teinud isik saab alla laadida kõik isiklikult talle
-        adresseeritud dokumendid.
-
-<!-- -->
-
--   getSendStatus
-
-<!-- -->
-
--   -   Dokumendi staatust saab pärida ainult nende dokumentide kohta,
-        mille on saatnud antud päringu teinud asutus (s.t. teiste
-        asutuste poolt saadetud dokumentide kohta tagasisidet küsida
-        ei saa).
+-   -   Dokumendi staatust saab pärida ainult nende dokumentide kohta, mille on saatnud antud päringu teinud asutus (s.t. teiste asutuste poolt saadetud dokumentide kohta tagasisidet küsida ei saa).
 
 Üldjuhul, kus DVK andmevahetuse eest hoolitseb tarkvara ja reaalsed isikud otseselt DVK-le päringuid ei esita, on DVK andmevahetuse korrektseks toimimiseks seega vaja, et isik, kelle nimel DVK-le päringuid esitatakse, täidaks DVK ametikohtade registris ametikohta, mille rolliks on määratud „DHL: Asutuse administraator“.
 
 ## Edastavate dokumentide valideerimine DVK serveris
+------
 
 Päringuga sendDocuments dokumentide saatmisel toimub DVK serveris dokumentide valideerimine. DVK server teostab järgmised kontrollid:
 
-1.  DVK konteineri XML struktuuri korrektse vorminduse
-    *(well formed)*kontroll
-2.  DVK konteineri XML struktuuri vastavus konteineri XML skeemile
-    (teostatakse juhul, kui DVK konteineri XML-s on viidatud konteineri
-    XML skeemile)
-3.  DVK konteineri &lt;metaxml&gt; elemendis sisalduva XML-i struktuuri
-    vastavus XML skeemile (teostatakse juhul, kui &lt;metaxml&gt;
-    elemendis on viidatud vastavale XML skeemile.
-4.  &lt;SignedDoc&gt; või &lt;Failid&gt; elemendis edastatavate
-    digiallkirja konteinerite (.DDOC või .BDOC failid) allkirjade
-    kehtivuse kontroll.
-5.  &lt;SignedDoc&gt; või &lt;Failid&gt; elemendis edastatava XML faili
-    korrektse vorminduse *(well formed)*kontroll.
-6.  &lt;SignedDoc&gt; või &lt;Failid&gt; elemendis edastatava XML faili
-    struktuuri vastavus vastavale XML skeemile (teostatakse juhul, kui
-    XML failis on viidatud vastavale XML skeemile).
-7.  &lt;SignedDoc&gt; või &lt;Failid&gt; elemendis edastatava
-    digiallkirja konteinerite (.DDOC või .BDOC failid) sisus asuvate XML
-    failide korrektse vorminduse *(well formed)*kontroll.
-8.  &lt;SignedDoc&gt; või &lt;Failid&gt; elemendis edastatava
-    digiallkirja konteinerite (.DDOC või .BDOC failid) sisus asuvate XML
-    failide vastavus vastavale XML skeemile (teostatakse juhul, kui XML
-    failis on viidatud vastavale XML skeemile).
+1.  DVK konteineri XML struktuuri korrektse vorminduse *(well formed)* kontroll
+2.  DVK konteineri XML struktuuri vastavus konteineri XML skeemile (teostatakse juhul, kui DVK konteineri XML-s on viidatud konteineri XML skeemile)
+3.  DVK konteineri &lt;metaxml&gt; elemendis sisalduva XML-i struktuuri vastavus XML skeemile (teostatakse juhul, kui &lt;metaxml&gt; elemendis on viidatud vastavale XML skeemile.
+4.  &lt;SignedDoc&gt; või &lt;Failid&gt; elemendis edastatavate digiallkirja konteinerite (.DDOC või .BDOC failid) allkirjade kehtivuse kontroll.
+5.  &lt;SignedDoc&gt; või &lt;Failid&gt; elemendis edastatava XML faili korrektse vorminduse *(well formed)* kontroll.
+6.  &lt;SignedDoc&gt; või &lt;Failid&gt; elemendis edastatava XML faili struktuuri vastavus vastavale XML skeemile (teostatakse juhul, kui XML failis on viidatud vastavale XML skeemile).
+7.  &lt;SignedDoc&gt; või &lt;Failid&gt; elemendis edastatava digiallkirja konteinerite (.DDOC või .BDOC failid) sisus asuvate XML failide korrektse vorminduse *(well formed)* kontroll.
+8.  &lt;SignedDoc&gt; või &lt;Failid&gt; elemendis edastatava digiallkirja konteinerite (.DDOC või .BDOC failid) sisus asuvate XML failide vastavus vastavale XML skeemile (teostatakse juhul, kui XML failis on viidatud vastavale XML skeemile).
 
 Valideerimisel avastatud vea puhul tagastab sendDocuments päring dokumendi saatjale veateate vea võimalikult detailse kirjeldusega. Veateade tagastatakse päringu käivitajale SOAP Fault sõnumina. Vea kirjeldus sisaldab sõltuvalt teostatud kontrollist järgmisi andmeid:
 
--   XML failide valideerimisel vea kirjeldust, XML faili nime ja vea
-    asukohta failis (rida, veerg)
+-   XML failide valideerimisel vea kirjeldust, XML faili nime ja vea asukohta failis (rida, veerg)
 -   Digitaalallkirjade puhul vea kirjeldust ja faili nime.
 
 Nii XML failide kui ka digitaalallkirjade valideerimist saab DVK serveri konfiguratsioonis vajadusel välja lülitada. Selleks tuleb serveri konfiguratsioonifailis dhl.properties muuta parameetrite „server\_validate\_container“, „server\_validate\_xml“ ja „server\_validate\_signatures“ väärtusi.
 
-***Faili dhl.properties näidis:**\
-*
+**Faili dhl.properties näidis:**
 
 ```
 # Konteineri valideerimise seaded
@@ -4920,6 +4906,8 @@ server_validate_signatures = no
 
 
 ##Adressaatide automaatne lisamine DVK serveris
+------
+
 DVK serverit on võimalik seadistada nii, et kui saadetav dokumendikonteiner vastab etteantud tingimustele, siis lisatakse dokumendi adressaatide hulka üks või mitu täiendavat adressaati. Nimetatud lahendus on vajalik näiteks selleks, et garanteerida mingi projektiga seotud dokumentide jõudmine kõigile asjassepuutuvatele osapooltele.
 
 Automaatse adressaatide lisamise korral muudab DVK server saadetava dokumendikonteineri XML andmeid, s.t. lisatud adressaadid on nähtavad ka kõigile teistele adressaatidele ja dokumendi esialgsele saatjale.
@@ -4974,6 +4962,7 @@ Sellisel juhul näeks andmeväli TINGIMUS\_XPATH väärtus välja järgmine:<pre
 
 
 ##Dokumentide edastamine DVK serverite vahel (DVK lüüsid)
+------
 
 ###Sissejuhatus
 DVK lüüsid kujutavad endast võimalust edastada DVK serverisse saadetud dokumente mõnda teise DVK serverisse või mõnda teise dokumendivahetussüsteemi. Esmases tehnilises lahenduses toetab DVK dokumentide edastamist DVK andmevahetusspetsifikatsioonile vastavatesse dokumendivahetussüsteemidesse.
@@ -5084,6 +5073,7 @@ Selleks tuleks iga teadaoleva teise DVK serveri kohta lisada andmetabelisse „S
 -   aadressX-Tee andmevahetuse puhul reeglina:\ http://\[TURVASERVER\]/cgi-bin/consumer\_proxy\ Ilma X-Tee vahenduseta andmevahetuse puhul oleks siin serveri reaalne URL.
 
 ##Dokumentide edastamine fragmentidena
+------
 
 DVK päringuid sendDocuments.v2 ja receiveDocuments.v2 saab kasutada nii, et dokumendid edastataks kliendilt serverile või serverilt kliendile tükkhaaval.
 
@@ -5109,6 +5099,7 @@ Dokumentide tükkhaaval vastuvõtmiseks tuleks kasutada järgmisi päringu recei
 
 
 ##Teadaolevad vead DVK rakenduses
+------
 
 ###Content-Transfer-Encoding päise vigane esitus
 
