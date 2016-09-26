@@ -4980,12 +4980,12 @@ DVK lüüsid kujutavad endast võimalust edastada DVK serverisse saadetud dokume
 
 Sellise dokumentide edastamise peamiseks eesmärgiks on, et saaks eksisteerida eraldi dokumendivahetuskeskkonnad näiteks riigisektori ja erasektori jaoks. Dokumentide vahetamine kirjeldatud juhul toimiks siis joonisel 1 toodud skeemi alusel:
 
-![Joonis 1](/docs/img/image3.png "Joonis 1")
+![Joonis 1](/docs/img/image3.PNG "Joonis 1")
 
 DVK serverisse saadetud dokumendi (päring *sendDocuments*) edastamise
 protsess on esitatud joonisel 2.
 
-![Joonis 2](/docs/img/image4.png "Joonis 2")
+![Joonis 2](/docs/img/image4.PNG "Joonis 2")
 
 Analoogilist protsessi rakendatakse ka olukorras, kus dokumendi saatja
 pärib andmeid dokumendi staatuse kohta (päring *getSendStatus*).
