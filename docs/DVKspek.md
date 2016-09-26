@@ -4946,29 +4946,13 @@ DVK serveri poolt automaatselt lisatavaid aadressaate saab seadistada DVK server
 
 XPATH tingimuse näiteid:
 
-1.  Oletame, et adressaat tuleks lisada dokumendile, mille adressaatide
-    hulgas on juba olemas asutus registrikoodiga 12345678. Sellisel
-    juhul näeks andmevälja TINGIMUS\_XPATH väärtus välja järgmine:\
-    */dokument/transport/saaja\[regnr='12345678'\]*
-2.  Oletame, et adressaat tuleks lisada dokumendile, mille saatjaks on
-    asutus registrikoodiga 23456789. Sellisel juhul näeks andmevälja
-    TINGIMUS\_XPATH väärtus välja järgmine:\
-    */dokument/transport/saatja\[regnr='23456789'\]*
-3.  Oletame, et adressaat tuleks lisada dokumendile, mille metainfo
-    blokis on saatja defineeritud andmeväli „Lisa mulle aadress“ ja
-    väärtusega „Jah“. Sellisel juhul näeks andmeväli TINGIMUS\_XPATH
-    väärtus välja järgmine:\
-    */dokument/metainfo\[saatja\_defineeritud='Jah'\]/saatja\_defineeritud\[@valjanimi='Lisa
-    mulle aadress'\]*
-4.  Oletame, et adressaat tuleks lisada dokumendile, mille metainfo
-    blokis on saatja defineeritud andmeväli „Projekt“ ja
-    väärtusega „DVK“. Sellisel juhul näeks andmeväli TINGIMUS\_XPATH
-    väärtus välja järgmine:\
-    */dokument/metainfo\[saatja\_defineeritud='DVK'\]/saatja\_defineeritud\[@valjanimi='Projekt'\]*
-5.  Oletame, et adressaat tuleks lisada dokumendile, mille metaxml blokk
-    sisaldab järgmises XML näites paksemas kirjas esitatud väärtust:
+1.  Oletame, et adressaat tuleks lisada dokumendile, mille adressaatide hulgas on juba olemas asutus registrikoodiga 12345678. Sellisel juhul näeks andmevälja TINGIMUS\_XPATH väärtus välja järgmine: <pre>/dokument/transport/saaja[regnr='12345678']</pre>
+2.  Oletame, et adressaat tuleks lisada dokumendile, mille saatjaks on asutus registrikoodiga 23456789. Sellisel juhul näeks andmevälja TINGIMUS\_XPATH väärtus välja järgmine: <pre>/dokument/transport/saatja[regnr='23456789']</pre>
+3.  Oletame, et adressaat tuleks lisada dokumendile, mille metainfo blokis on saatja defineeritud andmeväli „Lisa mulle aadress“ ja väärtusega „Jah“. Sellisel juhul näeks andmeväli TINGIMUS\_XPATH väärtus välja järgmine: <pre>/dokument/metainfo[saatja_defineeritud='Jah']/saatja_defineeritud[@valjanimi='Lisa mulle aadress']</pre>
+4.  Oletame, et adressaat tuleks lisada dokumendile, mille metainfo blokis on saatja defineeritud andmeväli „Projekt“ ja väärtusega „DVK“. Sellisel juhul näeks andmeväli TINGIMUS\_XPATH väärtus välja järgmine:<pre>/dokument/metainfo[saatja_defineeritud='DVK']/saatja_defineeritud[@valjanimi='Projekt']</pre>
+5.  Oletame, et adressaat tuleks lisada dokumendile, mille metaxml blokk sisaldab järgmises XML näites paksemas kirjas esitatud väärtust:
 
-<pre>
+```xml
 <dokument>
     ...
     <metaxml>
@@ -4983,9 +4967,9 @@ XPATH tingimuse näiteid:
     </metaxml>
     ...
 </dokument>
-</pre> 
+```
 
-    Sellisel juhul näeks andmeväli TINGIMUS\_XPATH väärtus välja järgmine:\ */dokument/metaxml/lepingu\_andmed/osapooled/osapool\[registrikood='12345678'\]*
+Sellisel juhul näeks andmeväli TINGIMUS\_XPATH väärtus välja järgmine:<pre>/dokument/metaxml/lepingu_andmed/osapooled/osapool[registrikood='12345678']</pre>
 
 
 
