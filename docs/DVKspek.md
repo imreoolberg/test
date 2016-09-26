@@ -52,7 +52,7 @@
     - [getOccupationList](#getoccupationlist)
         - [getOccupationList.v1](#getoccupationlistv1)
         - [getOccupationList.v2](#getoccupationlistv2)
-- [Kasutusõiguste süsteem DVK rakenduses](#kasutusõiduste-süsteem-dvk-rakenduses)
+- [Kasutusõiguste süsteem DVK rakenduses](#kasutusõiguste-süsteem-dvk-rakenduses)
 - [Edastatavate dokumentide valideerimine DVK serveris](#edastavate-dokumentide-valideerimine-dvk-serveris)
 - [Adressaatide automaatne lisamine DVK serveris](#adressaatide-automaatne-lisamine-dvk-serveris)
     - [Adressaatide automaatse lisamise seadistamine](#adressaatide-automaatse-lisamise-seadistamine)
