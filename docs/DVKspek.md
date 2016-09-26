@@ -4855,14 +4855,14 @@ Sõltuvalt tehtavast päringust kontrollib DVK server veel järgmisi tingimusi:
 
 -   **receiveDocuments**
 
--   -   Kui päringu teinud isik täidab oma asutuses ametikohta, mille rolliks on „DHL: Asutuse administraator“, siis saab ta alla laadida kõik antud asutusele adresseeritud dokumendid.
+    -   Kui päringu teinud isik täidab oma asutuses ametikohta, mille rolliks on „DHL: Asutuse administraator“, siis saab ta alla laadida kõik antud asutusele adresseeritud dokumendid.
     -   Kui päringu teinud isik töötab oma asutuses mingis allüksuses, siis saab ta alla laadida kõik antud allüksusele adresseeritud dokumendid.
     -   Kui päringu teinud isik täidab oma asutuses mingit ametikohta, siis saab ta alla laadida kõik antud ametikohale adresseeritud dokumendid.
     -   Päringu teinud isik saab alla laadida kõik isiklikult talle adresseeritud dokumendid.
 
 -   **getSendStatus**
 
--   -   Dokumendi staatust saab pärida ainult nende dokumentide kohta, mille on saatnud antud päringu teinud asutus (s.t. teiste asutuste poolt saadetud dokumentide kohta tagasisidet küsida ei saa).
+   -   Dokumendi staatust saab pärida ainult nende dokumentide kohta, mille on saatnud antud päringu teinud asutus (s.t. teiste asutuste poolt saadetud dokumentide kohta tagasisidet küsida ei saa).
 
 Üldjuhul, kus DVK andmevahetuse eest hoolitseb tarkvara ja reaalsed isikud otseselt DVK-le päringuid ei esita, on DVK andmevahetuse korrektseks toimimiseks seega vaja, et isik, kelle nimel DVK-le päringuid esitatakse, täidaks DVK ametikohtade registris ametikohta, mille rolliks on määratud „DHL: Asutuse administraator“.
 
