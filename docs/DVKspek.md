@@ -960,7 +960,7 @@ Vormile vastuse saatmisel peaks vastus olema adresseeritud samasse kausta, kuhu 
 
 ####Dokumentide edastamine
 
-![Dokumentide edastamine](/img/image1.png "Dokumentide edastamine")
+![Dokumentide edastamine](/docs/img/image1.png "Dokumentide edastamine")
 
 Dokumentide edastamiseks teis(t)ele asutus(t)ele käivitab DHS päringu *dhl.sendDocuments*. Päringu kehasse paigutatakse massiivina kõik edastamist nõudvad dokumendid. Dokumendid peavad olema esitatud „dhlDokumentType“ XML tüübile vastavas formaadis (vt punkti „Dokumentide formaat“) ning omama elemendi „Transport“ all järgmisi kohustuslikke elemente:
 
@@ -1003,7 +1003,7 @@ Saatmisinfo kirje sisaldab ka elemendi „olek“, **mille väärtus määrab do
 
 ####Dokumentide vastuvõtt
 
-!!PILT 
+![Dokumentide vastuvõtt](/docs/img/image2.png "Dokumentide vastuvõtt") 
 
 DHS-i poolne teiste asutuste poolt antud asutusele saadetud dokumentide vastuvõtt toimub päringu *dhl.receiveDocuments* abil. Päring tagastab kõik DVK-s antud asutusele teiste asutuste poolt edastatud dokumendid. Päringule saab elemendi „arv“ abil määrata piirangu, mitu dokumenti maksimaalselt tohib vastuses tagastada. Lisaks saab elemendi „kaust“ abil määrata kausta(d), kust dokumente loetakse.
 Päring tagastab loetud dokumentide massiivi.
@@ -4980,12 +4980,12 @@ DVK lüüsid kujutavad endast võimalust edastada DVK serverisse saadetud dokume
 
 Sellise dokumentide edastamise peamiseks eesmärgiks on, et saaks eksisteerida eraldi dokumendivahetuskeskkonnad näiteks riigisektori ja erasektori jaoks. Dokumentide vahetamine kirjeldatud juhul toimiks siis joonisel 1 toodud skeemi alusel:
 
-PILT!!! Joonis 1
+![Joonis 1](/docs/img/image3.png "Joonis 1")
 
 DVK serverisse saadetud dokumendi (päring *sendDocuments*) edastamise
 protsess on esitatud joonisel 2.
 
-PILT!!! Joonis 2
+![Joonis 2](/docs/img/image4.png "Joonis 2")
 
 Analoogilist protsessi rakendatakse ka olukorras, kus dokumendi saatja
 pärib andmeid dokumendi staatuse kohta (päring *getSendStatus*).
