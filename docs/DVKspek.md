@@ -82,53 +82,17 @@
 |-------|----------|----------------|----------------------|
 | 26.11.2005  | 1.1 | Dokumendi esialgne versioon | OÜ Degeetia |
 | 17.04.2006 | 1.3.1 | Terminid „dokumendirepositoorium”, „dokumendihoidla” ning vastavad lühendid „DR” ja „DHL” on asendatud (v.a tehniline osa päringute kirjeldustes) „dokumendivahetuskeskus” ja „DVK”-ga | Rauno Temmer (RIA) |
-| 13.06.2006 | 1.3.2 | Lisatud päringu „getSendingOptions” kirjeldus. | Jaak Lember
-(Carlsman OÜ) |
-| 27.11.2006 | 1.3.3 | Uuendatud DVK tööskeemi kirjeldust, eemaldatud INBOX ja OUTBOX kasutamist kirjeldavad osad, lisatud teadaolevate vigade peatükk, tehtud rida pisiparandusi päringute ja XML skeemide (schema) kirjeldustes.
-Lisatud peatükk „Kaustade kasutamine“. | Jaak Lember
-(Carlsman OÜ) |
-| 13.02.2007 | 1.4 | Lisatud päringu „dhl.markDocumentsReceived.v2” kirjeldus.
-Täiendatud päringu „getSendStatus” kirjeldust.
-Uuendatud failide dhl.xsd ja dhl.wsdl listinguid. | Jaak Lember
-(Carlsman OÜ) |
-| 21.07.2008 | 1.5 | Restruktureeritud dokumendi muudatuste ajaloo osa.
-Täiendatud päringu sendDocuments kasutusnäidet.
-Lisatud peatükile „Kaustade kasutamine“ alapunkt „Kaustade kasutamine e-vormide andmevahetuses“ (kopeeritud RIA dokumendist „E-vormide rakenduse andmevahetusviiside kirjeldus“).
-Lisatud „transport“ elemendi kirjelduse alla uute alamelementide „vahendaja“, „asutuse_nimi“ ja „allyksuse_kood“ näited ja kirjeldused.
-Täiendatud päringute sendDocuments, receiveDocuments ja getSendingOptions kirjeldusi päringute versioonide v2 kirjeldustega.
-Lisatud päringute changeOrganizationData, deleteOldDocuments ja runSystemCheck kirjeldused.
-Lisatud peatükid „Adressaatide automaatne lisamine DVK serveris“, „Dokumentide edastamine DVK serverite vahel (DVK lüüsid)“ ja „Dokumentide edastamine fragmentidena“.
-Uuendatud faili dhl.xsd näidet.
-Uuendatud faili dhl.wsdl näidet.
-Uuendatud DVK XML konteineri näidet. | Jaak Lember
-(Carlsman OÜ) |
-| 30.07.2008 | 1.5.1 | Lisatud päringute getSubdivisionList ja getOccupationList kirjeldused.
-Täiendatud „transport“ bloki kirjeldust.
-Uuendatud faili dhl.xsd näidet.
-Uuendatud DVK XML konteineri näidet. | Jaak Lember
-(Carlsman OÜ) |
-| 12.01.2009 | 1.5.2 | Dokumentatsiooni kohendamine
-TEST kausta kasutamise kirjeldus | Hannes Linno
-(RIA) |
-| 03.02.2009 | 1.5.3 | Lisatud päringu receiveDocuments.v3 kirjeldus.
-Täiendatud päringute receiveDocuments.v2 ja sendDocuments.v2 kirjeldust.
-Vormindatud päringute parameetrite kirjelduste osa paremini loetavaks.
-Uuendatud DVK XML konteineri näidet. | Jaak Lember
-(Carlsman OÜ) |
+| 13.06.2006 | 1.3.2 | Lisatud päringu „getSendingOptions” kirjeldus. | Jaak Lember (Carlsman OÜ) |
+| 27.11.2006 | 1.3.3 | Uuendatud DVK tööskeemi kirjeldust, eemaldatud INBOX ja OUTBOX kasutamist kirjeldavad osad, lisatud teadaolevate vigade peatükk, tehtud rida pisiparandusi päringute ja XML skeemide (schema) kirjeldustes. Lisatud peatükk „Kaustade kasutamine“. | Jaak Lember (Carlsman OÜ) |
+| 13.02.2007 | 1.4 | Lisatud päringu „dhl.markDocumentsReceived.v2” kirjeldus. Täiendatud päringu „getSendStatus” kirjeldust. Uuendatud failide dhl.xsd ja dhl.wsdl listinguid. | Jaak Lember (Carlsman OÜ) |
+| 21.07.2008 | 1.5 | Restruktureeritud dokumendi muudatuste ajaloo osa. Täiendatud päringu sendDocuments kasutusnäidet. Lisatud peatükile „Kaustade kasutamine“ alapunkt „Kaustade kasutamine e-vormide andmevahetuses“ (kopeeritud RIA dokumendist „E-vormide rakenduse andmevahetusviiside kirjeldus“). Lisatud „transport“ elemendi kirjelduse alla uute alamelementide „vahendaja“, „asutuse_nimi“ ja „allyksuse_kood“ näited ja kirjeldused. Täiendatud päringute sendDocuments, receiveDocuments ja getSendingOptions kirjeldusi päringute versioonide v2 kirjeldustega. Lisatud päringute changeOrganizationData, deleteOldDocuments ja runSystemCheck kirjeldused. Lisatud peatükid „Adressaatide automaatne lisamine DVK serveris“, „Dokumentide edastamine DVK serverite vahel (DVK lüüsid)“ ja „Dokumentide edastamine fragmentidena“. Uuendatud faili dhl.xsd näidet. Uuendatud faili dhl.wsdl näidet. Uuendatud DVK XML konteineri näidet. | Jaak Lember (Carlsman OÜ) |
+| 30.07.2008 | 1.5.1 | Lisatud päringute getSubdivisionList ja getOccupationList kirjeldused. Täiendatud „transport“ bloki kirjeldust. Uuendatud faili dhl.xsd näidet. Uuendatud DVK XML konteineri näidet. | Jaak Lember (Carlsman OÜ) |
+| 12.01.2009 | 1.5.2 | Dokumentatsiooni kohendamine TEST kausta kasutamise kirjeldus | Hannes Linno (RIA) |
+| 03.02.2009 | 1.5.3 | Lisatud päringu receiveDocuments.v3 kirjeldus. Täiendatud päringute receiveDocuments.v2 ja sendDocuments.v2 kirjeldust. Vormindatud päringute parameetrite kirjelduste osa paremini loetavaks. Uuendatud DVK XML konteineri näidet. | Jaak Lember (Carlsman OÜ) |
 | 08.02.2010 | 1.5.3.1 | Täiendatud päringute getSendingOptions.v1, getSendingOptions.v2, getSubdivisionList.v1, getOccupationList.v1 kirjeldusi ja näiteid. | Jaak Lember |
-| 10.02.2010 | 1.5.3.2 | Lisatud päringute markDocumentsReceived.v3, getSubdivisionList.v2 ja getOccupationList.v2 kirjeldused ja näited.
-Täiendatud päringute getSubdivisionList.v1 ja getOccupationList.v1 kirjeldused ja näited. | Jaak Lember |
-| 15.02.2010 | 1.5.3.3 | Lisatud päringu getSendingOptions.v3 kirjeldus.
-Lisatud päringu receiveDoruments.v4 kirjeldus.
-Parandatud päringute receiveDocuments.v3 ja receiveDocuments.v2 kirjeldusi. | Jaak Lember |
-| 13.04.2010 | 1.6.0 | Muudetud päringu getSendStatus.v1 kirjeldust.
-Lisatud päringu getSendStatus.v2 kirjeldus.
-Muudetud päringute markDocumentsReceived.v2 ja markDocumentsReceived.v3 kirjeldusi.
-Muudetud päringu getSendingOptions.v3 kirjeldust ja näiteid.
-Parandatud vead päringu getSubdivisionList.v2 näidetes.
-Parandatud vead päringu getOccupationList.v2 näidetes.
-Lisatud peatükk „Edastatavate dokumentide valideerimine DVK serveris“.
-Täiendatud päringute „sendDocuments.v1“ ja  „sendDocuments.v2“ kirjeldusi. | Jaak Lember |
+| 10.02.2010 | 1.5.3.2 | Lisatud päringute markDocumentsReceived.v3, getSubdivisionList.v2 ja getOccupationList.v2 kirjeldused ja näited. Täiendatud päringute getSubdivisionList.v1 ja getOccupationList.v1 kirjeldused ja näited. | Jaak Lember |
+| 15.02.2010 | 1.5.3.3 | Lisatud päringu getSendingOptions.v3 kirjeldus. Lisatud päringu receiveDoruments.v4 kirjeldus. Parandatud päringute receiveDocuments.v3 ja receiveDocuments.v2 kirjeldusi. | Jaak Lember |
+| 13.04.2010 | 1.6.0 | Muudetud päringu getSendStatus.v1 kirjeldust. Lisatud päringu getSendStatus.v2 kirjeldus. Muudetud päringute markDocumentsReceived.v2 ja markDocumentsReceived.v3 kirjeldusi. Muudetud päringu getSendingOptions.v3 kirjeldust ja näiteid. Parandatud vead päringu getSubdivisionList.v2 näidetes. Parandatud vead päringu getOccupationList.v2 näidetes. Lisatud peatükk „Edastatavate dokumentide valideerimine DVK serveris“. Täiendatud päringute „sendDocuments.v1“ ja  „sendDocuments.v2“ kirjeldusi. | Jaak Lember |
 | 08.04.2010 | 1.6.00 | Eemaldatud vananenud tekst | Hannes Kiivet |
 | 14.04.2014 | 1.7 | Lisatud sendDocuments.v4 päringu kirjeldus. Täiendatud receiveDocuments päringu kirjeldust. | Hendrik Pärna |
 | 26.09.2016 | 1.8 | Dokumendi sisu üle viidud MarkDown formaati (sisulisi muudatusi tegemata) | Kertu Hiire |
