@@ -3274,7 +3274,7 @@ Elemendi „keha“ sisu kodeerimata kujul on:
 </item>
 ```
 
-####markDocumentsReceived.v3
+###markDocumentsReceived.v3
 ------
 
 Päringu markDogumentsReceived versioon v3 eelneb varasematest versioonidest selle poolest, et elemendi „dokumendid“ sisu asub nüüd SOAP sõnumi kehas (varasemates versioonides asus base64 kodeeritud kujul SOAP sõnumi manuses). Samuti on lisatud võimalus märkida dokumendid vastuvõetuks kasutades dokumendi GUID tüüpi identifikaatorit (sellisel juhul asendab element &lt;dokument\_guid&gt; elemendi &lt;dhl\_id&gt;).
