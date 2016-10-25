@@ -121,7 +121,7 @@ Dokumendivahetus DHS ja DVK vahel toimub järgmiste põhikonteinerite kaudu:
         - DigiDoc formaadis dokumenti (DVK konteiner versioon 1), mis omakorda:
             - sisaldab suvalise hulga base64 kodeeringus ja minimaalse formaadi-metainfoga varustatud faile
             - sisaldab suvalise hulga allkirja-blokke nimetatud failide jaoks. Allkirja-blokkidesse ei tule kopeerida konteineris olevate eraldi allkirjastatud dokumentide allkirja-blokke. NB! DVK kontekstis on lubatud allkirja-blokkide puudumine!
-        - <failid> formaadis konteinerit (DVK konteiner versioon 2), mis omakorda:
+        - `<failid>` formaadis konteinerit (DVK konteiner versioon 2), mis omakorda:
             - Sisaldab suvalise hulga faile zip-itud ja seejärel Base64 kodeeringusse panduna. Lisaks failide metaandmed.
 
 Dokumendi ("dokument" konteiner) struktuuri kirjeldame järgmises peatükis, SOAP-konteinerit ja X-Tee päringut aga edasises "Dokumentide logistika" peatükis.
@@ -136,7 +136,7 @@ Dokumendi formaat põhineb kas DigiDoc formaadil (DVK konteineri versioon 1) võ
 
 - Kõik metainfo väljad moodustavad sisuliselt "lameda", struktuurita loetelu rdf-ideoloogiaga sobivatest nimi-väärtus paaridest, mida on lihtne realiseerida ja laiendada.
 
-- Metainfo väljad ei ole allkirjastatud. Allkirjad on ainult dokumentide küljes DigiDoc konteineris. Seejuures on allkirjastatud dokumendil DigiDoc formaadis siiski olemas väike hulk spetsiaalseid metainfo-välju (dokumendi formaat jne), mis on alati allkirjastatud. NB! DigiDoc formaati kasutatakse ainult DVK konteineri versiooni 1 puhul. DVK konteineri versioon 2 kasutab <failid> konteinerit, millel ei ole allkirja hoidmiseks spetsiaalset struktuuri. Allkirjastatud dokumentide edastamiseks saab sellisel juhul lisada allkirjastatud dokumendi <failid> konteinerisse.
+- Metainfo väljad ei ole allkirjastatud. Allkirjad on ainult dokumentide küljes DigiDoc konteineris. Seejuures on allkirjastatud dokumendil DigiDoc formaadis siiski olemas väike hulk spetsiaalseid metainfo-välju (dokumendi formaat jne), mis on alati allkirjastatud. NB! DigiDoc formaati kasutatakse ainult DVK konteineri versiooni 1 puhul. DVK konteineri versioon 2 kasutab `<failid>` konteinerit, millel ei ole allkirja hoidmiseks spetsiaalset struktuuri. Allkirjastatud dokumentide edastamiseks saab sellisel juhul lisada allkirjastatud dokumendi `<failid>` konteinerisse.
 
 - Kuupäevi ja kellaaegu esitatakse XML struktuuris ISO8601 standardile vastavalt (http://www.w3.org/TR/NOTE-datetime). S.t. kuupäev+kellaaeg kujul YYYY-MM-DDThh:mm:ssTZD (näit: 2006-03-20T17:25:00+02:00) ning kuupäev kujul YYY-MM-DD (näit: 2006-03-20)
 
@@ -224,27 +224,11 @@ Järgnev on DigiDoc formaadi ümbriku ülemise taseme kirjeldus AS Sertifitseeri
     ....
     <Signature/>
 </SignedDoc>
-
-Kui kasutatakse DVK konteineri versiooni 2, siis hoitakse faile <failid> konteineris, mille struktuur on järgmine:
-
-<dhl:failid xmlns="http://www.riik.ee/schemas/dhl/2010/2">       
-<fail>
-        <jrknr/>
-      <fail_pealkiri/>
-      <fail_suurus/>
-      <fail_tyyp/>
-      <fail_nimi/>
-      <zip_base64_sisu/>
-      <krypteering/>
-      <pohi_dokument/>
-      <pohi_dokument_konteineris/>
-    </fail>
-</dhl:failid>
 ```
 
 Kui kasutatakse DVK konteineri versiooni 2, siis hoitakse faile `<failid>` konteineris, mille struktuur on järgmine:
 
-```
+```xml
 <dhl:failid xmlns="http://www.riik.ee/schemas/dhl/2010/2">       
 <fail>
         <jrknr/>
@@ -891,7 +875,7 @@ Kasutatav vaid XML kujul algandmete jaoks. Tähelepanu tuleb osutada sellel, et 
 
 
 ###Taustinfoks:`<failid>` konteiner
-DVK konteineri versioon 2 kasutab failide edastamiseks <SignedDoc> (DigiDoc) konteineri asemel `<failid>` konteinerit, mille struktuur on järgmine:
+DVK konteineri versioon 2 kasutab failide edastamiseks `<SignedDoc>` (DigiDoc) konteineri asemel `<failid>` konteinerit, mille struktuur on järgmine:
 
 ```xml
 <dhl:failid xmlns=“http://www.riik.ee/schemas/dhl/2010/2“>
@@ -1105,20 +1089,22 @@ Rohkem infot X-tee sõnumiprotokolli v4.0 kasutamise kohta saab vastavast [*tehn
 ### Alamsüsteemide kasutamise loogika DVK-s
 
 Kui asutus soovib DVK-ga liidestuda mitme süsteemiga (näiteks eraldi struktuuriüksused, millele oleks võimalik otse dokumente adresseerida), siis on vaja v4.0 sõnumiprotokolli kasutades DVK keskserveris täpsustada alamsüsteemi (subsystemCode) ning registrikoodi (memberCode) väärtused. 
-Varasemalt on selliste süsteemide puhul rakendatud nn X-tee 'alamsertifikaati', kus registrikoodi väärtusena kasutati 'alamsüsteem.registrikood' väärtust. Uuele sõnumiprotokollile üleminemisel soovitame alamsüsteemi nimeks valida see just see sama väärtus.
-Näiteks:<br>
+
+Varasemalt on selliste süsteemide puhul rakendatud nn X-tee 'alamsertifikaati', kus registrikoodi väärtusena kasutati 'alamsüsteem.registrikood' väärtust. Uuele sõnumiprotokollile üleminemisel soovitame alamsüsteemi nimeks valida see just see sama väärtus.    
+Näiteks: <br>
 - Viru Ringkonnaprokuratuur
-  ```xml
-        <xrd:client id:objectType="SUBSYSTEM">
+```xml
+<xrd:client id:objectType="SUBSYSTEM">
             <id:xRoadInstance>EE</id:xRoadInstance>
             <id:memberClass>GOV</id:memberClass>
             <id:memberCode>70000906</id:memberCode>
             <id:subsystemCode>viru.70000906</id:subsystemCode>
-        </xrd:client>
-  ```      
-Uuele sõnumiprotokollile üleminekul tuleb selliste süsteemide puhul anda teada RIA kasutajatoele (help@ria.ee), millise registrikoodi ja alamsüsteemiga päringuid soovitakse saata.
+</xrd:client>
+```       
 
-Asutused, kes on varasemalt DVK-ga liidestunud ühe süsteemina (kasutanud selleks ühte asutuse X-tee sertifikaati), ei pea uuele sõnumiprotokollile üleminemisel eraldi RIA kasutajatuge teavitama ning alamsüsteemi nimeks võib valida endale sobiva nimetuse, näiteks 'dok-haldus'.
+Uuele sõnumiprotokollile üleminekul tuleb selliste süsteemide puhul anda teada RIA kasutajatoele (help@ria.ee), millise registrikoodi ja alamsüsteemiga päringuid soovitakse saata.    
+
+Asutused, kes on varasemalt DVK-ga liidestunud ühe süsteemina (kasutanud selleks ühte asutuse X-tee sertifikaati), ei pea uuele sõnumiprotokollile üleminemisel eraldi RIA kasutajatuge teavitama ning alamsüsteemi nimeks võib valida endale sobiva nimetuse, näiteks _'dok-haldus'_.
 
 
 ##DVK teenused
