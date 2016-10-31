@@ -15,7 +15,7 @@ DVK teenused ning päringute näited leiab [DVK spetsifikatsioonist](doc/DVKspek
 
 ## X-tee versioon 6-le üleminek DVK kontekstis
 
-DVK kasutaja jaoks kõige olulisem muudatuse seoses X-tee versioon 6-le üleminekul on muudatused X-tee sõnumiprotkollis (versioon 4.0). See tähendab, et DVK teenuste poole pöördumisel on vajalik seda teha senisest erinevate X-tee sõnumipäistega.
+DVK kasutaja jaoks kõige olulisem muudatuse seoses X-tee versioon 6-le üleminekul on muudatused X-tee sõnumiprotokollis (versioon 4.0). See tähendab, et DVK teenuste poole pöördumisel on vajalik seda teha senisest erinevate X-tee sõnumipäistega.
 Täpsemad kirjeldused uutest päistest leiab [vastavast peatükist DVK spetsifikatsioonist](doc/DVKspek.md#x-tee-sõnumiprotokoll-versioon-40)
 
 
@@ -34,7 +34,17 @@ Näiteks: <br>
             <id:memberCode>70000906</id:memberCode>
             <id:subsystemCode>viru.70000906</id:subsystemCode>
 </xrd:client>
-```       
+``` 
+
+- Ametlike dokumentide infrastruktuuri teenus (ADIT)
+```xml
+<xrd:client id:objectType="SUBSYSTEM">
+            <id:xRoadInstance>EE</id:xRoadInstance>
+            <id:memberClass>GOV</id:memberClass>
+            <id:memberCode>70006317</id:memberCode>
+            <id:subsystemCode>adit</id:subsystemCode>
+</xrd:client>
+```  
 
 Uuele sõnumiprotokollile üleminekul tuleb selliste süsteemide puhul anda teada RIA kasutajatoele (help@ria.ee), millise registrikoodi ja alamsüsteemiga päringuid soovitakse saata, ning eelnevalt testida testkeskkonnas, et kindlustada sujuvam üleminek. 
 
