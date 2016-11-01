@@ -99,7 +99,7 @@
 | 14.04.2014 | 1.7 | Lisatud sendDocuments.v4 päringu kirjeldus. Täiendatud receiveDocuments päringu kirjeldust. | Hendrik Pärna |
 | 26.09.2016 | 1.8 | Dokumendi sisu üle viidud MarkDown formaati (sisulisi muudatusi tegemata) | Kertu Hiire |
 | 29.09.2016 | 1.9 | Lisatud X-tee v4.0 sõnumiprotokolli kirjeldused DVK kontekstis | Levan Kekelidze |
-| 25.10.2016 | 1.10 | Lisatud teave X-tee alamsüsteemide (subsystem) kasutamisest DVKs  | Kertu Hiire |
+| 01.10.2016 | 1.10 | Lisatud teave X-tee alamsüsteemide (subsystem) kasutamisest DVKs  | Kertu Hiire |
 
 
 
@@ -853,12 +853,11 @@ Iga faili kohta tehakse kirje `<DataFile>`, mis omab järgmisi atribuute:
 
     Filename - faili tegelik (väline) nimi ilma teekonnata.
 
-    ContentType - dokumendi salvestamise meetod (DETATCHED, EMBEDDED\_BASE64 või EMBEDDED)
+    ContentType - dokumendi salvestamise meetod (DETATCHED, EMBEDDED_BASE64 või EMBEDDED)
 
-    EMBEDDED - faili andmed on sisestatud algkujul antud kirjes.
-Kasutatav vaid XML kujul algandmete jaoks. Tähelepanu tuleb osutada sellel, et algandmete XML fail ei sisaldaks XML päist (`<?xml ... ?>`) ega DTD-d. Siin kirjeldatud XML elemendid ei ole keelatud. Võmalik on ühe faili sisse salvestada algkujul teist DigiDoc faili.
+    EMBEDDED - faili andmed on sisestatud algkujul antud kirjes. Kasutatav vaid XML kujul algandmete jaoks. Tähelepanu tuleb osutada sellel, et algandmete XML fail ei sisaldaks XML päist (`<?xml ... ?>`) ega DTD-d. Siin kirjeldatud XML elemendid ei ole keelatud. Võmalik on ühe faili sisse salvestada algkujul teist DigiDoc faili.
 
-    EMBEDDED\_BASE64 - faili andmed on sisestatud Base64 kujul antud kirjes.
+    EMBEDDED_BASE64 - faili andmed on sisestatud Base64 kujul antud kirjes.
 
     DETATCHED - algandmed sisalduvad failis, mille nimi on salvestatud atribuudis Filename.
 
@@ -5050,10 +5049,13 @@ pärib andmeid dokumendi staatuse kohta (päring *getSendStatus*).
 DVK arhitektuurist tingitult on DVK lüüsidele seatud järgmised
 tehnilised piirangud:
 
-  1.  Dokumendivahetussüsteem, kuhu DVK server dokumente edastab, peab toetama DVK andmevahetusspetsifikatsioonile sarnast transaktsiooniloogikat. S.t. DVK-ga liidestatav dokumendivahetussüsteem peab suutma anda ja vastu võtta andmeid dokumendi kohaletoimetamise kohta.\ Vastasel juhul puudub DVK kaudu dokumendi välja saatnud asutusel või isikul võimalus teada saada, kas tema poolt saadetud dokument on edukalt kohale toimetatud.
+  1.  Dokumendivahetussüsteem, kuhu DVK server dokumente edastab, peab toetama DVK andmevahetusspetsifikatsioonile sarnast transaktsiooniloogikat. S.t. DVK-ga liidestatav dokumendivahetussüsteem peab suutma anda ja vastu võtta andmeid dokumendi kohaletoimetamise kohta.
+  Vastasel juhul puudub DVK kaudu dokumendi välja saatnud asutusel või isikul võimalus teada saada, kas tema poolt saadetud dokument on edukalt kohale toimetatud.
   2.  Dokumendivahetussüsteem, kuhu DVK server dokumente edastab, peab toetama DVK dokumendikonteineri spetsifikatsioonile vastavate XML andmevahetuskonteinerite kasutamist. Alternatiivina võib liidestatav dokumendivahetussüsteem kasutada andmevahetuskonteinerit, mis on andmevahetuse toimimise seisukohast kriitiliste andmete osas teisendatav DVK andmevahetuskonteineriks (ja vastupidi).
-  3.  Iga DVK server peab omama kõigi teiste liidestatud dokumendivahetusserverite nimekirja ning omama ligipääsu nendes serverites seadistatud asutuste nimekirjale.\ Kui eeldada, et iga DVK server ei ole teadlik kõigist teistest DVK serveritest, siis tuleks dokumendi edastamisel arvestada vajadusega edastada dokument adressaadile läbi mitme serveri. Iga serveritevaheline edastus tähendaks aga saatmisele kuluva aja täiendavat kasvu (dokumendi edastamine läbi 10 serveri oleks kõigi serverite vahel sama andmesidekiirust eeldades ca. 11 korda aeglasem kui otse saatmine).\ Kui eeldada, et iga DVK server ei oma ligipääsu võimalike adressaatide nimekirjale, siis ei ole võimalik dokumente edastada.
-  4.  Iga DVK server, mis on võimeline dokumente edastama, peab omama asutuse registrikoodi ja isikukoodi, mida kasutades dokumente edasi saadetakse.\ Vastasel juhul ei ole võimalik DVK serverist andmeid üle X-Tee
+  3.  Iga DVK server peab omama kõigi teiste liidestatud dokumendivahetusserverite nimekirja ning omama ligipääsu nendes serverites seadistatud asutuste nimekirjale.
+  Kui eeldada, et iga DVK server ei ole teadlik kõigist teistest DVK serveritest, siis tuleks dokumendi edastamisel arvestada vajadusega edastada dokument adressaadile läbi mitme serveri. Iga serveritevaheline edastus tähendaks aga saatmisele kuluva aja täiendavat kasvu (dokumendi edastamine läbi 10 serveri oleks kõigi serverite vahel sama andmesidekiirust eeldades ca. 11 korda aeglasem kui otse saatmine).
+  Kui eeldada, et iga DVK server ei oma ligipääsu võimalike adressaatide nimekirjale, siis ei ole võimalik dokumente edastada.
+  4.  Iga DVK server, mis on võimeline dokumente edastama, peab omama asutuse registrikoodi ja isikukoodi, mida kasutades dokumente edasi saadetakse. Vastasel juhul ei ole võimalik DVK serverist andmeid üle X-Tee
 
 ###DVK lüüside lahendusest tingitud muudatused DVK spetsifikatsioonis
 
@@ -5135,8 +5137,8 @@ Et DVK server teaks, millised teised DVK serverid olemas on ja kus need asuvad, 
 
 Selleks tuleks iga teadaoleva teise DVK serveri kohta lisada andmetabelisse „Server“ järgmised andmed:
 
--   andmekogu nimetusnäiteks „dhl“. Ei pea olema täidetud, kui server ei kasuta andmevahetuseks X-Teed.
--   aadressX-Tee andmevahetuse puhul reeglina:\ http://\[TURVASERVER\]/cgi-bin/consumer\_proxy\ Ilma X-Tee vahenduseta andmevahetuse puhul oleks siin serveri reaalne URL.
+-   andmekogu nimetus  -  näiteks „dhl“. Ei pea olema täidetud, kui server ei kasuta andmevahetuseks X-Teed.
+-   aadress  -   X-Tee andmevahetuse puhul reeglina: http://[TURVASERVER]/cgi-bin/consumer_proxy Ilma X-Tee vahenduseta andmevahetuse puhul oleks siin serveri reaalne URL.
 
 ##Dokumentide edastamine fragmentidena
 ------
