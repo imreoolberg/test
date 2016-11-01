@@ -111,7 +111,7 @@ Dokumendivahetuskeskus (DVK) on erinevatele dokumendihaldussüsteemidele ja muud
 Spetsifikatsioonile on eraldi lisatud kolm lisa:
 - [Lisa 1. Viited kasutatavatele nimeruumidele ja XML skeemikirjeldustele](#lisa-1-kasutatavate-andmete-xml-schema-kirjeldused)
 - [Lisa 2. DVK dokumendi näide (DVK konteineri versioon 1)](#lisa-2-dokument-xml-struktuuri-kasutusnäide-dvk-konteineri-versioon-1)
-- [Lisa 3. DVK dokumendi näide (DVK konteineri versioon 2)](#lisa-2-dokument-xml-struktuuri-kasutusnäide-dvk-konteineri-versioon-2)
+- [Lisa 3. DVK dokumendi näide (DVK konteineri versioon 2)](#lisa-3-dokument-xml-struktuuri-kasutusnäide-dvk-konteineri-versioon-2)
 
 ##Üldskeem: dokumendid, metainfo, dokumendivahetus
 
