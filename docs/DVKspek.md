@@ -102,6 +102,7 @@
 | 25.10.2016 | 1.10 | Lisatud teave X-tee alamsüsteemide (subsystem) kasutamisest DVKs  | Kertu Hiire |
 
 
+
 ##Sissejuhatus
 ------
 
@@ -136,7 +137,7 @@ Dokumendi formaat põhineb kas DigiDoc formaadil (DVK konteineri versioon 1) võ
 
 - Kõik metainfo väljad moodustavad sisuliselt "lameda", struktuurita loetelu rdf-ideoloogiaga sobivatest nimi-väärtus paaridest, mida on lihtne realiseerida ja laiendada.
 
-- Metainfo väljad ei ole allkirjastatud. Allkirjad on ainult dokumentide küljes DigiDoc konteineris. Seejuures on allkirjastatud dokumendil DigiDoc formaadis siiski olemas väike hulk spetsiaalseid metainfo-välju (dokumendi formaat jne), mis on alati allkirjastatud. NB! DigiDoc formaati kasutatakse ainult DVK konteineri versiooni 1 puhul. DVK konteineri versioon 2 kasutab `<failid>` konteinerit, millel ei ole allkirja hoidmiseks spetsiaalset struktuuri. Allkirjastatud dokumentide edastamiseks saab sellisel juhul lisada allkirjastatud dokumendi `<failid>` konteinerisse.
+- Metainfo väljad ei ole allkirjastatud. Allkirjad on ainult dokumentide küljes DigiDoc konteineris. Seejuures on allkirjastatud dokumendil DigiDoc formaadis siiski olemas väike hulk spetsiaalseid metainfo-välju (dokumendi formaat jne), mis on alati allkirjastatud. NB! DigiDoc formaati kasutatakse ainult DVK konteineri versiooni 1 puhul. DVK konteineri versioon 2 kasutab <failid> konteinerit, millel ei ole allkirja hoidmiseks spetsiaalset struktuuri. Allkirjastatud dokumentide edastamiseks saab sellisel juhul lisada allkirjastatud dokumendi <failid> konteinerisse.
 
 - Kuupäevi ja kellaaegu esitatakse XML struktuuris ISO8601 standardile vastavalt (http://www.w3.org/TR/NOTE-datetime). S.t. kuupäev+kellaaeg kujul YYYY-MM-DDThh:mm:ssTZD (näit: 2006-03-20T17:25:00+02:00) ning kuupäev kujul YYY-MM-DD (näit: 2006-03-20)
 
@@ -812,7 +813,7 @@ Ajalugu blokk sisaldab kas täielikke või osalisi koopiaid dokumendi varasemate
 <dhl:ajalugu/>
 ```
 ###Metaxml blokk dokumendis
-Metaxml bloki sisuks on dokumendi liigist sõltuva struktuuriga metaandmed. Soovituslik oleks igal konkreetsel juhul viidata metaandmete struktuuri kirjeldavale XML skeemile (schema), kasutades selleks xmlns ja schemaLocation atribuute. Vaikimisi eeldatakse, et metaxml blokis sisalduvad andmed vastavad Riigikantselei poolt fikseeritud kirja metaandmete vormingule: (http://www.riik.ee/schemas/dhl/rkel\_letter.xsd)
+Metaxml bloki sisuks on dokumendi liigist sõltuva struktuuriga metaandmed. Soovituslik oleks igal konkreetsel juhul viidata metaandmete struktuuri kirjeldavale XML skeemile (schema), kasutades selleks xmlns ja schemaLocation atribuute. Vaikimisi eeldatakse, et metaxml blokis sisalduvad andmed vastavad Riigikantselei poolt fikseeritud kirja metaandmete vormingule: (http://www.riik.ee/schemas/dhl/rkel_letter.xsd)
 
 ```xml
 <dhl:metaxml xmlns="http://www.riik.ee/schemas/dhl/rkel_letter"
@@ -875,7 +876,7 @@ Kasutatav vaid XML kujul algandmete jaoks. Tähelepanu tuleb osutada sellel, et 
 
 
 ###Taustinfoks:`<failid>` konteiner
-DVK konteineri versioon 2 kasutab failide edastamiseks `<SignedDoc>` (DigiDoc) konteineri asemel `<failid>` konteinerit, mille struktuur on järgmine:
+DVK konteineri versioon 2 kasutab failide edastamiseks <SignedDoc> (DigiDoc) konteineri asemel `<failid>` konteinerit, mille struktuur on järgmine:
 
 ```xml
 <dhl:failid xmlns=“http://www.riik.ee/schemas/dhl/2010/2“>
@@ -950,7 +951,7 @@ Vormile vastuse saatmisel peaks vastus olema adresseeritud samasse kausta, kuhu 
 
 ####Dokumentide edastamine
 
-![Dokumentide edastamine](/docs/img/image1.png "Dokumentide edastamine")
+![Dokumentide edastamine](/doc/img/image1.png "Dokumentide edastamine")
 
 Dokumentide edastamiseks teis(t)ele asutus(t)ele käivitab DHS päringu *dhl.sendDocuments*. Päringu kehasse paigutatakse massiivina kõik edastamist nõudvad dokumendid. Dokumendid peavad olema esitatud „dhlDokumentType“ XML tüübile vastavas formaadis (vt punkti „Dokumentide formaat“) ning omama elemendi „Transport“ all järgmisi kohustuslikke elemente:
 
@@ -993,7 +994,7 @@ Saatmisinfo kirje sisaldab ka elemendi „olek“, **mille väärtus määrab do
 
 ####Dokumentide vastuvõtt
 
-![Dokumentide vastuvõtt](/docs/img/image2.png "Dokumentide vastuvõtt")
+![Dokumentide vastuvõtt](/doc/img/image2.png "Dokumentide vastuvõtt")
 
 DHS-i poolne teiste asutuste poolt antud asutusele saadetud dokumentide vastuvõtt toimub päringu *dhl.receiveDocuments* abil. Päring tagastab kõik DVK-s antud asutusele teiste asutuste poolt edastatud dokumendid. Päringule saab elemendi „arv“ abil määrata piirangu, mitu dokumenti maksimaalselt tohib vastuses tagastada. Lisaks saab elemendi „kaust“ abil määrata kausta(d), kust dokumente loetakse.
 Päring tagastab loetud dokumentide massiivi.
@@ -1019,11 +1020,11 @@ DVK veebiteenused kasutatakse üle X-Tee (DVK eeldab, et päringus on defineerit
 <a name="xroad-message-protocol-v4"></a>
 ### X-tee sõnumiprotokoll versioon 4.0
 Vana sõnumiprotokolli (versioon 2.0) asemel võib kasutada X-tee sõnumiprotokolli versioon 4.0 (veebiteenused stiilis „Document/Literal wrapped”). Selleks on vaja teha järgmist:<br>
- 1) vahetada vana protokolli nimeruumi defineerimist (`xmlns:xtee="http://x-tee.riik.ee/xsd/xtee.xsd"`) järgmise kahe defineerimisega:
+ 1) vahetada vana protokolli nimeruumi defineerimist (`xmlns:xtee="http://x-tee.riik.ee/xsd/xtee.xsd"`) järgmise kahe defineerimistega:
 - `xmlns:xrd="http://x-road.eu/xsd/xroad.xsd"`
 - `xmlns:id="http://x-road.eu/xsd/identifiers"`
 
-2) panna SOAP päringu *header* elemendi sisse X-tee sõnumiprotokolli versioonile 4 vastavad elemendid. **Päringu keha (SOAP body) sisu jääb samaks.**
+2) panna SOAP päringu *header* elemendi sisse X-tee sõnumiprotikolli versioonile 4 vastavad elemendid. **Päringu keha (SOAP body) sisu jääb samaks.**
 
 Päringu parameetritena on eeldatud alati järgmiste päiste olemasolu:
 
@@ -1032,12 +1033,15 @@ Päringu parameetritena on eeldatud alati järgmiste päiste olemasolu:
     <id:xRoadInstance>tavaliselt riigi ISO kood</id:xRoadInstance>
     <id:memberClass>kliendi tüüp (kas riik,  asutus, ettevõtte, eraisik jne)</id:memberClass>
     <id:memberCode>päringut tegeva asutuse kood</id:memberCode>
-    <id:subsystemCode>alamsüsteem, kelle nimel kasutaja päringut teostab</id:subsystemCode>
+    
+    <!-- Optional (mittekohustuslik) -->
+    <id:subsystemCode>allasutus, kelle nimel kasutaja päringut teostab</id:subsystemCode>
 </xrd:client>
 <xrd:service id:objectType="SERVICE">
     <id:xRoadInstance>tavaliselt riigi ISO kood</id:xRoadInstance>
     <id:memberClass>teenuse pakkuja tüüp (kas riik,  asutus, ettevõtte vms)</id:memberClass>
-    <id:memberCode>teenuse pakkuja kood</id:memberCode>  
+    <id:memberCode>teenuse pakkuja kood</id:memberCode>
+    
     <id:subsystemCode>andmekogu nimi – „dhl“</id:subsystemCode>
     <id:serviceCode>päringu nimi (Nt. „sendDocuments”)</id:serviceCode>
     <id:serviceVersion>päringu versioon (Nt. „v1”)</id:serviceVersion>
@@ -1047,7 +1051,7 @@ Päringu parameetritena on eeldatud alati järgmiste päiste olemasolu:
 <xrd:protocolVersion>sõnumiprotokolli versioon (peab olema 4.0)</xrd:protocolVersion>
 ```
 <br>
-Siin on standardse SOAP **päringu näide** *sendDocuments* teenuse jaoks, mis annab ettekujutuse X-tee sõnumiprotokolli v4.0 kasutamisest:
+Siin on standadse SOAP **päringu näide** *sendDocuments* teenuse jaoks, mis annab ettekujutuse X-tee sõnumiprotokolli v4.0 kasutamisest:
 ```xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
         xmlns:dhl="http://producers.dhl.xtee.riik.ee/producer/dhl"
@@ -1059,12 +1063,12 @@ Siin on standardse SOAP **päringu näide** *sendDocuments* teenuse jaoks, mis a
             <id:xRoadInstance>EE</id:xRoadInstance>
             <id:memberClass>GOV</id:memberClass>
             <id:memberCode>70000562</id:memberCode>
-            <id:subsystemCode>generic-consumer</id:subsystemCode>
         </xrd:client>
         <xrd:service id:objectType="SERVICE">
             <id:xRoadInstance>EE</id:xRoadInstance>
             <id:memberClass>GOV</id:memberClass>
             <id:memberCode>70006317</id:memberCode>
+
             <id:subsystemCode>dhl</id:subsystemCode>
             <id:serviceCode>sendDocuments</id:serviceCode>
             <id:serviceVersion>v4</id:serviceVersion>
@@ -1084,28 +1088,6 @@ Siin on standardse SOAP **päringu näide** *sendDocuments* teenuse jaoks, mis a
 ```
 
 Rohkem infot X-tee sõnumiprotokolli v4.0 kasutamise kohta saab vastavast [*tehnilisest spetsifikatsioonist*](http://x-road.eu/docs/x-road_message_protocol_v4.0.pdf).
-
-<a name="xroad-message-protocol-v4-subsystem"></a>
-### Alamsüsteemide kasutamise loogika DVK-s
-
-Kui asutus soovib DVK-ga liidestuda mitme süsteemiga (näiteks eraldi struktuuriüksused, millele oleks võimalik otse dokumente adresseerida), siis on vaja v4.0 sõnumiprotokolli kasutades DVK keskserveris täpsustada alamsüsteemi (subsystemCode) ning registrikoodi (memberCode) väärtused. 
-
-Varasemalt on selliste süsteemide puhul rakendatud nn X-tee 'alamsertifikaati', kus registrikoodi väärtusena kasutati 'alamsüsteem.registrikood' väärtust. Uuele sõnumiprotokollile üleminemisel soovitame alamsüsteemi nimeks valida see just see sama väärtus.    
-Näiteks: <br>
-- Viru Ringkonnaprokuratuur
-```xml
-<xrd:client id:objectType="SUBSYSTEM">
-            <id:xRoadInstance>EE</id:xRoadInstance>
-            <id:memberClass>GOV</id:memberClass>
-            <id:memberCode>70000906</id:memberCode>
-            <id:subsystemCode>viru.70000906</id:subsystemCode>
-</xrd:client>
-```       
-
-Uuele sõnumiprotokollile üleminekul tuleb selliste süsteemide puhul anda teada RIA kasutajatoele (help@ria.ee), millise registrikoodi ja alamsüsteemiga päringuid soovitakse saata.    
-
-Asutused, kes on varasemalt DVK-ga liidestunud ühe süsteemina (kasutanud selleks ühte asutuse X-tee sertifikaati), ei pea uuele sõnumiprotokollile üleminemisel eraldi RIA kasutajatuge teavitama ning alamsüsteemi nimeks võib valida endale sobiva nimetuse, näiteks _'dok-haldus'_.
-
 
 ##DVK teenused
 Järgmisena on näidatud kõik DVK poolt pakutavad teenused koos kirjelduste ja näidetega.
@@ -5053,12 +5035,12 @@ DVK lüüsid kujutavad endast võimalust edastada DVK serverisse saadetud dokume
 
 Sellise dokumentide edastamise peamiseks eesmärgiks on, et saaks eksisteerida eraldi dokumendivahetuskeskkonnad näiteks riigisektori ja erasektori jaoks. Dokumentide vahetamine kirjeldatud juhul toimiks siis joonisel 1 toodud skeemi alusel:
 
-![Joonis 1](/docs/img/image3.PNG "Joonis 1")
+![Joonis 1](/doc/img/image3.PNG "Joonis 1")
 
 DVK serverisse saadetud dokumendi (päring *sendDocuments*) edastamise
 protsess on esitatud joonisel 2.
 
-![Joonis 2](/docs/img/image4.PNG "Joonis 2")
+![Joonis 2](/doc/img/image4.PNG "Joonis 2")
 
 Analoogilist protsessi rakendatakse ka olukorras, kus dokumendi saatja
 pärib andmeid dokumendi staatuse kohta (päring *getSendStatus*).
@@ -5320,16 +5302,16 @@ https://svn.eesti.ee/projektid/dvk/server/trunk/src/main/webapp/
     </mm:koostaja_kokkuvote>
     <mm:koostaja_kuupaev>2006-02-11T14:11:23+02:00</mm:koostaja_kuupaev>
     <mm:koostaja_asutuse_nimi>Kuivendusekspert OÜ</mm:koostaja_asutuse_nimi>
-    <mm:koostaja_asutuse_kontakt>6 543 210</mm:koostaja_asutuse_kontakt>
+    <mm:koostaja_asutuse_kontakt>6 543 210</mm:koostaja_asutuse_kontakt>
     <mm:autori_osakond>Projekteerimisosakond</mm:autori_osakond>
     <mm:autori_isikukood>37501010001</mm:autori_isikukood>
     <mm:autori_nimi>Hunt Kriimsilm</mm:autori_nimi>
-    <mm:autori_kontakt>56 123 456</mm:autori_kontakt>
+    <mm:autori_kontakt>56 123 456</mm:autori_kontakt>
     <mm:seotud_dokumendinr_koostajal>B-005</mm:seotud_dokumendinr_koostajal>
     <mm:seotud_dokumendinr_saajal>KT-2006-14</mm:seotud_dokumendinr_saajal>
     <mm:saatja_dokumendinr>A-101</mm:saatja_dokumendinr>
     <mm:saatja_kuupaev>2006-02-12T01:02:03+02:00</mm:saatja_kuupaev>
-    <mm:saatja_asutuse_kontakt>6 543 210</mm:saatja_asutuse_kontakt>
+    <mm:saatja_asutuse_kontakt>6 543 210</mm:saatja_asutuse_kontakt>
     <mm:saaja_isikukood>37005050005</mm:saaja_isikukood>
     <mm:saaja_nimi>Karupoeg Puhh</mm:saaja_nimi>
     <mm:saaja_osakond>Maaparandusosakond</mm:saaja_osakond>
@@ -5403,7 +5385,7 @@ https://svn.eesti.ee/projektid/dvk/server/trunk/src/main/webapp/
           <surname>Gena</surname>
           <jobtitle>Tegevjuht</jobtitle>
           <email>krokodill.gena@kuivendus.ee</email>
-          <telephone>6 543 200</telephone>
+          <telephone>6 543 200</telephone>
         </Person>
         <SignatureData>
           <SignatureDate>2006-03-11</SignatureDate>
@@ -5430,7 +5412,7 @@ https://svn.eesti.ee/projektid/dvk/server/trunk/src/main/webapp/
           <surname>Kriimsilm</surname>
           <jobtitle>Noorembrigadir</jobtitle>
           <email>hunt.kriimsilm@kuivendus.ee</email>
-          <telephone>6 543 210</telephone>
+          <telephone>6 543 210</telephone>
         </Compilator>
       </Compilators>
       <LetterMetaData>
