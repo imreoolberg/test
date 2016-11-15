@@ -2,35 +2,40 @@
 
 ## Sisukord
 
-- [Sissejuhatus](#sissejuhatus)	
+- **[Sissejuhatus](#sissejuhatus)**	
    * [Klassifikaatorid](#klassifikaatorid)	
    * [Õiguste süsteem](#Õiguste-süsteem)			
-- [Join.v1](#joinv1)   
-- [UnJoin.v1](#unjoinv1)   
-- [GetJoined.v1](#getjoinedv1)  
-- [GetUserInfo.v1](#getuserinfov1)   
-- SetNotifications.v1   
-- GetNotifications.v1   
-- SaveDocument.v1  
-- SaveDocumentFile.v1   
-- DeflateDocument.v1   
-- DeleteDocument.v1   
-- DeleteDocumentFile.v1   
-- GetDocument.v1   
-- GetDocument.v2   
-- GetSendStatus.v1   
-- GetDocumentFile.v1   
-- GetDocumentHistory.v1   
-- GetDocumentList.v1   
-- PrepareSignature.v1   
-- ConfirmSignature.v1   
-- SendDocument.v1   
-- ShareDocument.v1   
-- UnShareDocument.v1   
-- MarkDocumentViewed.v1   
-- ModifyStatus.v1   
-- GetUserContacts.v1   
-
+- **[Kasutaja konto](#kasutaja-konto)**
+  * [Join.v1](#joinv1)   
+  * [UnJoin.v1](#unjoinv1)   
+  * [GetJoined.v1](#getjoinedv1)  
+  * [GetUserInfo.v1](#getuserinfov1)   
+  * [GetUserContacts.v1](#getusercontactsv1)   
+- **Teavitused**
+  * SetNotifications.v1   
+  * GetNotifications.v1   
+- **Dokumendi loomine/muutmine**
+  * SaveDocument.v1  
+  * SaveDocumentFile.v1   
+  * DeflateDocument.v1   
+  * DeleteDocument.v1   
+  * DeleteDocumentFile.v1   
+  * GetDocument.v1   
+  * GetDocument.v2   
+  * GetSendStatus.v1   
+  * GetDocumentFile.v1   
+  * GetDocumentHistory.v1   
+  * GetDocumentList.v1  
+- **Allkirjastamine**
+  * PrepareSignature.v1   
+  * ConfirmSignature.v1   
+- **Dokumendi edastus**
+  * SendDocument.v1   
+  * ShareDocument.v1   
+  * UnShareDocument.v1   
+  * MarkDocumentViewed.v1   
+  * ModifyStatus.v1  
+  
 ## Muutelugu
 
 | Kuupäev | Versioon | Kirjeldus | Autor |
@@ -211,6 +216,9 @@ Selline kirje tähendab seda, et infosüsteem „KOV“ ei tohi lugeda kasutaja 
 Tabelis **REMOTE_APPLICATION** on kirjeldatud infosüsteemid. Selles tabelis on väljad CAN_READ / CAN_WRITE, mis määravad vastavalt, kas antud infosüsteemil on üleüldine õigus ADIT-is andmeid lugeda / kirjutada. Kui välja väärtuseks on „0“ (või NULL), siis antud infosüsteemil vastav õigus puudub. Kui välja väärtuseks on „1“, siis antud infosüsteemil on vastav õigus.
 
 Päringute tegemisel kontrollitakse esialgu infosüsteemi üldist õigust ADIT-is andmeid lugeda / kirjutada. Kui õigus on olemas, kontrollitakse lisaks ka seda, kas päringu teinud infosüsteemile on kehtestatud antud kasutaja jaoks piiranguid.
+
+<a name="kasutaja-konto"></a>
+## Kasutaja kontoga seotud päringud
 
 ## Join.v1
 
