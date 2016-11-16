@@ -21,21 +21,21 @@
   * [DeleteDocument.v1](deletedocumentv1)   
   * [DeleteDocumentFile.v1](deletedocumentfilev1)  
 - [**Dokumentide pärimine**](#document-get)
-  * GetDocument.v1   
-  * GetDocument.v2    
-  * GetDocumentFile.v1   
-  * GetDocumentHistory.v1   
-  * GetDocumentList.v1  
+  * [GetDocument.v1](#getdocumentv1)   
+  * [GetDocument.v2](#getdocumentv2)    
+  * [GetDocumentFile.v1](#getdocumentfilev1)   
+  * [GetDocumentHistory.v1](#getdocumenthistoryv1)  
+  * [GetDocumentList.v1](getdocumentlistv1)  
 - [**Dokumentide allkirjastamine**](#document-sign)
-  * PrepareSignature.v1   
-  * ConfirmSignature.v1   
+  * [PrepareSignature.v1](#preparesignaturev1)   
+  * [ConfirmSignature.v1](#confirmsignaturev1)   
 - [**Dokumentide edastus**](#document-deliver)
-  * SendDocument.v1   
-  * GetSendStatus.v1  
-  * ShareDocument.v1   
-  * UnShareDocument.v1   
-  * MarkDocumentViewed.v1   
-  * ModifyStatus.v1  
+  * [SendDocument.v1](#senddocumentv1)   
+  * [GetSendStatus.v1](#getsendstatusv1)  
+  * [ShareDocument.v1](#sharedocumentv1)   
+  * [UnShareDocument.v1](#unsharedocumentv1)   
+  * [MarkDocumentViewed.v1](#markdocumentviewedv1)   
+  * [ModifyStatus.v1](#modifystatusv1)  
   
 ## Muutelugu
 
@@ -2564,13 +2564,13 @@ Parameetrid
             <id:xRoadInstance>EE</id:xRoadInstance>
             <id:memberClass>BUSINESS</id:memberClass>
             <id:memberCode>12345678</id:memberCode>
+			<id:subsystemCode>generic-consumer</id:subsystemCode>
         </xrd:client>
         <xrd:service id:objectType="SERVICE">
             <id:xRoadInstance>EE</id:xRoadInstance>
             <id:memberClass>GOV</id:memberClass>
-            <id:memberCode>70006317</id:memberCode>
-			
-            <id:subsystemCode>ametlikud-dokumendid</id:subsystemCode>
+            <id:memberCode>70006317</id:memberCode>			
+            <id:subsystemCode>adit</id:subsystemCode>
             <id:serviceCode>getDocument</id:serviceCode>
             <id:serviceVersion>v2</id:serviceVersion>
         </xrd:service>
@@ -2636,12 +2636,13 @@ Parameetrid
             <id:xRoadInstance>EE</id:xRoadInstance>
             <id:memberClass>BUSINESS</id:memberClass>
             <id:memberCode>12345678</id:memberCode>
+			<id:subsystemCode>generic-consumer</id:subsystemCode>
         </xrd:client>
         <xrd:service id:objectType="SERVICE">
             <id:xRoadInstance>EE</id:xRoadInstance>
             <id:memberClass>GOV</id:memberClass>
             <id:memberCode>70006317</id:memberCode>
-            <id:subsystemCode>ametlikud-dokumendid</id:subsystemCode>
+            <id:subsystemCode>adit</id:subsystemCode>
             <id:serviceCode>getDocument</id:serviceCode>
             <id:serviceVersion>v2</id:serviceVersion>
         </xrd:service>
@@ -2816,13 +2817,13 @@ Parameetrid
             <id:xRoadInstance>EE</id:xRoadInstance>
             <id:memberClass>BUSINESS</id:memberClass>
             <id:memberCode>12345678</id:memberCode>
+			<id:subsystemCode>generic-consumer</id:subsystemCode>
         </xrd:client>
         <xrd:service id:objectType="SERVICE">
             <id:xRoadInstance>EE</id:xRoadInstance>
             <id:memberClass>GOV</id:memberClass>
-            <id:memberCode>70006317</id:memberCode>
-			
-            <id:subsystemCode>ametlikud-dokumendid</id:subsystemCode>
+            <id:memberCode>70006317</id:memberCode>			
+            <id:subsystemCode>adit</id:subsystemCode>
             <id:serviceCode>getSendStatus</id:serviceCode>
             <id:serviceVersion>v1</id:serviceVersion>
         </xrd:service>
@@ -2909,6 +2910,7 @@ Parameetrid
             <id:xRoadInstance>EE</id:xRoadInstance>
             <id:memberClass>BUSINESS</id:memberClass>
             <id:memberCode>12486864</id:memberCode>
+			<id:subsystemCode>generic-consumer</id:subsystemCode>
         </xrd:client>
         <xrd:service id:objectType="SERVICE">
             <id:xRoadInstance>EE</id:xRoadInstance>
@@ -3032,13 +3034,13 @@ Parameetrid
             <id:xRoadInstance>EE</id:xRoadInstance>
             <id:memberClass>BUSINESS</id:memberClass>
             <id:memberCode>12345678</id:memberCode>
+			<id:subsystemCode>generic-consumer</id:subsystemCode>
         </xrd:client>
         <xrd:service id:objectType="SERVICE">
             <id:xRoadInstance>EE</id:xRoadInstance>
             <id:memberClass>GOV</id:memberClass>
-            <id:memberCode>70006317</id:memberCode>
-			
-            <id:subsystemCode>ametlikud-dokumendid</id:subsystemCode>
+            <id:memberCode>70006317</id:memberCode>			
+            <id:subsystemCode>adit</id:subsystemCode>
             <id:serviceCode>getDocumentFile</id:serviceCode>
             <id:serviceVersion>v1</id:serviceVersion>
         </xrd:service>
@@ -3109,12 +3111,13 @@ Parameetrid
             <id:xRoadInstance>EE</id:xRoadInstance>
             <id:memberClass>BUSINESS</id:memberClass>
             <id:memberCode>12345678</id:memberCode>
+			<id:subsystemCode>generic-consumer</id:subsystemCode>
         </xrd:client>
         <xrd:service id:objectType="SERVICE">
             <id:xRoadInstance>EE</id:xRoadInstance>
             <id:memberClass>GOV</id:memberClass>
             <id:memberCode>70006317</id:memberCode>		
-            <id:subsystemCode>ametlikud-dokumendid</id:subsystemCode>
+            <id:subsystemCode>adit</id:subsystemCode>
             <id:serviceCode>getDocumentFile</id:serviceCode>
             <id:serviceVersion>v1</id:serviceVersion>
         </xrd:service>
@@ -3190,19 +3193,75 @@ bGwuDQoNCg0KRWlubyBNdWlkdWdpDQpBUyBBc3V0dXMNCkp1aGF0dXNlIGVzaW1lZXMNCg==
 
 ## GetDocumentHistory.v1   
 
+Päring võimaldab pärida dokumendi ajaloo andmed – milliseid toiminguid ja kes on dokumendiga läbi viinud. Päringu parameetriga „document_id“ määratakse dokumendi ID, mille kohta soovitakse ajaloo andmeid.
+
+Parameetrid
+
+| Nimi | Väärtuse tüüp | Väärtuse näide |
+| --- | --- | --- |
+| Document_id | Integer | 46 |
+
 ### Päringu näide
 ---
 
 **X-tee sõnumiprotokoll v2.0**
 
 ```xml
-
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xtee="http://x-tee.riik.ee/xsd/xtee.xsd" xmlns:adit="http://producers.ametlikud-dokumendid.xtee.riik.ee/producer/ametlikud-dokumendid">
+   <soapenv:Header>
+     <xtee:nimi>ametlikud-dokumendid.getDocumentHistory.v1</xtee:nimi>
+      <xtee:id>00000000000000</xtee:id>
+      <xtee:isikukood>EE38407089745</xtee:isikukood>
+      <xtee:andmekogu>ametlikud-dokumendid</xtee:andmekogu>
+      <xtee:asutus>EE12345678</xtee:asutus>
+      <adit:infosysteem>KOV</adit:infosysteem>
+   </soapenv:Header>
+   <soapenv:Body>
+      <adit:getDocumentHistory>
+         <keha>
+            <document_id>46</document_id>
+         </keha>
+      </adit:getDocumentHistory>
+   </soapenv:Body>
+</soapenv:Envelope>
 ```
 
 **X-tee sõnumiprotokoll v4.0**
 
 ```xml
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+	xmlns:adit="http://producers.ametlikud-dokumendid.xtee.riik.ee/producer/ametlikud-dokumendid"
+	xmlns:xrd="http://x-road.eu/xsd/xroad.xsd"
+	xmlns:id="http://x-road.eu/xsd/identifiers">
+    <soapenv:Header>
+        <xrd:client id:objectType="MEMBER">
+            <id:xRoadInstance>EE</id:xRoadInstance>
+            <id:memberClass>BUSINESS</id:memberClass>
+            <id:memberCode>12345678</id:memberCode>
+			<id:subsystemCode>generic-consumer</id:subsystemCode>
+        </xrd:client>
+        <xrd:service id:objectType="SERVICE">
+            <id:xRoadInstance>EE</id:xRoadInstance>
+            <id:memberClass>GOV</id:memberClass>
+            <id:memberCode>70006317</id:memberCode>			
+            <id:subsystemCode>adit</id:subsystemCode>
+            <id:serviceCode>getDocumentHistory</id:serviceCode>
+            <id:serviceVersion>v1</id:serviceVersion>
+        </xrd:service>
+        <xrd:userId>EE37901130250</xrd:userId>
+        <xrd:id>3cf04253-db0c-4d1d-8105-791472d88437</xrd:id>
+        <xrd:protocolVersion>4.0</xrd:protocolVersion>
 
+        <adit:infosysteem>KOV</adit:infosysteem>
+    </soapenv:Header>
+    <soapenv:Body>
+        <adit:getDocumentHistory>
+            <keha>
+                <document_id>46</document_id>
+            </keha>
+        </adit:getDocumentHistory>
+    </soapenv:Body>
+</soapenv:Envelope>
 ```
 
 ### Päringu vastuse näide
@@ -3211,30 +3270,281 @@ bGwuDQoNCg0KRWlubyBNdWlkdWdpDQpBUyBBc3V0dXMNCkp1aGF0dXNlIGVzaW1lZXMNCg==
 **X-tee sõnumiprotokoll v2.0**
 
 ```xml
-
+<SOAP-ENV:Envelope SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:adit="http://producers.ametlikud-dokumendid.xtee.riik.ee/producer/ametlikud-dokumendid" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xtee="http://x-tee.riik.ee/xsd/xtee.xsd">
+   <SOAP-ENV:Header>
+      <xtee:asutus xsi:type="xsd:string">EE12345678</xtee:asutus>
+      <xtee:isikukood xsi:type="xsd:string">EE38407089745</xtee:isikukood>
+      <xtee:id xsi:type="xsd:string">00000000000000</xtee:id>
+      <xtee:nimi xsi:type="xsd:string">ametlikud-dokumendid.getDocumentHistory.v1</xtee:nimi>
+      <xtee:andmekogu xsi:type="xsd:string">ametlikud-dokumendid</xtee:andmekogu>
+   </SOAP-ENV:Header>
+   <SOAP-ENV:Body>
+      <adit:getDocumentHistoryResponse>
+         <paring>
+            <document_id>46</document_id>
+         </paring>
+         <keha>
+            <success>true</success>
+            <messages>
+               <message lang="en">Document history was successfully retrieved.</message>
+            </messages>
+            <document_history_list href="cid:451150328609481636746711393696" />
+         </keha>
+      </adit:getDocumentHistoryResponse>
+   </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
 ```
 
 **X-tee sõnumiprotokoll v4.0**
 
 ```xml
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+	xmlns:adit="http://producers.ametlikud-dokumendid.xtee.riik.ee/producer/ametlikud-dokumendid"
+	xmlns:xrd="http://x-road.eu/xsd/xroad.xsd"
+	xmlns:id="http://x-road.eu/xsd/identifiers">
+    <SOAP-ENV:Header>
+        <xrd:client id:objectType="MEMBER">
+            <id:xRoadInstance>EE</id:xRoadInstance>
+            <id:memberClass>BUSINESS</id:memberClass>
+            <id:memberCode>12345678</id:memberCode>
+			<id:subsystemCode>generic-consumer</id:subsystemCode>
+        </xrd:client>
+        <xrd:service id:objectType="SERVICE">
+            <id:xRoadInstance>EE</id:xRoadInstance>
+            <id:memberClass>GOV</id:memberClass>
+            <id:memberCode>70006317</id:memberCode>
+            <id:subsystemCode>adit</id:subsystemCode>
+            <id:serviceCode>getDocumentHistory</id:serviceCode>
+            <id:serviceVersion>v1</id:serviceVersion>
+        </xrd:service>
+        <xrd:userId>EE37901130250</xrd:userId>
+        <xrd:id>3cf04253-db0c-4d1d-8105-791472d88437</xrd:id>
+        <xrd:protocolVersion>4.0</xrd:protocolVersion>
+    </SOAP-ENV:Header>
+    <SOAP-ENV:Body>
+        <adit:getDocumentHistoryResponse>
+            <keha>
+                <success>true</success>
+                <messages>
+                    <message lang="en">Document history was successfully retrieved.</message>
+                </messages>
+                <document_history_list href="cid:451150328609481636746711393696" />
+            </keha>
+        </adit:getDocumentHistoryResponse>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+```
 
+**Päringu vastuse SOAP manuse dekodeeritud sisu parameetrid:**
+
+| Nimi | Kirjeldus | Tüüp | Väärtuse näide |
+| --- | --- | --- | --- |
+| document | Dokumendi andmete konteiner |  |  |
+| id | Dokumendi ID | Integer | 46 |
+| guid | Dokumendi GUID | String | 19d71714-0d93-292a-b254-3a06a4f24002 |
+| activity_list | Dokumendi ajalookirjete konteiner |  |  |
+| activity | Dokumendi ajalookirje konteiner |  |  |
+| activity.time | Tegevuse aeg | Date | 2010-08-09T12:17:26.000+03:00 |
+| activity.type | Tegevuse tüüp | String | Create |
+| activity.actors | Tegevuse läbiviijate andmete konteiner |  |  |
+| activity.actors.actor | Tegevuse läbiviija andmete konteiner |  |  |
+| actor.code | Tegevuse läbiviija kood | String | EE38407089745 |
+| actor.name | Tegevuse läbiviija nimi | String | Kalle Kalamees |
+| activity.subjects | Tegevuse subjektide andmed (nt. Kellele saadeti document) |  |  |
+| activity.actors.actor | Tegevuse subjekti andmed |  |  |
+| subject.code | Tegevuse subjekti kood | String | EE48007089841 |
+| subject.name | Tegevuse subjekti nimi | String | Mari Maasikas |
+| activity.application | Tegevuse läbiviimiseks kasutatud infosüsteemi nimi | String | KOV |
+
+**Näide**
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+    <id>46</id>
+    <guid>19d71714-0d93-292a-b254-3a06a4f24002</guid>
+    <activity_list>
+        <activity>
+            <time>2010-08-09T12:17:26.000+03:00</time>
+            <type>create</type>
+            <actors>
+                <actor>
+                    <code>EE38407089745</code>
+                    <name>Kalle Kalamees</name>
+                </actor>
+            </actors>
+            <application>KOV</application>
+        </activity>
+        <activity>
+            <time>2010-08-09T12:18:03.000+03:00</time>
+            <type>delete_file</type>
+            <actors>
+                <actor>
+                    <code>EE38407089745</code>
+                    <name>Kalle Kalamees</name>
+                </actor>
+            </actors>
+            <application>KOV</application>
+        </activity>
+        <activity>
+            <time>2010-08-09T12:20:22.000+03:00</time>
+            <type>markViewed</type>
+            <actors>
+                <actor>
+                    <code>EE38407089745</code>
+                </actor>
+            </actors>
+            <application>KOV</application>
+        </activity>
+        <activity>
+            <time>2010-08-10T12:20:22.000+03:00</time>
+            <type>send</type>
+            <actors>
+                <actor>
+                    <code>EE38407089745</code>
+                </actor>
+            </actors>
+            <subjects>
+                <subject>
+                    <code>EE48309098845</code>
+                    <name>Mari Maasikas</name>
+                </subject>
+                <subject>
+                    <code>EE36707129415</code>
+                    <name>Mati Maamees</name>
+                </subject>
+            </subjects>
+            <application>KOV</application>
+        </activity>
+    </activity_list>
+</document>
 ```
 
 ## GetDocumentList.v1   
 
+Päring tagastab nimekirja etteatud parameetritele vastavatest dokumentidest, mida päringu käivitanud kasutaja tohib näha. Päringu parameetrid ei ole kohustuslikud.
+
+Parameetrid
+
+| Nimi | Kirjeldus | Väärtuse tüüp | Väärtuse näide |
+|---|---|---|---|
+| folder | Kausta, milles dokumendid asuvad, nimi. Lubatud väärtused: incoming / outgoing / local | String | incoming |
+| document_types | Dokumendi tüüpide konteiner |  |  |
+| document_types.document_type | Dokumendi tüübi kood | String | Letter |
+| file_types | Faili tüüpide konteiner |  |  |
+| file_types_file_type | Faili tüübi nimetus | String | document_file |
+| document_dvk_statuses | Dokumendi DVK staatuste konteiner |  |  |
+| document_dvk_statuses.status_id | Dokumendi DVK staatus. Lubatud väärtused:  <ul><li>100 (puudub)</li><li>101 (ootel)</li><li>102 (Saatmisel)</li><li>103 (Saadetud)</li><li>104 (Katkestatud)</li><li>105 (Vastu võetud)</li></ul>| Integer | 100 |
+| document_workflow_statuses | Dokumendi töövoo staatuste konteiner |  |  |
+| document_workflow_statuses.status_id | Dokumendi töövoo staatus | Integer | 1 |
+| has_been_viewed | Ainult vaadatud dokumendid | Boolean | FALSE |
+| is_deflated | Ainult tühjendatud dokumendid | Boolean | FALSE |
+| creator_applications | Infosüsteemide nimed, mille abil dokument loodi | String | KOV |
+| search_phrase | Otsingufraas. Otsitakse esitatud fraasi sisaldumist dokumendi järgmistes andmetes:   <ul><li>pealkiri</li><li>omaniku nimi</li><li>omaniku isiku-või registrikood</li><li>allkirjastaja nimi</li><li>allkirjastaja isikukood</li><li>isiku või asutuse nimi, kellele dokument on jagatud või saadetud</li><li>isiku või asutuse kood, kellele document on jagatud või saadetud</li><li>faili nimi</li><li>faili kirjeldus</li></ul> | String | Otsin midagi |
+| period_start | Määrab, alates millisest kuupäevast muudetud dokumendid tagastatakse. | Date | 14/02/11 |
+| period_end | Määrab, kuni millise kuupäevani (kaasa arvatud) muudetud dokumendid tagastatakse. Kui dokumendi muutmiskuupäeva vahemiku algus on määratud ja lõpp on määramata, siis tagastatakse dokumendid, mida on muudetud vahemiku alguskuupäevast 7 päeva jooksul.| Date | 28/02/11 |
+| max_results | Maksimaalne tagastatavate tulemuste arv | Integer | 10 |
+| start_index | Tagastatavate tulemuste algusindeks | Integer | 0 |
+| sort_by | Andmeväli, mille alusel otsingutulemused järjestatakse. Võimalikud väärtused: <ul><li>id</li><li>guid</li><li>title</li><li>document_type</li><li>created</li><li>last_modified</li><li>dvk_id</li><li>sender_receiver</li><li>sender</li><li>receiver</li></ul> 
+| sort_order | Otsingutulemuste järjestuse suund (kasvav/kahanev). Võimalikud väärtused: <ul><li>asc</li><li>desc</li></ul>|  |  |
+
 ### Päringu näide
 ---
 
 **X-tee sõnumiprotokoll v2.0**
 
 ```xml
-
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xtee="http://x-tee.riik.ee/xsd/xtee.xsd" xmlns:adit="http://producers.ametlikud-dokumendid.xtee.riik.ee/producer/ametlikud-dokumendid">
+   <soapenv:Header>
+      <xtee:nimi>ametlikud-dokumendid.getDocumentList.v1</xtee:nimi>
+      <xtee:id>00000000000000</xtee:id>
+      <xtee:isikukood>EE38407089745</xtee:isikukood>
+      <xtee:andmekogu>ametlikud-dokumendid</xtee:andmekogu>
+      <xtee:asutus>12345678</xtee:asutus>
+      <adit:infosysteem>KOV</adit:infosysteem>
+   </soapenv:Header>
+   <soapenv:Body>
+      <adit:getDocumentList>
+         <keha>
+            <folder>local</folder>
+            <document_types>
+                <document_type>letter</document_type>
+                <document_type>application</document_type>
+            </document_types>
+            <file_types>
+                <file_type>signature_container</file_type>
+                <file_type>document_file</file_type>
+            </file_types>
+            <document_dvk_statuses>
+                <status_id>103</status_id>
+                <status_id>104</status_id>
+            </document_dvk_statuses>
+            <document_workflow_statuses>
+                <status_id>1</status_id>
+                <status_id>2</status_id>
+            </document_workflow_statuses>
+            <max_results>25</max_results>
+            <start_index>1</start_index>
+         </keha>
+      </adit:getDocumentList>
+   </soapenv:Body>
+</soapenv:Envelope>
 ```
 
 **X-tee sõnumiprotokoll v4.0**
 
 ```xml
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+	xmlns:adit="http://producers.ametlikud-dokumendid.xtee.riik.ee/producer/ametlikud-dokumendid"
+	xmlns:xrd="http://x-road.eu/xsd/xroad.xsd"
+	xmlns:id="http://x-road.eu/xsd/identifiers">
+    <soapenv:Header>
+        <xrd:client id:objectType="MEMBER">
+            <id:xRoadInstance>EE</id:xRoadInstance>
+            <id:memberClass>BUSINESS</id:memberClass>
+            <id:memberCode>12345678</id:memberCode>
+			<id:subsystemCode>generic-consumer</id:subsystemCode>
+        </xrd:client>
+        <xrd:service id:objectType="SERVICE">
+            <id:xRoadInstance>EE</id:xRoadInstance>
+            <id:memberClass>GOV</id:memberClass>
+            <id:memberCode>70006317</id:memberCode>			
+            <id:subsystemCode>adit</id:subsystemCode>
+            <id:serviceCode>getDocumentList</id:serviceCode>
+            <id:serviceVersion>v1</id:serviceVersion>
+        </xrd:service>
+        <xrd:userId>EE37901130250</xrd:userId>
+        <xrd:id>3cf04253-db0c-4d1d-8105-791472d88437</xrd:id>
+        <xrd:protocolVersion>4.0</xrd:protocolVersion>
 
+        <adit:infosysteem>KOV</adit:infosysteem>
+    </soapenv:Header>
+    <soapenv:Body>
+        <adit:getDocumentList>
+            <keha>
+                <folder>local</folder>
+                <document_types>
+                    <document_type>letter</document_type>
+                    <document_type>application</document_type>
+                </document_types>
+                <file_types>
+                    <file_type>signature_container</file_type>
+                    <file_type>document_file</file_type>
+                </file_types>
+                <document_dvk_statuses>
+                    <status_id>103</status_id>
+                    <status_id>104</status_id>
+                </document_dvk_statuses>
+                <document_workflow_statuses>
+                    <status_id>1</status_id>
+                    <status_id>2</status_id>
+                </document_workflow_statuses>
+                <max_results>25</max_results>
+                <start_index>1</start_index>
+            </keha>
+        </adit:getDocumentList>
+    </soapenv:Body>
+</soapenv:Envelope>
 ```
 
 ### Päringu vastuse näide
@@ -3243,18 +3553,198 @@ bGwuDQoNCg0KRWlubyBNdWlkdWdpDQpBUyBBc3V0dXMNCkp1aGF0dXNlIGVzaW1lZXMNCg==
 **X-tee sõnumiprotokoll v2.0**
 
 ```xml
-
+<SOAP-ENV:Envelope SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:adit="http://producers.ametlikud-dokumendid.xtee.riik.ee/producer/ametlikud-dokumendid" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xtee="http://x-tee.riik.ee/xsd/xtee.xsd">
+   <SOAP-ENV:Header>
+      <xtee:asutus xsi:type="xsd:string">12345678</xtee:asutus>
+      <xtee:isikukood xsi:type="xsd:string">EE38407089745</xtee:isikukood>
+      <xtee:id xsi:type="xsd:string">00000000000000</xtee:id>
+      <xtee:nimi xsi:type="xsd:string">ametlikud-dokumendid.getDocumentList.v1</xtee:nimi>
+      <xtee:andmekogu xsi:type="xsd:string">ametlikud-dokumendid</xtee:andmekogu>
+   </SOAP-ENV:Header>
+   <SOAP-ENV:Body>
+      <adit:getDocumentListResponse>
+         <paring>
+            <folder>local</folder>
+            <document_types>
+                <document_type>letter</document_type>
+                <document_type>application</document_type>
+            </document_types>
+            <file_types>
+                <file_type>signature_container</file_type>
+                <file_type>document_file</file_type>
+            </file_types>
+            <document_dvk_statuses>
+                <status_id>103</status_id>
+                <status_id>104</status_id>
+            </document_dvk_statuses>
+            <document_workflow_statuses>
+                <status_id>1</status_id>
+                <status_id>2</status_id>
+            </document_workflow_statuses>
+            <max_results>25</max_results>
+            <start_index>1</start_index>
+         </paring>
+         <keha>
+             <success>true</success>
+             <messages>
+                 <message lang="en">Document list was successfully retrieved</message>
+             </messages>
+             <document_list href="cid:540883240230725309306231496258" />
+         </keha>
+      </adit:getDocumentListResponse>
+   </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
 ```
 
 **X-tee sõnumiprotokoll v4.0**
 
 ```xml
-
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+	xmlns:adit="http://producers.ametlikud-dokumendid.xtee.riik.ee/producer/ametlikud-dokumendid"
+	xmlns:xrd="http://x-road.eu/xsd/xroad.xsd"
+	xmlns:id="http://x-road.eu/xsd/identifiers">
+    <SOAP-ENV:Header>
+        <xrd:client id:objectType="MEMBER">
+            <id:xRoadInstance>EE</id:xRoadInstance>
+            <id:memberClass>BUSINESS</id:memberClass>
+            <id:memberCode>12345678</id:memberCode>
+			<id:subsystemCode>generic-consumer</id:subsystemCode>
+        </xrd:client>
+        <xrd:service id:objectType="SERVICE">
+            <id:xRoadInstance>EE</id:xRoadInstance>
+            <id:memberClass>GOV</id:memberClass>
+            <id:memberCode>70006317</id:memberCode>	
+            <id:subsystemCode>adit</id:subsystemCode>
+            <id:serviceCode>getDocumentList</id:serviceCode>
+            <id:serviceVersion>v1</id:serviceVersion>
+        </xrd:service>
+        <xrd:userId>EE37901130250</xrd:userId>
+        <xrd:id>3cf04253-db0c-4d1d-8105-791472d88437</xrd:id>
+        <xrd:protocolVersion>4.0</xrd:protocolVersion>
+    </SOAP-ENV:Header>
+    <SOAP-ENV:Body>
+        <adit:getDocumentListResponse>
+            <keha>
+                <success>true</success>
+                <messages>
+                    <message lang="en">Document list was successfully retrieved</message>
+                </messages>
+                <document_list href="cid:540883240230725309306231496258" />
+            </keha>
+        </adit:getDocumentListResponse>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
 ```
+
+**Päringu vastuse SOAP manuse dekodeeritud sisu parameetrid:**
+
+| Nimi | Kirjeldus | Tüüp | Väärtuse näide |
+|---|---|---|---|
+| Document_list | Dokumentide andmete konteiner |  |  |
+| Document | Dokumendi andmete konteiner |  |  |
+| id | Dokumendi ID | Integer | 45 |
+| guid | Dokumendi GUID | String | 19d71714-0d93-292a-b254-3a06a4f24002 |
+| title | Dokumendi pealkiri | String |  |
+| folder | Dokumendi kaust. Võimalikud väärtused: local, incoming, outgoing | String | local |
+| has_been_viewed | Näitab, kas dokumenti on vaadatud | Boolean | TRUE |
+| document_type | Dokumendi tüüp (application / letter) | String | Application |
+| creator_code | Dokumendi looja / omaniku kood | String | EE38407089745 |
+| creator_name | Dokumendi looja / omaniku nimi | String | Eesnimi Perenimi |
+| creator_user_code | Dokumendi loonud isiku kood (kasulik juhul, kui dokument on loodud asutuse kasutajakonto kaudu) | String | EE38407089745 |
+| creator_user_name | Dokumendi loonud isiku nimi (kasulik juhul, kui dokument on loodud asutuse kasutajakonto kaudu) | String | Eesnimi Perenimi |
+| created | Dokumendi loomise aeg | Date | 2010-08-09T12:17:26.000+03:00 |
+| creator_application | Dokumendi loomisel kasutatud infosüsteemi nimi | String | KOV |
+| last_mofified | Dokumendi viimase muutmise aeg | Date | 2010-08-09T12:17:26.000+03:00 |
+| signable | Näitab, kas document on allkirjastatav | Boolean | TRUE |
+| remove_date | Dokumendi eeldatav kustutamise aeg. Arvutatakse viimase muutmise aja ja ADIT dokumentide säilitustähtaja alusel. | Date | 01/01/12 |
+| document_files | Dokumendi failide konteiner |  |  |
+| file | Dokumendi faili andmed |  |  |
+| file.id | Faili id (määratud juhul kui soovitakse muuta olemasolevat dokumendi faili) | Integer | 56 |
+| file.name | Faili nimi koos laiendiga | String | Avaldus.txt |
+| file.content_type | Faili MIME tüüp | String | Application/pdf |
+| file.description | Faili pealkiri või kirjeldus | String | Avaldus Tallinna Linnavalitsusele |
+| file.size_bytes | Faili suurus baitides | Long | 300 |
+| file.file_type | Faili tüüp | String | document_file |
+| file.data | Faili sisu Base64 kodeeringus | String | SvVnZXZhI… |
+
+**Näide**
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<document_list>
+    <total>1</total>
+    <document>
+        <id>46</id>
+        <guid>19d71714-0d93-292a-b254-3a06a4f24002</guid>
+        <title>Avaldus Jõgeva Linnavalitsusele</title>
+        <folder>local</folder>
+        <has_been_viewed>true</has_been_viewed>
+        <document_type>application</document_type>
+        <creator_code>EE38407089745</creator_code>
+        <creator_name>Eesnimi Perenimi</creator_name>
+        <creator_user_code>EE38407089745</creator_user_code>
+        <creator_user_name>Eesnimi Perenimi</creator_user_name>
+        <created>2010-08-09T12:17:26.000+03:00</created>
+        <creator_application>KOV</creator_application>
+        <last_modified>2010-08-09T12:17:26.000+03:00</last_modified>
+        <signable>true</signable>
+        <remove_date>2012-01-01</remove_date>
+        <sent_to/>
+        <shared_to/>
+        <document_files>
+            <total_files>2</total_files>
+            <total_bytes>0</total_bytes>
+            <document_files>
+                <file>
+                    <id>17</id>
+                    <name>avaldus2.txt</name>
+                    <content_type>text/plain</content_type>
+                    <description>Avaldus tekstifailina</description>
+                    <size_bytes>223</size_bytes>
+                    <file_type>document_file</file_type>
+                </file>
+                <file>
+                    <id>16</id>
+                    <name>avaldus1.txt</name>
+                    <content_type>text/plain</content_type>
+                    <description>Avaldus tekstifailina</description>
+                    <size_bytes>223</size_bytes>
+                    <file_type>document_file</file_type>
+                </file>
+            </document_files>
+        </document_files>
+    </document>
+</document_list>
+```
+
 <a name="document-sign"></a>
 ## Dokumentide allkirjastamine
 
+Allkirjastamine koosneb kahest sammust:
+1. prepareSignature valmistab ette uue kinnitamata allkirja ja tagastab räsikoodi, mille saab kasutajaliideses ID-kaardiga allkirjastada. Juhul kui dokumendile lisatakse esimest allkirja (konteiner on veel puudu), siis  luuakse BDOC formaadis konteiner, juhul kui dokument oli enne  allkirjastatud (konteiner juba olemas), siis allkiri lisatakse olemasolevale konteinerile. **DDOC formaadis konteineritele allkirja lisada pole võimalik**, sest tegemist on vananenud formaadiga.
+2. confirmSignature lisab dokumendile allkirja (mis tekkis eelmisel sammul koostatud räsikoodi allkirjastamisel) ning küsib allkirjale kehtivuskinnituse.
+
 ## PrepareSignature.v1   
+
+Päringuga prepareSignature saab algatada dokumendi allkirjastamise.
+
+Varasemalt oli kasutusel kaks versiooni PrepareSignature teenusest: v1-ga moodustati DDOC konteiner ning v2-ga BDOC conteiner. Pärast X-tee sõnumiprotokoll v4.0 üleminekut jäi alles vaid v1, mis erinevalt varesemast versioonist tekitab alati BDOC formaadis konteineri. Lisaks allkirja räsikood ja üksikute andmefailide räsikoodid, mida tagastab PrepareSignature teenus, genereeritakse kasutades sha-256 algoritmi, kuna see on soovitatav ja testitud BDOC konteinerite puhul (DDOC konteinerite puhul kasutatakse sha-1 argoritm räsikoodide genereerimisel).
+
+PrepareSignature päringu manuses saadetakse dokumendi allkirjastaja allkirjastamissertifikaadi fail (PEM vormingus), mis on gzip-iga kokku pakitud ja base64 kodeeritud.
+
+PrepareSignature päringu vastuses tagastatakse allkirja räsikood ja üksikute andmefailide räsikoodid. Kõik tagastatavad räsikoodid on kodeeritud 16-süsteemis (HEX). Allkirja räsikood on mõeldud kasutamiseks ID-kaardiga allkirjastamisel. Andmefailide räsikoodid on mõeldud kasutamiseks mobiil-ID-ga allkirjastamisel.
+
+Parameetrid
+
+| Nimi | Väärtuse tüüp | Väärtuse näide |
+| --- | --- | --- |
+| xrd:userId | String | EE47101010033 |
+| document_id | Integer | 167 |
+| manifest | String | Kinnitan |
+| country | String | Eesti |
+| state | String | Harjumaa |
+| city | String | Tallinn |
+| zip | String | 12345 |
+| signer_certificate href | String | cid:cert |
 
 ### Päringu näide
 ---
@@ -3262,13 +3752,73 @@ bGwuDQoNCg0KRWlubyBNdWlkdWdpDQpBUyBBc3V0dXMNCkp1aGF0dXNlIGVzaW1lZXMNCg==
 **X-tee sõnumiprotokoll v2.0**
 
 ```xml
-
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:amet="http://producers.ametlikud-dokumendid.xtee.riik.ee/producer/ametlikud-dokumendid" xmlns:xtee="http://x-tee.riik.ee/xsd/xtee.xsd">
+   <soapenv:Header>
+      <amet:infosysteem>KOV</amet:infosysteem>
+      <xtee:nimi>ametlikud-dokumendid.prepareSignature.v2</xtee:nimi>
+      <xtee:id>00000000000000</xtee:id>
+      <xtee:isikukood>EE47101010033</xtee:isikukood>
+      <xtee:andmekogu>ametlikud-dokumendid</xtee:andmekogu>
+      <xtee:asutus>10560025</xtee:asutus>
+   </soapenv:Header>
+   <soapenv:Body>
+      <amet:prepareSignature>
+         <keha>
+            <document_id>167</document_id>
+            <manifest>Kinnitan</manifest>
+            <country>Eesti</country>
+            <state>Harjumaa</state>
+            <city>Tallinn</city>
+            <zip>12345</zip>
+            <signer_certificate href="cid:cert"/>
+         </keha>
+      </amet:prepareSignature>
+   </soapenv:Body>
+</soapenv:Envelope>
 ```
 
 **X-tee sõnumiprotokoll v4.0**
 
 ```xml
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+	xmlns:adit="http://producers.ametlikud-dokumendid.xtee.riik.ee/producer/ametlikud-dokumendid"
+	xmlns:xrd="http://x-road.eu/xsd/xroad.xsd"
+	xmlns:id="http://x-road.eu/xsd/identifiers">
+    <soapenv:Header>
+        <xrd:client id:objectType="MEMBER">
+            <id:xRoadInstance>EE</id:xRoadInstance>
+            <id:memberClass>BUSINESS</id:memberClass>
+            <id:memberCode>12345678</id:memberCode>
+			<id:subsystemCode>generic-consumer</id:subsystemCode>
+        </xrd:client>
+        <xrd:service id:objectType="SERVICE">
+            <id:xRoadInstance>EE</id:xRoadInstance>
+            <id:memberClass>GOV</id:memberClass>
+            <id:memberCode>70006317</id:memberCode>			
+            <id:subsystemCode>adit</id:subsystemCode>
+            <id:serviceCode>prepareSignature</id:serviceCode>
+            <id:serviceVersion>v1</id:serviceVersion>
+        </xrd:service>
+        <xrd:userId>EE37901130250</xrd:userId>
+        <xrd:id>3cf04253-db0c-4d1d-8105-791472d88437</xrd:id>
+        <xrd:protocolVersion>4.0</xrd:protocolVersion>
 
+        <adit:infosysteem>KOV</adit:infosysteem>
+    </soapenv:Header>
+    <soapenv:Body>
+        <amet:prepareSignature>
+            <keha>
+                <document_id>167</document_id>
+                <manifest>Kinnitan</manifest>
+                <country>Eesti</country>
+                <state>Harjumaa</state>
+                <city>Tallinn</city>
+                <zip>12345</zip>
+                <signer_certificate href="cid:cert"/>
+            </keha>
+        </amet:prepareSignature>
+    </soapenv:Body>
+</soapenv:Envelope>
 ```
 
 ### Päringu vastuse näide
@@ -3277,30 +3827,171 @@ bGwuDQoNCg0KRWlubyBNdWlkdWdpDQpBUyBBc3V0dXMNCkp1aGF0dXNlIGVzaW1lZXMNCg==
 **X-tee sõnumiprotokoll v2.0**
 
 ```xml
-
+<SOAP-ENV:Envelope SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:amet="http://producers.ametlikud-dokumendid.xtee.riik.ee/producer/ametlikud-dokumendid" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xtee="http://x-tee.riik.ee/xsd/xtee.xsd">
+   <SOAP-ENV:Header>
+      <xtee:asutus xsi:type="xsd:string">10560025</xtee:asutus>
+      <xtee:isikukood xsi:type="xsd:string">EE47101010033</xtee:isikukood>
+      <xtee:id xsi:type="xsd:string">00000000000000</xtee:id>
+      <xtee:nimi xsi:type="xsd:string">ametlikud-dokumendid.prepareSignature.v2</xtee:nimi>
+      <xtee:andmekogu xsi:type="xsd:string">ametlikud-dokumendid</xtee:andmekogu>
+   </SOAP-ENV:Header>
+   <SOAP-ENV:Body>
+      <amet:prepareSignatureResponse>
+         <paring>
+            <document_id>167</document_id>
+            <manifest>Kinnitan</manifest>
+            <country>Eesti</country>
+            <state>Harjumaa</state>
+            <city>Tallinn</city>
+            <zip>12345</zip>
+            <signer_certificate href="cid:cert"/>
+         </paring>
+         <keha>
+            <success>true</success>
+            <messages>
+               <message lang="et">Dokumendi allkirja konteiner edukalt loodud.</message>
+               <message lang="en">Signature container was successfully created.</message>
+               <message lang="ru">Контейнер цифровой подписи успешно создан.</message>
+            </messages>
+            <signature_id>S0</signature_id>
+            <signature_hash>258CFD6BBB1169B063638E7A178FE0062EE9CCE144DDCBDB08FFC922BD603648</signature_hash>
+            <data_file_hashes>
+               <data_file_hash data_file_id="text.txt">6D424A329B78BE1EFB498D31AB704D1F7C0DB5BDD6A354689BF5C3978EDB1447</data_file_hash>
+            </data_file_hashes>
+         </keha>
+      </amet:prepareSignatureResponse>
+   </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
 ```
 
 **X-tee sõnumiprotokoll v4.0**
 
 ```xml
-
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+	xmlns:adit="http://producers.ametlikud-dokumendid.xtee.riik.ee/producer/ametlikud-dokumendid"
+	xmlns:xrd="http://x-road.eu/xsd/xroad.xsd"
+	xmlns:id="http://x-road.eu/xsd/identifiers">
+    <SOAP-ENV:Header>
+        <xrd:client id:objectType="MEMBER">
+            <id:xRoadInstance>EE</id:xRoadInstance>
+            <id:memberClass>BUSINESS</id:memberClass>
+            <id:memberCode>12345678</id:memberCode>
+			<id:subsystemCode>generic-consumer</id:subsystemCode>
+        </xrd:client>
+        <xrd:service id:objectType="SERVICE">
+            <id:xRoadInstance>EE</id:xRoadInstance>
+            <id:memberClass>GOV</id:memberClass>
+            <id:memberCode>70006317</id:memberCode>	
+            <id:subsystemCode>adit</id:subsystemCode>
+            <id:serviceCode>prepareSignature</id:serviceCode>
+            <id:serviceVersion>v1</id:serviceVersion>
+        </xrd:service>
+        <xrd:userId>EE37901130250</xrd:userId>
+        <xrd:id>3cf04253-db0c-4d1d-8105-791472d88437</xrd:id>
+        <xrd:protocolVersion>4.0</xrd:protocolVersion>
+    </SOAP-ENV:Header>
+    <SOAP-ENV:Body>
+        <amet:prepareSignatureResponse>
+            <keha>
+                <success>true</success>
+                <messages>
+                    <message lang="et">Dokumendi allkirja konteiner edukalt loodud.</message>
+                    <message lang="en">Signature container was successfully created.</message>
+                    <message lang="ru">Контейнер цифровой подписи успешно создан.</message>
+                </messages>
+                <signature_id>S0</signature_id>
+                <signature_hash>
+                    258CFD6BBB1169B063638E7A178FE0062EE9CCE144DDCBDB08FFC922BD603648
+                </signature_hash>
+                <data_file_hashes>
+                    <data_file_hash data_file_id="text.txt">
+                        6D424A329B78BE1EFB498D31AB704D1F7C0DB5BDD6A354689BF5C3978EDB1447
+                    </data_file_hash>
+                </data_file_hashes>
+            </keha>
+        </amet:prepareSignatureResponse>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
 ```
 
 ## ConfirmSignature.v1   
 
+Päringuga confirmSignature saab lõpule viia varem algatatud allkirjastamise.
+confirmSignature päringu manuses saadetakse prepareSignature päringu poolt tagastatud räsikoodi alusel koostatud allkirja fail, mis on gzip-iga pakitud ja base64 kodeeritud. Allkirja fail peaks enne pakkimist ja base64 kodeerimist sisaldama kodeerimata (näiteks hex või base64) binaarandmeid.
+
+ConfirmSignature teenuse tulemusena salvestatakse samas formaadis konteiner, mis enne oli loodud prepareSignature teenuses. **DDOC formaadis konteineritele allkirja lisada pole võimalik**, sest tegemist on vananenud formaadiga.
+
+Parameetrid
+
+| Nimi | Väärtuse tüüp | Väärtuse näide |
+| --- | --- | --- |
+| xrd:userId | String | EE47101010033 |
+| document_id | Integer | 22 |
+| signature href | String | cid:123123123 |
+
 ### Päringu näide
 ---
 
 **X-tee sõnumiprotokoll v2.0**
 
 ```xml
-
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xtee="http://x-tee.riik.ee/xsd/xtee.xsd" xmlns:adit="http://producers.ametlikud-dokumendid.xtee.riik.ee/producer/ametlikud-dokumendid">
+   <soapenv:Header>
+     <xtee:nimi>ametlikud-dokumendid.confirmSignature.v1</xtee:nimi>
+      <xtee:id>00000000000000</xtee:id>
+      <xtee:isikukood>EE38005130332</xtee:isikukood>
+      <xtee:andmekogu>ametlikud-dokumendid</xtee:andmekogu>
+      <xtee:asutus>EE12345678</xtee:asutus>
+      <adit:infosysteem>KOV</adit:infosysteem>
+   </soapenv:Header>
+   <soapenv:Body>
+      <adit:confirmSignature>
+         <keha>
+            <document_id>22</document_id>
+            <signature href="signature"/>
+         </keha>
+      </adit:confirmSignature>
+   </soapenv:Body>
+</soapenv:Envelope>
 ```
 
 **X-tee sõnumiprotokoll v4.0**
 
 ```xml
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+	xmlns:adit="http://producers.ametlikud-dokumendid.xtee.riik.ee/producer/ametlikud-dokumendid"
+	xmlns:xrd="http://x-road.eu/xsd/xroad.xsd"
+	xmlns:id="http://x-road.eu/xsd/identifiers">
+    <soapenv:Header>
+        <xrd:client id:objectType="MEMBER">
+            <id:xRoadInstance>EE</id:xRoadInstance>
+            <id:memberClass>BUSINESS</id:memberClass>
+            <id:memberCode>12345678</id:memberCode>
+			<id:subsystemCode>generic-consumer</id:subsystemCode>
+        </xrd:client>
+        <xrd:service id:objectType="SERVICE">
+            <id:xRoadInstance>EE</id:xRoadInstance>
+            <id:memberClass>GOV</id:memberClass>
+            <id:memberCode>70006317</id:memberCode>			
+            <id:subsystemCode>adit</id:subsystemCode>
+            <id:serviceCode>confirmSignature</id:serviceCode>
+            <id:serviceVersion>v1</id:serviceVersion>
+        </xrd:service>
+        <xrd:userId>EE37901130250</xrd:userId>
+        <xrd:id>3cf04253-db0c-4d1d-8105-791472d88437</xrd:id>
+        <xrd:protocolVersion>4.0</xrd:protocolVersion>
 
+        <adit:infosysteem>KOV</adit:infosysteem>
+    </soapenv:Header>
+    <soapenv:Body>
+        <adit:confirmSignature>
+            <keha>
+                <document_id>22</document_id>
+                <signature href="cid:sig.gz.b64"/>
+            </keha>
+        </adit:confirmSignature>
+    </soapenv:Body>
+</soapenv:Envelope>
 ```
 
 ### Päringu vastuse näide
@@ -3309,14 +4000,71 @@ bGwuDQoNCg0KRWlubyBNdWlkdWdpDQpBUyBBc3V0dXMNCkp1aGF0dXNlIGVzaW1lZXMNCg==
 **X-tee sõnumiprotokoll v2.0**
 
 ```xml
-
+<SOAP-ENV:Envelope SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:adit="http://producers.ametlikud-dokumendid.xtee.riik.ee/producer/ametlikud-dokumendid" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xtee="http://x-tee.riik.ee/xsd/xtee.xsd">
+   <SOAP-ENV:Header>
+      <xtee:asutus xsi:type="xsd:string">EE12345678</xtee:asutus>
+      <xtee:isikukood xsi:type="xsd:string">EE38005130332</xtee:isikukood>
+      <xtee:id xsi:type="xsd:string">00000000000000</xtee:id>
+      <xtee:nimi xsi:type="xsd:string">ametlikud-dokumendid.confirmSignature.v1</xtee:nimi>
+      <xtee:andmekogu xsi:type="xsd:string">ametlikud-dokumendid</xtee:andmekogu>
+   </SOAP-ENV:Header>
+   <SOAP-ENV:Body>
+      <adit:confirmSignatureResponse>
+         <paring>
+            <document_id>22</document_id>
+            <signature href="signature"/>
+         </paring>
+         <keha>
+            <success>true</success>
+            <messages>
+               <message lang="en">Signature was successfully added.</message>
+            </messages>
+         </keha>
+      </adit:confirmSignatureResponse>
+   </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
 ```
 
 **X-tee sõnumiprotokoll v4.0**
 
 ```xml
-
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+	xmlns:adit="http://producers.ametlikud-dokumendid.xtee.riik.ee/producer/ametlikud-dokumendid"
+	xmlns:xrd="http://x-road.eu/xsd/xroad.xsd"
+	xmlns:id="http://x-road.eu/xsd/identifiers">
+    <SOAP-ENV:Header>
+        <xrd:client id:objectType="MEMBER">
+            <id:xRoadInstance>EE</id:xRoadInstance>
+            <id:memberClass>BUSINESS</id:memberClass>
+            <id:memberCode>12345678</id:memberCode>
+			<id:subsystemCode>generic-consumer</id:subsystemCode>
+        </xrd:client>
+        <xrd:service id:objectType="SERVICE">
+            <id:xRoadInstance>EE</id:xRoadInstance>
+            <id:memberClass>GOV</id:memberClass>
+            <id:memberCode>70006317</id:memberCode>	
+            <id:subsystemCode>adit</id:subsystemCode>
+            <id:serviceCode>confirmSignature</id:serviceCode>
+            <id:serviceVersion>v1</id:serviceVersion>
+        </xrd:service>
+        <xrd:userId>EE37901130250</xrd:userId>
+        <xrd:id>3cf04253-db0c-4d1d-8105-791472d88437</xrd:id>
+        <xrd:protocolVersion>4.0</xrd:protocolVersion>
+    </SOAP-ENV:Header>
+    <SOAP-ENV:Body>
+        <adit:confirmSignatureResponse>
+            <keha>
+                <success>true</success>
+                <messages>
+                    <message lang="en">Signature was successfully added.</message>
+                </messages>
+            </keha>
+        </adit:confirmSignatureResponse>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
 ```
+
+
 <a name="document-deliver"></a>
 ## Dokumentide saatmine
 
