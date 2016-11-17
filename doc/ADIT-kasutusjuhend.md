@@ -39,8 +39,8 @@
   
 ## Muutelugu
 
-| Kuupäev | Versioon | Kirjeldus | Autor |
-|-------|----------|----------------|----------------------|
+| Muutmiskuupäev | Versioon | Kirjeldus | Autor |
+|--------------|---|---|---|
 | 2010-08-08 | 1.0 | Dokumendi loomine | Marko Kurm |
 | 2010-09-06 | 1.1 | Lisatud punkt „Õiguste süsteem“ | Marko Kurm |
 | 2011-02-08 | 1.2 | Eemaldatud nimeruumi prefiksid päringute näidete <keha> ja <paring> osade sisust. Muudetud päringute näidetes päringu juurelementi, et see algaks väiketähega. Parandatud getDocumentList päringu kirjeldust „document_types“, „document_dvk_statuses“ ja „document_workflow_statuses“ elementide osas. | Jaak Lember |
