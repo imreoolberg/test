@@ -4070,19 +4070,99 @@ Parameetrid
 
 ## SendDocument.v1   
 
+Päring võimaldab saata dokumendi teisele kasutajale (see võib olla ka DVK kasutaja – sellisel juhul saadetakse dokument üle DVK). DVK kausta saab määrata dvk_folder parameetriga.
+Samuti võimaldab päring märkida dokumendi meilile saadetuks. Reaalselt ADIT ei saada dokumenti meiliga, kuid loob document_sharing objekti ja kõik mis sellega kaasneb. Dokument lukustatakse. Päringu vastuses tagastatakse päringu töötlemise üleüldine õnnestumine parameetriga „success“ – kui selle elemendi väärtuseks on „true“, siis õnnestus dokumendi saatmine kõikidele adressaatidele, vastasel juhul ebaõnnestus dokumendi saatmine kas vähemalt ühele või kõigile adressaatidele. Iga adressaadi juures, välja arvatud meili adressaat, on eraldi välja toodud, kas saatmine õnnestus või mitte
+
+Parameetrid
+
+| Nimi | Kirjeldus | Väärtuse tüüp | Väärtuse näide |
+|---|---|---|---|
+| Document_id | Dokumendi Id | Integer | 46 |
+| Recipient_list | Adressaatide konteiner |  |  |
+| Recipient_list.code | Adressaadi kood | String | EE38407054916 |
+| recipient_email_list | Adressaatide emaili aadresside konteiner |  |  |
+| recipient_email_list.email | Adressaadi emaili aadress | String | john.smith@example.com |
+| dvk_folder | DVK kausta nimi | String | EVORMID |
+
 ### Päringu näide
 ---
 
 **X-tee sõnumiprotokoll v2.0**
 
 ```xml
-
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xtee="http://x-tee.riik.ee/xsd/xtee.xsd" xmlns:adit="http://producers.ametlikud-dokumendid.xtee.riik.ee/producer/ametlikud-dokumendid">
+   <soapenv:Header>
+      <xtee:nimi>ametlikud-dokumendid.sendDocument.v1</xtee:nimi>
+      <xtee:id>00000000000000</xtee:id>
+      <xtee:isikukood>EE38407089745</xtee:isikukood>
+      <xtee:andmekogu>ametlikud-dokumendid</xtee:andmekogu>
+      <xtee:asutus>12345678</xtee:asutus>
+      <adit:infosysteem>KOV</adit:infosysteem>
+   </soapenv:Header>
+   <soapenv:Body>
+      <adit:sendDocument>
+         <keha>
+           <document_id>46</document_id>
+            <recipient_list>
+               <code>EE38407054916</code>
+               <code>99954321</code>
+            </recipient_list>
+            <recipient_email_list>
+               <code>john.smith@example.com</code>
+               <code>mati.maasikas@email.ee</code>
+            </recipient_email_list>
+            <dvk_folder>EVORMID</dvk_folder>
+         </keha>
+      </adit:sendDocument>
+   </soapenv:Body>
+</soapenv:Envelope>
 ```
 
 **X-tee sõnumiprotokoll v4.0**
 
 ```xml
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+	xmlns:adit="http://producers.ametlikud-dokumendid.xtee.riik.ee/producer/ametlikud-dokumendid"
+	xmlns:xrd="http://x-road.eu/xsd/xroad.xsd"
+	xmlns:id="http://x-road.eu/xsd/identifiers">
+    <soapenv:Header>
+        <xrd:client id:objectType="MEMBER">
+            <id:xRoadInstance>EE</id:xRoadInstance>
+            <id:memberClass>BUSINESS</id:memberClass>
+            <id:memberCode>12345678</id:memberCode>
+	    <id:subsystemCode>generic-consumer</id:subsystemCode>
+        </xrd:client>
+        <xrd:service id:objectType="SERVICE">
+            <id:xRoadInstance>EE</id:xRoadInstance>
+            <id:memberClass>GOV</id:memberClass>
+            <id:memberCode>70006317</id:memberCode>			
+            <id:subsystemCode>adit</id:subsystemCode>
+            <id:serviceCode>sendDocument</id:serviceCode>
+            <id:serviceVersion>v1</id:serviceVersion>
+        </xrd:service>
+        <xrd:userId>EE37901130250</xrd:userId>
+        <xrd:id>3cf04253-db0c-4d1d-8105-791472d88437</xrd:id>
+        <xrd:protocolVersion>4.0</xrd:protocolVersion>
 
+        <adit:infosysteem>KOV</adit:infosysteem>
+    </soapenv:Header>
+    <soapenv:Body>
+        <adit:sendDocument>
+            <keha>
+                <document_id>46</document_id>
+                <recipient_list>
+                    <code>EE38407054916</code>
+                    <code>99954321</code>
+                </recipient_list>
+                <recipient_email_list>
+                    <code>john.smith@example.com</code>
+                    <code>mati.maasikas@email.ee</code>
+                </recipient_email_list>
+                <dvk_folder>EVORMID</dvk_folder>
+            </keha>
+        </adit:sendDocument>
+    </soapenv:Body>
+</soapenv:Envelope>
 ```
 
 ### Päringu vastuse näide
@@ -4091,30 +4171,174 @@ Parameetrid
 **X-tee sõnumiprotokoll v2.0**
 
 ```xml
-
+<SOAP-ENV:Envelope SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:adit="http://producers.ametlikud-dokumendid.xtee.riik.ee/producer/ametlikud-dokumendid" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xtee="http://x-tee.riik.ee/xsd/xtee.xsd">
+   <SOAP-ENV:Header>
+      <xtee:asutus xsi:type="xsd:string">12345678</xtee:asutus>
+      <xtee:isikukood xsi:type="xsd:string">EE38407089745</xtee:isikukood>
+      <xtee:id xsi:type="xsd:string">00000000000000</xtee:id>
+      <xtee:nimi xsi:type="xsd:string">ametlikud-dokumendid.sendDocument.v1</xtee:nimi>
+      <xtee:andmekogu xsi:type="xsd:string">ametlikud-dokumendid</xtee:andmekogu>
+   </SOAP-ENV:Header>
+   <SOAP-ENV:Body>
+      <adit:sendDocumentResponse>
+         <paring>
+            <document_id>46</document_id>
+            <recipient_list>
+               <code>EE38407054916</code>
+               <code>99954321</code>
+            </recipient_list>
+         </paring>
+         <keha>
+            <success>true</success>
+            <recipient_list>
+               <recipient>
+                  <code>EE38407054916</code>
+                  <success>true</success>
+               </recipient>
+               <recipient>
+                  <code>99954321</code>
+                  <success>true</success>
+               </recipient>
+            </recipient_list>
+         </keha>
+      </adit:sendDocumentResponse>
+   </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
 ```
 
 **X-tee sõnumiprotokoll v4.0**
 
 ```xml
-
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+	xmlns:adit="http://producers.ametlikud-dokumendid.xtee.riik.ee/producer/ametlikud-dokumendid"
+	xmlns:xrd="http://x-road.eu/xsd/xroad.xsd"
+	xmlns:id="http://x-road.eu/xsd/identifiers">
+    <SOAP-ENV:Header>
+        <xrd:client id:objectType="MEMBER">
+            <id:xRoadInstance>EE</id:xRoadInstance>
+            <id:memberClass>BUSINESS</id:memberClass>
+            <id:memberCode>12345678</id:memberCode>
+	    <id:subsystemCode>generic-consumer</id:subsystemCode>
+        </xrd:client>
+        <xrd:service id:objectType="SERVICE">
+            <id:xRoadInstance>EE</id:xRoadInstance>
+            <id:memberClass>GOV</id:memberClass>
+            <id:memberCode>70006317</id:memberCode>	
+            <id:subsystemCode>adit</id:subsystemCode>
+            <id:serviceCode>sendDocument</id:serviceCode>
+            <id:serviceVersion>v1</id:serviceVersion>
+        </xrd:service>
+        <xrd:userId>EE37901130250</xrd:userId>
+        <xrd:id>3cf04253-db0c-4d1d-8105-791472d88437</xrd:id>
+        <xrd:protocolVersion>4.0</xrd:protocolVersion>
+    </SOAP-ENV:Header>
+    <SOAP-ENV:Body>
+        <adit:sendDocumentResponse>
+            <keha>
+                <success>true</success>
+                <recipient_list>
+                    <recipient>
+                        <code>EE38407054916</code>
+                        <success>true</success>
+                    </recipient>
+                    <recipient>
+                        <code>99954321</code>
+                        <success>true</success>
+                    </recipient>
+                </recipient_list>
+            </keha>
+        </adit:sendDocumentResponse>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
 ```
 
 ## ShareDocument.v1   
 
+Päring võimaldab jagada dokumendi teistele kasutajatele. Dokumendi jagamine on lubatud ainult kasutajatele, kes ei ole DVK kasutajad. Dokumendi jagamiseks peab kasutaja olema selle dokumendi omanik. Dokumendi jagamisel dokument lukustub – dokumendi andmeid ei saa muuta. Päringu vastuses tagastatakse päringu töötlemise üleüldine õnnestumine parameetriga „success“ – kui selle elemendi väärtuseks on „true“, siis õnnestus dokumendi jagamine kõikidele adressaatidele, vastasel juhul ebaõnnestus dokumendi jagamine kas vähemalt ühele või kõigile adressaatidele. Iga adressaadi juures on eraldi välja toodud, kas jagamine õnnestus või mitte.
+
+Parameetrid
+
+| Nimi | Kirjeldus | Väärtuse tüüp | Väärtuse näide |
+|---|---|---|---|
+| Document_id | Dokumendi Id | Integer | 46 |
+| Recipient_list | Adressaatide konteiner |  |  |
+| Recipient_list.code | Adressaadi kood | String | EE38407054916 |
+| Reason_for_sharing | Jagamise eesmärk vabatekstina | String | Teadmiseks |
+| Shared_for_signing | Näitab, kas jagamise põhjuseks on allkirjastamine | Boolean | FALSE |
+
 ### Päringu näide
 ---
 
 **X-tee sõnumiprotokoll v2.0**
 
 ```xml
-
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xtee="http://x-tee.riik.ee/xsd/xtee.xsd" xmlns:adit="http://producers.ametlikud-dokumendid.xtee.riik.ee/producer/ametlikud-dokumendid">
+   <soapenv:Header>
+     <xtee:nimi>ametlikud-dokumendid.shareDocument.v1</xtee:nimi>
+      <xtee:id>00000000000000</xtee:id>
+      <xtee:isikukood>EE38407089745</xtee:isikukood>
+      <xtee:andmekogu>ametlikud-dokumendid</xtee:andmekogu>
+      <xtee:asutus>12345678</xtee:asutus>
+      <adit:infosysteem>KOV</adit:infosysteem>
+   </soapenv:Header>
+   <soapenv:Body>
+      <adit:shareDocument>
+         <keha>
+            <document_id>46</document_id>
+            <recipient_list>
+               <code>EE38407054916</code>
+               <code>EE48407089933</code>
+            </recipient_list>
+            <reason_for_sharing>teadmiseks</reason_for_sharing>
+            <shared_for_signing>false</shared_for_signing>
+         </keha>
+      </adit:shareDocument>
+   </soapenv:Body>
+</soapenv:Envelope>
 ```
 
 **X-tee sõnumiprotokoll v4.0**
 
 ```xml
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+	xmlns:adit="http://producers.ametlikud-dokumendid.xtee.riik.ee/producer/ametlikud-dokumendid"
+	xmlns:xrd="http://x-road.eu/xsd/xroad.xsd"
+	xmlns:id="http://x-road.eu/xsd/identifiers">
+    <soapenv:Header>
+        <xrd:client id:objectType="MEMBER">
+            <id:xRoadInstance>EE</id:xRoadInstance>
+            <id:memberClass>BUSINESS</id:memberClass>
+            <id:memberCode>12345678</id:memberCode>
+	    <id:subsystemCode>generic-consumer</id:subsystemCode>
+        </xrd:client>
+        <xrd:service id:objectType="SERVICE">
+            <id:xRoadInstance>EE</id:xRoadInstance>
+            <id:memberClass>GOV</id:memberClass>
+            <id:memberCode>70006317</id:memberCode>			
+            <id:subsystemCode>adit</id:subsystemCode>
+            <id:serviceCode>shareDocument</id:serviceCode>
+            <id:serviceVersion>v1</id:serviceVersion>
+        </xrd:service>
+        <xrd:userId>EE37901130250</xrd:userId>
+        <xrd:id>3cf04253-db0c-4d1d-8105-791472d88437</xrd:id>
+        <xrd:protocolVersion>4.0</xrd:protocolVersion>
 
+        <adit:infosysteem>KOV</adit:infosysteem>
+    </soapenv:Header>
+    <soapenv:Body>
+        <adit:shareDocument>
+            <keha>
+                <document_id>46</document_id>
+                <recipient_list>
+                    <code>EE38407054916</code>
+                    <code>EE48407089933</code>
+                </recipient_list>
+                <reason_for_sharing>teadmiseks</reason_for_sharing>
+                <shared_for_signing>false</shared_for_signing>
+            </keha>
+        </adit:shareDocument>
+    </soapenv:Body>
+</soapenv:Envelope>
 ```
 
 ### Päringu vastuse näide
@@ -4123,30 +4347,188 @@ Parameetrid
 **X-tee sõnumiprotokoll v2.0**
 
 ```xml
-
+<SOAP-ENV:Envelope SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:adit="http://producers.ametlikud-dokumendid.xtee.riik.ee/producer/ametlikud-dokumendid" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xtee="http://x-tee.riik.ee/xsd/xtee.xsd">
+   <SOAP-ENV:Header>
+      <xtee:asutus xsi:type="xsd:string">12345678</xtee:asutus>
+      <xtee:isikukood xsi:type="xsd:string">EE38407089745</xtee:isikukood>
+      <xtee:id xsi:type="xsd:string">00000000000000</xtee:id>
+      <xtee:nimi xsi:type="xsd:string">ametlikud-dokumendid.shareDocument.v1</xtee:nimi>
+      <xtee:andmekogu xsi:type="xsd:string">ametlikud-dokumendid</xtee:andmekogu>
+   </SOAP-ENV:Header>
+   <SOAP-ENV:Body>
+      <adit:shareDocumentResponse>
+         <paring>
+            <document_id>46</document_id>
+            <recipient_list>
+               <code>EE38407054916</code>
+               <code>EE48407089933</code>
+            </recipient_list>
+            <reason_for_sharing>teadmiseks</reason_for_sharing>
+            <shared_for_signing>false</shared_for_signing>
+         </paring>
+         <keha>
+            <success>false</success>
+            <messages>
+               <message lang="en">Unable to share document to some or all of the users.</message>
+            </messages>
+            <recipient_list>
+               <recipient>
+                  <code>EE38407054916</code>
+                  <success>false</success>
+                  <messages>
+                     <message lang="en">Unable to share document. Recipient account is inactive (deleted).</message>
+                  </messages>
+               </recipient>
+               <recipient>
+                  <code>EE48407089933</code>
+                  <success>true</success>
+                  <messages>
+                     <message lang="en">Document was successfully shared.</message>
+                  </messages>
+               </recipient>
+            </recipient_list>
+         </keha>
+      </adit:shareDocumentResponse>
+   </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
 ```
 
 **X-tee sõnumiprotokoll v4.0**
 
 ```xml
-
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+	xmlns:adit="http://producers.ametlikud-dokumendid.xtee.riik.ee/producer/ametlikud-dokumendid"
+	xmlns:xrd="http://x-road.eu/xsd/xroad.xsd"
+	xmlns:id="http://x-road.eu/xsd/identifiers">
+    <SOAP-ENV:Header>
+        <xrd:client id:objectType="MEMBER">
+            <id:xRoadInstance>EE</id:xRoadInstance>
+            <id:memberClass>BUSINESS</id:memberClass>
+            <id:memberCode>12345678</id:memberCode>
+	    <id:subsystemCode>generic-consumer</id:subsystemCode>
+        </xrd:client>
+        <xrd:service id:objectType="SERVICE">
+            <id:xRoadInstance>EE</id:xRoadInstance>
+            <id:memberClass>GOV</id:memberClass>
+            <id:memberCode>70006317</id:memberCode>	
+            <id:subsystemCode>adit</id:subsystemCode>
+            <id:serviceCode>shareDocument</id:serviceCode>
+            <id:serviceVersion>v1</id:serviceVersion>
+        </xrd:service>
+        <xrd:userId>EE37901130250</xrd:userId>
+        <xrd:id>3cf04253-db0c-4d1d-8105-791472d88437</xrd:id>
+        <xrd:protocolVersion>4.0</xrd:protocolVersion>
+    </SOAP-ENV:Header>
+    <SOAP-ENV:Body>
+        <adit:shareDocumentResponse>
+            <keha>
+                <success>false</success>
+                <messages>
+                    <message lang="en">Unable to share document to some or all of the users.</message>
+                </messages>
+                <recipient_list>
+                    <recipient>
+                        <code>EE38407054916</code>
+                        <success>false</success>
+                        <messages>
+                            <message lang="en">
+                                Unable to share document. Recipient account is inactive (deleted).
+                            </message>
+                        </messages>
+                    </recipient>
+                    <recipient>
+                        <code>EE48407089933</code>
+                        <success>true</success>
+                        <messages>
+                            <message lang="en">Document was successfully shared.</message>
+                        </messages>
+                    </recipient>
+                </recipient_list>
+            </keha>
+        </adit:shareDocumentResponse>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
 ```
 
 ## UnShareDocument.v1   
 
+Päring lõpetab dokumendi jagamise määratud kasutaja(te)le. Päringu vastuses tagastatakse päringu töötlemise üleüldine õnnestumine parameetriga „success“ – kui selle elemendi väärtuseks on „true“, siis õnnestus dokumendi jagamise katkestamine kõikidele määratud adressaatidele, vastasel juhul ebaõnnestus dokumendi jagamise lõpetamine kas vähemalt ühele või kõigile adressaatidele. Iga adressaadi juures on eraldi välja toodud, kas jagamise lõpetamine õnnestus või mitte.
+
+Parameetrid
+
+| Nimi | Kirjeldus | Väärtuse tüüp | Väärtuse näide |
+|---|---|---|---|
+| Document_id | Dokumendi Id | Integer | 46 |
+| Recipient_list | Adressaatide konteiner |  |  |
+| Recipient_list.code | Adressaadi kood | String | EE38407054916 |
+
 ### Päringu näide
 ---
 
 **X-tee sõnumiprotokoll v2.0**
 
 ```xml
-
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xtee="http://x-tee.riik.ee/xsd/xtee.xsd" xmlns:adit="http://producers.ametlikud-dokumendid.xtee.riik.ee/producer/ametlikud-dokumendid">
+   <soapenv:Header>
+     <xtee:nimi>ametlikud-dokumendid.unShareDocument.v1</xtee:nimi>
+      <xtee:id>00000000000000</xtee:id>
+      <xtee:isikukood>EE38407089745</xtee:isikukood>
+      <xtee:andmekogu>ametlikud-dokumendid</xtee:andmekogu>
+      <xtee:asutus>12345678</xtee:asutus>
+      <adit:infosysteem>KOV</adit:infosysteem>
+   </soapenv:Header>
+   <soapenv:Body>
+      <adit:unShareDocument>
+         <keha>
+            <document_id>46</document_id>
+            <recipient_list>
+                <code>EE48407089933</code>
+            </recipient_list>
+         </keha>
+      </adit:unShareDocument>
+   </soapenv:Body>
+</soapenv:Envelope>
 ```
 
 **X-tee sõnumiprotokoll v4.0**
 
 ```xml
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+	xmlns:adit="http://producers.ametlikud-dokumendid.xtee.riik.ee/producer/ametlikud-dokumendid"
+	xmlns:xrd="http://x-road.eu/xsd/xroad.xsd"
+	xmlns:id="http://x-road.eu/xsd/identifiers">
+    <soapenv:Header>
+        <xrd:client id:objectType="MEMBER">
+            <id:xRoadInstance>EE</id:xRoadInstance>
+            <id:memberClass>BUSINESS</id:memberClass>
+            <id:memberCode>12345678</id:memberCode>
+	    <id:subsystemCode>generic-consumer</id:subsystemCode>
+        </xrd:client>
+        <xrd:service id:objectType="SERVICE">
+            <id:xRoadInstance>EE</id:xRoadInstance>
+            <id:memberClass>GOV</id:memberClass>
+            <id:memberCode>70006317</id:memberCode>			
+            <id:subsystemCode>adit</id:subsystemCode>
+            <id:serviceCode>unShareDocument</id:serviceCode>
+            <id:serviceVersion>v1</id:serviceVersion>
+        </xrd:service>
+        <xrd:userId>EE37901130250</xrd:userId>
+        <xrd:id>3cf04253-db0c-4d1d-8105-791472d88437</xrd:id>
+        <xrd:protocolVersion>4.0</xrd:protocolVersion>
 
+        <adit:infosysteem>KOV</adit:infosysteem>
+    </soapenv:Header>
+    <soapenv:Body>
+        <adit:unShareDocument>
+            <keha>
+                <document_id>46</document_id>
+                <recipient_list>
+                    <code>EE48407089933</code>
+                </recipient_list>
+            </keha>
+        </adit:unShareDocument>
+    </soapenv:Body>
+</soapenv:Envelope>
 ```
 
 ### Päringu vastuse näide
@@ -4155,30 +4537,161 @@ Parameetrid
 **X-tee sõnumiprotokoll v2.0**
 
 ```xml
-
+<SOAP-ENV:Envelope SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:adit="http://producers.ametlikud-dokumendid.xtee.riik.ee/producer/ametlikud-dokumendid" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xtee="http://x-tee.riik.ee/xsd/xtee.xsd">
+   <SOAP-ENV:Header>
+      <xtee:asutus xsi:type="xsd:string">12345678</xtee:asutus>
+      <xtee:isikukood xsi:type="xsd:string">EE38407089745</xtee:isikukood>
+      <xtee:id xsi:type="xsd:string">00000000000000</xtee:id>
+      <xtee:nimi xsi:type="xsd:string">ametlikud-dokumendid.unShareDocument.v1</xtee:nimi>
+      <xtee:andmekogu xsi:type="xsd:string">ametlikud-dokumendid</xtee:andmekogu>
+   </SOAP-ENV:Header>
+   <SOAP-ENV:Body>
+      <adit:unShareDocumentResponse>
+         <paring>
+            <document_id>46</document_id>
+            <recipient_list>
+               <code>EE48407089933</code>
+            </recipient_list>
+         </paring>
+         <keha>
+            <success>true</success>
+            <messages>
+               <message lang="en">Document sharings were successfully canceled. Document ID: 46</message>
+            </messages>
+            <recipient_list>
+               <recipient>
+                  <code>EE48407089933</code>
+                  <success>true</success>
+                  <messages>
+                     <message lang="en">Document sharing was successfully canceled.</message>
+                  </messages>
+               </recipient>
+            </recipient_list>
+         </keha>
+      </adit:unShareDocumentResponse>
+   </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
 ```
 
 **X-tee sõnumiprotokoll v4.0**
 
 ```xml
-
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+	xmlns:adit="http://producers.ametlikud-dokumendid.xtee.riik.ee/producer/ametlikud-dokumendid"
+	xmlns:xrd="http://x-road.eu/xsd/xroad.xsd"
+	xmlns:id="http://x-road.eu/xsd/identifiers">
+    <SOAP-ENV:Header>
+        <xrd:client id:objectType="MEMBER">
+            <id:xRoadInstance>EE</id:xRoadInstance>
+            <id:memberClass>BUSINESS</id:memberClass>
+            <id:memberCode>12345678</id:memberCode>
+	    <id:subsystemCode>generic-consumer</id:subsystemCode>
+        </xrd:client>
+        <xrd:service id:objectType="SERVICE">
+            <id:xRoadInstance>EE</id:xRoadInstance>
+            <id:memberClass>GOV</id:memberClass>
+            <id:memberCode>70006317</id:memberCode>	
+            <id:subsystemCode>adit</id:subsystemCode>
+            <id:serviceCode>unShareDocument</id:serviceCode>
+            <id:serviceVersion>v1</id:serviceVersion>
+        </xrd:service>
+        <xrd:userId>EE37901130250</xrd:userId>
+        <xrd:id>3cf04253-db0c-4d1d-8105-791472d88437</xrd:id>
+        <xrd:protocolVersion>4.0</xrd:protocolVersion>
+    </SOAP-ENV:Header>
+    <SOAP-ENV:Body>
+        <adit:unShareDocumentResponse>
+            <keha>
+                <success>true</success>
+                <messages>
+                    <message lang="en">Document sharings were successfully canceled. Document ID: 46</message>
+                </messages>
+                <recipient_list>
+                    <recipient>
+                        <code>EE48407089933</code>
+                        <success>true</success>
+                        <messages>
+                            <message lang="en">Document sharing was successfully canceled.</message>
+                        </messages>
+                    </recipient>
+                </recipient_list>
+            </keha>
+        </adit:unShareDocumentResponse>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
 ```
 
 ## MarkDocumentViewed.v1   
 
+Päring võimaldab märkida dokumendi vaadatuks. Vaadatuks saab märkida ainult dokumenti, mis on päringu teinud kasutaja oma või sellele kasutajale jagatud / saadetud.
+
+Parameetrid
+
+| Nimi | Kirjeldus | Väärtuse tüüp | Väärtuse näide |
+|---|---|---|---|
+| Document_id | Dokumendi Id | Integer | 46 |
+
 ### Päringu näide
 ---
 
 **X-tee sõnumiprotokoll v2.0**
 
 ```xml
-
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xtee="http://x-tee.riik.ee/xsd/xtee.xsd" xmlns:adit="http://producers.ametlikud-dokumendid.xtee.riik.ee/producer/ametlikud-dokumendid">
+   <soapenv:Header>
+      <xtee:nimi>ametlikud-dokumendid.markDocumentViewed.v1</xtee:nimi>
+      <xtee:id>00000000000000</xtee:id>
+      <xtee:isikukood>EE38407089745</xtee:isikukood>
+      <xtee:andmekogu>ametlikud-dokumendid</xtee:andmekogu>
+      <xtee:asutus>12345678</xtee:asutus>
+      <adit:infosysteem>KOV</adit:infosysteem>
+   </soapenv:Header>
+   <soapenv:Body>
+      <adit:markDocumentViewed>
+         <keha>
+            <document_id>46</document_id>
+         </keha>
+      </adit:markDocumentViewed>
+   </soapenv:Body>
+</soapenv:Envelope>
 ```
 
 **X-tee sõnumiprotokoll v4.0**
 
 ```xml
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+	xmlns:adit="http://producers.ametlikud-dokumendid.xtee.riik.ee/producer/ametlikud-dokumendid"
+	xmlns:xrd="http://x-road.eu/xsd/xroad.xsd"
+	xmlns:id="http://x-road.eu/xsd/identifiers">
+    <soapenv:Header>
+        <xrd:client id:objectType="MEMBER">
+            <id:xRoadInstance>EE</id:xRoadInstance>
+            <id:memberClass>BUSINESS</id:memberClass>
+            <id:memberCode>12345678</id:memberCode>
+	    <id:subsystemCode>generic-consumer</id:subsystemCode>
+        </xrd:client>
+        <xrd:service id:objectType="SERVICE">
+            <id:xRoadInstance>EE</id:xRoadInstance>
+            <id:memberClass>GOV</id:memberClass>
+            <id:memberCode>70006317</id:memberCode>			
+            <id:subsystemCode>adit</id:subsystemCode>
+            <id:serviceCode>markDocumentViewed</id:serviceCode>
+            <id:serviceVersion>v1</id:serviceVersion>
+        </xrd:service>
+        <xrd:userId>EE37901130250</xrd:userId>
+        <xrd:id>3cf04253-db0c-4d1d-8105-791472d88437</xrd:id>
+        <xrd:protocolVersion>4.0</xrd:protocolVersion>
 
+        <adit:infosysteem>KOV</adit:infosysteem>
+    </soapenv:Header>
+    <soapenv:Body>
+        <adit:markDocumentViewed>
+            <keha>
+                <document_id>46</document_id>
+            </keha>
+        </adit:markDocumentViewed>
+    </soapenv:Body>
+</soapenv:Envelope>
 ```
 
 ### Päringu vastuse näide
@@ -4187,30 +4700,144 @@ Parameetrid
 **X-tee sõnumiprotokoll v2.0**
 
 ```xml
-
+<SOAP-ENV:Envelope SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:adit="http://producers.ametlikud-dokumendid.xtee.riik.ee/producer/ametlikud-dokumendid" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xtee="http://x-tee.riik.ee/xsd/xtee.xsd">
+   <SOAP-ENV:Header>
+      <xtee:asutus xsi:type="xsd:string">12345678</xtee:asutus>
+      <xtee:isikukood xsi:type="xsd:string">EE38407089745</xtee:isikukood>
+      <xtee:id xsi:type="xsd:string">00000000000000</xtee:id>
+      <xtee:nimi xsi:type="xsd:string">ametlikud-dokumendid.markDocumentViewed.v1</xtee:nimi>
+      <xtee:andmekogu xsi:type="xsd:string">ametlikud-dokumendid</xtee:andmekogu>
+   </SOAP-ENV:Header>
+   <SOAP-ENV:Body>
+      <adit:markDocumentViewedResponse>
+         <paring>
+            <document_id>46</document_id>
+         </paring>
+         <keha>
+            <success>true</success>
+            <messages>
+               <message lang="en">Document 46 was marked as viewed by user EE38407089745</message>
+            </messages>
+         </keha>
+      </adit:markDocumentViewedResponse>
+   </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
 ```
 
 **X-tee sõnumiprotokoll v4.0**
 
 ```xml
-
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+	xmlns:adit="http://producers.ametlikud-dokumendid.xtee.riik.ee/producer/ametlikud-dokumendid"
+	xmlns:xrd="http://x-road.eu/xsd/xroad.xsd"
+	xmlns:id="http://x-road.eu/xsd/identifiers">
+    <SOAP-ENV:Header>
+        <xrd:client id:objectType="MEMBER">
+            <id:xRoadInstance>EE</id:xRoadInstance>
+            <id:memberClass>BUSINESS</id:memberClass>
+            <id:memberCode>12345678</id:memberCode>
+	    <id:subsystemCode>generic-consumer</id:subsystemCode>
+        </xrd:client>
+        <xrd:service id:objectType="SERVICE">
+            <id:xRoadInstance>EE</id:xRoadInstance>
+            <id:memberClass>GOV</id:memberClass>
+            <id:memberCode>70006317</id:memberCode>	
+            <id:subsystemCode>adit</id:subsystemCode>
+            <id:serviceCode>markDocumentViewed</id:serviceCode>
+            <id:serviceVersion>v1</id:serviceVersion>
+        </xrd:service>
+        <xrd:userId>EE37901130250</xrd:userId>
+        <xrd:id>3cf04253-db0c-4d1d-8105-791472d88437</xrd:id>
+        <xrd:protocolVersion>4.0</xrd:protocolVersion>
+    </SOAP-ENV:Header>
+    <SOAP-ENV:Body>
+        <adit:markDocumentViewedResponse>
+            <keha>
+                <success>true</success>
+                <messages>
+                    <message lang="en">Document 46 was marked as viewed by user EE38407089745</message>
+                </messages>
+            </keha>
+        </adit:markDocumentViewedResponse>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
 ```
 
 ## ModifyStatus.v1   
 
+Päring võimaldab muuta dokumendi menetlusstaatust.
+
+Parameetrid
+
+| Nimi | Kirjeldus | Väärtuse tüüp | Väärtuse näide |
+|---|---|---|---|
+| Document_id | Dokumendi Id | Integer | 46 |
+| Document_status_id | Menetlusstaatuse ID, mis soovitakse dokumendile määrata. | Integer | 5 |
+
 ### Päringu näide
 ---
 
 **X-tee sõnumiprotokoll v2.0**
 
 ```xml
-
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xtee="http://x-tee.riik.ee/xsd/xtee.xsd" xmlns:adit="http://producers.ametlikud-dokumendid.xtee.riik.ee/producer/ametlikud-dokumendid">
+   <soapenv:Header>
+      <xtee:nimi>ametlikud-dokumendid.modifyStatus.v1</xtee:nimi>
+      <xtee:id>00000000000000</xtee:id>
+      <xtee:isikukood>EE38005130332</xtee:isikukood>
+      <xtee:andmekogu>ametlikud-dokumendid</xtee:andmekogu>
+      <xtee:asutus>12345678</xtee:asutus>
+      <xtee:allasutus>EE10425769</xtee:allasutus>
+      <adit:infosysteem>KOV</adit:infosysteem>
+   </soapenv:Header>
+   <soapenv:Body>
+      <adit:modifyStatus>
+         <keha>
+            <document_id>46</document_id>
+            <document_status_id>7</document_status_id>
+         </keha>
+      </adit:modifyStatus>
+   </soapenv:Body>
+</soapenv:Envelope>
 ```
 
 **X-tee sõnumiprotokoll v4.0**
 
 ```xml
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+	xmlns:adit="http://producers.ametlikud-dokumendid.xtee.riik.ee/producer/ametlikud-dokumendid"
+	xmlns:xrd="http://x-road.eu/xsd/xroad.xsd"
+	xmlns:id="http://x-road.eu/xsd/identifiers">
+    <soapenv:Header>
+        <xrd:client id:objectType="MEMBER">
+            <id:xRoadInstance>EE</id:xRoadInstance>
+            <id:memberClass>BUSINESS</id:memberClass>
+            <id:memberCode>12345678</id:memberCode>
+	    <id:subsystemCode>generic-consumer</id:subsystemCode>
+        </xrd:client>
+        <xrd:service id:objectType="SERVICE">
+            <id:xRoadInstance>EE</id:xRoadInstance>
+            <id:memberClass>GOV</id:memberClass>
+            <id:memberCode>70006317</id:memberCode>			
+            <id:subsystemCode>adit</id:subsystemCode>
+            <id:serviceCode>modifyStatus</id:serviceCode>
+            <id:serviceVersion>v1</id:serviceVersion>
+        </xrd:service>
+        <xrd:userId>EE37901130250</xrd:userId>
+        <xrd:id>3cf04253-db0c-4d1d-8105-791472d88437</xrd:id>
+        <xrd:protocolVersion>4.0</xrd:protocolVersion>
 
+        <adit:infosysteem>KOV</adit:infosysteem>
+    </soapenv:Header>
+    <soapenv:Body>
+        <adit:modifyStatus>
+            <keha>
+                <document_id>46</document_id>
+                <document_status_id>7</document_status_id>
+            </keha>
+        </adit:modifyStatus>
+    </soapenv:Body>
+</soapenv:Envelope>
 ```
 
 ### Päringu vastuse näide
@@ -4219,12 +4846,67 @@ Parameetrid
 **X-tee sõnumiprotokoll v2.0**
 
 ```xml
-
+<SOAP-ENV:Envelope SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:adit="http://producers.ametlikud-dokumendid.xtee.riik.ee/producer/ametlikud-dokumendid" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xtee="http://x-tee.riik.ee/xsd/xtee.xsd">
+   <SOAP-ENV:Header>
+      <xtee:asutus xsi:type="xsd:string">12345678</xtee:asutus>
+      <xtee:isikukood xsi:type="xsd:string">EE38407089745</xtee:isikukood>
+      <xtee:id xsi:type="xsd:string">00000000000000</xtee:id>
+      <xtee:nimi xsi:type="xsd:string">ametlikud-dokumendid.modifyStatus.v1</xtee:nimi>
+      <xtee:andmekogu xsi:type="xsd:string">ametlikud-dokumendid</xtee:andmekogu>
+   </SOAP-ENV:Header>
+   <SOAP-ENV:Body>
+      <adit:modifyStatusResponse>
+         <paring>
+            <document_id>46</document_id>
+            <document_status_id>7</document_status_id>
+         </paring>
+         <keha>
+            <success>true</success>
+            <messages>
+               <message lang="en">Document status was successfully modified.</message>
+            </messages>
+         </keha>
+      </adit:modifyStatusResponse>
+   </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
 ```
 
 **X-tee sõnumiprotokoll v4.0**
 
 ```xml
-
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+	xmlns:adit="http://producers.ametlikud-dokumendid.xtee.riik.ee/producer/ametlikud-dokumendid"
+	xmlns:xrd="http://x-road.eu/xsd/xroad.xsd"
+	xmlns:id="http://x-road.eu/xsd/identifiers">
+    <SOAP-ENV:Header>
+        <xrd:client id:objectType="MEMBER">
+            <id:xRoadInstance>EE</id:xRoadInstance>
+            <id:memberClass>BUSINESS</id:memberClass>
+            <id:memberCode>12345678</id:memberCode>
+	    <id:subsystemCode>generic-consumer</id:subsystemCode>
+        </xrd:client>
+        <xrd:service id:objectType="SERVICE">
+            <id:xRoadInstance>EE</id:xRoadInstance>
+            <id:memberClass>GOV</id:memberClass>
+            <id:memberCode>70006317</id:memberCode>	
+            <id:subsystemCode>adit</id:subsystemCode>
+            <id:serviceCode>modifyStatus</id:serviceCode>
+            <id:serviceVersion>v1</id:serviceVersion>
+        </xrd:service>
+        <xrd:userId>EE37901130250</xrd:userId>
+        <xrd:id>3cf04253-db0c-4d1d-8105-791472d88437</xrd:id>
+        <xrd:protocolVersion>4.0</xrd:protocolVersion>
+    </SOAP-ENV:Header>
+    <SOAP-ENV:Body>
+        <adit:modifyStatusResponse>
+            <keha>
+                <success>true</success>
+                <messages>
+                    <message lang="en">Document status was successfully modified.</message>
+                </messages>
+            </keha>
+        </adit:modifyStatusResponse>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
 ```
 
