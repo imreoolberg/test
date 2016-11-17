@@ -41,20 +41,22 @@
 
 | Kuupäev | Versioon | Kirjeldus | Autor |
 |-------|----------|----------------|----------------------|
-| | | | |
-| | | | |
-| | | | |
-| | | | |
-| | | | |
-| | | | |
-| | | | |
-| | | | |
-| | | | |
-| | | | |
-| | | | |
-| | | | |
-| | | | |
-| | | | |
+| 2010-08-08 | 1.0 | Dokumendi loomine | Marko Kurm |
+| 2010-09-06 | 1.1 | Lisatud punkt „Õiguste süsteem“ | Marko Kurm |
+| 2011-02-08 | 1.2 | Eemaldatud nimeruumi prefiksid päringute näidete <keha> ja <paring> osade sisust. Muudetud päringute näidetes päringu juurelementi, et see algaks väiketähega. Parandatud getDocumentList päringu kirjeldust „document_types“, „document_dvk_statuses“ ja „document_workflow_statuses“ elementide osas. | Jaak Lember |
+| 2011-02-14 | 1.2.1 | Lisatud getDocument ja getDocumentList päringu vastuste juurde remove_date andmevälja kirjeldus ja näited.Lisatud getDocumentList päringu uute parameetrite „period_start“, „period_end“, „sort_by“ ja „sort_order“ kirjeldused. | Jaak Lember |
+| 2011-02-18 | 1.2.2 | Lisatud getDocumentList päringu kirjelduse juurde, millistelt andmeväljadelt toimub fraasiotsing. | Jaak Lember |
+| 2011-04-08 | 1.2.3 | Klassifikaatorite peatükki lisatud FILE_TYPE klassifikaatori kirjeldus. Lisatud getUserInfo vastuse näitesse „name“ ja „messages“ elemendid. Lisatud getDocument ja getDocumentList päringute kirjeldusse sisendparameetri „file_types“ kirjeldus ja näited. Lisatud getDocument, getDocumentFile ja getDocumentList päringute vastuse manuses saadetava XML faili kirjeldusse parameetri „file_type“ näited. Täpsustatud confirmSignature päringu kirjelduses, millisel kujul tuleks saata allkirja fail. Parandatud saveDocumentFile päringu näidist. | Jaak Lember |
+| 2011-04-18 | 1.2.4 | Täiendatud getDocument ja getDocumentList päringute vastuste näiteid ja kirjeldusi. | Jaak Lember |
+| 2011-12-02 | 1.2.5 | Täiendatud prepareSignature päringu kirjeldust ja näiteid seoses päringu muutmisega. | Jaak Lember |
+| 2011-12-11 | 1.2.6 | Täiendatud prepareSignature päringu kirjeldust ja näiteid seoses päringu muutmisega. | Jaak Lember |
+| 2012-06-15 | 1.2.7 | Täiendatud saveDocument ja sendDocument päringud dvk_folder parameetriga. Lisatud getUserContacts päring | Dmitri Timofejev |
+| 2012-09-11 | 1.2.8 | SaveDocument päringu kirjeldusest eemaldatud dvk_folder parameeter. | Dmitri Timofejev |
+| 2014-07-02 | 1.2.9 | Uus päring getSendStatus kirjeldatud. getDocument.v2 päring kirjeldatud. | Aleksei Kokarev |
+| 2014-05-26 | 1.2.10 | SendDocument päringule sai lisatud recipient_email_list. SaveDocument.v1 ja getDocument.v1 päringutele on lisatud content väli meili sisu hoidmiseks. GetDocumentList.v1 sort_by parameeterile sai lisatud 3 väärtust | Dmitri Timofejev |
+| 2016-02-15 | 1.2.11 | Parandatud dokumentatsiooni puuduliku info (prepareSignature.v2) põhjal | Kertu Hiire |
+| 2016-09-22 | 1.3 | Lisatud info ja näited X-tee sõnumiprotokolli v4.0 kasutamise kohta | Levan Kekelidze |
+| 2016-11-17 | 1.3.1 | Viidud dokumentatsioon üle MarkDown formaati. Pisiparandused koodinäidetes. Täpsustused teenuste muudatustes seoses X-tee sõnumiprotokoll v4.0 kasutuse võtmisega | Kertu Hiire |
 
 ## Sissejuhatus
 
