@@ -39,7 +39,7 @@
   
 ## Muutelugu
 
-| KUUPÄEV | Versioon | Kirjeldus | Autor |
+| Muutmiskuupäev| Versioon | Kirjeldus | Autor |
 |--------------|---|---|---|
 | 2010-08-08 | 1.0 | Dokumendi loomine | Marko Kurm |
 | 2010-09-06 | 1.1 | Lisatud punkt „Õiguste süsteem“ | Marko Kurm |
