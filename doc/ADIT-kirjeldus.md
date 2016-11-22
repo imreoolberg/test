@@ -41,7 +41,7 @@ ADIT rakendus on oma olemuselt veebirakendus, mis töötab Java rakendusserveris
 
 ADIT on liidestatud teavituskalendri ning DVK-ga.
 
-![PILT]()
+![Arhitektuuri joonis](../doc/img/ADITiArhitektuurijoonis.png)
 
 ### Teavituskalender ja riigiportaal
 
@@ -77,7 +77,7 @@ ADIT peab olema suuteline ka DVK-st tulevaid dokumente vastu võtma ning oma and
 #### Dokumendi saatmine DVK-le
 
 Kui ADIT rakendusest saadetakse dokument (kutsutakse välja veebiteenus „sendDocument()“) adressaadile, siis saatmisele eelnevalt kontrollitakse, kas adressaat on liitunud DVK-ga. Kui vastus on positiivne, saadetaksegi dokument sellele konkreetsele adressaadile DVK kaudu. 
-See tähendab seda, et saadetava dokumendi andmete põhjal koostatakse DVK versioon 2 konteiner (vastavad meetodid on olemas DVK API-s). Seejärel lisatakse DVK konteiner koos saatmist puudutavate andmetega DVK universaalkliendi andmebaasi (jällegi on vastavad Java klassid ja abimeetodid olemas DVK API-s). Sellega loetakse dokument DVK-le edastatuks ning vastav märge tehakse ka ADIT andmebaasi. 
+See tähendab seda, et saadetava dokumendi andmete põhjal koostatakse DVK versioon 2.1 konteiner (vastavad meetodid on olemas DVK API-s). Seejärel lisatakse DVK konteiner koos saatmist puudutavate andmetega DVK universaalkliendi andmebaasi (jällegi on vastavad Java klassid ja abimeetodid olemas DVK API-s). Sellega loetakse dokument DVK-le edastatuks ning vastav märge tehakse ka ADIT andmebaasi. 
 
 Universaalklient saadab vastavalt seadistatud ajale dokumendid DVKsse. Peale seda, kui dokument on DVK universaalkliendist saadetud DVK serverisse, kustutatakse dokumendi sisu DVK universaalkliendi andmebaasist (kasutades DVK API-t). See on vajalik selleks, et hoida kokku DVK universaalkliendi andmebaasi mahtu. Samamoodi toimitakse juhul kui dokument liigub vastupidises suunas – DVK -> ADIT (peale dokumendi edukat salvestamist ADIT andmebaasi, kustutatakse andmed DVK universaalkliendi andmebaasist).
 
