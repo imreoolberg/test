@@ -37,7 +37,7 @@ Rakenduse taastamiseks piisab kopeeritud rakenduse kataloogi paigutamisest katal
 Andmete (andmebaasi) varundamine on esmatähtis kuna andmete kadumisel või vigastamisel ei ole alternatiivset allikat kust neid andmeid taastada. 
 
 <a name="varundus-oracle"></a>
-### Oracle 10g andmebaasi varundamine
+### PostgreSQL andmebaasi varundamine
 Oracle 10g andmebaasis on andmete varundamiseks olemas mugavad lahendused. Võimalik on valida kahe meetodi vahel, kuidas andmeid varundada:
 
 1. Varundada kogu failisüsteem, millel andmebaas asub – see lahendus on kõige töökindlam ja kiirem kuna varukoopia tehakse kõigist ketta failidest ning taastamisel ei pea andmebaasitarkvara uuesti paigaldama ja seadistama. Samas on selle meetodi miinuseks suur kettamahu hõivamine, kuna igal varundamisel tekib suur andmehulk (suurem kui tegelikult on meid huvitavate andmete maht).
