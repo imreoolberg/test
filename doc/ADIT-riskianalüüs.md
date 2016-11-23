@@ -14,6 +14,7 @@
    * [Riistvara tõrked](#riistvara-tõrked)
 
 
+## Muutelugu
 
 | Kuupäev | Versioon | Kirjeldus | Autor |
 | --- | --- | --- | --- |
@@ -64,7 +65,7 @@ Teine risk, mis tuleneb võrgupõhise tarkvara olemusest on võrguühenduse katk
 
 ### Tarkvara ülekoormus
 
-ADIT tarkvara ülekoormuse risk on olemas, kuid selle realiseerumine on vähetõenäoline, kuna ADIT kasutab andmetega manipuleerimisel konveier tüüpi tehnoloogiaid (streaming). Sellisel juhul on minimeeritud rakenduse ülekoormus, kuna andmeid töödeldakse vastavalt olemasolevale jõudlusele. Sellest hoolimata on risk, et ADIT serverile tehakse sellises mahus päringuid, et süsteemi riistvaraline seadistus ei pea selle vastu. Antud riski saab minimeerida sellega, et klasterdada rakendusserverid ning kasutada rakendusserveri load-balancing tehnoloogiat. 
+ADIT tarkvara ülekoormuse risk on olemas, kuid selle realiseerumine on vähetõenäoline, kuna ADIT kasutab andmetega manipuleerimisel konveier tüüpi tehnoloogiaid (_streaming_). Sellisel juhul on minimeeritud rakenduse ülekoormus, kuna andmeid töödeldakse vastavalt olemasolevale jõudlusele. Sellest hoolimata on risk, et ADIT serverile tehakse sellises mahus päringuid, et süsteemi riistvaraline seadistus ei pea selle vastu. Antud riski saab minimeerida sellega, et klasterdada rakendusserverid ning kasutada rakendusserveri _load-balancing_ tehnoloogiat. 
 
 
 ### Tarkvara vead
@@ -74,4 +75,4 @@ Kuigi ADIT tarkvara läbib enne toodangukeskkonda minekut testid, ei ole välist
 
 ### Riistvara tõrked
 
-Riistvara tõrgete risk väljendub ADIT tarkvara puhul selles, et kui andmetega manipuleerimise meetod on teostamisel ja ilmneb riistvaraline tõrge, võib juhtuda, et andmete koosseisus ilmnevad vastuolud. Antud risk on minimeeritud, kuna Oracle 10/11g / PostgreSQL on transaktsiooniline andmebaas ja JDBC tehnoloogia, mida ADIT server kasutab andmebaasiga suhtlemisel toetab transaktsioone. Seega kui andmebaasioperatsiooni ajal ilmneb riistvaraline tõrge, jääb transaktsiooni kinnitamine (commit) toimumata ja andmed jäävad terviklikuks.
+Riistvara tõrgete risk väljendub ADIT tarkvara puhul selles, et kui andmetega manipuleerimise meetod on teostamisel ja ilmneb riistvaraline tõrge, võib juhtuda, et andmete koosseisus ilmnevad vastuolud. Antud risk on minimeeritud, kuna Oracle 10/11g / PostgreSQL on transaktsiooniline andmebaas ja JDBC tehnoloogia, mida ADIT server kasutab andmebaasiga suhtlemisel toetab transaktsioone. Seega kui andmebaasioperatsiooni ajal ilmneb riistvaraline tõrge, jääb transaktsiooni kinnitamine (_commit_) toimumata ja andmed jäävad terviklikuks.
