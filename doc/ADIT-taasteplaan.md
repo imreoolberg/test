@@ -55,7 +55,7 @@ Rakenduse taastamiseks toimi järgnevalt:
 4. Kontrolli rakenduse toimimist testlugude abil.
 
 <a name="taaste-oracle"></a>
-### Andmete taastamine Oracle 10g puhul
+### Andmete taastamine PostgreSQL puhul
 
 Andmete taastamiseks on jällegi mõtekas kasutada Oracle 10g utiliiti „Recovery Manager“. Juhised varukoopiast taastamise kohta leiad Oracle koduleheküljelt (http://www.oracle.com/technology/documentation) :
 
