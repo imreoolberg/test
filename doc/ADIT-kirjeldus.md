@@ -2,20 +2,20 @@
 
 ## Sisukord
 
-- [Sissejuhatus](#)
-- [Kasutatud tehnoloogiad]()
-- [Lahenduse arhitektuur ja ülesehitus]()
-   * [Seosed teiste infosüsteemidega]()
-      * [Teavituskalender ja riigiportaal]()
-      * [DVK liides]()
-   * [Tagasiside ja veateated]()
-   * [Logimine]()
-      * [Rakenduse logi]()
-      * [Andmebaasi logi]()
-   * [Arhitektuur]()
-- [Monitooring]()
-   * [Aktiivne monitooring]()
-   * [Passiivne monitooring]()
+- [Sissejuhatus](#sissejuhatus)
+- [Kasutatud tehnoloogiad](#kasutatud-tehnoloogiad)
+- [Lahenduse arhitektuur ja ülesehitus](#lahenduse-arhitektuur-ja-ülesehitus)
+   * [Seosed teiste infosüsteemidega](#seosed-teiste-infosüsteemidega)
+      * [Teavituskalender ja riigiportaal](#teavituskalender-ja-riigiportaal)
+      * [DVK liides](#dvk-liides)
+   * [Tagasiside ja veateated](#tagasiside-ja-veateated)
+   * [Logimine](#logimine)
+      * [Rakenduse logi](#rakenduse-logi)
+      * [Andmebaasi logi](#andmebaasi-logi)
+   * [Arhitektuur](#arhitektuur)
+- [Monitooring](#monitooring)
+   * [Aktiivne monitooring](#aktiivne-monitooring)
+   * [Passiivne monitooring](#passiivne-monitooring)
    
 ## Sissejuhatus
 
@@ -95,22 +95,30 @@ Juhul kui dokument saadetakse läbi DVK ADIT-sse, tuleb DVK universaalkliendi an
 Niisiis saabunud DVK konteinerist võetakse välja andmed ning salvestatakse ADIT andmebaasis. ADIT andmebaasis seotakse dokument dokumendi adressaadiks olnud kasutajaga. Peale edukat sidumist kustutatakse universaalkliendi andmebaasist vastava dokumendi sisu. Saabunud dokumente kontrollitakse eraldi käivitatava protsessi abil, mille periood ning käivitamise aeg on seadistatav.
 Kui dokumendi sidumisel kasutajaga ilmnes, et kasutajat pole ADIT aktiivsete kasutajate hulgas, siis märgitakse dokument DVKs katkestatuks (staatus 103) ning algsele saatjale koostatakse automaatselt vastuskiri, milles on toodud kaaskirja dokument (muudetav ADIT haldaja poolt) ning algne dokument. Kui dokumendi adressaadiks on DVK kasutaja, siis talitatakse sarnaselt eeltoodule, kuna DVK kasutajad peavad suhtlema otse omavahel, mitte ADIT kaudu.
 
-DVK kaudu vastuvõetava dokumendi puhul on vaja välja selgitada, millisele ADIT kasutajale see dokument mõeldud on. Selle jaoks tuleb panna ADIT kasutaja kood DVK konteineris transport blokki – täpsemalt <transport/><saaja/><isikukood> sisse:
+DVK kaudu vastuvõetava dokumendi puhul on vaja välja selgitada, millisele ADIT kasutajale see dokument mõeldud on. Selle jaoks tuleb panna ADIT kasutaja kood DVK konteineris transport ning saaja blokki – täpsemalt `<Transport><DecRecipient><PersonalIdCode>` ning `<Recipient><Person><PersonalIdCode>` sisse:
 
 ```xml
-<dhl:dokument>
-  ...
-  <dhl:transport>
+<DecContainer xmlns="http://www.riik.ee/schemas/deccontainer/vers_2_1/">
+    <Transport>
+		...
+        <DecRecipient>
+            <OrganisationCode>adit</OrganisationCode>
+            <PersonalIdCode>EE47101010033</PersonalIdCode>
+        </DecRecipient>
+        ...
+    </Transport>
     ...
-    <dhl:saaja>
-      <dhl:regnr>87654321</dhl:regnr>
-      <dhl:asutuse_nimi>Asutus</dhl:asutuse_nimi>
-      <dhl:isikukood>38405058854</dhl:isikukood>
-    </dhl:saaja>
-    ...
-  </dhl:transport>
-  ...
-</dhl:dokument>
+    <Recipient>
+		...
+        <Person>
+        	<Name>Mari-Liis Männik</Name>
+         	<GivenName>Mari-Liis</GivenName>
+        	<Surname>Männik</Surname>
+         	<PersonalIdCode>EE47101010033</PersonalIdCode>
+          	<Residency>EE</Residency>
+        </Person>
+    	...
+    </Recipient>
 ```
 
 #### Dokumendi staatuse uuendamine DVK-s
@@ -138,14 +146,14 @@ Kõik DVK kasutajad on automaatselt ka ADIT kasutajad. See tähendab seda, et AD
 
 ### Tagasiside ja veateated
 
-Tagasiside andmiseks teenuse tarbijatele tagastatakse SOAP päringu vastuses vastavalt päringu õnnestumisele (vea)teade. Teated pannakse SOAP päringu vastuse kehas asuvasse elementi <messages>. Päringu üldist õnnestumist / ebaõnnestumist näitab elemendi <success> väärtus (kui see on „true“, siis päring õnnestus täielikult).  Kui päringu täitmisel ilmnes ootamatu viga, mille töötlemisega ei ole arvestatud, siis tagastatakse veateade „Service Error“ – sellisel juhul tuleb vaadata rakenduse logidest, mis vea põhjustas.
+Tagasiside andmiseks teenuse tarbijatele tagastatakse SOAP päringu vastuses vastavalt päringu õnnestumisele (vea)teade. Teated pannakse SOAP päringu vastuse kehas asuvasse elementi `<messages>`. Päringu üldist õnnestumist / ebaõnnestumist näitab elemendi `<success>` väärtus (kui see on „true“, siis päring õnnestus täielikult).  Kui päringu täitmisel ilmnes ootamatu viga, mille töötlemisega ei ole arvestatud, siis tagastatakse veateade „Service Error“ – sellisel juhul tuleb vaadata rakenduse logidest, mis vea põhjustas.
 
 Näide päringu vastuses olevast veateatest:
 
 ```xml
 <adit:success>true/false</adit:success>
 <adit:messages>
-    <adit:message lang="en">[teade]</adit:message>
+<adit:message lang="en">[teade]</adit:message>
     <adit:message lang="et">[teade]</adit:message>
     …
 </adit:messages>
